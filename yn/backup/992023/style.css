@@ -1,0 +1,18 @@
+.velaHeader{
+    padding:0 !important;
+}
+.first_dropown{
+     top: 82% !important;   
+}
+
+@media (max-width: 991px){
+    .nav > li{
+       display: block !important;
+    }    
+}
+
+@media (min-width: 992px){
+    .nav > li{
+       display: none !important;
+    }    
+}

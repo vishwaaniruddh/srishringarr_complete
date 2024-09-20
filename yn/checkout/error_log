@@ -1,0 +1,1177 @@
+[03-Aug-2022 08:33:44 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 22
+[03-Aug-2022 08:33:46 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: Order amount less than minimum amount allowed in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 400, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('POST', 'https://api.raz...', Array)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(15): Razorpay\Api\Entity->request('POST', 'orders/', Array)
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(12): Razorpay\Api\Entity->create(Array)
+#5 /home/srishringarr/public_html/yn/checkout/pay_test.php(41): Razorpay\Api\Order->create(Array)
+#6 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[03-Aug-2022 08:59:07 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 35
+[03-Aug-2022 11:30:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 35
+[03-Aug-2022 11:30:46 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: Order amount less than minimum amount allowed in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 400, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('POST', 'https://api.raz...', Array)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(15): Razorpay\Api\Entity->request('POST', 'orders/', Array)
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(12): Razorpay\Api\Entity->create(Array)
+#5 /home/srishringarr/public_html/yn/checkout/pay_test.php(42): Razorpay\Api\Order->create(Array)
+#6 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[22-Dec-2022 12:57:02 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[22-Dec-2022 12:57:02 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[22-Dec-2022 12:58:49 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[22-Dec-2022 12:58:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[22-Dec-2022 19:49:59 UTC] PHP Warning:  require(/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:49:59 UTC] PHP Fatal error:  require(): Failed opening required '/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:10 UTC] PHP Warning:  require(/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:10 UTC] PHP Fatal error:  require(): Failed opening required '/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:35 UTC] PHP Warning:  require(/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:35 UTC] PHP Fatal error:  require(): Failed opening required '/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:37 UTC] PHP Warning:  require(/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:50:37 UTC] PHP Fatal error:  require(): Failed opening required '/home/srishringarr/public_html/yn/razorpay-php/Razorpay.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/pay.php on line 3
+[22-Dec-2022 19:53:52 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 26
+[22-Dec-2022 19:53:52 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 28
+[22-Dec-2022 19:57:02 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: The api key provided is invalid in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 401, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('GET', 'https://api.raz...', NULL)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(36): Razorpay\Api\Entity->request('GET', 'orders/order_Kv...')
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(17): Razorpay\Api\Entity->fetch('order_Kv4toVgU6...')
+#5 /home/srishringarr/public_html/yn/checkout/verify.php(53): Razorpay\Api\Order->fetch('order_Kv4toVgU6...')
+#6 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[22-Dec-2022 19:57:36 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: The api key provided is invalid in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 401, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('GET', 'https://api.raz...', NULL)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(36): Razorpay\Api\Entity->request('GET', 'orders/order_Kv...')
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(17): Razorpay\Api\Entity->fetch('order_Kv4toVgU6...')
+#5 /home/srishringarr/public_html/yn/checkout/verify.php(53): Razorpay\Api\Order->fetch('order_Kv4toVgU6...')
+#6 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[27-Dec-2022 11:39:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:39:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:39:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:39:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 496
+[27-Dec-2022 11:39:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 501
+[27-Dec-2022 11:41:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:41:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:41:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 67
+[27-Dec-2022 11:41:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 496
+[27-Dec-2022 11:41:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 501
+[27-Dec-2022 17:36:28 Asia/Kolkata] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[27-Dec-2022 17:36:28 Asia/Kolkata] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[27-Dec-2022 17:36:28 Asia/Kolkata] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[27-Dec-2022 17:36:28 Asia/Kolkata] PHP Warning:  fopen(srishringarr.png): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1279
+[27-Dec-2022 17:36:28 Asia/Kolkata] PHP Fatal error:  Uncaught Exception: FPDF error: Can't open image file: srishringarr.png in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1281): FPDF->Error('Can't open imag...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(905): FPDF->_parsepng('srishringarr.pn...')
+#2 /home/srishringarr/public_html/yn/checkout/bill.php(420): FPDF->Image('srishringarr.pn...', 145, 25, 50, 25)
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[27-Dec-2022 17:38:50 Asia/Kolkata] PHP Warning:  fopen(srishringarr.png): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1279
+[27-Dec-2022 17:38:50 Asia/Kolkata] PHP Fatal error:  Uncaught Exception: FPDF error: Can't open image file: srishringarr.png in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1281): FPDF->Error('Can't open imag...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(905): FPDF->_parsepng('srishringarr.pn...')
+#2 /home/srishringarr/public_html/yn/checkout/bill.php(420): FPDF->Image('srishringarr.pn...', 145, 25, 50, 25)
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[27-Dec-2022 12:09:33 UTC] PHP Warning:  fopen(srishringarr.png): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1279
+[27-Dec-2022 12:09:33 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Can't open image file: srishringarr.png in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1281): FPDF->Error('Can't open imag...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(905): FPDF->_parsepng('srishringarr.pn...')
+#2 /home/srishringarr/public_html/yn/checkout/bill.php(420): FPDF->Image('srishringarr.pn...', 145, 25, 50, 25)
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[27-Dec-2022 12:09:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[27-Dec-2022 13:18:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:18:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:18:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:18:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 524
+[27-Dec-2022 13:18:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 529
+[27-Dec-2022 13:19:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:19:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:19:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[27-Dec-2022 13:19:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 524
+[27-Dec-2022 13:19:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 529
+[28-Dec-2022 05:42:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 05:42:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 05:42:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 05:42:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 524
+[28-Dec-2022 05:42:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 529
+[28-Dec-2022 06:37:25 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:25 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:25 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:25 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:37:25 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 538
+[28-Dec-2022 06:37:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:37:55 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:37:55 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 538
+[28-Dec-2022 06:38:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:38:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:38:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:38:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:38:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 538
+[28-Dec-2022 06:40:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:40:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:40:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:40:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:40:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 538
+[28-Dec-2022 06:41:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:41:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:41:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:41:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:41:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 538
+[28-Dec-2022 06:42:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:42:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:42:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:42:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:42:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:43:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:43:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:43:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:43:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:43:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:44:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:44:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:44:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:44:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:44:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:46:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:03 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:46:03 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:46:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:46:33 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:46:33 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:47:30 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:47:30 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:47:30 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:47:30 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[28-Dec-2022 06:47:30 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 541
+[28-Dec-2022 06:48:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:48:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:48:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[28-Dec-2022 06:48:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 527
+[28-Dec-2022 06:48:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[28-Dec-2022 06:50:16 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:16 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:16 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:50:41 UTC] PHP Warning:  include(../../function.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:50:41 UTC] PHP Warning:  include(): Failed opening '../../function.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:50:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:50:44 UTC] PHP Warning:  include(../../function.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:50:44 UTC] PHP Warning:  include(): Failed opening '../../function.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:50:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:50:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:50:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:51:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:51:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:51:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 528
+[28-Dec-2022 06:51:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 533
+[28-Dec-2022 06:55:32 UTC] PHP Warning:  include(../../../functions.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:55:32 UTC] PHP Warning:  include(): Failed opening '../../../functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 5
+[28-Dec-2022 06:55:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:55:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:55:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:55:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/Invoice.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 96
+[28-Dec-2022 06:57:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:57:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:57:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:57:32 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[28-Dec-2022 06:57:32 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[28-Dec-2022 06:58:26 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:58:26 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:58:26 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 06:58:26 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[28-Dec-2022 06:58:26 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[28-Dec-2022 07:26:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 07:26:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 07:26:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 07:26:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[28-Dec-2022 07:26:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[28-Dec-2022 11:38:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 11:38:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 11:38:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[28-Dec-2022 11:38:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[28-Dec-2022 11:38:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[25-Jan-2023 07:07:38 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: Order amount less than minimum amount allowed in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 400, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('POST', 'https://api.raz...', Array)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(15): Razorpay\Api\Entity->request('POST', 'orders/', Array)
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(12): Razorpay\Api\Entity->create(Array)
+#5 /home/srishringarr/public_html/yn/checkout/pay_test.php(33): Razorpay\Api\Order->create(Array)
+#6 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[25-Jan-2023 08:23:03 UTC] PHP Warning:  require(razorpay/config.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 4
+[25-Jan-2023 08:23:03 UTC] PHP Fatal error:  require(): Failed opening required 'razorpay/config.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 4
+[25-Jan-2023 08:29:14 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 08:35:39 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 08:41:59 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 08:42:01 UTC] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: The api key provided by you has expired and cannot be used. Please use correct key and secret. in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php:123
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(90): Razorpay\Api\Request->processError(Array, 401, Object(Requests_Response))
+#1 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php(44): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(59): Razorpay\Api\Request->request('POST', 'https://api.raz...', Array)
+#3 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Entity.php(15): Razorpay\Api\Entity->request('POST', 'orders/', Array)
+#4 /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Order.php(12): Razorpay\Api\Entity->create(Array)
+#5 /home/srishringarr/public_html/yn/checkout/pay_test.php(50): Razorpay\Api\Order->create(Array)
+#6 {m in /home/srishringarr/public_html/yn/checkout/razorpay-php/src/Request.php on line 123
+[25-Jan-2023 08:43:11 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 08:44:50 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 08:44:50 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 09:47:50 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 09:51:39 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 10:21:05 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 10:22:06 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 10:22:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 10:38:07 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 10:42:21 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 10:42:27 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:12:34 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:13:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 11:13:30 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 11:20:38 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:21:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 283
+[25-Jan-2023 11:21:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 353
+[25-Jan-2023 11:21:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 376
+[25-Jan-2023 11:21:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 393
+[25-Jan-2023 11:21:40 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:21:47 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:23:19 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:24:28 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 11:24:28 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 11:48:30 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 11:49:45 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 11:49:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 12:28:51 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 12:33:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function parseFloat() in /home/srishringarr/public_html/yn/checkout/pay_test.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:03:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function parseFloat() in /home/srishringarr/public_html/yn/checkout/pay_test.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:03:47 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:06:03 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:07:02 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:07:48 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 13:07:48 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 13:12:07 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:12:09 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:12:16 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:13:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 284
+[25-Jan-2023 13:13:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 354
+[25-Jan-2023 13:13:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 377
+[25-Jan-2023 13:13:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 394
+[25-Jan-2023 13:13:33 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:13:35 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:13:44 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:15:13 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:15:55 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 13:15:55 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 13:21:12 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:21:54 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 13:21:54 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 13:33:58 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:35:52 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[25-Jan-2023 13:35:52 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[25-Jan-2023 13:45:32 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 43
+[25-Jan-2023 13:46:26 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 50
+[25-Jan-2023 13:50:43 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 50
+[25-Jan-2023 13:53:12 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 26
+[25-Jan-2023 13:53:12 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 28
+[28-Jan-2023 08:12:50 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 10:30:51 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 10:31:39 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 10:31:39 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 10:31:42 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function delete_from_cart(), 0 passed in /home/srishringarr/public_html/yn/checkout/res.php on line 840 and exactly 1 expected in /home/srishringarr/public_html/yn/checkout/res.php:197
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/res.php(840): delete_from_cart()
+#1 /home/srishringarr/public_html/yn/checkout/verify.php(58): require('/home/srishring...')
+#2 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/res.php on line 197
+[28-Jan-2023 10:35:14 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 10:36:42 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 10:36:42 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 10:36:45 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function delete_from_cart(), 0 passed in /home/srishringarr/public_html/yn/checkout/res.php on line 840 and exactly 1 expected in /home/srishringarr/public_html/yn/checkout/res.php:197
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/res.php(840): delete_from_cart()
+#1 /home/srishringarr/public_html/yn/checkout/verify.php(58): require('/home/srishring...')
+#2 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/res.php on line 197
+[28-Jan-2023 11:00:29 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 11:01:41 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 11:01:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 11:01:44 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function delete_from_cart(), 0 passed in /home/srishringarr/public_html/yn/checkout/res.php on line 840 and exactly 1 expected in /home/srishringarr/public_html/yn/checkout/res.php:197
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/res.php(840): delete_from_cart()
+#1 /home/srishringarr/public_html/yn/checkout/verify.php(58): require('/home/srishring...')
+#2 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/res.php on line 197
+[28-Jan-2023 11:16:06 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 11:16:43 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 11:18:26 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 11:20:01 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 11:20:01 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 11:20:15 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 11:30:55 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 11:31:39 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 11:31:39 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 12:08:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 286
+[28-Jan-2023 12:08:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 356
+[28-Jan-2023 12:08:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 379
+[28-Jan-2023 12:08:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 396
+[28-Jan-2023 12:13:47 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 12:15:38 UTC] PHP Notice:  A non well formed numeric value encountered in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 47
+[28-Jan-2023 12:16:28 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 12:16:28 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 12:43:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 286
+[28-Jan-2023 12:43:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 356
+[28-Jan-2023 12:43:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 379
+[28-Jan-2023 12:43:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 396
+[28-Jan-2023 12:48:20 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 12:49:32 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 12:50:23 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 12:51:16 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 12:51:16 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 13:09:58 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 13:11:16 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 13:11:16 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 13:29:30 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 13:30:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 13:30:20 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[28-Jan-2023 13:41:28 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[28-Jan-2023 13:42:22 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[28-Jan-2023 13:42:22 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[30-Jan-2023 09:42:36 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[30-Jan-2023 09:43:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[30-Jan-2023 09:43:30 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[30-Jan-2023 11:11:03 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[30-Jan-2023 11:11:55 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[30-Jan-2023 11:11:55 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[30-Jan-2023 12:14:28 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[30-Jan-2023 12:15:24 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[30-Jan-2023 12:15:24 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[30-Jan-2023 12:32:10 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[30-Jan-2023 12:32:52 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[30-Jan-2023 12:32:52 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[30-Jan-2023 12:52:29 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay_test.php on line 27
+[30-Jan-2023 12:53:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[30-Jan-2023 12:53:17 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[02-Feb-2023 12:12:12 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[02-Feb-2023 12:13:51 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[02-Feb-2023 12:18:13 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[02-Feb-2023 12:19:08 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[02-Feb-2023 12:19:08 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 08:36:50 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 08:37:51 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[06-Feb-2023 08:37:51 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 11:07:26 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 11:08:18 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[06-Feb-2023 11:08:18 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 11:26:34 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 11:27:57 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[06-Feb-2023 11:27:57 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 11:45:24 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 11:46:12 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 37
+[06-Feb-2023 11:46:12 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 13:41:49 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 13:42:40 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 13:42:40 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 41
+[06-Feb-2023 13:47:30 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[06-Feb-2023 13:48:14 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[06-Feb-2023 13:48:14 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 41
+[07-Feb-2023 06:32:10 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 67
+[07-Feb-2023 06:32:10 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 68
+[07-Feb-2023 06:33:13 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 67
+[07-Feb-2023 06:33:13 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 68
+[07-Feb-2023 06:37:26 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 59
+[07-Feb-2023 06:37:26 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 60
+[07-Feb-2023 06:38:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 60
+[07-Feb-2023 06:38:34 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 61
+[07-Feb-2023 07:11:51 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 66
+[07-Feb-2023 07:11:51 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 67
+[07-Feb-2023 07:13:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:13:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:13:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:13:31 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 07:13:31 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[07-Feb-2023 07:26:08 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 70
+[07-Feb-2023 07:26:08 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 71
+[07-Feb-2023 07:29:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_sku() in /home/srishringarr/public_html/yn/checkout/mailtest.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 77
+[07-Feb-2023 07:30:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_sku() in /home/srishringarr/public_html/yn/checkout/mailtest.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 77
+[07-Feb-2023 07:30:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 71
+[07-Feb-2023 07:30:17 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/mailtest.php on line 72
+[07-Feb-2023 07:37:00 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[07-Feb-2023 07:38:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 39
+[07-Feb-2023 07:38:20 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 41
+[07-Feb-2023 07:38:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:38:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:38:55 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:38:55 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 07:38:55 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[07-Feb-2023 07:39:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:39:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:39:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 07:39:12 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 07:39:12 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 08:36:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[07-Feb-2023 10:24:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 10:24:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 10:24:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[07-Feb-2023 10:24:58 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[07-Feb-2023 10:24:58 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[29-Jun-2023 10:05:39 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[29-Jun-2023 15:36:39 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 42
+[29-Jun-2023 15:36:39 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 44
+[29-Jun-2023 10:06:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 10:06:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 10:06:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 10:06:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[29-Jun-2023 10:06:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[29-Jun-2023 11:32:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 11:32:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 11:32:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[29-Jun-2023 11:32:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[29-Jun-2023 11:32:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Jul-2023 13:58:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Jul-2023 15:30:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 15:30:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 15:30:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Jul-2023 15:30:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Jul-2023 15:30:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Aug-2023 09:28:10 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[02-Aug-2023 14:58:54 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 42
+[02-Aug-2023 14:58:54 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 44
+[02-Aug-2023 09:29:06 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[02-Aug-2023 09:31:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:31:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:31:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:31:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Aug-2023 09:31:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Aug-2023 09:32:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:32:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:32:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Aug-2023 09:32:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Aug-2023 09:32:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 11:46:43 UTC] PHP Notice:  Undefined index: totalamt in /home/srishringarr/public_html/yn/checkout/pay.php on line 27
+[04-Aug-2023 18:07:24 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 19
+[04-Aug-2023 18:07:24 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 21
+[04-Aug-2023 12:46:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:46:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:46:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:46:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 12:46:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 12:47:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:47:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:47:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 12:47:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 12:47:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 12:56:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[04-Aug-2023 12:56:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[04-Aug-2023 12:56:41 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/bill.php on line 71
+[04-Aug-2023 12:56:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[04-Aug-2023 12:57:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[04-Aug-2023 12:58:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[04-Aug-2023 12:58:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[04-Aug-2023 13:01:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 73
+[04-Aug-2023 13:01:36 UTC] PHP Notice:  Undefined index: oid in /home/srishringarr/public_html/yn/checkout/bill.php on line 65
+[04-Aug-2023 13:01:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getcontactnumber() in /home/srishringarr/public_html/yn/checkout/bill.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/bill.php on line 77
+[04-Aug-2023 13:01:49 UTC] PHP Notice:  Undefined index: oid in /home/srishringarr/public_html/yn/checkout/bill.php on line 65
+[04-Aug-2023 13:01:49 UTC] PHP Warning:  fopen(srishringarr.png): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1279
+[04-Aug-2023 13:01:49 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Can't open image file: srishringarr.png in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1281): FPDF->Error('Can't open imag...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(905): FPDF->_parsepng('srishringarr.pn...')
+#2 /home/srishringarr/public_html/yn/checkout/bill.php(424): FPDF->Image('srishringarr.pn...', 145, 25, 50, 25)
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[04-Aug-2023 13:03:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:03:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:03:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:03:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:03:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 13:31:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:31:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 13:31:49 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:49 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:49 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:31:49 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:31:49 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 13:38:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:38:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:38:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:38:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:38:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 19:14:50 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[04-Aug-2023 19:14:50 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[04-Aug-2023 13:45:54 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:45:54 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:45:54 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:45:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:45:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 13:56:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:56:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:56:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[04-Aug-2023 13:56:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[04-Aug-2023 13:56:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[04-Aug-2023 20:41:57 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[04-Aug-2023 20:41:57 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[05-Aug-2023 20:12:56 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[05-Aug-2023 20:12:56 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[16-Aug-2023 12:32:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:32:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:32:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:32:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 12:32:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 12:35:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:35:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:35:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:35:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 12:35:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 12:37:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:37:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:37:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:37:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 12:37:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 12:49:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:49:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:49:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 12:49:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 12:49:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:02:34 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:02:34 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:02:34 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:02:34 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:02:34 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:45:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:45:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:45:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:45:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:45:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:45:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:45:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:46:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:46:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[16-Aug-2023 13:46:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[16-Aug-2023 13:46:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[16-Aug-2023 13:46:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:02:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:02:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:02:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:02:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:02:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:04:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:04:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:04:27 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:04:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:04:27 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:07:03 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:07:03 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:07:03 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:07:03 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:07:03 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:08:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:08:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:08:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:08:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:08:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:11:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:11:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:11:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:11:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:11:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:12:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:12:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:12:35 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:12:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:12:35 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[17-Aug-2023 13:14:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:14:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:14:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[17-Aug-2023 13:14:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[17-Aug-2023 13:14:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[18-Aug-2023 16:51:06 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[18-Aug-2023 16:51:06 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[18-Aug-2023 11:21:45 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[18-Aug-2023 11:21:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:21:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[18-Aug-2023 11:21:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[18-Aug-2023 11:22:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:22:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:22:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[18-Aug-2023 11:22:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[18-Aug-2023 11:22:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[19-Aug-2023 12:51:42 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[19-Aug-2023 12:51:42 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[19-Aug-2023 07:32:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 07:32:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 07:32:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 07:32:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[19-Aug-2023 07:32:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[19-Aug-2023 13:27:52 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[19-Aug-2023 13:27:52 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[19-Aug-2023 08:34:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 08:34:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 08:34:31 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[19-Aug-2023 08:34:31 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[19-Aug-2023 08:34:31 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:49:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:49:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:49:06 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:49:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:49:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:53:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:53:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:53:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:53:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:53:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:55:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:55:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:55:21 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:55:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:55:21 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:56:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:56:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:56:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:56:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:56:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:58:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:58:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:58:11 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 09:58:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:58:11 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 09:59:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 09:59:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 09:59:12 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 09:59:12 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 09:59:12 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 10:01:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:01:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:01:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:01:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 10:01:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 10:02:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:02:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:02:32 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:02:32 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:02:32 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 16:06:43 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 16:06:43 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 10:37:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:37:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:37:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:37:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:37:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 10:42:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:42:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:42:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:42:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:42:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 10:44:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:44:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 10:44:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:44:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:44:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 10:45:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:45:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:45:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:45:01 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:45:01 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 16:23:27 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 16:23:27 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 10:54:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:54:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:54:01 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:54:01 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:54:01 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 10:58:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:58:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:58:58 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 10:58:58 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 10:58:58 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 11:07:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:07:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:07:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:07:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 11:07:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 11:13:24 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:13:24 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:13:24 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:13:24 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 531
+[02-Sep-2023 11:13:24 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 536
+[02-Sep-2023 11:14:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:14:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:14:44 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:14:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 11:14:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 11:15:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:15:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:15:07 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:15:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 11:15:07 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 17:03:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 285
+[02-Sep-2023 17:03:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 359
+[02-Sep-2023 17:03:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 388
+[02-Sep-2023 17:03:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 405
+[02-Sep-2023 17:08:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 285
+[02-Sep-2023 17:08:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 359
+[02-Sep-2023 17:08:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 389
+[02-Sep-2023 17:08:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 406
+[02-Sep-2023 17:08:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 285
+[02-Sep-2023 17:08:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 359
+[02-Sep-2023 17:08:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 389
+[02-Sep-2023 17:08:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 406
+[02-Sep-2023 17:09:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 285
+[02-Sep-2023 17:09:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 364
+[02-Sep-2023 17:09:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 394
+[02-Sep-2023 17:09:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home/srishringarr/public_html/yn/checkout/res.php on line 411
+[02-Sep-2023 17:10:17 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 17:10:17 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 11:58:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:58:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:58:18 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 11:58:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 11:58:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 12:12:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 12:12:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 12:12:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 12:12:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 12:12:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 18:26:53 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 18:26:53 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 18:26:53 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 18:26:53 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 13:31:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 532
+[02-Sep-2023 13:35:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 537
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:35:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:35:36 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1083): FPDF->Error('Some data has a...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(1019): FPDF->_checkoutput()
+#2 /home/srishringarr/public_html/yn/checkout/Invoice.php(603): FPDF->Output()
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:39:37 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:39:37 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home/srishringarr/public_html/yn/checkout/fpdf.php:291
+Stack trace:
+#0 /home/srishringarr/public_html/yn/checkout/fpdf.php(1083): FPDF->Error('Some data has a...')
+#1 /home/srishringarr/public_html/yn/checkout/fpdf.php(1019): FPDF->_checkoutput()
+#2 /home/srishringarr/public_html/yn/checkout/Invoice.php(603): FPDF->Output()
+#3 {main}
+  thrown in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 291
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:39:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:40:04 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:44:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:50:20 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:50:56 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:53:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:53:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:15 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:19 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:58:52 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 13:59:50 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:00:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 547
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 544
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 547
+[02-Sep-2023 14:00:22 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 547
+[02-Sep-2023 14:01:53 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 547
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:02:46 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 547
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:03:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:05:36 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:06:23 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:08:40 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:09:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 544
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:09:28 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 544
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:10:51 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 530
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 544
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:11:28 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:11:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:11:48 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 509
+[02-Sep-2023 14:12:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:08 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:12:08 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:12:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:17 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:12:17 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 546
+[02-Sep-2023 14:12:33 UTC] PHP Warning:  Division by zero in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 549
+[02-Sep-2023 14:13:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:02 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:13:02 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:13:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:39 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:13:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:13:39 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 19:52:25 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 19:52:25 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 19:52:25 Asia/Kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 30
+[02-Sep-2023 19:52:25 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/checkout/res.php on line 32
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:22:48 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:24:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 94
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 534
+[02-Sep-2023 14:24:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 539
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  A non-numeric value encountered in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 95
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 540
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 535
+[02-Sep-2023 19:55:39 Asia/Calcutta] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/srishringarr/public_html/yn/checkout/Invoice.php on line 540
+[16-Mar-2024 07:05:24 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[16-Mar-2024 12:03:21 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[19-Mar-2024 17:14:31 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[21-Mar-2024 09:12:28 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[21-Mar-2024 11:58:35 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[23-Mar-2024 04:02:38 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063
+[26-Mar-2024 09:27:31 Asia/Calcutta] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/srishringarr/public_html/yn/checkout/fpdf.php on line 1063

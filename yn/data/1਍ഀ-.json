@@ -1,0 +1,1317 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <script
+  src="cdn/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--<meta name="keywords" content="htmlcss bootstrap menu, navbar, mega menu examples" />-->
+<!--<meta name="description" content="Navigation  menu with submenu examples for any type of project, Bootstrap 4" />  -->
+	<!--<title>Sri Shringarr</title>-->
+    	<meta charset="UTF-8">
+    	<!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        
+    	<link rel="icon" type="image/png" href="static/images/icons/favicon.png"/>
+    	<!--<meta name="viewport" content="width=device-width, initial-scale=0.7"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!--<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"> -->
+    	
+    
+    	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    	<!--<link rel="stylesheet" type="text/css" href="static/fonts/themify/themify-icons.css">-->
+    
+    	<!--<link rel="stylesheet" type="text/css" href="static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">-->
+    	
+    	
+    	
+    	
+    	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+    
+    	<link rel="stylesheet" type="text/css" href="static/css/vendor/animate/animate.css">
+    
+    
+    	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/site.css">
+
+<!-- jQuery -->
+<script src="js/jquery_2.4.min.js"></script>
+
+<!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+<link href="cdn/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="cdn/bootstrap.css">
+
+        <link rel="stylesheet" type="text/css" href="cdn/daterangepicker.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R8L1VTF3KQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R8L1VTF3KQ');
+</script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+    
+    
+
+
+ <div id="loader" class="center">
+     <!--<img class="lazyload" data-src="assets/loader.gif">     -->
+ </div>
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="bg-light">
+    
+<!-- ========================= SECTION CONTENT ========================= -->
+
+
+
+
+
+<div class="topbar">
+			    			    <div class="topbar-social" style="width: 80%;">
+					<a href="https://www.facebook.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+					<a href="https://www.instagram.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+					<!-- <a href="https://plus.google.com/u/1/113103807414319162517" target="_blank" class="fs-18 color1 p-r-20 fa social_googleplus"></a> -->
+					<a href="https://twitter.com/SriShringarr" target="_blank" class="fs-18 color1 p-r-20 fa social_twitter"></a>
+					<a href="https://in.pinterest.com/srishringarr/?eq=sri&amp;etslf=5839" target="_blank" class="fs-18 color1 p-r-20 fa social_pinterest"></a>
+					<p style="font-weight: 700;color: #888888; width: 100%; text-align: center;    margin: 0; "> <img class="lazyload" data-src="assets/truck.png" style="height: 32px;" alt="Sri Shringarr"> <b class="free_shipping_quotes">Free Shipping To And Fro <span style="font-size:12px;">(India)</span></b> </p>
+						<select class="form-control" id="cur">
+        
+                    
+            <option value="AFN"  >
+                 Afghanistan            </option>
+    
+                    
+            <option value="ALL"  >
+                 Albania            </option>
+    
+                    
+            <option value="DZD"  >
+                 Algeria            </option>
+    
+                    
+            <option value="AOA"  >
+                 Angola            </option>
+    
+                    
+            <option value="XCD"  >
+                 Anguilla, Antigua and Barbuda, Dominica, Grenada, Montserrat            </option>
+    
+                    
+            <option value="ARS"  >
+                 Argentina            </option>
+    
+                    
+            <option value="AMD"  >
+                 Armenia            </option>
+    
+                    
+            <option value="AWG"  >
+                 Aruba            </option>
+    
+                    
+            <option value="AUD"  >
+                 Australia            </option>
+    
+                    
+            <option value="AZN"  >
+                 Azerbaijan            </option>
+    
+                    
+            <option value="BSD"  >
+                 Bahamas            </option>
+    
+                    
+            <option value="BHD"  >
+                 Bahrain            </option>
+    
+                    
+            <option value="BDT"  >
+                 Bangladesh            </option>
+    
+                    
+            <option value="BBD"  >
+                 Barbados            </option>
+    
+                    
+            <option value="BYN"  >
+                 Belarus            </option>
+    
+                    
+            <option value="BZD"  >
+                 Belize            </option>
+    
+                    
+            <option value="XOF"  >
+                 Benin, Burkina Faso, Guinea-Bissau, Ivory Coast, Mali, Niger, Senegal and Togo            </option>
+    
+                    
+            <option value="BMD"  >
+                 Bermuda            </option>
+    
+                    
+            <option value="BTN"  >
+                 Bhutan            </option>
+    
+                    
+            <option value="BOB"  >
+                 Bolivia            </option>
+    
+                    
+            <option value="BAM"  >
+                 Bosnia and Herzegovina            </option>
+    
+                    
+            <option value="BWP"  >
+                 Botswana            </option>
+    
+                    
+            <option value="BRL"  >
+                 Brazil            </option>
+    
+                    
+            <option value="BND"  >
+                 Brunei            </option>
+    
+                    
+            <option value="BGN"  >
+                 Bulgaria            </option>
+    
+                    
+            <option value="BIF"  >
+                 Burundi            </option>
+    
+                    
+            <option value="KHR"  >
+                 Cambodia            </option>
+    
+                    
+            <option value="CAD"  >
+                 Canada            </option>
+    
+                    
+            <option value="CVE"  >
+                 Cape Verde            </option>
+    
+                    
+            <option value="KYD"  >
+                 Cayman Islands            </option>
+    
+                    
+            <option value="CLP"  >
+                 Chile            </option>
+    
+                    
+            <option value="COP"  >
+                 Colombia            </option>
+    
+                    
+            <option value="KMF"  >
+                 Comoros            </option>
+    
+                    
+            <option value="CRC"  >
+                 Costa Rica            </option>
+    
+                    
+            <option value="HRK"  >
+                 Croatia            </option>
+    
+                    
+            <option value="CUC"  >
+                 Cuba            </option>
+    
+                    
+            <option value="CUP"  >
+                 Cuba            </option>
+    
+                    
+            <option value="CZK"  >
+                 Czech Republic            </option>
+    
+                    
+            <option value="CDF"  >
+                 Democratic Republic of Congo            </option>
+    
+                    
+            <option value="DKK"  >
+                 Denmark, Faroe Islands, Greenland            </option>
+    
+                    
+            <option value="DJF"  >
+                 Djibouti            </option>
+    
+                    
+            <option value="DOP"  >
+                 Dominican Republic            </option>
+    
+                    
+            <option value="XAF"  >
+                 Eastern Caribbean States            </option>
+    
+                    
+            <option value="EGP"  >
+                 Egypt            </option>
+    
+                    
+            <option value="ERN"  >
+                 Eritrea            </option>
+    
+                    
+            <option value="ETB"  >
+                 Ethiopia            </option>
+    
+                    
+            <option value="EUR"  >
+                 European Union and See eurozone            </option>
+    
+                    
+            <option value="FKP"  >
+                 Falkland Islands            </option>
+    
+                    
+            <option value="FOK"  >
+                 Faroe Islands            </option>
+    
+                    
+            <option value="FJD"  >
+                 Fiji            </option>
+    
+                    
+            <option value="MKD"  >
+                 Former Yugoslav Republic of Macedonia            </option>
+    
+                    
+            <option value="XPF"  >
+                 French Polynesia, New Caledonia, Wallis and Futuna            </option>
+    
+                    
+            <option value="GMD"  >
+                 Gambia            </option>
+    
+                    
+            <option value="GEL"  >
+                 Georgia            </option>
+    
+                    
+            <option value="GHS"  >
+                 Ghana            </option>
+    
+                    
+            <option value="GIP"  >
+                 Gibraltar            </option>
+    
+                    
+            <option value="GTQ"  >
+                 Guatemala            </option>
+    
+                    
+            <option value="GGP"  >
+                 Guernsey            </option>
+    
+                    
+            <option value="GNF"  >
+                 Guinea            </option>
+    
+                    
+            <option value="GYD"  >
+                 Guyana            </option>
+    
+                    
+            <option value="HTG"  >
+                 Haiti            </option>
+    
+                    
+            <option value="HNL"  >
+                 Honduras            </option>
+    
+                    
+            <option value="HKD"  >
+                 Hong Kong Special Administrative Region            </option>
+    
+                    
+            <option value="HUF"  >
+                 Hungary            </option>
+    
+                    
+            <option value="ISK"  >
+                 Iceland            </option>
+    
+                    
+            <option value="INR" selected >
+                 India            </option>
+    
+                    
+            <option value="IDR"  >
+                 Indonesia            </option>
+    
+                    
+            <option value="XDR"  >
+                 International Monetary Fund            </option>
+    
+                    
+            <option value="IRR"  >
+                 Iran            </option>
+    
+                    
+            <option value="IQD"  >
+                 Iraq            </option>
+    
+                    
+            <option value="IMP"  >
+                 Isle of Man            </option>
+    
+                    
+            <option value="ILS"  >
+                 Israel            </option>
+    
+                    
+            <option value="JMD"  >
+                 Jamaica            </option>
+    
+                    
+            <option value="JPY"  >
+                 Japan            </option>
+    
+                    
+            <option value="JOD"  >
+                 Jordan            </option>
+    
+                    
+            <option value="KZT"  >
+                 Kazakhstan            </option>
+    
+                    
+            <option value="KES"  >
+                 Kenya            </option>
+    
+                    
+            <option value="KID"  >
+                 Kiribati            </option>
+    
+                    
+            <option value="KWD"  >
+                 Kuwait            </option>
+    
+                    
+            <option value="KGS"  >
+                 Kyrgyzstan            </option>
+    
+                    
+            <option value="LAK"  >
+                 Laos            </option>
+    
+                    
+            <option value="LBP"  >
+                 Lebanon            </option>
+    
+                    
+            <option value="LSL"  >
+                 Lesotho            </option>
+    
+                    
+            <option value="LRD"  >
+                 Liberia            </option>
+    
+                    
+            <option value="LYD"  >
+                 Libya            </option>
+    
+                    
+            <option value="MOP"  >
+                 Macau Special Administrative Region            </option>
+    
+                    
+            <option value="MGA"  >
+                 Madagascar            </option>
+    
+                    
+            <option value="CNY"  >
+                 Mainland China            </option>
+    
+                    
+            <option value="MWK"  >
+                 Malawi            </option>
+    
+                    
+            <option value="MYR"  >
+                 Malaysia            </option>
+    
+                    
+            <option value="MVR"  >
+                 Maldives            </option>
+    
+                    
+            <option value="MRU"  >
+                 Mauritania            </option>
+    
+                    
+            <option value="MUR"  >
+                 Mauritius            </option>
+    
+                    
+            <option value="MXN"  >
+                 Mexico            </option>
+    
+                    
+            <option value="MDL"  >
+                 Moldova            </option>
+    
+                    
+            <option value="MNT"  >
+                 Mongolia            </option>
+    
+                    
+            <option value="MAD"  >
+                 Morocco and Western Sahara            </option>
+    
+                    
+            <option value="MZN"  >
+                 Mozambique            </option>
+    
+                    
+            <option value="MMK"  >
+                 Myanmar            </option>
+    
+                    
+            <option value="NAD"  >
+                 Namibia            </option>
+    
+                    
+            <option value="NPR"  >
+                 Nepal            </option>
+    
+                    
+            <option value="ANG"  >
+                 Netherlands Antilles            </option>
+    
+                    
+            <option value="NZD"  >
+                 New Zealand            </option>
+    
+                    
+            <option value="NIO"  >
+                 Nicaragua            </option>
+    
+                    
+            <option value="NGN"  >
+                 Nigeria            </option>
+    
+                    
+            <option value="NOK"  >
+                 Norway            </option>
+    
+                    
+            <option value="OMR"  >
+                 Oman            </option>
+    
+                    
+            <option value="PKR"  >
+                 Pakistan            </option>
+    
+                    
+            <option value="PAB"  >
+                 Panama            </option>
+    
+                    
+            <option value="PGK"  >
+                 Papua New Guinea            </option>
+    
+                    
+            <option value="PYG"  >
+                 Paraguay            </option>
+    
+                    
+            <option value="PEN"  >
+                 Peru            </option>
+    
+                    
+            <option value="PHP"  >
+                 Philippines            </option>
+    
+                    
+            <option value="PLN"  >
+                 Poland            </option>
+    
+                    
+            <option value="QAR"  >
+                 Qatar            </option>
+    
+                    
+            <option value="SSP"  >
+                 Republic of South Sudan            </option>
+    
+                    
+            <option value="RON"  >
+                 Romania            </option>
+    
+                    
+            <option value="RUB"  >
+                 Russia, Abkhazia and South Ossetia            </option>
+    
+                    
+            <option value="RWF"  >
+                 Rwanda            </option>
+    
+                    
+            <option value="SHP"  >
+                 Saint Helena            </option>
+    
+                    
+            <option value="WST"  >
+                 Samoa            </option>
+    
+                    
+            <option value="STN"  >
+                 São Tomé and Príncipe            </option>
+    
+                    
+            <option value="SAR"  >
+                 Saudi Arabia            </option>
+    
+                    
+            <option value="RSD"  >
+                 Serbia            </option>
+    
+                    
+            <option value="SCR"  >
+                 Seychelles            </option>
+    
+                    
+            <option value="SLL"  >
+                 Sierra Leone            </option>
+    
+                    
+            <option value="SGD"  >
+                 Singapore            </option>
+    
+                    
+            <option value="SBD"  >
+                 Solomon Islands            </option>
+    
+                    
+            <option value="SOS"  >
+                 Somalia            </option>
+    
+                    
+            <option value="ZAR"  >
+                 South Africa            </option>
+    
+                    
+            <option value="KRW"  >
+                 South Korea            </option>
+    
+                    
+            <option value="LKR"  >
+                 Sri Lanka            </option>
+    
+                    
+            <option value="SDG"  >
+                 Sudan            </option>
+    
+                    
+            <option value="SRD"  >
+                 Suriname            </option>
+    
+                    
+            <option value="SZL"  >
+                 Swaziland            </option>
+    
+                    
+            <option value="SEK"  >
+                 Sweden            </option>
+    
+                    
+            <option value="CHF"  >
+                 Switzerland and Liechtenstein            </option>
+    
+                    
+            <option value="SYP"  >
+                 Syria            </option>
+    
+                    
+            <option value="TWD"  >
+                 Taiwan            </option>
+    
+                    
+            <option value="TJS"  >
+                 Tajikistan            </option>
+    
+                    
+            <option value="TZS"  >
+                 Tanzania            </option>
+    
+                    
+            <option value="THB"  >
+                 Thailand            </option>
+    
+                    
+            <option value="TOP"  >
+                 Tonga            </option>
+    
+                    
+            <option value="TTD"  >
+                 Trinidad and Tobago            </option>
+    
+                    
+            <option value="TND"  >
+                 Tunisia            </option>
+    
+                    
+            <option value="TRY"  >
+                 Turkey            </option>
+    
+                    
+            <option value="TMT"  >
+                 Turkmenistan            </option>
+    
+                    
+            <option value="TVD"  >
+                 Tuvalu            </option>
+    
+                    
+            <option value="UGX"  >
+                 Uganda            </option>
+    
+                    
+            <option value="UAH"  >
+                 Ukraine            </option>
+    
+                    
+            <option value="AED"  >
+                 United Arab Emirates            </option>
+    
+                    
+            <option value="GBP"  >
+                 United Kingdom            </option>
+    
+                    
+            <option value="USD"  >
+                 United States            </option>
+    
+                    
+            <option value="UYU"  >
+                 Uruguay            </option>
+    
+                    
+            <option value="UZS"  >
+                 Uzbekistan            </option>
+    
+                    
+            <option value="VUV"  >
+                 Vanuatu            </option>
+    
+                    
+            <option value="VES"  >
+                 Venezuela            </option>
+    
+                    
+            <option value="VND"  >
+                 Vietnam            </option>
+    
+                    
+            <option value="YER"  >
+                 Yemen            </option>
+    
+                    
+            <option value="ZMW"  >
+                 Zambia            </option>
+    
+            </select>
+    
+    
+    
+				</div>
+				
+		
+			<script>
+    $("#cur").on('change',function(){
+        var cur = $("#cur").val();
+        
+
+        $.ajax({
+
+            type: "POST",
+            url: 'set_cur.php',
+            data: 'cur='+cur,
+            success:function(msg) {
+                
+                window.location.reload();
+                
+            }
+        });
+
+    })
+</script>
+
+
+
+	
+  <div class="container_s">
+
+		<form action="searchresult.php" method="GET" class="search-box" id="search_form" >
+			<input type="text" name="query" class="search-box-input" placeholder="What are you looking for ?" id="query">
+			<button class="search-box-btn" id="search" style="position:relative;">
+				<img class="lazyload" data-src="assets/search.png" alt="Sri Shringarr">
+			</button>
+		</form>
+  </div>
+    
+
+
+	        </div>
+	        
+	        
+<div class="container-fluid custom_fluid" id="web" style="box-shadow: 0px 6px 14px -10px;">
+    
+    <div class="cust_logo">
+        <a href="/">
+            <img class="lazyload" data-src="static/images/site/logo/main_logo.png" alt="Avatar">
+                        <!--<span style="font-size: 10px; display: block; color: red;text-align: right;"> Donâ€™t Repeat It. Rent It.</span>-->
+        </a>
+    </div>
+    			
+<nav class="navbar navbar-expand-lg">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main_nav">
+
+<ul class="navbar-nav">
+    
+
+	<li class="nav-item"><a href="https://srishringarr.com/index.php" class="nav-link"> Home </a></li>
+
+	
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href ="sub_category.php?type=2" data-toggle="dropdown">  Apparel  </a>
+            <ul class="dropdown-menu">
+						                      <li><a class="dropdown-item" href="list.php?id=10&type=2">Lehenga Choli</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=28&type=2">Indo Western Outfits</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=22&type=2">Evening Gowns</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=29&type=2">Trail Gowns / Infinity Gowns</a></li>
+            
+            </ul>
+            
+    </li>
+								
+
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">  Jewellery  </a>
+	    <ul class="dropdown-menu">
+                              						    <li>
+                            							    <a class="dropdown-item" href="#">Necklace Sets &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=2&type=1" >American Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=1&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=6&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=3&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=68&type=1" >South Indian Set</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=4&type=1" >Vilandi / Polki</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=4&type=1" >View All</a></li>
+                                                        </ul></li>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=57&type=1" >Damini / Mathapatti</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=53&type=1" >Borlas</b></a></li>
+                                						                            						
+                            						
+                            						                                			                            						    <li>
+                            							    <a class="dropdown-item" href="#">Earrings &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=77&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=80&type=1" >Bugadi</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=74&type=1" >Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=59&type=1" >Earrings</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=78&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=75&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=79&type=1" >Oxidized</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=76&type=1" >Vilandi</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=76&type=1" >View All</a></li>
+                                                        </ul></li>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=56&type=1" >Kamar Patta</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=63&type=1" >Tikka</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=65&type=1" >Payal / Pag Pan</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=66&type=1" >Bangles</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=67&type=1" >Bracelet</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=69&type=1" >Hath Phool</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=70&type=1" >Pendant Set</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=71&type=1" >Baju Bandh</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=72&type=1" >Mala</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=73&type=1" >Hair Accessories</b></a></li>
+                                						                            						
+                            						
+                            						                                				    </ul>
+	</li>
+	
+	<li class="nav-item"><a href="client_diary.php" class="nav-link" >Client Diary</a> </li>
+	<li class="nav-item"><a href="contact_us.php" class="nav-link" >Contact Us</a> </li>
+	
+	
+</ul>
+
+
+  </div> <!-- navbar-collapse.// -->
+
+</nav>
+
+<div class="cart_account" style="display:flex;justify-content: space-around;width:20%;"> 
+
+        <div class="">  
+         
+                <a class="dropbtn" href="account/my-account.php">
+
+                    <span>Login / Signup</span> 
+                    
+                </a>
+            </div>
+    
+    <div class="" id="cartshowid"></div>
+    
+
+</div>
+
+
+</div><!-- container //  -->
+
+
+
+
+
+<div id="mobile">
+    <div class="">
+        <a href="/">
+            <img class="sri_logo" src="static/images/site/logo/main_logo.png" alt="Avatar">
+            <!--<span style="font-size: 8px; display: block; color: red;text-align: right;"> Donâ€™t Repeat It. Rent It.</span>-->
+        </a>
+    </div>    
+    
+        <div class="" style="margin:auto;">  
+         
+                <a class="dropbtn" href="account/my-account.php" style="font-size:10px;">
+
+                    <span>Login / Signup</span> 
+                    
+                </a>
+            </div>
+            
+            
+            
+    <nav class="navbar navbar-expand-lg" >
+
+
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" style="    margin: auto;">
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <img class="lazyload" data-src="assets/menu.png" style="height: 10px; width: 10px;" alt="Sri Shringarr">
+  </button>
+</nav>
+</div>
+
+
+
+
+
+  <div class="collapse navbar-collapse" id="main_nav">
+
+<ul class="navbar-nav">
+    
+
+	<li class="nav-item"><a href="https://srishringarr.com/yn/index.php" class="nav-link" > Home </a></li>
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href ="sub_category.php?type=2" data-toggle="dropdown">  Apparel  </a>
+            <ul class="dropdown-menu">
+						                      <li><a class="dropdown-item" href="list.php?id=10&type=2">Lehenga choli</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=28&type=2">Indo western outfits</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=22&type=2">Evening gowns</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=29&type=2">Trail gowns / infinity gowns</a></li>
+            
+            </ul>
+            
+    </li>
+								
+
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">  Jewellery  </a>
+	    <ul class="dropdown-menu">
+                              						    <li>
+                            							    <a class="dropdown-item" href="#">Necklace Sets &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                                                            <li> <a class="dropdown-item" href="list.php?id=2&type=1" >American Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=1&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=6&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=3&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=68&type=1" >South Indian Set</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=4&type=1" >Vilandi / Polki</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=4&type=1" >View All</a></li>
+                                                        </ul>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=57&type=1" >Damini / mathapatti</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=53&type=1" >Borlas</b></a></li>
+                                						                            						
+                            						
+                            						                                			                            						    <li>
+                            							    <a class="dropdown-item" href="#">Earrings &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                                                            <li> <a class="dropdown-item" href="list.php?id=77&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=80&type=1" >Bugadi</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=74&type=1" >Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=59&type=1" >Earrings</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=78&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=75&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=79&type=1" >Oxidized</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=76&type=1" >Vilandi</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=76&type=1" >View All</a></li>
+                                                        </ul>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=56&type=1" >Kamar patta</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=63&type=1" >Tikka</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=65&type=1" >Payal / pag pan</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=66&type=1" >Bangles</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=67&type=1" >Bracelet</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=69&type=1" >Hath phool</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=70&type=1" >Pendant set</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=71&type=1" >Baju bandh</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=72&type=1" >Mala</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=73&type=1" >Hair accessories</b></a></li>
+                                						                            						
+                            						
+                            						                                				    </ul>
+	</li>
+		<li class="nav-item"><a href="client_diary.php" class="nav-link" >Client Diary</a> </li>
+		<li class="nav-item"><a href="contact_us.php" class="nav-link" >Contact Us</a> </li>
+	
+</ul>
+
+
+  </div> <!-- navbar-collapse.// -->
+  
+
+<script>
+
+var ajax_call = function() {
+    id = '1';
+$.ajax({
+            type: "POST",
+            url: 'login_track.php',
+            data: 'id='+id,
+            success:function(msg) {}});    
+}
+setInterval(ajax_call, 5000);
+
+
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css" integrity="sha512-c7jR/kCnu09ZrAKsWXsI/x9HCO9kkpHw4Ftqhofqs+I2hNxalK5RGwo/IAhW3iqCHIw55wBSSCFlm8JP0sw2Zw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js" integrity="sha512-BmoWLYENsSaAfQfHszJM7cLiy9Ml4I0n1YtBQKfx8PaYpZ3SoTXfj3YiDNn0GAdveOCNbK8WqQQYaSb0CMjTHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+function round_amount(amount){
+
+    var round_num = amount.slice(-2);
+
+        if(round_num < 50 ){
+            add_amount = 50 - round_num;
+        }
+        if(round_num > 50 ){
+            add_amount = 100 - round_num;
+        }
+        if(round_num ==  00 || round_num==50){
+            add_amount = 00;
+        }
+
+    new_amount = parseInt(amount) + parseInt(add_amount);
+    return new_amount;
+}
+
+
+
+
+$("#document").ready(function(){
+
+
+
+setTimeout(function(){
+
+$("#dateRangeP").on('change',function(){
+
+	   var dateRangeP = $('#dateRangeP').val();
+       var dateRangeP_arr = dateRangeP.split('-');
+
+const date1 = new Date(dateRangeP_arr[0]);
+const date2 = new Date(dateRangeP_arr[1]);
+const diffTime = Math.abs(date2 - date1);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))+1;
+
+var get_days = '' ;
+
+
+var ss_date1 = new Date(date1);
+var ss_dd1 = String(ss_date1.getDate()).padStart(2, '0');
+var ss_mm1 = String(ss_date1.getMonth() + 1).padStart(2, '0'); //January is 0!
+var ss_yyyy1 = ss_date1.getFullYear();
+ss_date1 = ss_mm1 + '/' + ss_dd1 + '/' + ss_yyyy1;
+
+
+
+var ss_date2 = new Date(date2);
+var ss_dd2 = String(ss_date2.getDate()).padStart(2, '0');
+var ss_mm2 = String(ss_date2.getMonth() + 1).padStart(2, '0'); //January is 0!
+var ss_yyyy2 = ss_date2.getFullYear();
+ss_date2 = ss_mm2 + '/' + ss_dd2 + '/' + ss_yyyy2;
+
+$('#dateRangeP').val(ss_date1 +' - '+ss_date2);
+
+// alert(date2);
+//         alert('diffDays '+diffDays);
+
+        if(diffDays > 7 ){
+
+        // if(diffDays > 7 || diffDays == 7 ){
+            swal('Cannot select more than 7 days !','','error');
+            setTimeout(function(){
+                    window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=7&from_dt='+ss_date1+'&to_dt='+ss_date2;
+            }, 3000);
+
+
+        }
+        else{
+            if(diffDays< 3){
+                swal('selecting for minimum 3 days ! ');
+            setTimeout(function(){
+                window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=3&from_dt='+ss_date1+'&to_dt='+ss_date2;
+            }, 3000);
+
+
+            }
+            else if(diffDays==3){
+                        if(get_days==3){
+
+                        }else{
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=3&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+            }else if(diffDays==4){
+                if(get_days==4){
+
+                        }else{
+                            swal('selecting for 4 days ! ');
+                        window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=4&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+            }else if(diffDays==5){
+                if(get_days==5){
+
+                        }else{
+                            swal('selecting for 5 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=5&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }else if(diffDays==6){
+                if(get_days==6){
+
+                        }else{
+                            swal('selecting for 6 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=6&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }else if(diffDays==7){
+                if(get_days==7){
+
+                        }else{
+                            swal('selecting for 7 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=8294'&type=1%E0%A8%8D%E0%B4%80&&&days=7&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }
+        }
+
+
+});
+
+}, 2000);
+
+
+
+
+});
+</script>
+
+

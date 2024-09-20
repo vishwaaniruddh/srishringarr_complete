@@ -1,0 +1,3230 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <script
+  src="cdn/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--<meta name="keywords" content="htmlcss bootstrap menu, navbar, mega menu examples" />-->
+<!--<meta name="description" content="Navigation  menu with submenu examples for any type of project, Bootstrap 4" />  -->
+	<!--<title>Sri Shringarr</title>-->
+    	<meta charset="UTF-8">
+    	<!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        
+    	<link rel="icon" type="image/png" href="static/images/icons/favicon.png"/>
+    	<!--<meta name="viewport" content="width=device-width, initial-scale=0.7"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!--<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"> -->
+    	
+    
+    	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+    	<!--<link rel="stylesheet" type="text/css" href="static/fonts/themify/themify-icons.css">-->
+    
+    	<!--<link rel="stylesheet" type="text/css" href="static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">-->
+    	
+    	
+    	
+    	
+    	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+    
+    	<link rel="stylesheet" type="text/css" href="static/css/vendor/animate/animate.css">
+    
+    
+    	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+    	<link rel="stylesheet" type="text/css" href="static/css/site.css">
+
+<!-- jQuery -->
+<script src="js/jquery_2.4.min.js"></script>
+
+<!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+<link href="cdn/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="cdn/bootstrap.css">
+
+        <link rel="stylesheet" type="text/css" href="cdn/daterangepicker.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R8L1VTF3KQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R8L1VTF3KQ');
+</script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+    
+    
+
+
+ <div id="loader" class="center">
+     <!--<img class="lazyload" data-src="assets/loader.gif">     -->
+ </div>
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="bg-light">
+    
+<!-- ========================= SECTION CONTENT ========================= -->
+
+
+
+
+
+<div class="topbar">
+			    			    <div class="topbar-social" style="width: 80%;">
+					<a href="https://www.facebook.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+					<a href="https://www.instagram.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+					<!-- <a href="https://plus.google.com/u/1/113103807414319162517" target="_blank" class="fs-18 color1 p-r-20 fa social_googleplus"></a> -->
+					<a href="https://twitter.com/SriShringarr" target="_blank" class="fs-18 color1 p-r-20 fa social_twitter"></a>
+					<a href="https://in.pinterest.com/srishringarr/?eq=sri&amp;etslf=5839" target="_blank" class="fs-18 color1 p-r-20 fa social_pinterest"></a>
+					<p style="font-weight: 700;color: #888888; width: 100%; text-align: center;    margin: 0; "> <img class="lazyload" data-src="assets/truck.png" style="height: 32px;" alt="Sri Shringarr"> <b class="free_shipping_quotes">Free Shipping To And Fro <span style="font-size:12px;">(India)</span></b> </p>
+						<select class="form-control" id="cur">
+        
+                    
+            <option value="AFN"  >
+                 Afghanistan            </option>
+    
+                    
+            <option value="ALL"  >
+                 Albania            </option>
+    
+                    
+            <option value="DZD"  >
+                 Algeria            </option>
+    
+                    
+            <option value="AOA"  >
+                 Angola            </option>
+    
+                    
+            <option value="XCD"  >
+                 Anguilla, Antigua and Barbuda, Dominica, Grenada, Montserrat            </option>
+    
+                    
+            <option value="ARS"  >
+                 Argentina            </option>
+    
+                    
+            <option value="AMD"  >
+                 Armenia            </option>
+    
+                    
+            <option value="AWG"  >
+                 Aruba            </option>
+    
+                    
+            <option value="AUD"  >
+                 Australia            </option>
+    
+                    
+            <option value="AZN"  >
+                 Azerbaijan            </option>
+    
+                    
+            <option value="BSD"  >
+                 Bahamas            </option>
+    
+                    
+            <option value="BHD"  >
+                 Bahrain            </option>
+    
+                    
+            <option value="BDT"  >
+                 Bangladesh            </option>
+    
+                    
+            <option value="BBD"  >
+                 Barbados            </option>
+    
+                    
+            <option value="BYN"  >
+                 Belarus            </option>
+    
+                    
+            <option value="BZD"  >
+                 Belize            </option>
+    
+                    
+            <option value="XOF"  >
+                 Benin, Burkina Faso, Guinea-Bissau, Ivory Coast, Mali, Niger, Senegal and Togo            </option>
+    
+                    
+            <option value="BMD"  >
+                 Bermuda            </option>
+    
+                    
+            <option value="BTN"  >
+                 Bhutan            </option>
+    
+                    
+            <option value="BOB"  >
+                 Bolivia            </option>
+    
+                    
+            <option value="BAM"  >
+                 Bosnia and Herzegovina            </option>
+    
+                    
+            <option value="BWP"  >
+                 Botswana            </option>
+    
+                    
+            <option value="BRL"  >
+                 Brazil            </option>
+    
+                    
+            <option value="BND"  >
+                 Brunei            </option>
+    
+                    
+            <option value="BGN"  >
+                 Bulgaria            </option>
+    
+                    
+            <option value="BIF"  >
+                 Burundi            </option>
+    
+                    
+            <option value="KHR"  >
+                 Cambodia            </option>
+    
+                    
+            <option value="CAD"  >
+                 Canada            </option>
+    
+                    
+            <option value="CVE"  >
+                 Cape Verde            </option>
+    
+                    
+            <option value="KYD"  >
+                 Cayman Islands            </option>
+    
+                    
+            <option value="CLP"  >
+                 Chile            </option>
+    
+                    
+            <option value="COP"  >
+                 Colombia            </option>
+    
+                    
+            <option value="KMF"  >
+                 Comoros            </option>
+    
+                    
+            <option value="CRC"  >
+                 Costa Rica            </option>
+    
+                    
+            <option value="HRK"  >
+                 Croatia            </option>
+    
+                    
+            <option value="CUC"  >
+                 Cuba            </option>
+    
+                    
+            <option value="CUP"  >
+                 Cuba            </option>
+    
+                    
+            <option value="CZK"  >
+                 Czech Republic            </option>
+    
+                    
+            <option value="CDF"  >
+                 Democratic Republic of Congo            </option>
+    
+                    
+            <option value="DKK"  >
+                 Denmark, Faroe Islands, Greenland            </option>
+    
+                    
+            <option value="DJF"  >
+                 Djibouti            </option>
+    
+                    
+            <option value="DOP"  >
+                 Dominican Republic            </option>
+    
+                    
+            <option value="XAF"  >
+                 Eastern Caribbean States            </option>
+    
+                    
+            <option value="EGP"  >
+                 Egypt            </option>
+    
+                    
+            <option value="ERN"  >
+                 Eritrea            </option>
+    
+                    
+            <option value="ETB"  >
+                 Ethiopia            </option>
+    
+                    
+            <option value="EUR"  >
+                 European Union and See eurozone            </option>
+    
+                    
+            <option value="FKP"  >
+                 Falkland Islands            </option>
+    
+                    
+            <option value="FOK"  >
+                 Faroe Islands            </option>
+    
+                    
+            <option value="FJD"  >
+                 Fiji            </option>
+    
+                    
+            <option value="MKD"  >
+                 Former Yugoslav Republic of Macedonia            </option>
+    
+                    
+            <option value="XPF"  >
+                 French Polynesia, New Caledonia, Wallis and Futuna            </option>
+    
+                    
+            <option value="GMD"  >
+                 Gambia            </option>
+    
+                    
+            <option value="GEL"  >
+                 Georgia            </option>
+    
+                    
+            <option value="GHS"  >
+                 Ghana            </option>
+    
+                    
+            <option value="GIP"  >
+                 Gibraltar            </option>
+    
+                    
+            <option value="GTQ"  >
+                 Guatemala            </option>
+    
+                    
+            <option value="GGP"  >
+                 Guernsey            </option>
+    
+                    
+            <option value="GNF"  >
+                 Guinea            </option>
+    
+                    
+            <option value="GYD"  >
+                 Guyana            </option>
+    
+                    
+            <option value="HTG"  >
+                 Haiti            </option>
+    
+                    
+            <option value="HNL"  >
+                 Honduras            </option>
+    
+                    
+            <option value="HKD"  >
+                 Hong Kong Special Administrative Region            </option>
+    
+                    
+            <option value="HUF"  >
+                 Hungary            </option>
+    
+                    
+            <option value="ISK"  >
+                 Iceland            </option>
+    
+                    
+            <option value="INR" selected >
+                 India            </option>
+    
+                    
+            <option value="IDR"  >
+                 Indonesia            </option>
+    
+                    
+            <option value="XDR"  >
+                 International Monetary Fund            </option>
+    
+                    
+            <option value="IRR"  >
+                 Iran            </option>
+    
+                    
+            <option value="IQD"  >
+                 Iraq            </option>
+    
+                    
+            <option value="IMP"  >
+                 Isle of Man            </option>
+    
+                    
+            <option value="ILS"  >
+                 Israel            </option>
+    
+                    
+            <option value="JMD"  >
+                 Jamaica            </option>
+    
+                    
+            <option value="JPY"  >
+                 Japan            </option>
+    
+                    
+            <option value="JOD"  >
+                 Jordan            </option>
+    
+                    
+            <option value="KZT"  >
+                 Kazakhstan            </option>
+    
+                    
+            <option value="KES"  >
+                 Kenya            </option>
+    
+                    
+            <option value="KID"  >
+                 Kiribati            </option>
+    
+                    
+            <option value="KWD"  >
+                 Kuwait            </option>
+    
+                    
+            <option value="KGS"  >
+                 Kyrgyzstan            </option>
+    
+                    
+            <option value="LAK"  >
+                 Laos            </option>
+    
+                    
+            <option value="LBP"  >
+                 Lebanon            </option>
+    
+                    
+            <option value="LSL"  >
+                 Lesotho            </option>
+    
+                    
+            <option value="LRD"  >
+                 Liberia            </option>
+    
+                    
+            <option value="LYD"  >
+                 Libya            </option>
+    
+                    
+            <option value="MOP"  >
+                 Macau Special Administrative Region            </option>
+    
+                    
+            <option value="MGA"  >
+                 Madagascar            </option>
+    
+                    
+            <option value="CNY"  >
+                 Mainland China            </option>
+    
+                    
+            <option value="MWK"  >
+                 Malawi            </option>
+    
+                    
+            <option value="MYR"  >
+                 Malaysia            </option>
+    
+                    
+            <option value="MVR"  >
+                 Maldives            </option>
+    
+                    
+            <option value="MRU"  >
+                 Mauritania            </option>
+    
+                    
+            <option value="MUR"  >
+                 Mauritius            </option>
+    
+                    
+            <option value="MXN"  >
+                 Mexico            </option>
+    
+                    
+            <option value="MDL"  >
+                 Moldova            </option>
+    
+                    
+            <option value="MNT"  >
+                 Mongolia            </option>
+    
+                    
+            <option value="MAD"  >
+                 Morocco and Western Sahara            </option>
+    
+                    
+            <option value="MZN"  >
+                 Mozambique            </option>
+    
+                    
+            <option value="MMK"  >
+                 Myanmar            </option>
+    
+                    
+            <option value="NAD"  >
+                 Namibia            </option>
+    
+                    
+            <option value="NPR"  >
+                 Nepal            </option>
+    
+                    
+            <option value="ANG"  >
+                 Netherlands Antilles            </option>
+    
+                    
+            <option value="NZD"  >
+                 New Zealand            </option>
+    
+                    
+            <option value="NIO"  >
+                 Nicaragua            </option>
+    
+                    
+            <option value="NGN"  >
+                 Nigeria            </option>
+    
+                    
+            <option value="NOK"  >
+                 Norway            </option>
+    
+                    
+            <option value="OMR"  >
+                 Oman            </option>
+    
+                    
+            <option value="PKR"  >
+                 Pakistan            </option>
+    
+                    
+            <option value="PAB"  >
+                 Panama            </option>
+    
+                    
+            <option value="PGK"  >
+                 Papua New Guinea            </option>
+    
+                    
+            <option value="PYG"  >
+                 Paraguay            </option>
+    
+                    
+            <option value="PEN"  >
+                 Peru            </option>
+    
+                    
+            <option value="PHP"  >
+                 Philippines            </option>
+    
+                    
+            <option value="PLN"  >
+                 Poland            </option>
+    
+                    
+            <option value="QAR"  >
+                 Qatar            </option>
+    
+                    
+            <option value="SSP"  >
+                 Republic of South Sudan            </option>
+    
+                    
+            <option value="RON"  >
+                 Romania            </option>
+    
+                    
+            <option value="RUB"  >
+                 Russia, Abkhazia and South Ossetia            </option>
+    
+                    
+            <option value="RWF"  >
+                 Rwanda            </option>
+    
+                    
+            <option value="SHP"  >
+                 Saint Helena            </option>
+    
+                    
+            <option value="WST"  >
+                 Samoa            </option>
+    
+                    
+            <option value="STN"  >
+                 S�o Tom� and Pr�ncipe            </option>
+    
+                    
+            <option value="SAR"  >
+                 Saudi Arabia            </option>
+    
+                    
+            <option value="RSD"  >
+                 Serbia            </option>
+    
+                    
+            <option value="SCR"  >
+                 Seychelles            </option>
+    
+                    
+            <option value="SLL"  >
+                 Sierra Leone            </option>
+    
+                    
+            <option value="SGD"  >
+                 Singapore            </option>
+    
+                    
+            <option value="SBD"  >
+                 Solomon Islands            </option>
+    
+                    
+            <option value="SOS"  >
+                 Somalia            </option>
+    
+                    
+            <option value="ZAR"  >
+                 South Africa            </option>
+    
+                    
+            <option value="KRW"  >
+                 South Korea            </option>
+    
+                    
+            <option value="LKR"  >
+                 Sri Lanka            </option>
+    
+                    
+            <option value="SDG"  >
+                 Sudan            </option>
+    
+                    
+            <option value="SRD"  >
+                 Suriname            </option>
+    
+                    
+            <option value="SZL"  >
+                 Swaziland            </option>
+    
+                    
+            <option value="SEK"  >
+                 Sweden            </option>
+    
+                    
+            <option value="CHF"  >
+                 Switzerland and Liechtenstein            </option>
+    
+                    
+            <option value="SYP"  >
+                 Syria            </option>
+    
+                    
+            <option value="TWD"  >
+                 Taiwan            </option>
+    
+                    
+            <option value="TJS"  >
+                 Tajikistan            </option>
+    
+                    
+            <option value="TZS"  >
+                 Tanzania            </option>
+    
+                    
+            <option value="THB"  >
+                 Thailand            </option>
+    
+                    
+            <option value="TOP"  >
+                 Tonga            </option>
+    
+                    
+            <option value="TTD"  >
+                 Trinidad and Tobago            </option>
+    
+                    
+            <option value="TND"  >
+                 Tunisia            </option>
+    
+                    
+            <option value="TRY"  >
+                 Turkey            </option>
+    
+                    
+            <option value="TMT"  >
+                 Turkmenistan            </option>
+    
+                    
+            <option value="TVD"  >
+                 Tuvalu            </option>
+    
+                    
+            <option value="UGX"  >
+                 Uganda            </option>
+    
+                    
+            <option value="UAH"  >
+                 Ukraine            </option>
+    
+                    
+            <option value="AED"  >
+                 United Arab Emirates            </option>
+    
+                    
+            <option value="GBP"  >
+                 United Kingdom            </option>
+    
+                    
+            <option value="USD"  >
+                 United States            </option>
+    
+                    
+            <option value="UYU"  >
+                 Uruguay            </option>
+    
+                    
+            <option value="UZS"  >
+                 Uzbekistan            </option>
+    
+                    
+            <option value="VUV"  >
+                 Vanuatu            </option>
+    
+                    
+            <option value="VES"  >
+                 Venezuela            </option>
+    
+                    
+            <option value="VND"  >
+                 Vietnam            </option>
+    
+                    
+            <option value="YER"  >
+                 Yemen            </option>
+    
+                    
+            <option value="ZMW"  >
+                 Zambia            </option>
+    
+            </select>
+    
+    
+    
+				</div>
+				
+		
+			<script>
+    $("#cur").on('change',function(){
+        var cur = $("#cur").val();
+        
+
+        $.ajax({
+
+            type: "POST",
+            url: 'set_cur.php',
+            data: 'cur='+cur,
+            success:function(msg) {
+                
+                window.location.reload();
+                
+            }
+        });
+
+    })
+</script>
+
+
+
+	
+  <div class="container_s">
+
+		<form action="searchresult.php" method="GET" class="search-box" id="search_form" >
+			<input type="text" name="query" class="search-box-input" placeholder="What are you looking for ?" id="query">
+			<button class="search-box-btn" id="search" style="position:relative;">
+				<img class="lazyload" data-src="assets/search.png" alt="Sri Shringarr">
+			</button>
+		</form>
+  </div>
+    
+
+
+	        </div>
+	        
+	        
+<div class="container-fluid custom_fluid" id="web" style="box-shadow: 0px 6px 14px -10px;">
+    
+    <div class="cust_logo">
+        <a href="/">
+            <img class="lazyload" data-src="static/images/site/logo/main_logo.png" alt="Avatar">
+                        <!--<span style="font-size: 10px; display: block; color: red;text-align: right;"> Don’t Repeat It. Rent It.</span>-->
+        </a>
+    </div>
+    			
+<nav class="navbar navbar-expand-lg">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main_nav">
+
+<ul class="navbar-nav">
+    
+
+	<li class="nav-item"><a href="https://srishringarr.com/index.php" class="nav-link"> Home </a></li>
+
+	
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href ="sub_category.php?type=2" data-toggle="dropdown">  Apparel  </a>
+            <ul class="dropdown-menu">
+						                      <li><a class="dropdown-item" href="list.php?id=10&type=2">Lehenga Choli</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=28&type=2">Indo Western Outfits</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=22&type=2">Evening Gowns</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=29&type=2">Trail Gowns / Infinity Gowns</a></li>
+            
+            </ul>
+            
+    </li>
+								
+
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">  Jewellery  </a>
+	    <ul class="dropdown-menu">
+                              						    <li>
+                            							    <a class="dropdown-item" href="#">Necklace Sets &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=2&type=1" >American Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=1&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=6&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=3&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=68&type=1" >South Indian Set</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=4&type=1" >Vilandi / Polki</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=4&type=1" >View All</a></li>
+                                                        </ul></li>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=57&type=1" >Damini / Mathapatti</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=53&type=1" >Borlas</b></a></li>
+                                						                            						
+                            						
+                            						                                			                            						    <li>
+                            							    <a class="dropdown-item" href="#">Earrings &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=77&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=80&type=1" >Bugadi</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=74&type=1" >Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=59&type=1" >Earrings</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=78&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=75&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=79&type=1" >Oxidized</b></a></li>
+                                                            
+                                                                                    						
+                            						                            							
+                                                            <li> <a class="dropdown-item" href="list.php?id=76&type=1" >Vilandi</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=76&type=1" >View All</a></li>
+                                                        </ul></li>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=56&type=1" >Kamar Patta</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=63&type=1" >Tikka</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=65&type=1" >Payal / Pag Pan</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=66&type=1" >Bangles</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=67&type=1" >Bracelet</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=69&type=1" >Hath Phool</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=70&type=1" >Pendant Set</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=71&type=1" >Baju Bandh</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=72&type=1" >Mala</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=73&type=1" >Hair Accessories</b></a></li>
+                                						                            						
+                            						
+                            						                                				    </ul>
+	</li>
+	
+	<li class="nav-item"><a href="client_diary.php" class="nav-link" >Client Diary</a> </li>
+	<li class="nav-item"><a href="contact_us.php" class="nav-link" >Contact Us</a> </li>
+	
+	
+</ul>
+
+
+  </div> <!-- navbar-collapse.// -->
+
+</nav>
+
+<div class="cart_account" style="display:flex;justify-content: space-around;width:20%;"> 
+
+        <div class="">  
+         
+                <a class="dropbtn" href="account/my-account.php">
+
+                    <span>Login / Signup</span> 
+                    
+                </a>
+            </div>
+    
+    <div class="" id="cartshowid"></div>
+    
+
+</div>
+
+
+</div><!-- container //  -->
+
+
+
+
+
+<div id="mobile">
+    <div class="">
+        <a href="/">
+            <img class="sri_logo" src="static/images/site/logo/main_logo.png" alt="Avatar">
+            <!--<span style="font-size: 8px; display: block; color: red;text-align: right;"> Don’t Repeat It. Rent It.</span>-->
+        </a>
+    </div>    
+    
+        <div class="" style="margin:auto;">  
+         
+                <a class="dropbtn" href="account/my-account.php" style="font-size:10px;">
+
+                    <span>Login / Signup</span> 
+                    
+                </a>
+            </div>
+            
+            
+            
+    <nav class="navbar navbar-expand-lg" >
+
+
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" style="    margin: auto;">
+    <!--<span class="navbar-toggler-icon"></span>-->
+    <img class="lazyload" data-src="assets/menu.png" style="height: 10px; width: 10px;" alt="Sri Shringarr">
+  </button>
+</nav>
+</div>
+
+
+
+
+
+  <div class="collapse navbar-collapse" id="main_nav">
+
+<ul class="navbar-nav">
+    
+
+	<li class="nav-item"><a href="https://srishringarr.com/yn/index.php" class="nav-link" > Home </a></li>
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href ="sub_category.php?type=2" data-toggle="dropdown">  Apparel  </a>
+            <ul class="dropdown-menu">
+						                      <li><a class="dropdown-item" href="list.php?id=10&type=2">Lehenga choli</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=28&type=2">Indo western outfits</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=22&type=2">Evening gowns</a></li>
+                              <li><a class="dropdown-item" href="list.php?id=29&type=2">Trail gowns / infinity gowns</a></li>
+            
+            </ul>
+            
+    </li>
+								
+
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">  Jewellery  </a>
+	    <ul class="dropdown-menu">
+                              						    <li>
+                            							    <a class="dropdown-item" href="#">Necklace Sets &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                                                            <li> <a class="dropdown-item" href="list.php?id=2&type=1" >American Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=1&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=6&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=3&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=68&type=1" >South Indian Set</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=4&type=1" >Vilandi / Polki</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=4&type=1" >View All</a></li>
+                                                        </ul>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=57&type=1" >Damini / mathapatti</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=53&type=1" >Borlas</b></a></li>
+                                						                            						
+                            						
+                            						                                			                            						    <li>
+                            							    <a class="dropdown-item" href="#">Earrings &raquo </span></a>
+                            							    <ul class="submenu dropdown-menu">
+                            							                                                            <li> <a class="dropdown-item" href="list.php?id=77&type=1" >Antique</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=80&type=1" >Bugadi</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=74&type=1" >Diamond</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=59&type=1" >Earrings</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=78&type=1" >Imitation</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=75&type=1" >Kundan</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=79&type=1" >Oxidized</b></a></li>
+                                                            
+                                                                                    						
+                            						                                                            <li> <a class="dropdown-item" href="list.php?id=76&type=1" >Vilandi</b></a></li>
+                                                            
+                                                                                                                
+                                                            <li>
+
+                                                                <a class="dropdown-item" href="list.php?id=0&viewall=76&type=1" >View All</a></li>
+                                                        </ul>                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=56&type=1" >Kamar patta</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=63&type=1" >Tikka</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=65&type=1" >Payal / pag pan</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=66&type=1" >Bangles</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=67&type=1" >Bracelet</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=69&type=1" >Hath phool</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=70&type=1" >Pendant set</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=71&type=1" >Baju bandh</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=72&type=1" >Mala</b></a></li>
+                                						                            						
+                            						
+                            						                                			                                						
+                                						                                						    <li><a class="dropdown-item" href="list.php?id=73&type=1" >Hair accessories</b></a></li>
+                                						                            						
+                            						
+                            						                                				    </ul>
+	</li>
+		<li class="nav-item"><a href="client_diary.php" class="nav-link" >Client Diary</a> </li>
+		<li class="nav-item"><a href="contact_us.php" class="nav-link" >Contact Us</a> </li>
+	
+</ul>
+
+
+  </div> <!-- navbar-collapse.// -->
+  
+
+<script>
+
+var ajax_call = function() {
+    id = '1';
+$.ajax({
+            type: "POST",
+            url: 'login_track.php',
+            data: 'id='+id,
+            success:function(msg) {}});    
+}
+setInterval(ajax_call, 5000);
+
+
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css" integrity="sha512-c7jR/kCnu09ZrAKsWXsI/x9HCO9kkpHw4Ftqhofqs+I2hNxalK5RGwo/IAhW3iqCHIw55wBSSCFlm8JP0sw2Zw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js" integrity="sha512-BmoWLYENsSaAfQfHszJM7cLiy9Ml4I0n1YtBQKfx8PaYpZ3SoTXfj3YiDNn0GAdveOCNbK8WqQQYaSb0CMjTHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+function round_amount(amount){
+
+    var round_num = amount.slice(-2);
+
+        if(round_num < 50 ){
+            add_amount = 50 - round_num;
+        }
+        if(round_num > 50 ){
+            add_amount = 100 - round_num;
+        }
+        if(round_num ==  00 || round_num==50){
+            add_amount = 00;
+        }
+
+    new_amount = parseInt(amount) + parseInt(add_amount);
+    return new_amount;
+}
+
+
+
+
+$("#document").ready(function(){
+
+
+
+setTimeout(function(){
+
+$("#dateRangeP").on('change',function(){
+
+	   var dateRangeP = $('#dateRangeP').val();
+       var dateRangeP_arr = dateRangeP.split('-');
+
+const date1 = new Date(dateRangeP_arr[0]);
+const date2 = new Date(dateRangeP_arr[1]);
+const diffTime = Math.abs(date2 - date1);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))+1;
+
+var get_days = '3')' ;
+
+
+var ss_date1 = new Date(date1);
+var ss_dd1 = String(ss_date1.getDate()).padStart(2, '0');
+var ss_mm1 = String(ss_date1.getMonth() + 1).padStart(2, '0'); //January is 0!
+var ss_yyyy1 = ss_date1.getFullYear();
+ss_date1 = ss_mm1 + '/' + ss_dd1 + '/' + ss_yyyy1;
+
+
+
+var ss_date2 = new Date(date2);
+var ss_dd2 = String(ss_date2.getDate()).padStart(2, '0');
+var ss_mm2 = String(ss_date2.getMonth() + 1).padStart(2, '0'); //January is 0!
+var ss_yyyy2 = ss_date2.getFullYear();
+ss_date2 = ss_mm2 + '/' + ss_dd2 + '/' + ss_yyyy2;
+
+$('#dateRangeP').val(ss_date1 +' - '+ss_date2);
+
+// alert(date2);
+//         alert('diffDays '+diffDays);
+
+        if(diffDays > 7 ){
+
+        // if(diffDays > 7 || diffDays == 7 ){
+            swal('Cannot select more than 7 days !','','error');
+            setTimeout(function(){
+                    window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=7&from_dt='+ss_date1+'&to_dt='+ss_date2;
+            }, 3000);
+
+
+        }
+        else{
+            if(diffDays< 3){
+                swal('selecting for minimum 3 days ! ');
+            setTimeout(function(){
+                window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=3&from_dt='+ss_date1+'&to_dt='+ss_date2;
+            }, 3000);
+
+
+            }
+            else if(diffDays==3){
+                        if(get_days==3){
+
+                        }else{
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=3&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+            }else if(diffDays==4){
+                if(get_days==4){
+
+                        }else{
+                            swal('selecting for 4 days ! ');
+                        window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=4&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+            }else if(diffDays==5){
+                if(get_days==5){
+
+                        }else{
+                            swal('selecting for 5 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=5&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }else if(diffDays==6){
+                if(get_days==6){
+
+                        }else{
+                            swal('selecting for 6 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=6&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }else if(diffDays==7){
+                if(get_days==7){
+
+                        }else{
+                            swal('selecting for 7 days ! ');
+                            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=7&from_dt='+ss_date1+'&to_dt='+ss_date2;
+                        }
+
+
+            }
+        }
+
+
+});
+
+}, 2000);
+
+
+
+
+});
+</script>
+
+
+<style>
+/*img{*/
+/*    width:100%;*/
+/*}*/
+.daterangepicker{
+    position: fixed;
+    top: 10% !important;
+    left: 24% !important;
+
+    right: 10%;
+    width: 50%;
+}
+.daterangepicker .calendar{
+    max-width: 500px;
+}
+.ranges{
+        width: 100% ! important;
+    display: flex;
+    justify-content: center;
+}
+.left ,.right{
+    width:49% ! important;
+}
+
+body{
+    overflow-x:hidden;
+}
+</style>
+
+
+<style>
+
+
+        @media (max-width: 768px){
+
+.left ,.right{
+    width:100% ! important;
+}
+
+.daterangepicker{
+     width: 100% !important;
+    left: auto !important;
+
+}
+
+        }
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+:root {
+  --white: #ffffff;
+  --light: #f0eff3;
+  --black: #000000;
+  --dark-blue: #1f2029;
+  --dark-light: #353746;
+  --red: #da2c4d;
+  --yellow: #f8ab37;
+  --grey: #ecedf3;
+}
+
+
+
+
+	figure.zoom {
+ 	 background-position: 50% 50%;
+ 	 position: relative;
+ 	 /*width: 500px;*/
+  	 overflow: hidden;
+  	 cursor: zoom-in;
+	}
+
+	figure.zoom img:hover {
+  		opacity: 0;
+	}
+
+	figure.zoom img {
+  		transition: opacity .5s;
+  		display: block;
+  		width: 100%;
+	}
+
+	.prodGalleryImg {
+		width: 80px;
+	    height: 80px;
+	    border: 1px solid #424242;
+	    margin:5px;
+	}
+
+	.g-background {
+		height: 5px;
+	    position: relative;
+	    background: #f0f0f0;
+	    margin-top: 7px;
+	    margin-left: 7px;
+	    border-radius: 100px;
+	    width: 80%;
+	}
+	.ratio-background {
+		left: 0;
+	    position: absolute;
+	    height: 5px;
+	    transform: scaleX(1);
+	    transform-origin: left center;
+	    transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1) 0.3s, -webkit-transform 0.4s cubic-bezier(0, 0, 0.3, 1) 0.3s;
+	    border-radius: 100px;
+	    width:100%;
+	    background-color: #388e3c;
+	}
+
+	.zoom:hover {
+		transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+		overflow: scroll;
+	}
+
+	.pointer {cursor: pointer;}
+		.dot {
+	  height: 72px;
+	  width: 70px;
+	  background-color: #E2C88A;
+	  border-radius: 100%;
+	  display: inline-block;
+	  /*border: 1px solid black;*/
+	  }
+
+
+	/*radio buttons design*/
+
+	.days_btn,.del_btn{
+	    /*width: 40px;*/
+	    height: 40px;
+	    /*border-radius: 3px;*/
+        border: 1px solid #E6BE6E;
+	    border-radius: 4px;
+	    align-items: flex-start;
+	    text-align: center;
+	    padding: 8px 15px;
+	    float: left;
+	}
+	.days_btn.sel,.del_btn.sel{
+		background: #e6be6e;
+		color: #fff;
+	}
+	.subject-list,.del_btn_radio{
+		display: none;
+	}
+
+	.flex-w label + input[type="radio"]:checked {
+    	background:pink !important;
+	}
+
+	input[type=text] {
+		border-color: #e6be6e !important;
+	}
+
+	.bo9{
+		border: 1px solid #cccccc !important;
+	}
+	.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  border-color:#e6be6e
+  margin-bottom: 15px;
+}
+.icon {
+  padding: 10px;
+  background-color:#E6BE6E;
+  //background-color:orange;
+  min-width:50px;
+  text-align: center;
+}
+.fs-15.hvr {
+    background-color: #E6BE6E;
+	//background-color: orange;
+    height: 40px;
+
+    }
+	.fs-15 {
+        background-color: white;
+	}
+
+
+.amazingslider-space-0{
+    height : 550px !important;
+}
+amazingslider-img-elem-0{
+        margin-top: 0 !important;
+}
+amazingslider-img-0{
+    overflow : visible !important;
+    top : 50% !important;
+    position : unset;
+}
+
+a[data-zoom-id], .mz-thumb{
+    line-height : 1 !important;
+    /*display: table-cell !important;*/
+    display: unset !important;
+
+}
+.selectors{
+        display: inherit;
+        margin-top:2%;
+}
+.mz-inner, #mzCrA118625690571 , #crMz1178248867535 {
+    display: none !important;
+}
+
+
+::selection {
+  color: var(--white);
+  background-color: var(--black);
+}
+::-moz-selection {
+  color: var(--white);
+  background-color: var(--black);
+}
+mark {
+  color: var(--white);
+  background-color: var(--black);
+}
+.section {
+  position: relative;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.over-hide {
+  overflow: hidden;
+}
+.z-bigger {
+  z-index: 100 !important;
+}
+
+.background-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-blue);
+  z-index: 1;
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox:checked ~ .background-color {
+  background-color: var(--white);
+}
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked),
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label {
+  position: relative;
+  width: 70px;
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  margin: 17px 0;
+  margin-top: 100px;
+  height: 6px;
+  border-radius: 4px;
+  background-image: linear-gradient(298deg, var(--red), var(--yellow));
+  z-index: 100 !important;
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before {
+  position: absolute;
+  font-family: "unicons";
+  cursor: pointer;
+  top: -17px;
+  z-index: 2;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox:not(:checked) + label:before {
+  content: "\eac1";
+  left: 0;
+  color: var(--grey);
+  background-color: var(--dark-light);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
+}
+.checkbox:checked + label:before {
+  content: "\eb8f";
+  left: 30px;
+  color: var(--yellow);
+  background-color: var(--dark-blue);
+  box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
+}
+
+.checkbox:checked ~ .section .container .row .col-12 p {
+  color: var(--dark-blue);
+}
+
+.checkbox-tools:checked + label,
+.checkbox-tools:not(:checked) + label {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  width: 110px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: var(--white);
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox-tools:not(:checked) + label {
+  background-color: var(--dark-light);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.checkbox-tools:checked + label {
+  background-color: transparent;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-tools:not(:checked) + label:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-tools:checked + label::before,
+.checkbox-tools:not(:checked) + label::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-image: linear-gradient(298deg, var(--red), var(--yellow));
+  z-index: -1;
+}
+.checkbox-tools:checked + label .uil,
+.checkbox-tools:not(:checked) + label .uil {
+  font-size: 24px;
+  line-height: 24px;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-12
+  .checkbox-tools:not(:checked)
+  + label {
+  background-color: var(--light);
+  color: var(--dark-blue);
+  box-shadow: 0 1x 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.checkbox-budget:checked + label,
+.checkbox-budget:not(:checked) + label {
+  color:white;
+  padding: 2%;
+}
+.checkbox-budget:not(:checked) + label {
+  background-color: var(--dark-light);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.checkbox-budget:checked + label {
+  background-color: #e6be6e;
+  /*box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);*/
+}
+.checkbox-budget:not(:checked) + label:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-budget:checked + label::before,
+.checkbox-budget:not(:checked) + label::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-image: linear-gradient(138deg, var(--red), var(--yellow));
+  z-index: -1;
+}
+.checkbox-budget:checked + label span,
+.checkbox-budget:not(:checked) + label span {
+  position: relative;
+  display: block;
+}
+.checkbox-budget:checked + label span::before,
+.checkbox-budget:not(:checked) + label span::before {
+  position: absolute;
+  content: attr(data-hover);
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  -webkit-text-stroke: transparent;
+  text-stroke: transparent;
+  -webkit-text-fill-color: var(--white);
+  text-fill-color: var(--white);
+  color: var(--white);
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+}
+.checkbox-budget:not(:checked) + label span::before {
+  max-height: 0;
+}
+.checkbox-budget:checked + label span::before {
+  max-height: 100%;
+}
+
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-xl-10
+  .checkbox-budget:not(:checked)
+  + label {
+  background-color: var(--light);
+  -webkit-text-stroke: 1px var(--dark-blue);
+  text-stroke: 1px var(--dark-blue);
+  box-shadow: 0 1x 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.checkbox-booking:checked + label,
+.checkbox-booking:not(:checked) + label {
+  position: relative;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  padding: 0;
+  padding: 6px 25px;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 16px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--dark-light);
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox-booking:not(:checked) + label::before {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.checkbox-booking:checked + label::before {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-booking:not(:checked) + label:hover::before {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-booking:checked + label::before,
+.checkbox-booking:not(:checked) + label::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 4px;
+  z-index: -2;
+  background-image: linear-gradient(138deg, var(--red), var(--yellow));
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox-booking:not(:checked) + label::before {
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+}
+.checkbox-booking:checked + label::after,
+.checkbox-booking:not(:checked) + label::after {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 4px;
+  z-index: -2;
+  background-color: var(--dark-light);
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox-booking:checked + label::after {
+  opacity: 0;
+}
+.checkbox-booking:checked + label .uil,
+.checkbox-booking:not(:checked) + label .uil {
+  font-size: 20px;
+}
+.checkbox-booking:checked + label .text,
+.checkbox-booking:not(:checked) + label .text {
+  position: relative;
+  display: inline-block;
+  -webkit-transition: opacity 300ms linear;
+  transition: opacity 300ms linear;
+}
+.checkbox-booking:checked + label .text {
+  opacity: 0.6;
+}
+.checkbox-booking:checked + label .text::after,
+.checkbox-booking:not(:checked) + label .text::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background-image: linear-gradient(138deg, var(--red), var(--yellow));
+  z-index: 1;
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.checkbox-booking:not(:checked) + label .text::after {
+  width: 0;
+}
+.checkbox-booking:checked + label .text::after {
+  width: 100%;
+}
+
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-12
+  .checkbox-booking:not(:checked)
+  + label,
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-12
+  .checkbox-booking:checked
+  + label {
+  background-color: var(--light);
+  color: var(--dark-blue);
+}
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-12
+  .checkbox-booking:checked
+  + label::after,
+.checkbox:checked
+  ~ .section
+  .container
+  .row
+  .col-12
+  .checkbox-booking:not(:checked)
+  + label::after {
+  background-color: var(--light);
+}
+
+.link-to-page {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 20000;
+  cursor: pointer;
+  width: 50px;
+}
+.link-to-page img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.checkbox-budget + label > a{
+    color:white;
+}
+
+.bgwhite{
+    padding:10px;
+}
+
+.like_h4{
+        margin: 16px 0;
+    padding: 10px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30px;
+}
+</style>
+
+<link href="static/css/magiczoom.css" rel="stylesheet" type="text/css" media="screen"/>
+<script src="static/js/magiczoom.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var mzOptions = {};
+    mzOptions = {
+        onZoomReady: function() {
+            console.log('onReady', arguments[0]);
+        },
+        onUpdate: function() {
+            console.log('onUpdated', arguments[0], arguments[1], arguments[2]);
+        },
+        onZoomIn: function() {
+            console.log('onZoomIn', arguments[0]);
+        },
+        onZoomOut: function() {
+            console.log('onZoomOut', arguments[0]);
+        },
+        onExpandOpen: function() {
+            console.log('onExpandOpen', arguments[0]);
+        },
+        onExpandClose: function() {
+            console.log('onExpandClosed', arguments[0]);
+        }
+    };
+    var mzMobileOptions = {};
+
+    function isDefaultOption(o) {
+        return magicJS.$A(magicJS.$(o).byTag('option')).filter(function(opt){
+            return opt.selected && opt.defaultSelected;
+        }).length > 0;
+    }
+
+    function toOptionValue(v) {
+        if ( /^(true|false)$/.test(v) ) {
+            return 'true' === v;
+        }
+        if ( /^[0-9]{1,}$/i.test(v) ) {
+            return parseInt(v,10);
+        }
+        return v;
+    }
+
+    function makeOptions(optType) {
+        var  value = null, isDefault = true, newParams = Array(), newParamsS = '', options = {};
+        magicJS.$(magicJS.$A(magicJS.$(optType).getElementsByTagName("INPUT"))
+            .concat(magicJS.$A(magicJS.$(optType).getElementsByTagName('SELECT'))))
+            .forEach(function(param){
+                value = ('checkbox'==param.type) ? param.checked.toString() : param.value;
+
+                isDefault = ('checkbox'==param.type) ? value == param.defaultChecked.toString() :
+                    ('SELECT'==param.tagName) ? isDefaultOption(param) : value == param.defaultValue;
+
+                if ( null !== value && !isDefault) {
+                    options[param.name] = toOptionValue(value);
+                }
+        });
+        return options;
+    }
+
+    function updateScriptCode() {
+        var code = '&lt;script&gt;\nvar mzOptions = ';
+        code += JSON.stringify(mzOptions, null, 2).replace(/\"(\w+)\":/g,"$1:")+';';
+        code += '\n&lt;/script&gt;';
+
+        magicJS.$('app-code-sample-script').changeContent(code);
+    }
+
+    function updateInlineCode() {
+        var code = '&lt;a class="MagicZoom" data-options="';
+        code += JSON.stringify(mzOptions).replace(/\"(\w+)\":(?:\"([^"]+)\"|([^,}]+))(,)?/g, "$1: $2$3; ").replace(/\{([^{}]*)\}/,"$1").replace(/\s*$/,'');
+        code += '"&gt;';
+
+        magicJS.$('app-code-sample-inline').changeContent(code);
+    }
+
+    function applySettings() {
+        MagicZoom.stop('Zoom-1');
+        mzOptions = makeOptions('params');
+        mzMobileOptions = makeOptions('mobile-params');
+        MagicZoom.start('Zoom-1');
+        updateScriptCode();
+        updateInlineCode();
+        try {
+            prettyPrint();
+        } catch(e) {}
+    }
+
+    function copyToClipboard(src) {
+        var
+            copyNode,
+            range, success;
+
+        if (!isCopySupported()) {
+            disableCopy();
+            return;
+        }
+        copyNode = document.getElementById('code-to-copy');
+        copyNode.innerHTML = document.getElementById(src).innerHTML;
+
+        range = document.createRange();
+        range.selectNode(copyNode);
+        window.getSelection().addRange(range);
+
+        try {
+            success = document.execCommand('copy');
+        } catch(err) {
+            success = false;
+        }
+        window.getSelection().removeAllRanges();
+        if (!success) {
+            disableCopy();
+        } else {
+            new magicJS.Message('Settings code copied to clipboard.', 3000,
+                document.querySelector('.app-code-holder'), 'copy-msg');
+        }
+    }
+
+    function disableCopy() {
+        magicJS.$A(document.querySelectorAll('.cfg-btn-copy')).forEach(function(node) {
+            node.disabled = true;
+        });
+        new magicJS.Message('Sorry, cannot copy settings code to clipboard. Please select and copy code manually.', 3000,
+            document.querySelector('.app-code-holder'), 'copy-msg copy-msg-failed');
+    }
+
+    function isCopySupported() {
+        if ( !window.getSelection || !document.createRange || !document.queryCommandSupported ) { return false; }
+        return document.queryCommandSupported('copy');
+    }
+</script>
+
+
+<script>
+   $(document).ready(function() {
+
+console.log('rent_price = ' + '0')
+$("#rent_price").html('0');
+
+
+
+    $("#rent_price").html('');
+    // var days = $(this).attr('id');
+
+
+
+    var days = "3')";
+    days = parseInt(days);
+// if(!days){
+//     days=3;
+// }
+// alert(days);
+    if(days > 7 ){
+        swal("Selecting For 7 days",'','error');
+        setTimeout(function(){
+            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=7';
+        },3000);
+
+    }else if(!days){
+        swal("Selecting For 3 days",'','error');
+        setTimeout(function(){
+            window.location.href = 'https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=3';
+        },3000);
+
+    }
+
+    if(days=='' || days == undefined){
+        days=3;
+    }
+    var rent_price = parseInt('0') ;
+
+    var rent_calc_single = rent_price*0.05;
+
+    console.log(rent_calc_single);
+
+    if(days == 3){
+    var rent_calc = rent_price;
+    }
+    else if(days == 4){
+
+        var rent_calc = rent_price + rent_calc_single;
+        console.log(rent_calc);
+    }
+    else if(days == 5){
+        var rent_calc = rent_price + (days-3)*rent_calc_single;
+        console.log(rent_calc);
+    }
+    else if(days == 6){
+        var rent_calc = rent_price + (days-3)*rent_calc_single;
+        console.log(rent_calc);
+    }
+    else if(days == 7){
+
+        var rent_calc = rent_price + (days-3)*rent_calc_single;
+        console.log('rent_price= ' + rent_price  + 'and =rent_calc ' + rent_calc);
+    }
+
+    rent_calc = Math.round(rent_calc);
+    rent_calc = rent_calc.toString();
+
+
+var final_rent_amount = round_amount(rent_calc) ;
+$("#rent_price_inr").val(final_rent_amount);
+
+
+        $.ajax({
+           type: 'POST',
+            url:'rent_convert.php',
+            data:'rent='+final_rent_amount,
+            success: function(msg){
+
+    $("#rent_price").html(msg);
+
+            }
+        });
+
+
+
+
+
+
+   });
+
+
+
+</script>
+
+
+
+
+	<section class="bgwhite p-t-55 p-b-65 ">
+		<div>
+		    <div>
+        		<div class="col-sm-12 col-md-12 col-lg-12">
+        			<div>
+        				<div class="flex-w">
+
+        					<ol class="breadcrumb" style="display:inline-flex">
+                    		                      	</ol>
+    				</div>
+    				<hr style="width:100%;background:#ccc;">
+    			</div>
+    		</div>
+
+
+    		<style>
+
+    		    #Zoom-1{
+    		            width: 100%;
+    display: flex;
+    justify-content: center;
+    		    }
+    		</style>
+        		<div class="container bgwhite p-t-35 p-b-80">
+        			<div class="flex-w flex-sb" >
+        				<div class="w-size13 p-t-0 respon5">
+        					<div class="wrap-slick3 flex-sb flex-w">
+
+
+        					</div>
+
+
+                            <div class="app-figure" id="zoom-fig">
+                                <a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail."
+                                    href="https://yosshitaneha.com/uploads"
+                                    data-zoom-image-2x="https://yosshitaneha.com/uploads"
+                                    data-image-2x="https://yosshitaneha.com/uploads"
+                                >
+                                    <img class="product_image" src="https://yosshitaneha.com/uploads" srcset="https://yosshitaneha.com/uploads?h=800 2x" style="width:100%;"/>
+                                </a>
+
+
+                        <br><br>
+
+
+                        
+
+
+
+
+        				    <!--<object width="425" height="350" data="" type="application/x-shockwave-flash"><param name="src" value="" /></object>-->
+
+        				    <!--<iframe width="560" height="315" src=""  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+
+
+                                <div class="selectors">
+
+                                    <section id="gallery">
+  <div class="container">
+    <div id="image-gallery">
+      <div class="row">
+
+
+
+                                    
+
+      </div><!-- End row -->
+    </div><!-- End image gallery -->
+  </div><!-- End container -->
+</section>
+ </div>
+</div>
+
+</div>
+<style>
+	#gallery {
+  padding-top: 40px;
+}
+@media screen and (min-width: 991px) {
+  #gallery {
+    padding: 60px 30px 0 30px;
+  }
+}
+
+.img-wrapper {
+  position: relative;
+  margin-top: 15px;
+}
+.img-wrapper img {
+  width: 100%;
+}
+
+.img-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.img-overlay i {
+  color: #fff;
+  font-size: 3em;
+}
+
+#overlay {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#overlay img {
+  margin: 0;
+  width: 80%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 5%;
+}
+@media screen and (min-width: 768px) {
+  #overlay img {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #overlay img {
+    width: 50%;
+  }
+}
+
+#nextButton {
+  color: #fff;
+  font-size: 2em;
+  transition: opacity 0.8s;
+}
+#nextButton:hover {
+  opacity: 0.7;
+}
+@media screen and (min-width: 768px) {
+  #nextButton {
+    font-size: 3em;
+  }
+}
+
+#prevButton {
+  color: #fff;
+  font-size: 2em;
+  transition: opacity 0.8s;
+}
+#prevButton:hover {
+  opacity: 0.7;
+}
+@media screen and (min-width: 768px) {
+  #prevButton {
+    font-size: 3em;
+  }
+}
+
+#exitButton {
+  color: #fff;
+  font-size: 2em;
+  transition: opacity 0.8s;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+#exitButton:hover {
+  opacity: 0.7;
+}
+@media screen and (min-width: 768px) {
+  #exitButton {
+    font-size: 3em;
+  }
+}
+</style>
+<script>
+	// Gallery image hover
+$( ".img-wrapper" ).hover(
+  function() {
+    $(this).find(".img-overlay").animate({opacity: 1}, 600);
+  }, function() {
+    $(this).find(".img-overlay").animate({opacity: 0}, 600);
+  }
+);
+
+// Lightbox
+var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+var $prevButton = $('<div id="prevButton"><i class="fa fa-chevron-left"></i></div>');
+var $nextButton = $('<div id="nextButton"><i class="fa fa-chevron-right"></i></div>');
+var $exitButton = $('<div id="exitButton"><i class="fa fa-times"></i></div>');
+
+// Add overlay
+$overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
+$("#gallery").append($overlay);
+
+// Hide overlay on default
+$overlay.hide();
+
+// When an image is clicked
+$(".img-overlay").click(function(event) {
+  // Prevents default behavior
+  event.preventDefault();
+  // Adds href attribute to variable
+  var imageLocation = $(this).prev().attr("href");
+  // Add the image src to $image
+  $image.attr("src", imageLocation);
+  // Fade in the overlay
+  $overlay.fadeIn("slow");
+});
+
+// When the overlay is clicked
+$overlay.click(function() {
+  // Fade out the overlay
+  $(this).fadeOut("slow");
+});
+
+// When next button is clicked
+$nextButton.click(function(event) {
+  // Hide the current image
+  $("#overlay img").hide();
+  // Overlay image location
+  var $currentImgSrc = $("#overlay img").attr("src");
+  // Image with matching location of the overlay image
+  var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+  // Finds the next image
+  var $nextImg = $($currentImg.closest(".image").next().find("img"));
+  // All of the images in the gallery
+  var $images = $("#image-gallery img");
+  // If there is a next image
+  if ($nextImg.length > 0) {
+    // Fade in the next image
+    $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+  } else {
+    // Otherwise fade in the first image
+    $("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
+  }
+  // Prevents overlay from being hidden
+  event.stopPropagation();
+});
+
+// When previous button is clicked
+$prevButton.click(function(event) {
+  // Hide the current image
+  $("#overlay img").hide();
+  // Overlay image location
+  var $currentImgSrc = $("#overlay img").attr("src");
+  // Image with matching location of the overlay image
+  var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+  // Finds the next image
+  var $nextImg = $($currentImg.closest(".image").prev().find("img"));
+  // Fade in the next image
+  $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+  // Prevents overlay from being hidden
+  event.stopPropagation();
+});
+
+// When the exit button is clicked
+$exitButton.click(function() {
+  // Fade out the overlay
+  $("#overlay").fadeOut("slow");
+});
+</script>
+        				
+        				<div class=" bo9 w-size14 p-t-0 respon5 p-b-0 ">
+					        <div class=" p-l-20 p-r-20 p-t-20 p-b-20 mainbox">
+                        		<h4 class="product-detail-name m-text15 p-b-10">
+                        			                        			<title></title>
+                        		</h4>
+
+        						<span class="p-b-10" style="color:#E6BE6E;"><strong>SKU: </strong></span>
+        						<br>
+        						                                   <span class="p-b-10 thisone" style="color:#E6BE6E;"><strong>MRP: ₹  0</strong></span>
+                                   <input type="hidden" name="mrp" id="mrp" value="0.00">
+                                                                                                   <br>
+
+            						
+
+
+                                <span class="label label-primary">
+                                                                    </span>
+
+						        <hr style="background-color:#e6be6e">
+
+							<div class="fs-15 p-b-5">
+								<div class="">
+									<table style="border:0px;">
+										<tr style="border:0px; padding-bottom: 10px; ">
+    										<td style="border:0px; padding-bottom: 10px; "	>
+    									        <span class="fs-15"  style="color: #555555;"> <b>Rent Price</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+    										</td>
+
+    										<td style="border:0px; padding-bottom: 10px; "><b>:</b></td>
+
+    										<td style="border:0px; padding-bottom: 10px; ">
+            									<strong>
+            										<span class="fs-15 m-l-10" style="color: #424242;font-size: 18px;" >₹  <input type="hidden" id="rent_price_inr" value="">  <label id="rent_price"> </label> </span>
+            									</strong>
+            								</td >
+								        </tr>
+
+								        <input type="hidden" name="sku" id="sku" value="">
+
+        								<tr>
+        									<p></p>
+        								</tr>
+
+        								<tr>
+        									<td style="border:0px; padding-bottom: 10px; ">
+        								        <span class="fs-15 "  style="color: #555555;"><b>Deposit</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        								    </td>
+        								    <td style="border:0px; padding-bottom: 10px; "><b>:</b></td>
+        									<td style="border:0px; padding-bottom: 10px; " >
+            									<strong>
+            							<span class="fs-15 m-l-10"  style="font-size: 18px;color: #424242;" >₹ <input type="hidden" id="deposite_amount_inr" value="0"><label id="deposite_amount" >0</label></span>
+            									</strong>
+        									</td>
+        								</tr>
+        								<tr>
+        									<p></p>
+        								</tr>
+								        <!-- stock -->
+
+										<div class="m-t-10">
+											<tr>
+												<td style="border:0px;padding-bottom: 10px; ">
+											        <span class="fs-15 " style="color: #555555;"><b>Stock</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+										        </td>
+    											<td style="border:0px;padding-bottom: 10px; "><b>:</b></td>
+    												<td style="border:0px;padding-bottom: 10px; ">
+    												<span class="fs-15 m-b-15 m-t-15 m-l-10 " style="color: #000000;">-242 in stock</span>
+    											</td>
+											</tr>
+											<tr>
+												<td style="border:0px;" ></td>
+											        <p></p>
+											    </td>
+											</tr>
+										</div>
+
+									</table>
+								</div>
+							</div>
+
+						    <hr style="background-color:#e6be6e">
+						    <p><strong class="m-b-5" style="color: #444444;">Rental period</strong></p>
+
+<style>
+
+.day_select{
+    display:flex;
+}
+        .day_select div , .day_select div label {
+            width: 100%;
+        }
+
+.day_select div label{
+    padding:10% ! important;
+    text-align:center;
+}
+
+.day_select div{
+    margin: auto 1%;
+}
+
+</style>
+							<div class="day_select">
+
+							    <div>
+							    <input class="checkbox-budget" type="radio" name="budget" id="3" checked >
+        						<label class="for-checkbox-budget" for="3">
+        							<a href="https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=3"><span data-hover="3 Days">3 Days</span></a>
+        						</label>
+							    </div>
+
+        						<div>
+        						<input class="checkbox-budget" type="radio" name="budget" id="4" >
+        						<label class="for-checkbox-budget" for="4">
+        							<a href="https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=4"><span data-hover="4 Days">4 Days</span></a>
+        						</label>
+        						</div>
+
+        						<div>
+        						    <input class="checkbox-budget" type="radio" name="budget" id="5" >
+        						<label class="for-checkbox-budget" for="5">
+        							<a href="https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=5"><span data-hover="5 Days">5 Days</span></a>
+
+        						</label>
+        						</div>
+
+        						<div>
+        						<input class="checkbox-budget" type="radio" name="budget" id="6" >
+        						<label class="for-checkbox-budget" for="6">
+        							<a href="https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=6"><span data-hover="6 Days">6 Days</span></a>
+        						</label>
+        						</div>
+
+                				<div>
+                				<input class="checkbox-budget" type="radio" name="budget" id="7" >
+        						<label class="for-checkbox-budget" for="7">
+        							<a href="https://www.srishringarr.com/detail.php?id=6331')&type=1')&&days=7"><span data-hover="7 Days">7 Days</span></a>
+        						</label>
+                				</div>
+
+
+
+						    </div>
+
+						    <hr style="background-color:#e6be6e">
+							<!--<div class="">-->
+							<!--    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZWxsaXBzZSBjeD0iOSIgY3k9IjE0LjQ3OCIgZmlsbD0iI0ZGRTExQiIgcng9IjkiIHJ5PSIzLjUyMiIvPjxwYXRoIGZpbGw9IiMyODc0RjAiIGQ9Ik04LjYwOSA3LjAxYy0xLjA4IDAtMS45NTctLjgyNi0xLjk1Ny0xLjg0NSAwLS40ODkuMjA2LS45NTguNTczLTEuMzA0YTIuMDIgMi4wMiAwIDAgMSAxLjM4NC0uNTRjMS4wOCAwIDEuOTU2LjgyNSAxLjk1NiAxLjg0NCAwIC40OS0uMjA2Ljk1OS0uNTczIDEuMzA1cy0uODY0LjU0LTEuMzgzLjU0ek0zLjEzIDUuMTY1YzAgMy44NzQgNS40NzkgOC45MjIgNS40NzkgOC45MjJzNS40NzgtNS4wNDggNS40NzgtOC45MjJDMTQuMDg3IDIuMzEzIDExLjYzNCAwIDguNjA5IDAgNS41ODMgMCAzLjEzIDIuMzEzIDMuMTMgNS4xNjV6Ii8+PC9nPjwvc3ZnPg==" class="location_icon" style="margin-right: 6px;">-->
+							<!--    <strong class="m-b-5" style="color: #444444;">Deliver to </strong>-->
+							<!--    <div class="">-->
+    			<!--					<form class = "formimages" class="" enctype="multipart/form-data" method="POST" >-->
+    			<!--						<div style="display: flex; margin: 1%;">-->
+    			<!--							<input  type='text' placeholder="Enter your pincode" style="padding:5px;width:70%; margin: auto 1%;border:1px solid #353746 !important;" name="delivery_pin" id="delivery_pin" value=""/>-->
+    			<!--						    <input class="btn btn-primary" type="button"  value="check Location"  id = "check_location" name="check_location"  style="width:30%; padding:0;  background-color: #353746;color: white;"/>-->
+
+    			<!--						</div>-->
+    			<!--					</form>-->
+							<!--    </div>	-->
+						 <!--   </div>-->
+						    <br>
+
+
+
+
+							<div class="">
+							    <strong class="" style="color: #444444;">Select Date : </strong> <br>
+							    <div class="" style="border-color:#E6BE6E;">
+    								<div class="bo1 input-container lengthdate" style="border-color:#353746;">
+    									<i class="fa fa-calendar icon" style="font-size:14px;color: white; background-color: #353746;"></i>
+								        <input type="text" name="daterange" id="dateRangeP" value="12/31/2021 - 01/02/2022"  style="text-align: left; width: 100%;padding-left: 3%;"></p>
+    								</div>
+							    </div>
+						    </div>
+							<!--<div class="rating" style="margin-top: 29px;">-->
+							<br>
+
+							<div class="row">
+                                    <div class="col-md-6" style="border-color:#353746;">
+                                        <input type="text" name="Pincode"  placeholder="Enter Pincode" class="form-control" id="delivery_pincode" style="border-bottom:1px solid black !important;" maxlength="10" onkeypress="return isNumber(event)">
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input onclick="checkdelivery()" type="submit" value="Check Availability" title="Check Delivery" class="btn btn-danger" style="margin: 10px;width:100%">
+                                    </div>
+                                    <div class="col-md-12">
+                                       <span id="placedata"></span><br/>
+                                       <span id="checkdeliveryresult"></span>
+                                    </div>
+                            </div>
+
+							<br>
+
+							<!--<div >-->
+       <!--                     	<span class="review-no"> people viewed this product.</span>-->
+       <!--                     </div>-->
+                            
+                            <br>
+<br>
+
+		                    <!-- add to cart code -->
+
+														    <a href="#" class="btn" style="background-color: #353746;color: white; width:100%;">Sorry ! This Product is not available now !</a>
+							
+							<input type="hidden" name="h_days_index" id="id_days_index" value="" />
+		                    <!-- end add to cart code -->
+		                </div>
+				    </div>
+			    </div>
+
+			    			    		    </div>
+		</div>
+	</div>
+  </div>
+</section>
+
+
+
+
+
+
+<br><br>
+
+
+<div class="container-fluid" style="background: white;">
+    <h4 class="like_h4">From Same Category </h4>
+    
+
+
+<style>
+
+
+.col-xs-6{    width: 50%;    padding-left:3px;    padding-right:3px;    margin: 10px auto;}.paginationjs{    margin:20px auto;} </style>
+
+<style>
+.paginationjs .paginationjs-pages li.active {
+    border: 1px solid white;
+}
+.paginationjs {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*.loader {  color: #e6be6e;  font-size: 90px;  text-indent: -9999em;  overflow: hidden;  width: 1em;  height: 1em;  border-radius: 50%;  margin: 72px auto;  position: relative;  -webkit-transform: translateZ(0);  -ms-transform: translateZ(0);  transform: translateZ(0);  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;  animation: load6 1.7s infinite ease, round 1.7s infinite ease;}*/
+@-webkit-keyframes load6 {  0% {    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  }  5%,  95% {    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  }  10%,  59% {    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;  }  20% {    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;  }  38% {    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;  }  100% {    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  }}@keyframes load6 { 0% {  box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  } 5%,  95% {    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  }  10%,  59% {    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;  }  20% {    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;  }  38% {    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;  }  100% {    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;  }}
+@-webkit-keyframes round {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  100% {    -webkit-transform: rotate(360deg);    transform: rotate(360deg);  }}@keyframes round {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  100% {    -webkit-transform: rotate(360deg);    transform: rotate(360deg);  }}					     p{					         color:#000;					     }					     .product_col:hover .product_img{    transition: transform 1.2s;    transform: scale(1.5);					     } div.subpart * {     all: initial;      all: unset;}
+
+.formob{        text-transform: uppercase;}p,span,h1,h2,h3,h4,h5,h6{        font-family: Montserrat-Regular !important;}    .ftco-animate {    /*opacity: 0;*/    /*visibility: hidden;*/}
+.product {    display: block;    width: 100%;     border: 1px solid #c3c3c3;     margin-bottom: 30px;    position: relative;    -moz-transition: all .3s ease;    -o-transition: all .3s ease;    -webkit-transition: all .3s ease;    -ms-transition: all .3s ease;    transition: all .3s ease;    padding: 10px;    background: white;    height: 100%;    margin-top: 10px;}.product .img-prod {    position: relative;    display: block;    overflow: hidden;}a {    -webkit-transition: .3s all ease;    -o-transition: .3s all ease;    transition: .3s all ease;    color: #ffa45c;}
+.product .img-prod img {    -webkit-transform: scale(1);    -moz-transform: scale(1);    -ms-transform: scale(1);    -o-transform: scale(1);    transform: scale(1);    -moz-transition: all .3s ease;    -o-transition: all .3s ease;    -webkit-transition: all .3s ease;    -ms-transition: all .3s ease;    transition: all .3s ease;}
+.img-fluid {    max-width: 100%;    height: auto;        min-height: 350px;    object-fit: cover;}img {    vertical-align: middle;    border-style: none;}
+.product .img-prod span.status {    position: absolute;   top: 10px;    left: -1px;   padding: 2px 15px;    color: #000;    font-weight: 300;    background: #ffa45c;}
+.product .img-prod .overlay {    position: absolute;    top: 0;    left: 0;    right: 0;    bottom: 0;    content: '';    opacity: 0;    background: #ffa45c;    -moz-transition: all .3s ease;    -o-transition: all .3s ease;    -webkit-transition: all .3s ease;    -ms-transition: all .3s ease;    transition: all .3s ease;}
+.product .text {    background: #fff;    position: relative;    width: 100%;}
+.pl-3, .px-3 {    padding-left: 1rem!important;.}.pb-3, .py-3 {    padding-bottom: 1rem!important;}.pr-3, .px-3 {    padding-right: 1rem!important;}.pt-3, .py-3 {    padding-top: 1rem!important;}
+.product .text h3 {    font-size: 14px;    margin-bottom: 5px;    font-weight: 300;    text-transform: uppercase;    letter-spacing: 1px;}
+.d-flex {    display: -webkit-box!important;    display: -ms-flexbox!important;    display: flex!important;}
+@media (min-width: 992px){.col-lg {    -ms-flex-preferred-size: 0;    flex-basis: 0;    -webkit-box-flex: 1;    -ms-flex-positive: 1;    flex-grow: 1;    max-width: 100%;}    }
+@media (min-width: 768px){.col-md-6 {    -webkit-box-flex: 0;    -ms-flex: 0 0 50%;    flex: 0 0 50%;    max-width: 50%;}}
+@media (min-width: 576px){.col-sm {    -ms-flex-preferred-size: 0;    flex-basis: 0;    -webkit-box-flex: 1;    -ms-flex-positive: 1;    flex-grow: 1;    max-width: 100%;}    }
+
+.col-xs-6{    width: 50%;    padding-left:3px;    padding-right:3px;    margin: 10px auto;}.paginationjs{    margin:20px auto;} 
+.flexslider *{
+    font-size:12px;
+}
+</style>
+
+
+
+
+<div class="flexslider carousel">
+    <div class="row rowFlexMargin wrapper slides">
+
+
+        
+</div>
+</div>
+
+
+
+
+</div>
+
+    
+</div>
+
+
+
+
+
+
+<br><br>
+
+<script>
+    (function() {
+
+// store the slider in a local variable
+var $window = $(window),
+flexslider = { vars:{} };
+
+// tiny helper function to add breakpoints
+function getGridSize() {
+return (window.innerWidth < 600) ? 2 :
+(window.innerWidth < 900) ? 5 : 6;
+}
+
+$(function() {
+// SyntaxHighlighter.all();
+});
+
+$window.load(function() {
+$('.flexslider').flexslider({
+animation: "slide",
+animationLoop: true,
+itemWidth: 210,
+itemMargin: 5,
+minItems: getGridSize(), // use function to pull in initial value
+maxItems: getGridSize() // use function to pull in initial value
+});
+});
+
+// check grid size on resize event
+$window.resize(function() {
+var gridSize = getGridSize();
+
+flexslider.vars.minItems = gridSize;
+flexslider.vars.maxItems = gridSize;
+});
+}());
+</script>
+
+
+
+
+
+
+<script>
+$(function() {
+    var result = new Date();
+    result.setDate(result.getDate() + 7);
+
+
+
+
+    $('input[name="daterange"]').daterangepicker({
+
+        dateLimit: { days: 7 },
+        "dateFormat": "dd-mm-yy",
+        "maxDate": 7,
+        minDate: result,
+        locale: {
+            format: 'MM/DD/YYYY '
+        }
+    });
+
+});
+
+
+var array2 = ["12/24/2021","12/25/2021","12/26/2021","12/27/2021","12/28/2021","12/29/2021","12/30/2021"];
+var array1 = [] ;
+var array= array1.concat(array2);
+
+$(function(){
+       $('input[name="daterange"]').daterangepicker({
+        format: 'YYYY-MM-DD',
+        minDate: new Date(),
+        isInvalidDate: function(date) {
+        for (i = 0; i < array.length; i++) {
+            if (date.format('MM/DD/YYYY') == array[i]) {
+                return true;
+                }
+            }
+        }
+    });
+});
+
+
+
+	$('#add_to_cart').on('click',function() {
+
+
+    var pid = 6331');
+    var type = 1');
+    var qty = 1;
+    var sku = $("#sku").val();
+    var price = $("#rent_price_inr").val();
+    var dateRangeP = $('#dateRangeP').val();
+    var dateRangeP_arr = dateRangeP.split('-');
+    var sales_price = 0;
+    var deposit = $('#deposite_amount_inr').val();
+    var image = 'https://yosshitaneha.com/uploads' ;
+
+    console.log('pid = '+pid);
+    console.log('type = '+type);
+    console.log('sku = '+sku);
+    console.log('price = '+price);
+    console.log('from = '+dateRangeP_arr[0]);
+    console.log('to = '+dateRangeP_arr[1]);
+    console.log('sales_price = '+sales_price);
+    console.log('deposit = '+deposit);
+
+
+
+
+
+	if($('#dateRangeP').val()==''){
+		swal('Please select Date or Days','','error');
+	}
+	else {
+	    $.ajax({
+           type: 'POST',
+            url:'addcart_process_demo.php',
+            data:'pid='+pid+'&type='+type+'&qty='+qty+'&rent_date='+dateRangeP_arr[0]+'&return_date='+dateRangeP_arr[1]+'&price='+price+'&deposit='+deposit+'&sales_price='+sales_price+'&image='+image+'&sku='+sku,
+
+            success: function(msg){
+                if(msg==1){
+                    swal('Product Added To Cart Successfully. ','','success');
+                    setTimeout(function(){
+                        window.location.href="";
+                    }, 3000);
+                }else if(msg==0){
+                    swal('Product Added Error ','','error');
+                }else if(msg==11){
+                    swal('insufficient Quantity','','warning');
+                }
+
+
+
+            }
+        });
+
+	  //  $(".cart_anchor").effect( "shake", { direction: "left", times: 4, distance: 101}, 2000 );
+	 }
+});
+
+function checkdelivery(){
+    var deliverypincode = $('#delivery_pincode').val();
+    if (deliverypincode.length==6) {
+        $.ajax({
+               type: 'POST',
+                url:'LocationFinder.php',
+                data:'pincode='+deliverypincode,
+                success: function(msg){
+                    var html = "";
+                    if(msg=='Yes'){
+                         html = "<span style='color:green;margin-left:1%;'>Delivery Available</span>";
+                    }else{
+                        html = "<span style='color:red;margin-left:1%;'>Delivery Not Available!</span>";
+                    }
+                    $("#checkdeliveryresult").html(html);
+                }
+        });
+    }
+    else
+      {
+        html = "<span style='color:red;margin-left:1%;'>Not a valid Pincode</span>";
+         $("#checkdeliveryresult").html(html);
+
+      }
+}
+</script>
+
+	<script type="text/javascript" src="static/css/vendor/select2/select2.min.js"></script>
+
+
+<script src="ajax.js" async></script>
+
+<script src="cdn/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+<script src="cdn/bootstrap.bundle.min.js" type="text/javascript"></script>
+    	
+        <!--<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>-->
+        <script type="text/javascript" src="cdn/moment.min.js"></script>
+ 
+<script type="text/javascript" src="cdn/daterangepicker.js"></script>
+
+<script src="requiredfunctions.js"></script>
+<script src="js/script.js"></script>
+
+<script src="js/lazyload.js" async></script>
+
+
+
+
+<style>
+            @media (max-width: 767px){
+                .mobile{
+                    display: block;
+    position: fixed;
+    bottom: 8%;
+    right: 8%;
+    border-radius: 60px;
+    background: #d0caca;
+    padding: 15px;
+    
+    
+    z-index: 100000;
+                }
+                
+                
+                .header-icons-noti2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #111111;
+    color: white;
+    font-family: Montserrat-Medium;
+    font-size: 11px;
+    position: absolute;
+    top: -11px;
+    right: -7px;
+}
+
+
+            }
+            @media (min-width: 768px){
+                .mobile{
+                    display:none;
+                }
+            }
+            
+</style>
+
+<div class="mobile">
+    <div class="" id="cartshowid2"></div>    
+</div>
+
+    
+	<!-- Footer -->
+	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45" style="    margin-top: 21px;
+    border-top: 1px solid #b9b4b4;">
+		<div class="flex-w p-b-90">
+			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					GET IN TOUCH
+				</h4>
+
+				
+
+					<p class="s-text7 w-size27" style=" text-align: justify; text-justify: inter-word;">
+						Any questions? Let us know at <br>
+						Sri Shringarr Fashion Studio,Shyamkamal Building B/1, Office No.104,1 st Floor, Agarwal Market, Opposite Railway Station,Vile Parle (East), Mumbai 400 057
+						<!-- <br>Pin Code : 400 057 --><br>
+						Mobile No :
+						<a href="tel:+919324243011" class="Blondie">09324243011</a> /
+						<a href="tel:+917400413163" class="Blondie">07400413163</a>
+						
+						  
+					</p>
+
+				<div>
+					<div class="flex-m p-t-30">
+						<a href="https://www.facebook.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+						<a href="https://www.instagram.com/srishringarr/" target="_blank" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+						<!-- <a href="https://plus.google.com/u/1/113103807414319162517" target="_blank" class="fs-18 color1 p-r-20 fa social_googleplus"></a> -->
+						<a href="https://twitter.com/SriShringarr" target="_blank" class="fs-18 color1 p-r-20 fa social_twitter"></a>
+						<a href="https://in.pinterest.com/srishringarr/?eq=sri&etslf=5839" target="_blank" class="fs-18 color1 p-r-20 fa social_pinterest"></a>
+					</div>
+				</div>
+			</div>
+			
+				<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+					<h4 class="s-text12 p-b-30">
+						Categories
+					</h4>
+					<ul>
+						
+							<li class="p-b-9">
+								<a href="sub_category.php?type=1" class="s-text7">
+									Jewellery
+								</a>
+							</li>
+						
+							<li class="p-b-9">
+								<a href="sub_category.php?type=2" class="s-text7">
+									Apparel
+								</a>
+							</li>
+						</ul>
+				    </div>
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Quick Links
+				</h4>
+				<ul>
+					<!-- <li class="p-b-9">
+						<a href="/search/" class="s-text7">
+							Search
+						</a>
+					</li> -->
+
+					<li class="p-b-9">
+						<a href="account/my-account.php" class="s-text7">
+							Profile
+						</a>
+					</li>
+	
+					<li class="p-b-9">
+						<a href="account/orders.php" class="s-text7">
+							Orders 
+						</a>
+					</li>
+
+					<!--<li class="p-b-9">-->
+					<!--	<a href="wishlist.php" class="s-text7">-->
+					<!--		Wishlist -->
+					<!--	</a>-->
+					<!--</li>-->
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Help
+				</h4>
+				<ul>
+					<!-- <li class="p-b-9">
+						<a href="/track-orders/" class="s-text7">
+							Track Order
+						</a>
+					</li> -->
+
+					<li class="p-b-9">
+						<a href="policy.php" class="s-text7">
+							Shipping, Returns, Cancellation and Refunds Policy
+						</a>
+					</li>
+
+					<!--<li class="p-b-9">-->
+					<!--	<a href="Shipping,Cancellation&amp;Returns.php" class="s-text7">-->
+					<!--		Cancellation-->
+					<!--	</a>-->
+					<!--</li>-->
+
+					<!--<li class="p-b-9">-->
+					<!--	<a href="Shipping,Cancellation&amp;Returns.php" class="s-text7">-->
+					<!--		Returns-->
+					<!--	</a>-->
+					<!--</li>-->
+					
+					<li class="p-b-8">
+						<a href="faq.php" class="s-text7">
+							FAQ
+						</a>
+					</li>
+					<!-- <li class="p-b-9">
+						<a href="#" class="s-text7">
+							Blog
+						</a>
+					</li> -->
+				</ul>
+			</div>
+
+			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<!---------------------------- Rahul 30-07-2019 --------------------------------->
+				<iframe title="Sri Shringarr" width="100%" height="250px" src="https://www.youtube.com/embed/KGZVaCSe_mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<h7>Take a virtual tour of Sri Shringarr Fashion Studio</h7>
+			</div>
+
+			<!-- <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Notify Me
+				</h4>
+
+				<form>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+						<span class="effect1-line"></span>
+					</div>
+
+					<div class="w-size2 p-t-20">
+						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 pointer" style="background-color: #e6be6e;color: #444;">
+							Notify
+						</button>
+					</div>
+
+				</form>
+			</div> -->
+		</div>
+
+		<div class="t-center p-l-15 p-r-15">
+			
+			<div class="t-center s-text8 p-t-20">
+        
+        	 <a style="text-decoration: none;" href="policy.php">TERMS OF USE</a> &nbsp;
+    	
+        	 | &nbsp;<a style="text-decoration: none;" href="policy.php"> PRIVACY POLICY  </a>&nbsp; 
+    	
+        	 <!--| &nbsp;<a style="text-decoration: none;" href="about-us.php">ABOUT US </a>&nbsp; -->
+    	
+        	 | <a style="text-decoration: none;" href="contact_us.php">&nbsp;ENQUIRY</a>&nbsp; 
+    	
+        	 
+	        
+				<div style="text-align: center;font-size:15px;margin:10px 0px;">
+		         	<a style="text-decoration: none;">
+					Copyright © 2018 Sri Shringarr All Rights Reserved  </a><br/><br/>
+		        </div>
+			</div>
+		</div>
+	</footer>
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div> 
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+	
+	<!--<script type="text/javascript" src="static/css/vendor/jquery/jquery-3.2.1.min.js"></script>-->
+
+	<script type="text/javascript" src="static/css/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+
+	<script type="text/javascript" src="static/css/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="static/css/vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+
+	<script type="text/javascript" src="static/css/vendor/slick/slick.min.js"></script>
+	
+	<script type="text/javascript" src="static/js/slick-custom.js"></script>
+
+	<script type="text/javascript" src="static/css/vendor/countdowntime/countdowntime.js"></script>
+
+	<script type="text/javascript" src="static/css/vendor/lightbox2/js/lightbox.min.js"></script>
+
+	<script type="text/javascript" src="static/css/vendor/sweetalert/sweetalert.min.js"></script>
+
+	<script src="static/js/main.js"></script>
+	
+	<script src='static/js/validation.js'></script>
+	
+	<script src='static/js/site.js'></script>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+
+	$(".title").fadeIn(1000);
+	// $("#fade").hide();
+	
+// 	$(function(){
+//     if (window.matchMedia("(min-width:1366px)").matches) {
+//         $('#mobileviewperfect').remove();
+//     }
+// });
+// $(document).ready(function(){
+// 	console.clear();
+// });
+// $(window).resize(function(){
+
+//        if ($(window).width() <= 424) {  
+//        		$('#mobileviewperfect').show();
+
+//        }
+//        else{
+//        		$('#mobileviewperfect').hide();
+//        }     
+
+});
+
+</script>
+
+</body>
+</html>

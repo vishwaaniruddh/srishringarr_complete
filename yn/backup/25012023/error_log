@@ -1,0 +1,6 @@
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 1
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 1
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 53
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 54
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 192
+[20-Apr-2023 01:43:21 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/srishringarr/public_html/yn/backup/25012023/cart.php on line 192
