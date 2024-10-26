@@ -1,0 +1,96 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/site.css' %}">
+	<section class="bgwhite p-t-55 p-b-55">
+		<div class="container">
+			<div class="row" style="flex-wrap: inherit;">				
+				<div class="bo9 col-sm-6 col-md-4 col-lg-3 p-l-40 p-r-40 p-t-30 p-b-38 m-1">
+					<h5 class="m-text20 m-b-30">
+						User Profile
+						<a href="{% url 'edit_profile' %}" class="float-r"><span class="fs-20 fa fa-edit"></span></a>
+					</h5>
+					<div class="s-text15">
+						<strong>Name:</strong>
+						{{user_details.full_name}}
+					</div>
+					<div class="s-text15">
+						<strong>Email:</strong>
+						{{user_details.email}}
+					</div>
+					<div class="s-text15">
+						<strong>Mobile:</strong>
+						{{user_details.mobile}}
+					</div>
+				</div>
+				
+				<div class="bo9 col-sm-6 col-md-4 col-lg-3 p-l-40 p-r-40 p-t-30 p-b-38 m-1" style="overflow-y: scroll; height: 250px;">
+					<h5 class="m-text20 m-b-30">
+						User Address 
+						<a href="{% url 'user_address' 0 %}" class="float-r"><span class="fs-15 fa fa-plus"></span></a>
+					</h5>
+					{% if user_address %}
+						{% for ua in user_address%}
+							<div class="s-text15">
+								<span class="fs-10 address-label">{% if ua.type == '0' %}Home{% else %}Office{% endif %}</span>
+								<a href="{% url 'user_address' ua.id %}" class="float-r"><span class="fs-20 fa fa-edit"></span></a><br/>
+								{% if ua.deliver_sat == 1 %}<span class="fs-10">Can deliver parcel on Saturday</span><br/>{% endif %}
+								{{ua.name}}<br/>
+								{{ua.address}},<br/>
+								{{ua.area}}, {{ua.city}}<br/>
+								{{ua.state}}, {{ua.country}} - {{ua.pin_zip}}<br/>
+							</div>
+							<div class="bo7 s-text15 m-b-5">
+								<strong>Mobile:</strong>
+								{{ua.mobile}}
+							</div>
+						{% endfor %}
+					{% else %}
+						<div class="s-text15">
+							No address added. Please Add Address!
+						</div>
+					{% endif %}
+				</div>
+				
+				<div class="bo9 col-sm-6 col-md-4 col-lg-3 p-l-40 p-r-40 p-t-30 p-b-38 m-1">
+					<h5 class="m-text20 m-b-30">
+						User Order 
+					</h5>
+					<div class="s-text15">
+						<strong>Total Order:</strong>
+						{{total_order_count}}
+					</div>
+					<div class="s-text15">
+						<strong>Pending Order:</strong>
+						{{pending_order_count}}
+					</div>
+					<div class="s-text15">
+						<strong>Confirmed Order:</strong>
+						{{confirm_order_count}}
+					</div>
+					<div class="s-text15">
+						<strong>Cancelled Order:</strong>
+						{{cancel_order_count}}
+					</div>
+					<div class="s-text15">
+						<a href="{% url 'my_orders' %}" class="s-text15" style="color: #E55540;"><strong>View Orders</strong></a>
+					</div>
+				</div>
+				
+				<div class="bo9 col-sm-6 col-md-4 col-lg-3 p-l-40 p-r-40 p-t-30 p-b-38 m-1">
+					<h5 class="m-text20 m-b-30">
+						User Wishlist 
+					</h5>
+					<div class="s-text15">
+						<strong>Total Products:</strong>
+						{{wishlist_count}}
+					</div>
+					<div class="s-text15">
+						<a href="{% url 'wishlist' %}" class="s-text15" style="color: #E55540;"><strong>View Wishlist</strong></a>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</section> 
+{% endblock %}	
+

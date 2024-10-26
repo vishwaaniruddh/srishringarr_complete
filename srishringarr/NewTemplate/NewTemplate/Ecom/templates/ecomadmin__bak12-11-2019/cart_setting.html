@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" >
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	<div class="row" style="margin-bottom:40px;">
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;background:#D1D4D7;">
+				Cart Setting 
+				</div>
+				<hr class="hrStyle">
+				<div>
+				
+				<table style="width: 100%; border: 0px solid #D1D4D7; border-collapse: collapse;">
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Coupon List Coupon</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">EMI Eligiblility</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Top Message</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Bottom Message</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Estimated Tax</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Replacement Policy</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Delivery Charges</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="columncart leftcart">
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+					<div style="padding:10px;">Coupon List Count</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<input type="text" placeholder="Enter Coupon Count" value="{% if cart_setting_option %}{{ cart_setting_option.coupon_list_count }}{% elif checkout_setting_option %}{{ checkout_setting_option.coupon_list_count }}{% endif%}" name="coupon_count" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_coupon_count">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+					<div style="padding:10px;">EMI Option</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						{% for bl in banklist %}
+							<input type="checkbox" value="{{ bl.id }}" name="bank_list" {% if cart_setting_option %}{{ bl.id|isValChecked:cart_setting_option.emi_eligible }}{% elif checkout_setting_option %}{{ bl.id|isValChecked:checkout_setting_option.bank_list }}{% endif %}/>{{ bl.name }}<br/>
+						{% endfor %}
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_emi">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Top Message</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<input type="text" placeholder="Enter Top Message" value="{% if cart_setting_option %}{{ cart_setting_option.top_msg }}{% endif%}" name="top_msg" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_top_msg">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Bottom Message</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<input type="text" placeholder="Enter Bottom Message" value="{% if cart_setting_option %}{{ cart_setting_option.bottom_msg }}{% endif%}" name="bottom_msg" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_bottom_msg">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Estimated Tax</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<input type="text" placeholder="Enter Estimated Tax" value="{% if checkout_setting_option %}{{ checkout_setting_option.estimate_tax }}{% elif cart_setting_option %}{{ cart_setting_option.estimate_tax }}{% endif%}" name="estimate_tax" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_estimate_tax">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Replacement Policy</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<textarea placeholder="Enter Replacement Policy" name="replacement_policy">{% if cart_setting_option %}{{ cart_setting_option.replacement_policy }}{% endif%}</textarea>	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_replacement_policy">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Delivery Charges</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<input type="radio" name="del_charge" value="fixed" {% if cart_setting_option %}{{ 'fixed'|isValChecked:cart_setting_option.deliver_type }}{% elif checkout_setting_option %}{{ 'fixed'|isValChecked:checkout_setting_option.deliver_type }}{% endif %} />Fixed Amount
+						<input type="radio" name="del_charge" value="perkm" {% if cart_setting_option %}{{ 'perkm'|isValChecked:cart_setting_option.deliver_type }}{% elif checkout_setting_option %}{{ 'fixed'|isValChecked:checkout_setting_option.deliver_type }}{% endif %}/>Per KiloMeter 
+						<input type="text" placeholder="Enter Delivery Charges" name="delivery_charges" value="{% if cart_setting_option %}{{ cart_setting_option.delivery_charges }}{% elif checkout_setting_option %}{{ checkout_setting_option.delivery_charges }}{% endif%}">
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="cartOption" value="save_delivery_charges">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %} 
+<style>
+.transaction_message{
+	font-size:18px;
+	color: #424242;
+    font-family: SourceSansPro-Light !important;
+}
+.transation_status_text{
+	font-family: SourceSansPro-Regular !important;
+}
+.transaction_image{
+	margin-bottom: 20px;
+}
+.order_summary_block{
+	padding:10px;
+	text-align:left;
+	border: 1px solid #ccc;
+}
+.summary_TextContainer {
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+.summary_main_heading {
+   font-family: Lato-Regular;
+    color: #424242;
+    letter-spacing: 0.1px;
+    font-size: 18px;
+   padding:10px 0px 20px 0px;
+   border-bottom:1px solid #ccc;
+    text-transform: uppercase;
+}
+.order_summary_section{
+	padding:15px;
+}
+.order_summary_section .label_heading {
+	font-family: 'SourceSansPro-Regular' !important;
+	font-size:14px;
+} 
+.btn-green {
+    border: 0;
+    padding: 8px 20px;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase;
+    font-family: SourceSansPro-Regular !important;
+    background: #3aa04a !important;
+    color:#fff;
+}
+.btn-green:hover {   
+    color:#fff;
+}
+.summary_TextContainer .sub_section_heading{
+	font-size: 20px;
+    margin-bottom: 1%;
+    text-align: left;
+    font-family: SourceSansPro-Regular !important;
+}
+</style>
+
+<div class="container-fluid">
+	<div class="col-sm-12">		
+		<div class="card">
+			<div class="col-sm-8">
+				<div class="summary_TextContainer">
+					{% csrf_token %}
+					<!-- <div style="display:none">
+	   					<input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}">
+					</div> -->
+					<img class="transaction_image" src="{% static 'images/status_icon/tick_icon.png' %}">
+					<div class="form-heading">Payment Successful. Thank you!</div>							
+					<div class="transaction_message">
+						Congratulations&#33; As a Premium member, you can now access the full suite of XIRCLS features. 						
+					</div><br/>
+					<div class="transaction_message">
+						<a href="" target= "_blank" class="LinkTxt">Get started right now&#33;</a>
+						<!-- <img style="margin-top: -7px;" src="{% static 'images/external_link.png' %}"/> -->										
+					</div><br/>
+								
+				</div>			
+			</div>
+			
+			<div class="col-sm-4">
+				 <div class="order_summary_block">                  
+                 	<div class="summary_main_heading">Order Summary</div><br/>
+                 	<div class="order_summary_section"><span class="label_heading">Transaction ID :</span> <span>{{ txnid }}</span></div>
+                 	<div class="order_summary_section"><span class="label_heading">Received Payment:</span> <span>{{ amount }}</span></div>                     
+                    <div class="order_summary_section"><span class="label_heading">Status :</span> <span>{{ status }}</span></div>
+                    <div style="text-align:right;">Inclusive of all taxes*</div> <br/>
+                    <div class="righttxt" style="padding: 18px 10px 10px 0px;border-top: 1px solid #ccc;">	                  
+	                  <input type="button" name="print_summary" class="btn btn-green" value="Print"  />
+	               </div>
+                 </div>  	
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

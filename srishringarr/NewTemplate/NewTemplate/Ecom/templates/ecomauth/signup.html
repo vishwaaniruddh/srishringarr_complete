@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<style>
+.login_border{
+	border: 1px #cccc solid;
+	border-radius: 10px;
+	padding: 30px;
+	margin-bottom: 20px;
+}
+
+.buttonAuth{
+	font-size: 18px;
+	background-color: #e6be6e;
+	color: #9f731c; 
+}
+
+label{
+	margin-bottom: 0;
+}
+
+input{
+	margin-bottom: 15px;
+}
+
+</style>
+
+<script src='{% static "js/validation.js" %}'></script>
+	<div class="container">
+		{% if successMessage %} 
+			  <div {% if status %} class="sAlert" {% else %} class="alert" {% endif %} >
+				  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				 {{ successMessage }} 
+			  </div>
+		{% endif %}
+		
+		<div class="outerDiv center">
+			{%csrf_token%}
+			<form action="" method="POST">
+				{%csrf_token%}
+				<div class="SignUpContent" style="width: 450px !important;padding: 30px;">
+					<div class="login_border">
+				  		<div style="text-align: center;margin-bottom: 50px;">
+							<img width="200" src="{% static 'images/logo_login.png' %}">
+						</div>
+					    <label>Email</label>
+					    <input type="email" placeholder="Enter Email" name="userEmailId" required style="margin-bottom: 15px;border-radius: 10px;"/>
+					    
+					    <label>User Name</label>
+					    <input type="text" placeholder="Enter User Name" name="userName" style="margin-bottom: 15px;border-radius: 10px;" required/>
+					    
+					    <label>Mobile No.</label>
+					    <input type="number" maxlength="10"  pattern="[0-9]{10}" placeholder="Enter Mobile No." name="userMobile" style="margin-bottom: 15px;border-radius: 10px;" required/>
+					
+					    <label>Password</label>
+					    <input type="password" placeholder="Enter Password" name="userPassword" id="userPassword" style="margin-bottom: 15px;border-radius: 10px;" required/>
+					
+					    <label>Repeat Password</label>
+					    <input type="password" placeholder="Repeat Password" name="userPassword-repeat" id="rUserPassword" style="margin-bottom: 15px;border-radius: 10px;" required/>
+					    <input type="checkbox"  onclick="myFunction()"> Show password
+				 	    <button class="buttonAuth" type="submit">Sign Up</button>
+				    </div>
+					<div style="text-align: center;" >
+						<br/>
+						<p style="margin-bottom: 0;">By creating an account you agree to our <a href="{% url 'terms' %}">Terms & Conditions</a>.</p>
+						<p style="margin-bottom: 0;">OR</p>
+						<p style="margin-bottom: 0;">Already have an account? <a href="{% url 'login' %}">LOG IN</a>.</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+
+

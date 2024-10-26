@@ -1,0 +1,238 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %}
+
+<style>
+
+input{
+	border: 1px solid rgba(0,0,0,.15);
+}
+
+</style>
+<!--------------rahul 30-07-2019---------------->
+	<section class="" style="background-image: url({% static 'images/site/grid_images/img-1.jpg' %});">
+	<!-- 	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/site/grid_images/img-1.jpg' %});"> -->
+		<h2 class="l-text2 t-center">
+			Contact Us
+		</h2>
+	</section>
+
+<form action="." enctype="multipart/form-data" id="cart_form" method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="offer_send_btn" id="offer_send_btn" value="" />
+	<!--------------rahul 30-07-2019---------------->
+	<!-- <section class="bgwhite p-t-55 p-b-65"> -->
+		<div class="container">
+
+			<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38">
+				<h5 class="m-text20 m-b-30 m-t-10 m-r-20">
+					ENQUIRY 
+				</h5>
+				<form enctype="multipart/form-data" method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-sm-4">
+							<span class="s-text15">
+								<strong>Full Name</strong>
+							</span>
+							<div class="size1 bo4 m-b-12">
+								<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Full Name" name="e_full_name" value="{% if userData %}{{ userData.full_name }} {% endif %}" required> 
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<span class="s-text15">
+								<strong>Email</strong>
+							</span>
+							<div class="size1 bo4 m-b-12">
+								<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter email address" name="e_email" value="{% if userData %}{{ userData.email }} {% endif %}" required>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<span class="s-text15">
+								<strong>Mobile</strong>
+							</span>
+							<div class="size1 bo4 m-b-12">
+								<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Mobile" name="e_mobile" value="{% if userData %}{{ userData.mobile }} {% endif %}" required>
+							</div>
+						</div>
+						
+						<div class="col-sm-12">
+							<span class="s-text15">
+								<strong>Subject</strong>
+							</span>
+							<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="e_subject" placeholder="Subject" required></textarea>
+						</div>
+					</div>
+				
+					<div class="size1">
+						<button class="flex-c-m size10 bg1 bo-rad-23 m-t-10 hov1 s-text1 trans-0-4 float-r" type="submit" name="send_enquiry" value="Submit">
+							send
+						</button>
+					</div>
+				</form>	
+			</div>
+			<br><br>
+
+			<div id="map" style="height: 300px;margin-bottom: 40px;"></div>
+
+			<div class="row">
+<!-- 				<div class="col-sm-4">
+					<div class="bo9 p-l-40 p-t-30 p-b-38">
+					
+						<h5 class="m-text20">
+							Mrs.Rajani Poddar
+						</h5> -->
+						<!-- <div class="s-text15">(Manufacturer & Retailers)</div> -->
+<!-- 						<div class="s-text15 m-t-10">
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Phone:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								093242 43011
+							</span><br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Email:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								rajanipodar@gmail.com
+							</span>
+							<br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Follow on:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								Facebook, Twitter
+							</span>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="bo9 p-l-40 p-t-30 p-b-38">
+					
+						<h5 class="m-text20">
+							Ms.Yosshita Poddar
+						</h5> -->
+						<!-- <div class="s-text15">(Fashion Designer)</div> -->
+<!-- 						<div class="s-text15 m-t-10">
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Phone:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								075066 28663
+							</span><br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Email:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								yosshita.neha@gmail.com
+							</span>
+							<br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Follow on:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								Facebook, Twitter
+							</span>
+						</div>
+						
+					</div>
+				</div>				 -->
+				<div class="col-sm-4" style="margin: auto;">
+					<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38" style="height: 202px;">
+				
+					<h5 class="m-text20">
+						Address
+					</h5>
+					<div class="s-text15 m-t-10">
+						
+						<span class="s-text16 w-size19 w-full-sm" >
+							Shyamkamal Building B/1, Office No.104,<br>1 st Floor, Agarwal Market, Opp the station,<br>Vile Parle (East), Mumbai
+						<br>Pin Code : 400 057<br>093242 43011,075066 28663
+						</span><br>
+					</div>   
+					
+				</div>
+				</div>
+		</div>
+	</div>
+<!-- </section> -->
+</form>
+
+<script type="text/javascript" src="{% static 'scripts/maps.js' %}"></script>
+
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+<!-- 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSEoNX_G9iwf1v1CrSdQdzxHymOp_4-rw&libraries=places&callback=initAutocomplete"></script> -->
+
+<!-- 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc8MCR-GiVJKYV1LYXAgt4hjkH24BQxcI&libraries=places&callback=initAutocomplete"></script> -->
+	       
+	<script>
+	$(document).ready(function(){
+		console.clear();
+	});
+
+
+
+	// var map, infoWindow;
+ //      function initMap() {
+ //        map = new google.maps.Map(document.getElementById('map'), {
+ //          center: {lat: -25.344, lng: lng: 131.036},
+ //          zoom: 6
+ //        });
+ //        // var uluru = {lat: -25.344, lng: 131.036};
+ //        infoWindow = new google.maps.InfoWindow;
+
+ //        // Try HTML5 geolocation.
+ //        if (navigator.geolocation) {
+ //          navigator.geolocation.getCurrentPosition(function(position) {
+ //            var pos = {
+ //              lat: position.coords.latitude,
+ //              lng: position.coords.longitude
+ //            };
+
+ //            infoWindow.setPosition(pos);
+ //            infoWindow.setContent('Location found.');
+ //            infoWindow.open(map);
+ //            map.setCenter(pos);
+ //          }, function() {
+ //            handleLocationError(true, infoWindow, map.getCenter());
+ //          });
+ //        } else {
+ //          // Browser doesn't support Geolocation
+ //          handleLocationError(false, infoWindow, map.getCenter());
+ //        }
+ //      }
+
+ //      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+ //        infoWindow.setPosition(pos);
+ //        infoWindow.setContent(browserHasGeolocation ?
+ //                              'Error: The Geolocation service failed.' :
+ //                              'Error: Your browser doesn\'t support geolocation.');
+ //        infoWindow.open(map);
+ //      }
+
+ 		var map = new google.maps.Map(document.getElementById('map'), {
+	      center: {lat: 19.030010, lng: 72.845207},
+	      zoom: 5,
+	      mapTypeId: 'roadmap'
+	    });
+
+
+
+
+	</script>
+{% endblock %}
+
+

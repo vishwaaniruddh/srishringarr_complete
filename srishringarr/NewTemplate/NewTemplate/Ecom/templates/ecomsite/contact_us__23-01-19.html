@@ -1,0 +1,115 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %} 
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/site/grid_images/img-1.jpg' %});">
+		<h2 class="l-text2 t-center">
+			Contact Us
+		</h2>
+	</section>
+<form enctype="multipart/form-data" id="cart_form" method="POST">
+	{% csrf_token %}
+	<section class="bgwhite p-t-55 p-b-65">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="bo9 p-l-40 p-t-30 p-b-38">
+					
+						<h5 class="m-text20">
+							Mrs.Rajani Poddar
+						</h5>
+						<div class="s-text15">(Manufacturer & Retailers)</div>
+						<div class="s-text15 m-t-10">
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Phone:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								93242 43011
+							</span><br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Email:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								sringaar.rajani@yahoo.com
+							</span>
+							<br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Follow on:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								Facebook, Twitter
+							</span>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="bo9 p-l-40 p-t-30 p-b-38">
+					
+						<h5 class="m-text20">
+							Ms.Yosshita Poddar
+						</h5>
+						<div class="s-text15">(Fashion Designer)</div>
+						<div class="s-text15 m-t-10">
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Phone:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								93218 64422
+							</span><br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Email:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								ypodar@gmail.com
+							</span>
+							<br>
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Follow on:</strong>
+							</span>
+		
+							<span class="s-text16 w-size19 w-full-sm">
+								Facebook, Twitter
+							</span>
+						</div>
+						
+					</div>
+				</div>				
+				<div class="col-sm-4">
+					<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38" style="height: 202px;">
+				
+					<h5 class="m-text20">
+						Address
+					</h5>
+					<div class="s-text15 m-t-10">
+						
+						<span class="s-text16 w-size19 w-full-sm" >
+							109, Marine Chambers, 1st floor,<br>Opp. SNDT College, 43,<br>New Marine Lines, Mumbai
+						<br>Pin Code : 400020<br>
+						</span><br>
+					</div>   
+					
+				</div>
+				</div>
+		</div>
+	</div>
+</section>
+</form>
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		console.clear();
+	});
+	</script>
+{% endblock %}
+
+

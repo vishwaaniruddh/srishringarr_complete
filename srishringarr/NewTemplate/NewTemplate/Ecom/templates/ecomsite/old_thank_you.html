@@ -1,0 +1,124 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% block content %} 
+<style>
+.msg_card{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    height: auto;
+    margin: 1%;
+    text-align: center;
+    background: #fff;
+    padding: 1%;
+}
+hr{
+	border: 1px solid #F86C6B;
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+}
+.btn{
+	background: #F86C6B;
+    border: 0;
+    padding: 1%;
+    color: #fff;
+    font-family: 'Quicksand-Regular';
+    font-size: 15px;
+}
+</style>
+<div class="container">
+	<div class="msg_card" style="width: auto;">
+		{% if thanku_setting.order_msg_txt == True %}
+			<img src="{% static 'images/success.png' %}" style="width: 100px;" /><h2>{% if thanku_setting_option.order_msg %}
+						{{thanku_setting_option.order_msg}}
+					{% else %}
+						Your Order has been placed successfully.
+					{% endif %}
+					</h2>
+		{% else %}
+			<img src="{% static 'images/success.png' %}" style="width: 100px;" /><h2>Your Order has been placed successfully.</h2>
+		{% endif %}
+	</div>
+	{% if thanku_setting.delivery_dt == True %}
+		<div class="msg_card" style="width: auto;">
+			Delivery Date: Nees to add
+		</div>
+	{% endif %}
+	<div style="width:100%;">
+		{% if thanku_setting.order_summary == True %}
+			<div class="msg_card" style="width: 30%; float: left;">
+				<h2>Order Summary </h2>
+				<hr class="checkout_hr"/>
+				 {% for orderItem in orderItems %}
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 30%; text-align: center;">
+								<img src="{% static '' %}{{orderItem.product.product_image}}" style="width: 67px;" />
+							</td>
+							<td style="width: 70%;">
+								{{ orderItem.product.name }}<br/>
+								Mrp : Rs. <strike> {{ orderItem.product.mrp|floatformat:"0" }} </strike><br/>
+								Payable : Rs. {{ orderItem.product.final_product_price|floatformat:"0" }} x {{ orderItem.quantity }} = Rs. {% widthratio orderItem.product.final_product_price|floatformat:"0" 1 orderItem.quantity %}
+								<div style="color: green;margin: 5px;">Saved Rs. {% widthratio orderItem.product.product_saving_price|floatformat:"0" 1 orderItem.quantity %}</div>	
+								
+							</td>	
+						</tr>
+					</table>
+				{% endfor %}
+				<h2>Total Amount Payable Rs. {{ orderData.total|floatformat:"0" }}</h2>
+			</div>
+		{% endif %}
+		{% if thanku_setting.note == True %}
+			<div class="msg_card" style="width: 29%; float: left;">
+				<h2>Note</h2>
+				<hr class="checkout_hr"/>
+				<ul style="text-align: left;">
+					{% if thanku_setting_option.notes %}
+						{{thanku_setting_option.notes}}
+					{% else %}
+						<li>Return/ Refund can be done in 10 days.</li>
+						<li>Refund will be to your bank account.</li>
+						<li>After product shipment you can't cancel your order.</li>
+					{% endif %}
+				</ul>
+			</div>
+		{% endif %}
+		{% if thanku_setting.cancel_rule == True %}
+		<div class="msg_card" style="width: 29%; float: right;">
+			<h2>Rules for cancelling/return</h2>
+			<hr class="checkout_hr"/>
+			<ul style="text-align: left;">
+				{% if thanku_setting_option.rules_cancel_order %}
+					{{thanku_setting_option.rules_cancel_order}}
+				{% else %}
+					<li>If product is damaged then return/ refund will not appply.</li>
+					<li>If applied for refund, amount will reflect in your account in 8 working days.</li>
+				{% endif %}			</ul>
+		</div>
+		{% endif %}
+	</div>
+	<div style="width:100%;">
+		{% if thanku_setting.order_address == True %}
+			<div class="msg_card" style="width: 30%; float: left;">
+				<h2>Delivered to Address</h2>
+				<hr class="checkout_hr"/>
+				{{ orderData.address.name }}, {{ orderData.address.address }},<br/> 
+				{{ orderData.address.area }},<br/>
+				{{ orderData.address.state }}, {{ orderData.address.city }} - {{ orderData.address.pin_zip }}
+			</div>
+		{% endif %}
+	</div>
+	{% if thanku_setting.cont_shop_btn == True %}
+		<div>
+			<a href="{%url 'site_home' %}"><input type="submit" value="Continue Shopping" class="btn"/></a>
+		</div>
+	{% endif %}
+</div>
+{% endblock %}
+

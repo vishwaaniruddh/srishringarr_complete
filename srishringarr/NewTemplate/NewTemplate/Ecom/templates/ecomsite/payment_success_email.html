@@ -1,0 +1,13 @@
+<html>
+	<div>
+		Order Id : #0000{{ order.id }}
+		Order Date :{{order.created_at|date}}
+		Product Name : {{currentProduct.name}}
+		Address :{{ order.address.name }}, {{ order.address.address }},<br/> 
+					{{ order.address.area }},<br/>
+					{{ order.address.state }}, {{ order.address.city }} - {{ order.address.pin_zip }}
+		Transaction Id :{{order.txnid}}
+		Amount :{{order.total|floatformat:"0"}}
+
+	</div>
+</html>

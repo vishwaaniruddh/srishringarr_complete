@@ -1,0 +1,100 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}
+	<section class="bgwhite p-t-55 p-b-55">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3">
+				</div>
+				
+				<div class="bo9 col-sm-6 col-md-4 col-lg-5 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20 m-b-30 m-t-10 m-r-20">
+						Address 
+					</h5>
+					<form enctype="multipart/form-data" method="POST">
+						{% csrf_token %}
+						<span class="s-text15">
+							<strong>Address Type</strong>
+						</span>
+						<div class="size1 m-b-12">
+							<span class="s-text16">
+								<input type="radio" name="addressType" id="home" onclick="checkSatofficeOpen(this.form)" value="0" {% if address.type == '0' %}checked{% else %}checked{% endif %}> Home (7 am - 9 pm delivery )
+							</span>
+							<span class="s-text16">
+								<input type="radio" name="addressType" id="office" onclick="checkSatofficeOpen(this.form)" value="1" {% if address.type == '1' %}checked{% endif %}> Office (10 am - 5 pm delivery )<br>
+								<div style="{% if address.type == '1' %} display:block; {% else %} display:none; {% endif %}" id="satOpen">
+									<input type="checkbox" name="deliver"> Can deliver parcel on Saturday 
+								</div>
+							</span>
+						</div>
+						<span class="s-text15">
+							<strong>Full Name</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Full Name" name="ba_full_name" value="{{ address.name }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>Address</strong>
+						</span>
+						<div class="size1 m-b-30">
+							<textarea class="w-full dis-block s-text7 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="ba_address" placeholder="Address" required>{{ address.address }}</textarea>
+						</div>
+						<span class="s-text15">
+							<strong>Area</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Area" name="ba_area" value="{{ address.area }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>City</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter City" name="ba_city" value="{{ address.city }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>State</strong>
+						</span>
+						<div class="size1 bo9 m-b-12">
+							<select class="selection-2 sizefull s-text7 p-l-15 p-r-15" name="ba_state" style="border: 0;">
+								<option value="0">Select State</option>
+								{% for sl in allStateList %}
+									<option value="{{sl.code}}" {% if address.state == sl.code %} selected {% endif %}>{{sl.name}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<span class="s-text15">
+							<strong>Pin/Zip Code</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="number" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Pin/Zip Code" name="ba_pinzip" value="{{ address.pin_zip }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>Country</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Country" name="ba_country" value="{{ address.country }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>Mobile</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="number" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Mobile" name="ba_mobile" value="{{ address.mobile }}" maxlength="10" >
+						</div>
+												
+						<div class="w-size25 float-r">
+							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit" name="address" value="Save">
+								Save
+							</button>
+						</div>
+					</form>	
+				</div>
+				
+				<div class="col-sm-6 col-md-4 col-lg-4">
+				</div>
+			</div>
+		</div>
+	</section> 
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}

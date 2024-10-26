@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+	{% if successMessage %}
+	<div {% if status %} class="sAlert" {% else %} class="alert"{% endif %} >
+		<span class="closebtn"
+			onclick="this.parentElement.style.display='none';">&times;</span> 
+			{{successMessage }}
+	</div>
+	{% endif %}
+
+	<div class="outerDiv center">
+		{%csrf_token%}
+		<form action="" enctype="multipart/form-data" method="POST">
+			{%csrf_token%}			
+			<div class="SignUpContent">
+				<h2>Product Variants</h2>
+				<div id="variants_">
+					<label><b>SKU</b></label> 
+					<input type="text"	placeholder="Enter sku" value="{{ variantData.sku }}" name="sku"/>
+					
+					<h4>Price Section</h4>
+					<div>
+						<div class="input-width-50">
+							<label><b>MRP</b></label><br/>
+							<input type="number" placeholder="Enter MRP" value="{{ variantData.mrp }}" name="productmrp"/>
+						</div>
+						<div class="input-width-50">
+							<label><b>Studio Price</b></label><br/>
+							<input type="number" placeholder="Enter Studio Price" value="{{ variantData.studio_price }}" name="productstudioprice" />
+						</div>
+					</div>
+					
+					<div>
+						<div class="input-width-50">
+							<label><b>Sale Price</b></label><br/>
+							<input type="number" placeholder="Enter Sale Price" value="{{ variantData.sale_price }}" name="productsaleprice" />
+						</div>
+						<div class="input-width-50">
+							<label><b>Rent Price</b></label><br/>
+							<input type="number" placeholder="Enter Rent Price" value="{{ variantData.rent_price }}" name="productrentprice" />
+						</div>
+					</div>
+				
+					<label><b>Discount (%)</b></label> 
+					<input type="number" placeholder="Enter discount price" value="{{ variantData.discount }}" name="discount" />
+					
+					<label><b>Product Image</b></label><br/>
+					<div>
+						<input type="file" name="product_image">
+						<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+							{% if variantData.image %}
+								<img class="SliderIcon" src="{% static '' %}{{ variantData.image }}" alt="Avatar" />
+							{% endif %}
+						</div>
+					</div>
+					
+					<label><b>Thumbnail Image</b></label><br/>
+					<div>
+						<input type="file" name="thumbnail_image">
+						<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+							{% if variantData.thumbnail %}
+								<img class="SliderIcon" src="{% static '' %}{{ variantData.thumbnail }}" alt="Avatar" />
+							{% endif %}
+						</div>
+					</div>
+					<label><b>Product Angle Image</b></label><br/>
+					<div>
+						 <input type="file" name="angle_images" multiple>
+						<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+						{% if variantData.angle_image %}
+							{% for image in variantData.angle_image|getList %}
+								<img class="SliderIcon" src="{%static '/images/catalog/products/thumbnail/'%}{{image}}" alt="Avatar" />
+							{% endfor %}
+						{% endif %}
+						</div>
+					</div>
+					<label><b>Quantity</b></label>
+					<input type="number"	placeholder="Enter quantity" value="{{ variantData.quantity }}" name="quantity"/><br/>
+					
+					<input type="checkbox" name="isdefault"  id="defaultSelection" value = "1" {% if variantData.is_default == 1 %} checked {% endif %}/> Is Default
+					<input type="checkbox" name="isactive"  id="activeSelection" value = "1" {% if variantData.is_active == 1 %} checked {% endif %} {% if variant_id == 0%}checked{% endif %}/> Publish
+					<input type="checkbox" name="isbestseller"  id="bestSellerSelection" value = "1" {% if variantData.is_bestseller == 1 %} checked {% endif %}/> Is BestSeller
+					<input type="checkbox" name="isfeatured"  id="featuredSelection" value = "1" {% if variantData.is_featured == 1 %} checked {% endif %}/> Is Featured<br/><br/>
+					
+					<label><b>Short Description</b></label> 
+					<input type="text"	placeholder="Enter short description" value="{{ variantData.small_description }}" name="small_description"/>
+					
+					 <label><b>Description</b></label>
+					<textarea name="description" rows="5"  placeholder="Describe product here..." style="resize: none; width:100%;margin-top:10px;">{{ variantData.description }}</textarea>
+					
+					<label><b>Color</b></label>
+					<div style="display:flex;">
+					{% for col in color %}
+						<div style="width:auto;margin:10px;">
+				   			<input value="{{ col.id }}" type="radio" name="colorValue" {% if variantData.color.id == col.id %} checked {% endif %}/> 
+					   		<div style="width:20px; height:20px; border: 1px solid #000000; background-color: {{col.code}};">
+					   		</div>
+					   		{{ col.name }}
+				   		</div>
+					{% endfor %}
+					</div>
+					
+					<label><b>Size</b></label><br/>
+						<input type="radio" name="sizeOption" value="XS" {% if variantData %}{{ 'XS'|isValChecked:variantData.size }}{% endif %}/> XS<br/>
+						<input type="radio" name="sizeOption" value="S" {% if variantData %}{{ 'S'|isValChecked:variantData.size }}{% endif %}/> S<br/>
+						<input type="radio" name="sizeOption" value="M" {% if variantData %}{{ 'M'|isValChecked:variantData.size }}{% endif %}/> M<br/>
+						<input type="radio" name="sizeOption" value="L" {% if variantData %}{{ 'L'|isValChecked:variantData.size }}{% endif %}/> L<br/>
+						<input type="radio" name="sizeOption" value="XL" {% if variantData %}{{ 'XL'|isValChecked:variantData.size }}{% endif %}/> XL<br/>
+						<input type="radio" name="sizeOption" value="XXL" {% if variantData %}{{ 'XXL'|isValChecked:variantData.size }}{% endif %}/> XXL<br/><br/>
+						
+					<label><b>Specific for</b></label><br/>
+						<input type="radio" name="genderOption" value="Women" {% if variantData %}{{ 'Women'|isValChecked:variantData.specific_for }}{% endif %}/> Women<br/>
+						<input type="radio" name="genderOption" value="Men" {% if variantData %}{{ 'Men'|isValChecked:variantData.specific_for }}{% endif %}/> Men<br/>
+						<input type="radio" name="genderOption" value="Men & Women" {% if variantData %}{{ 'Men & Women'|isValChecked:variantData.specific_for }}{% endif %}/> Men & Women<br/>
+						<input type="radio" name="genderOption" value="Baby" {% if variantData %}{{ 'Baby'|isValChecked:variantData.specific_for }}{% endif %}/> Baby<br/>
+						<input type="radio" name="genderOption" value="Baby Boys & Baby Girl" {% if variantData %}{{ 'Baby Boys & Baby Girl'|isValChecked:variantData.specific_for }}{% endif %}/> Baby Boys & Baby Girl<br/>
+						<input type="radio" name="genderOption" value="Girls" {% if variantData %}{{ 'Girls'|isValChecked:variantData.specific_for }}{% endif %}/> Girls<br/>
+						<input type="radio" name="genderOption" value="Boys" {% if variantData %}{{ 'Boys'|isValChecked:variantData.specific_for }}{% endif %}/> Boys<br/>
+						<input type="radio" name="genderOption" value="Boys & Girl" {% if variantData %}{{ 'Boys & Girl'|isValChecked:variantData.specific_for }}{% endif %}/> Boys & Girl <br/><br/>
+						
+					<label><b>Highlights</b></label>
+					<textarea name=highlights rows="3" placeholder="Enter Highlights" style="resize: none; width: 100%; margin-top: 10px;" id="id_highlights">{{ variantData.highlights }}</textarea>
+					<br/>
+					
+					<label><b>Services</b></label>
+					<textarea name=services rows="3" placeholder="Enter Services" style="resize: none; width: 100%; margin-top: 10px;" id="id_services">{{ variantData.services }}</textarea>
+					<br/>
+					
+					<label><b>Specifications</b></label>
+					<textarea name=specifications rows="3" placeholder="Enter Specifications" style="resize: none; width: 100%; margin-top: 10px;" id="id_specifications">{{ variantData.specifications }}</textarea>
+					<br/>
+				</div>
+				<button class="buttonAuth" type="submit">Add Product Variants</button>			
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Health Clinic</title>
+<meta name="keywords" content="#" />
+<meta name="description" content="#" />
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+<script>
+function fn_submit()
+{
+document.form1.submit();
+}
+</script> 
+</head>
+<body>
+
+<div id="site_title_bar_wrapper_outter">
+<div id="site_title_bar_wrapper_inner">
+
+	<div id="site_title_bar">
+    
+    	<div id="banner_left">
+            <div id="site_title">
+                <h1><a href="#">
+                    Health <span>Clinic</span>
+                    <span class="tagline">A complete heart care</span>
+                </a></h1>
+            </div>
+            <img src="images/doctor11.png" />
+           
+        </div>
+        
+        <div id="banner_right">
+              
+            <div id="banner_box">
+           
+            <form action="login.php" name="form1" id="form1" style="font-size:12px; font-weight:bold;" method="post">
+
+            Username: <input name="uname" type="text" /> <br /><br />
+            
+            Password: <input name="pass" type="password" /> <br /><br />
+            
+            <div class="button"><input name="submit" type="submit" value="Login"  onmouseover="this.style.color='#f8e836'"  onmouseout="this.style.color='#fff'"style="width:100px; height:25px; background-image:url(images/button_01.png); border:1px #00c8d5 solid; color:#FFF; font-weight:bold;cursor:pointer; "/></div>
+            
+            <!-- <div class="button"><a href="#" onClick="fn_submit();" >Login</a></div>-->
+            
+            </form>
+           
+            </div>
+          
+		    </div>
+            
+      </div> <!-- end of site_title_bar  -->
+    
+</div> <!-- end of site_title_bar_wrapper_inner -->
+</div> <!-- end of site_title_bar_wrapper_outter  -->
+
+<div id="content">
+
+    
+</div> <!-- end of content -->
+
+
+
+</body>
+</html>

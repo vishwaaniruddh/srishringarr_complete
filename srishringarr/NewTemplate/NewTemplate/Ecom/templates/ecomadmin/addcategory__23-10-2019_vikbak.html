@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+	{% if successMessage %}
+	<div {% if status %} class="sAlert" {% else %} class="alert"{% endif %} >
+		<span class="closebtn"
+			onclick="this.parentElement.style.display='none';">&times;</span>
+		{{successMessage }}
+	</div>
+	{% endif %}
+
+	<div class="outerDiv center">
+		{%csrf_token%}
+		<form action="" enctype="multipart/form-data" method="POST">
+			{%csrf_token%}
+			<div class="SignUpContent">
+				<label><b>Category Name</b></label> 
+				<input type="text" placeholder="Enter category name" value="{{ categoryData.name }}"  name="cat_name" required />
+				<label><b>Parent</b></label> 
+				<select name = "parentName">
+				   		 <option value="0">Select Parent</option>
+				    {% for category in cat_list %}
+					     <option value="{{ category.id }}" {% if categoryData.parent.id == category.id %}selected{% endif %}>{{ category.name }}</option>
+					{% endfor %}
+		    	</select><br/>
+		    	<label><b>Description</b></label>
+				<textarea name="description" rows="5" placeholder="Describe category here..." style="resize: none; width: 100%; margin-top: 10px;" required>{{ categoryData.description }}</textarea>
+				<label><b>Is Active</b></label><br/>
+					<input type="checkbox" id="activeSelection" name="isactive" {% if categoryData.is_active %}checked{% endif %}/> Publish<br/><br/>
+					
+				<label><b>Meta Keywords</b></label>
+				<textarea name="meta_keywords" rows="3" placeholder="Comma delimited set of SEO keywords" style="resize: none; width: 100%; margin-top: 10px;" >{{ categoryData.meta_keywords }}</textarea>
+			
+				<label><b>Meta Description</b></label>
+				<textarea name="meta_description" rows="3" placeholder="Content for Meta Description" style="resize: none; width: 100%; margin-top: 10px;" >{{ categoryData.meta_description }}</textarea>
+				
+				<label><b>Commission</b></label> 
+				<input type="number" placeholder="Enter category commission" value="{{ categoryData.commission }}"  name="commission" required />
+				
+				<br/>
+				<label><b>Category Image</b></label>
+				<br/>
+				<input type="file" name="myfile">
+				<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+					{% if categoryData.image %}
+						<img class="SliderIcon" src="{% static '' %}{{ categoryData.image }}" alt="Avatar" />
+					{% endif %}
+				</div>
+				
+				<label><b>Order level</b></label> 
+				<input type="number" placeholder="Enter category order level" value="{{ categoryData.order }}"  name="order" required />
+				 	
+				<button class="buttonAuth" type="submit">Add Category</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+

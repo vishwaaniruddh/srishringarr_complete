@@ -1,0 +1,19 @@
+{% extends "basesite.html" %} {% load staticfiles %} {% block content %}
+<div class="row m-t-20" >
+	{% for data in sub_cat_list %}
+	<div class="col-lg-3" style="padding: 30px;">
+		<!-- Block2 -->
+		<div class="block2">
+			<div class="block2-img wrap-pic-w">
+				<a href="{% url 'catprodlist' data.id %}?page=1"> <img
+					src="{% static 'images/site/category/' %}{{ data.image }}" alt="IMG-PRODUCT"
+					style="height: auto;" />
+					<div style="text-align: center;">{{ data.name }}</div> <br>
+				</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+

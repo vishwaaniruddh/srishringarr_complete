@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/media/images/favicon.ico" />
+		
+		<title>DataTables example</title>
+		<style type="text/css" title="currentStyle">
+			@import "media/css/demo_page.css";
+			@import "media/css/demo_table.css";
+		</style>
+		<script type="text/javascript" language="javascript" src="media/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				var oTable = $('#example').dataTable( {
+					"bProcessing": true,
+					"sAjaxSource": "sources/arrays.php"
+				} );
+			} );
+		</script>
+	</head>
+	<body id="dt_example">
+		
+		
+			
+<table width="84%"  border="0" cellpadding="0" cellspacing="0" class="display" id="example">
+	<thead>
+		<tr>
+			<th width="11%" >Id</th>
+			<th width="17%" >name</th>
+            <th width="14%" >date</th>
+			<th width="17%">city</th>
+			<th width="16%">area</th>
+		<th width="25%" >reference</th>
+            <th width="25%" >Appoinment</th>
+                <th width="25%" >Option</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody>
+
+</table>
+			
+			
+			
+
+			
+			
+			
+		
+	
+</body>
+</html>

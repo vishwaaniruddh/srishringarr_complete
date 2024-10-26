@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <style type = "text/css">
+.apply{
+  text-align: center;
+}
+.margin{
+  display: block;
+  margin-left: 230px;
+  margin-right: auto;
+  width: 50%;
+
+}
+.content {
+  max-width: 640px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+.wrapper{
+  min-width: 500px;
+
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+</head>
+
+<body>
+  <div class="content">
+      <div><img class = "center" src = "https://www.srishringarr.com/static/images/site/logo/main_logo.png"></div>
+      <hr>
+      
+      <h3 class = "apply">ORDER CONFIRMED</h3>
+      
+      <div class = "apply"><i>Your order has been Confirmed</i></div>
+      <p class = "apply">Hello {{ orderDetails.user.username }}! </p>
+      <div class = "apply">We've confirmed your order. See details below. We will inform you when your order has been shipped.</div>
+      <table class = "margin">
+    <!-- <tr><td> Order No.:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>#0000{{ order_info.id }}</td> -->
+      <tr><td> Order No.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>#0000{{ items.order_id }}</td>
+    </tr>
+    <tr><td> Product Name</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>{{items.product.name}}</td>
+
+    </tr>
+    <tr><td> Qty</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>{{ items.quantity }}</td>
+
+    </tr>
+    <tr><td> Price</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>{{orderDetails.total|floatformat:"0"}} Rs.</td>
+
+    
+    </tr>
+    <tr><td> Delivery Date</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>{{items.booking_dt}}</td>
+
+    </tr>
+    <tr><td> SKU Code</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>{{items.product.sku}}</td>
+
+    </tr>
+  <tr>
+    <td >Deposit Amount</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Rs.{{orderDetails.final_deposite}}</td>
+  </tr>
+  </table>
+  <br>
+ <div class = "apply" style="">Note: Please pay the deposit amount of Rs.{{orderDetails.final_deposite}} before {{date_depo.day}}/{{date_depo.month}}/{{date_depo.year}}
+</div>
+<div class = "apply">See below our bank account details for online transfer.
+</div>
+<div class = "apply">Someone from our team will get in touch with you shortly regarding this.
+</div>
+<br>
+<table class="margin">
+    <tr>
+      <td >
+        Account number
+      </td>
+      <td>:&nbsp;</td>
+      <td>50200010838727</td>
+   </tr>
+   <tr>
+      <td >
+       IFSC code  
+      </td>
+      <td>:&nbsp;</td>
+      <td>HDFC0000227</td>
+   </tr>
+   <tr>
+      <td >
+        Branch 
+      </td>
+      <td>:&nbsp;</td>
+      <td>Vile Parle East</td>
+   </tr>
+ </table>
+
+  <p class = "apply">For queries or complaints,<br>please call us on
+9324243011 or email <a href="info@srishringarr.com">info@srishringarr.com</a> </p>
+      <div class = "apply">Regards,</div>
+    <div class = "apply">The Srishringarr Team></div>
+    <hr>
+  <img src = "https://www.srishringarr.com/static/images/site/logo/main_logo.png" style="width:150px;height:50px;">
+
+</div>
+</body>
+</html>

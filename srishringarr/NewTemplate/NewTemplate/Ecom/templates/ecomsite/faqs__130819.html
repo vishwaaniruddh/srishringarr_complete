@@ -1,0 +1,387 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}
+<style>
+.disc-list li{
+    list-style-type: disc;
+}
+</style>
+<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/site/grid_images/img-1.jpg' %});">
+	<h2 class="l-text2 t-center">
+		FAQ's
+	</h2>
+</section>
+<div class="m-l-60 m-t-60 m-r-60 m-b-60">
+
+ <div class="m-l-20 m-r-20 m-t-20 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_1_header" class="accordion-toggle collapsed" onClick = "openCollapse('1');" data-toggle="collapse" data-parent ="#accordion">
+			1.	Why borrow from Sri Shringarr ? &nbsp;
+			 <span style="float: right;">
+			 	<span id="question_1_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_1" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Renting is easy and economical means of keeping up with the latest trends.</li>
+				<li>Renting fine designer jewellery and outfits for weddings and special occasions is an exciting new concept.</li>
+				<li><b>Sri Shringarr</b> realizes the value of having to buy expensive jewels and outfits just so it can be worn a few times on special occasions  and also everyone we know has seen this same jewellery and outfit on us, over and over again.</li>
+				<li><b>Sri Shringarr</b>  gives you the privilege to choose from dozens of gorgeous designs at a very reasonable price.</li>
+				<li><b>Sri Shringarr</b> makes sure that you never have to be seen in the same outfit/jewellery twice. This way you get to wear a variety of designs without spending a fortune and feeling guilty.</li>
+				<li>You can also save a whole lot of wardrobe space and the trouble of maintaining the outfit/jewellery.</li>				
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+ <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_2_header" class="accordion-toggle collapsed" onClick = "openCollapse('2');" data-toggle="collapse" data-parent ="#accordion">
+			2.	How do I know that Sri Shringarr outfit/jewellery is clean and do not look used? &nbsp;
+			 <span style="float: right;">
+			 	<span id="question_2_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_2" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Hygiene is one of our top priorities. After every rental, each piece is professionally inspected, sanitized and cleaned so that you can feel confident about its sparkle and brilliance.</li>
+				<li>Each of our outfits is dry cleaned and ironed each time it is hired.</li>
+				<li>We pride our pieces and discard them as soon as they start looking even slightly worn.</li>
+				<li>Any garment/jewellery which reaches you will either be brand new or will look like new. Nobody will ever be able to tell it's rented.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+  <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_3_header" class="accordion-toggle collapsed" onClick = "openCollapse('3');" data-toggle="collapse" data-parent ="#accordion">
+			3.	Can I change the date of renting a particular garment once it has been booked in advance? What if I want to cancel? &nbsp;
+			 <span style="float: right;">
+			 	<span id="question_3_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_3" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Yes, you can call us to change the date of your booking upto 24 hours after you have booked the outfit.</li>
+				<li>If you want to cancel the booking completely, you can cancel it upto 24 hours after you make the booking, the rental amount paid by you is non-refundable post 24 hours after you make the booking.</li>
+				<li>If you change your mind about the item you have selected, you can let us know upto 24 hours after you make the booking, post that the item cannot be changed.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+  <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_4_header" class="accordion-toggle collapsed" onClick = "openCollapse('4');" data-toggle="collapse" data-parent ="#accordion">
+				4.	What if the outfit requires alterations? &nbsp;
+			 <span style="float: right;">
+			 	<span id="question_4_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_4" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Alterations are possible within the limits of the measurements.</li>
+				<li>Once we have your measurements, we will do those alterations for you. If your stay in Mumbai, you can come 2 days prior to your actual booking date to try your outfit to avoid last minute hassles.</li>
+				<li>After you have placed the order, we will contact you via email for your custom measurements. You can refer to  our video on how to take your measurements for accurate measurements. You can also drop into our Mumbai store and physically let us measure you.</li>
+				<li>Can I alter my outfit at home?<br>
+We make great effort in custom fitting the outfit for you before it is sent out to you so there won’t be any need for altering the outfit at home. In case you have any issues, please contact us immediately. In case you feel tempted to alter it yourself then do remember that we charge for any damages and tears to the outfit.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+  <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_5_header" class="accordion-toggle collapsed" onClick = "openCollapse('5');" data-toggle="collapse" data-parent ="#accordion">
+				5.	Do I need to dry clean / iron outfits before use?
+			 <span style="float: right;">
+			 	<span id="question_5_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_5" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Not at all! Sri Shringarr delivers your outfits in a ready to wear condition. You don’t even need to dry clean it after use.</li>
+				<li>We properly steam iron the outfits. We highly recommend not to iron the outfits on your own, but if the outfits have extreme creases then you can use a non contact good quality steam iron or simply go to a dry cleaner store. Do not use a flat iron as it damages our high quality delicate fabrics and you may be liable to pay for damages occured.</li>
+				</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+ <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_6_header" class="accordion-toggle collapsed" onClick = "openCollapse('6');" data-toggle="collapse" data-parent ="#accordion">
+				6.	Can I keep the outfit more than 7 days?
+			 <span style="float: right;">
+			 	<span id="question_6_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_6" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Generally we deliver your outfits / jewellery one day prior to your function and take it back post your function day, but if you wish to keep your outfit more than 7 days then you need to contact us on 9324243011 or write a mail on info@shringarr.com.</li>
+				</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+ <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_7_header" class="accordion-toggle collapsed" onClick = "openCollapse('7');" data-toggle="collapse" data-parent ="#accordion">
+				7.	What happens if I damage or misplace the outfit/accessory by mistake?
+			 <span style="float: right;">
+			 	<span id="question_7_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_7" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>We understand that small accidents can sometimes happen unintentionally. We can take care of repairable damages such as minor removable stains, minor tears at the seam, stuck zippers and dislodged links in jewellery. However, you are liable to pay for any damages over and above this.</li>
+				<li>It’s up to Sri Shringarr to decide the amount of damage and deduct it from the security deposit.</li>
+				<li>However if any piece goes missing you are liable to pay the MRP of the product.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+  <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_8_header" class="accordion-toggle collapsed" onClick = "openCollapse('8');" data-toggle="collapse" data-parent ="#accordion">
+				8.	Is there a security deposit to be paid each time I book?
+			 <span style="float: right;">
+			 	<span id="question_8_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_8" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>As all our pieces are extremely precious, we take a fully refundable security deposit at the time of rental, which is returned to you when we receive the pieces back in the same condition as it was sent out from us. However, in the event of loss or damage beyond normal wear or tear to a garment/accessory, we will either keep the full security amount or deduct a damage fee as decided by us. </li>
+				<li>You will have to pay the deposit 7 days prior to the booking date. We will dispatch the item only when we receive the deposit amount.</li>
+				<li>Please note that we reserve the rights to cancel a booking if you do not pay the security deposit at the time of rental. Under such circumstances, the rental amount you may have paid will not be returned to you.</li>
+				<li>The deposit will be returned to you within 3-5 working days once we get the outfit back in the same condition it was sent from here.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+   <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_9_header" class="accordion-toggle collapsed" onClick = "openCollapse('9');" data-toggle="collapse" data-parent ="#accordion">
+				9.	For lehengas can I use my own blouses?
+			 <span style="float: right;">
+			 	<span id="question_9_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_9" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Absolutely, that's the best way to ensure a perfect fit. Customers are encouraged to match the lehengas with blouses from their existing collection.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+    <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_10_header" class="accordion-toggle collapsed" onClick = "openCollapse('10');" data-toggle="collapse" data-parent ="#accordion">
+				10.	What if I want to buy an outfit instead of renting it?
+			 <span style="float: right;">
+			 	<span id="question_10_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_10" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Yes, if you fall in love with a particular outfit and are interested in buying it, just give us a call and tell us the Product Code of the garment/jewellery and we will try and work out a special deal for you.</li>
+				<li>If possible we can make a whole new piece for you.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+ 
+     <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_11_header" class="accordion-toggle collapsed" onClick = "openCollapse('11');" data-toggle="collapse" data-parent ="#accordion">
+				11.	What if I don’t like anything from the present collection?
+			 <span style="float: right;">
+			 	<span id="question_11_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_11" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Well you don’t have to worry about that either. We have an inhouse designer. Here is the catch, you can get a design customized according to your style.</li>
+				<li>After you are done wearing your outfit you can return it back to us and get 40% of the total price back.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_12_header" class="accordion-toggle collapsed" onClick = "openCollapse('12');" data-toggle="collapse" data-parent ="#accordion">
+				12.	Can I book outfits/jewellery directly from the store?
+			 <span style="float: right;">
+			 	<span id="question_12_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_12" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>You are always welcome at our store. Our team is happy to help you find an outfit. Your measurements will be taken at the store, so you're all set there too.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_13_header" class="accordion-toggle collapsed" onClick = "openCollapse('13');" data-toggle="collapse" data-parent ="#accordion">
+				13.	What if I want to book the outfit/jewellery urgently?
+			 <span style="float: right;">
+			 	<span id="question_13_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_13" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>You can directly take the outfits from Sri Shringarr’s store in Vile Parle if you want to the outfit or jewellery on that day itself. You can even return the outfits to the store on your return date.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_14_header" class="accordion-toggle collapsed" onClick = "openCollapse('14');" data-toggle="collapse" data-parent ="#accordion">
+				14.	How can I check for ongoing promotions?
+			 <span style="float: right;">
+			 	<span id="question_14_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_14" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>We keep it simple, once you have added your selected products in the cart and you are about to check out, you will see ‘Available Coupons’ option. Just click on the drop down to check for available offers.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_15_header" class="accordion-toggle collapsed" onClick = "openCollapse('15');" data-toggle="collapse" data-parent ="#accordion">
+				15.	How do I return my product?
+			 <span style="float: right;">
+			 	<span id="question_15_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_15" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Your shipping charges includes the return of the outfits and jewellery. A courier service is hired to pick up your products on the return date. <br>You need to pack all the things as it has received and return it to the courier service.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_16_header" class="accordion-toggle collapsed" onClick = "openCollapse('16');" data-toggle="collapse" data-parent ="#accordion">
+				16.	What are the delivery charges that I need to pay?
+			 <span style="float: right;">
+			 	<span id="question_16_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_16" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Above Rs. 5000 the shipping is free.</li>
+				<li>Below that the charges for a single piece of jewellery Rs. 100, Jewellery Set Rs. 200 and for any outfit Rs.500.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_17_header" class="accordion-toggle collapsed" onClick = "openCollapse('17');" data-toggle="collapse" data-parent ="#accordion">
+				17.	How do I calculate my rental period?
+			 <span style="float: right;">
+			 	<span id="question_17_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_17" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>We give our products for 3 days minimum. So the 1st day will be day when the product will be delivered to you, the 2nd day will be the day of your function and on the 3rd day will be the return date.</li>
+				<li>If you want the products for more days, the first day will be the delivery day and the last day will be your return day.</li>
+			</ul>
+		  </div>		 
+	   </div>	
+ </div>
+      <div class="m-l-20 m-r-20 m-t-10 m-b-10">								
+	   <div class="bg6 bo9 p-l-10 p-r-10 p-t-10 p-b-10">	
+			 <span style="cursor: pointer;color:#424242 !important;" id="question_18_header" class="accordion-toggle collapsed" onClick = "openCollapse('18');" data-toggle="collapse" data-parent ="#accordion">
+				18.	Where do I leave my reviews?
+			 <span style="float: right;">
+			 	<span id="question_18_icon" class="glyphicon glyphicon-plus"></span>
+			 </span>
+			 </span>		 
+	   </div>
+	   <div id="answer_18" class="panel-collapse collapse bo1 p-l-20 p-t-20">										
+		  <div class="lefttxt  t-left">
+			<ul class="disc-list p-l-20 p-b-20">
+				<li>Loved our products?, leave reviews on Google (<a href="https://urlzs.com/KgyRg">https://urlzs.com/KgyRg</a>) and Facebook (shorturl.at/rIR24). Your feedback is valuable to us!!</li>
+		  </div>		 
+	   </div>	
+
+ </div>
+ Still having doubts? Call us on 9324243011 or write us on info@srishringarr.com
+ <div class="m-t-20">
+ 	<p>
+ 		<strong>Hope we've cleared all your doubts. Now simply select what you like from a wide range of stunning apparel and accessories, borrow it for that special occasion and return it or simply buy it if you love it!</strong> 
+ 	</p>
+ </div>
+ 
+</div>
+
+{% endblock %}	
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script>
+	 function openCollapse(section_id){     	
+		   	var main_header = "#question"+section_id+"_header";
+		   	var main_question_icon = "#question_"+section_id+"_icon";
+		   	var answer = "#answer_"+section_id;
+		   	
+		   	if ($(answer).hasClass('collapse')){
+		   		$(main_question_icon).fadeIn("slow").addClass('glyphicon-minus');
+		   			$(main_question_icon).removeClass(' glyphicon-plus ');     
+		   			$(answer).removeClass("collapse").fadeIn("slow").addClass("collapsed");
+		   	}else if ($(answer).hasClass('collapsed')){        		
+		   			$(main_question_icon).addClass(' glyphicon-plus ');
+		   			$(main_question_icon).removeClass(' glyphicon-minus');
+		   			$(answer).removeClass("collapsed").addClass("collapse");
+		   	}
+		   }
+	</script>
+{% endblock %}
+

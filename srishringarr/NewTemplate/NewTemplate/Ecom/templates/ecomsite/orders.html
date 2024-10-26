@@ -1,0 +1,278 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}	
+<style>
+.table-head th{
+	background-color: #444444;
+	color: #ffffff !important;
+}
+@media screen and (max-width:424px) {
+  .down {
+    display:block;
+  }
+}
+@media screen and (min-width:1024px) {
+  .down {
+    display:none;
+  }
+}
+</style>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<form action="#test" enctype="multipart/form-data" id="cart_form" name="cart_form" method="POST">
+	{% csrf_token %}
+<div class="down" style="margin-top:70px;">
+	</div><input type="hidden" id="pay_id" name="pay_name" value="">
+<!-- Cart item -->
+	<div class="container-table-cart pos-relative m-t-40 m-b-40 m-r-40 m-l-40">
+		<div class="wrap-table-shopping-cart bgwhite">
+			<table class="table-shopping-cart" align="center">
+				<tr class="table-head">
+					<th class="column-1">Product Image</th>
+					<th class="column-2">Order Id</th>
+					<th class="column-2">Product</th>
+					<th class="column-2">Total</th>
+					<th class="column-2">deposit</th>
+					<th class="column-2">Deposit Collected</th>
+					<th class="column-3">Deposit Refund</th>
+					<th class="column-3">Quantity</th>
+					<!-- <th class="column-3">Total</th> -->
+					<th class="column-2">Status</th>
+					<th class="column-2">View Details</th>
+					<!-- <th class="column-1"></th> -->
+				</tr>
+				{% for order in order_detail_report %}
+				<tr class="table-row" align="center">
+				<td class="column-1" style="width: 15%; margin:; ">
+						<div class="cart-img-product b-rad-4 o-f-hidden">
+							<img style="align-self: : center;" src="{% static 'images/catalog/products/main/' %}{{ order.product_image }}" alt="IMG-PRODUCT">
+						</div>
+					</td>
+					<input type="hidden" name="order_id" value="{{ order.order_id }}">
+					<td class="column-2" style="width: 10%;">#0000{{ order.order_id }}</td>
+					<td class="column-2" style="width: 25%;">{{ order.product_name }}</td>
+					<!-- <td class="column-3" style="width: 10%;">
+					{% if order.product.discount %} 
+
+						<strong>
+						 Rs. {{ order.product.final_product_price|floatformat:"0" }}
+						</strong>
+					{% else %}
+						Rs. {{ order.product.final_product_price|floatformat:"0" }}
+					{% endif %}
+					</td> -->
+					
+					<td class="column-4" style="width: 10%;">
+						<div class="flex-w of-hidden w-size17" style="margin-left: 15px; font-size: 30px;">
+							<span style="margin-left: 24px;font-size:18px;" class="size8 m-text18 t-center num-product" id="productTotal_{{ cart_data.product.id }}">Rs.{{order.subtotal}}</span>
+						</div>
+					</td>
+					<td class="column-4" style="width: 10%;">
+						<div class="flex-w of-hidden w-size17" style="margin-left: 15px; font-size: 30px;">
+							<span style="margin-left: 24px;font-size:18px;" class="size8 m-text18 t-center num-product">Rs.{{order.final_deposite}}</span>
+							<input type="hidden" name="deposit" id="deposit" value="">
+						</div>
+					</td>
+					
+					{% if order.deposit_collect %}
+					<td class="column-1">
+							<div style="padding-left: 10px; padding-right: 10px;">
+								Paid
+							</div>
+						</td>
+
+					{% else %}
+						<td class="column-1">
+
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment2" value="nb"> Online Payment <br/>
+							</span>
+							<input type="hidden" name="buttonid" id ="buttonid" value="">
+						
+							<div style="padding-left: 10px; padding-right: 10px;">
+								<input id="abc" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="button" name="abc" value="pay" onclick="clickfunc('{{order.order_id}}','{{order.final_deposite}}')"><br/>
+							</div>
+							
+						</td>
+					{% endif %}
+					
+					<!-- <td class="column-1">
+						<div style="padding-left: 10px; padding-right: 10px;">
+							<button id="place_order_btn" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="button" name="checkout" value="Place Order">Pay</button>
+						</div>
+					</td> -->
+					{% if order.deposit_collect %}
+						{% if order.deposit_return%}
+
+							<td class="column-1">
+								<div style="padding-left: 10px; padding-right: 10px;">
+									Refunded
+								</div>
+							</td>
+
+						{%else%}
+							<td class="column-1">
+								<div style="padding-left: 10px; padding-right: 10px;">
+									
+									<div class="btn btn-outline-primary">Refund Pending..</div>
+									
+								</div>
+							</td>
+
+						{% endif %}
+					
+					{%else%}
+					<td class="column-1">
+
+							Deposit yet to be paid
+							</td>
+					{%endif%}
+					<!-- <td class="column-5" style="width: 10%;"><div id="productTotal_{{ cart_data.product.id }}">  Rs. {{order.quantity}}</div>
+					</td> -->
+					<td class="column-5" style="width: 10%;"><div> {{order.product_quantity}}</div>
+					</td>
+					<td class="column-5" style="width: 10%;"><div >
+					{% if order.order_status == "P" %}Pending{% elif order.order_status == "D" %}Delivered {% elif order.order_status == "C" %}Confirmed{% elif order.order_status == "S" %}Shipped{% elif order.order_status == "X" %}Cancelled{% endif %}</div>
+					</td>
+					<!-- <td class="column-4" style="width: 15%;">
+						<div class="flex-w of-hidden w-size17">
+							<span class="size8 m-text18 t-center num-product" id="productTotal_{{ cart_data.product.id }}">Rs. {{order.subtotal}}</span>
+						</div>
+					</td>
+					 -->
+					<td class="column-5" style="width: 10%;"><a href="{% url 'order_details' order.order_id %}" class="s-text15" style="color: #e6be6e;"><strong>View Details</strong></a></td>
+				</tr>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+
+// var a=$("#abc").val()
+// alert(a);
+
+// var c = $("#buttonid").val(a)
+// alert("CCCCCCCCCCCCCCCCCCCCCCCCC");
+// alert(c);
+
+function clickfunc(vik,i)
+{
+
+	depo_amt=i
+	//alert(depo_amt)
+	//alert(vik)
+	var a=vik
+	var c = $("#buttonid").val(a)
+	//alert("222222222222222222222222222222222222222222222")
+	var radioValue = $("input[name='payment_mode']:checked").val();
+	if(radioValue == ""){
+		//alert("xxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+		console.log("not checked");
+	}else{
+		
+		orderPlace(depo_amt);
+		//makePayment();
+	}
+
+}
+
+function orderPlace(depo_amt)
+{
+	//alert("this is depo amount")
+	//alert(depo_amt)
+	var radioValue = $("input[name='payment_mode']:checked").val();
+	//alert(radioValue);
+
+	if(radioValue==undefined){
+		 //alert("555555555555555555555555555");
+		 swal('Please Select Online Payment');
+		 //$('#cart_form').submit();
+	}
+	else{
+		//alert("innnnnnnnn payment modeeee");
+		makePayment(depo_amt);
+		//makePayment(););
+	}
+	  
+}
+function makePayment(depo_amt)
+{
+	//alert("this is depo amount")
+	//alert(depo_amt)
+	deposit_amount=depo_amt
+	//alert("11111112222222222222222222233333333333333333333")
+	// alert(response.razorpay_payment_id)
+	// var amount_payble = {{ cart_total }} * 100;
+	// vikrant
+
+	var amount_payble =depo_amt*100;    
+	if (amount_payble <= 0){
+		console.log("amount should be greater than 0 Rs.");
+		return true;
+	}
+	
+
+	var options = {
+	    "key": "rzp_test_B3MzUEcuRcfQD2",
+	    "amount":amount_payble, // 2000 paise = INR 20
+	    "name": "Sri Shringar",
+	    "description": "Purchase Description",
+	    "image": "https://www.srishringarr.com/static/images/site/logo/main_logo.png",
+	    "handler": function (response){
+	        // alert(response.razorpay_payment_id);
+	        $("#pay_id").val(response.razorpay_payment_id);
+	        $("#deposit").val(deposit_amount);
+	        depo_amt
+	        //alert("11111111111111111111111133333333333333333333")
+	        //alert(response.razorpay_payment_id);
+	        postPayment();
+	        
+	    },
+	    "prefill": {
+	        "name": "Gaurav Kumar",
+	        "email": "test@test.com"
+	    },
+	    "notes": {
+	        "address": ""
+	    },
+	    "theme": {
+	        "color": "#F37254"
+	    }
+	};
+	//alert("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+	var rzp1 = new Razorpay(options);
+
+	rzp1.open();
+ //    e.preventDefault();
+}
+function postPayment(){
+	
+//alert("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+	$.ajax({
+    	data: $('#cart_form').serialize(), // get the form data
+    	type: $('#cart_form').attr('method'), // GET or POST	         
+        url: "https://www.srishringarr.com/placeOrderdepo/",
+        success: function(response) {
+        	//alert("completed");
+        	if (response.success == "true"){
+        		     $("#cart_form").attr('action','/razorpay-payment_successdepo/')
+                     $("#cart_form").submit();
+		            //alert("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");		            	    	
+		            	return true;
+		            }else{
+		            	return false;
+		            }		        
+	        }
+    });    
+    
+}
+
+
+
+
+
+</script>
+<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}
+

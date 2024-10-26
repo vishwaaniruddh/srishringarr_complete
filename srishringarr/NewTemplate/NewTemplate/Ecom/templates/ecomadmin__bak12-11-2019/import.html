@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+	<div class="outerDiv center">
+		<form method="POST" enctype="multipart/form-data">
+			{%csrf_token%}
+			<div class="loginContent">
+				<label>Import Data to</label><br/>
+				<input type="radio" name="import_type" checked value="category">Category
+				<input type="radio" name="import_type" id="fp" value="product">Product
+				<div id="import_by">
+					<input type="radio" name="import_prod" checked value="jewellery">Jewellery
+					<input type="radio" name="import_prod" value="apparels">Apparels
+				</div>
+				<input type="file" name="file" accept="csv" required/>
+				<input class="buttonAuth" type="submit" name="import" value="Import"/>				
+			</div>
+		</form>
+	</div>
+{% endblock %}

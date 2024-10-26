@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+	{% if successMessage %}
+	<div {% if status %} class="sAlert" {% else %} class="alert"{% endif %} >
+		<span class="closebtn"
+			onclick="this.parentElement.style.display='none';">&times;</span> 
+			{{successMessage }}
+	</div>
+	{% endif %}
+
+	<div class="outerDiv center">
+ 		<form action="" enctype="multipart/form-data" method="POST">
+			{%csrf_token%}
+			<div class="SignUpContent">
+				<label><b>Offer Name</b></label> 
+				<input type="text"	placeholder="Enter Offer name" value="{{ offerData.offer_name }}" name="offername" required />
+				<label><b>Offer Code</b></label> 
+				<input type="text"	placeholder="Enter Offer Code" value="{{ offerData.offer_code }}" name="offercode" required />
+				
+				<label><b>Seller Reference Code</b></label> 
+				<input type="text"	placeholder="Enter reference code" value="{{ offerData.seller_ref_code }}" name="seller_ref_code" required />
+				
+								
+				<label><b>Short Description</b></label> 
+				<input type="text"	placeholder="Enter short description" value="{{ offerData.short_description }}" name="short_description" required />
+				
+				 <label><b>Description</b></label>
+				<textarea name="description" rows="5"  placeholder="Describe Offer here..." style="resize: none; width:100%;margin-top:10px;" required>{{ offerData.description }}</textarea>
+				
+				<label><b>Offer status</b></label><br/>
+				<input type="checkbox" name="is_active"  id="activeSelection" value = "0" {% if offerData.is_active == 1 %} checked {% endif %}/> Publish<br/><br/>
+				
+				<label><b>Offer Type</b></label>
+				<select name = "offer_type">
+				     <option value="FLT" >Flat Value</option>
+				     <option value="DIST" >Discount</option>
+				</select><br/>
+			
+				<label><b>Categories</b></label>
+				<select name = "offer_cat">
+				   	{% for category in cat_list %}
+					     <option value="{{ category.id }}" {% if offerData.categories.id == category.id %} selected {% endif %}>{{ category.name }}</option>
+					{% endfor %}
+		    	</select><br/>
+
+				
+				<label><b>Offer Value</b></label> 
+				<input type="number" placeholder="Enter offer value " value="{{ offerData.offer_value|floatformat:'0' }}" name="offer_value" required />
+				
+				<label><b>Max Users</b></label> 
+				<input type="number" placeholder="Enter maximum users" value="{{ offerData.max_users }}" name="max_users" required />
+					
+				<label><b>Max Per Users</b></label> 
+				<input type="text"	placeholder="Enter maximum per users" value="{{ offerData.max_per_user }}" name="max_per_users" required />
+				
+				<label><b>Expiry Date</b></label>
+				<input type="date" value="{{ offerData.exp_date|date:'Y-m-d' }}" name="exp_dt" required /><br/><br/>
+				
+				<label><b>Minimum Order</b></label>
+				<input type="number" name="min_order" value = "{{ offerData.min_order|floatformat:'0' }}" /><br/><br/>
+				
+				<label><b>Maximum Order</b></label>
+				<input type="number" name="max_order" value = "{{ offerData.max_order|floatformat:'0' }}" /><br/><br/>
+				
+		    	<label><b>Terms & Conditions</b></label>
+				<textarea name=terms_condition rows="3" placeholder="Enter Terms & Conditions" style="resize: none; width: 100%; margin-top: 10px;" id="id_highlights">{{ offerData.terms_condition }}</textarea>
+				<br/>
+				
+				<label><b>Offer Image</b></label><br/>
+				<div>
+					<input type="file" name="offer_image">
+					<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+						<img class="SliderIcon" src="{% if offerData.offer_image %} {% static '' %}{{ offerData.offer_image }} {% else %} {% static 'images/dummy_logo.png' %} {% endif%} " alt="Avatar" />
+					</div>
+				</div>
+		    	
+				<button class="buttonAuth" type="submit">Add Offer</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+

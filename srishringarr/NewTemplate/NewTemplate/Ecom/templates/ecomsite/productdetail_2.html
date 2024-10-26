@@ -1,0 +1,566 @@
+{% extends "basesite.html" %} 
+{% load site_filters %}
+{% load staticfiles %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/site.css' %}">
+<script src='{% static "js/jquery.min.js" %}'></script>
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+hr.style14 {
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+	background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+.prod_img {
+	width: 40%;
+}
+
+.prod_content {
+	width: 60%;
+}
+
+.pdcard {
+	width: auto;
+	border-radius: 0;
+	text-align: left;
+	padding: 2%;
+	background: #fff;
+}
+
+.page_head {
+	font-size: 20px;
+	text-transform: capitalize;
+}
+
+.cart_btn {
+	background: #F86C6B;
+	border: 0;
+	padding: 1%;
+	color: #fff;
+}
+
+.buy_btn {
+	background: #fb641b;
+	border: 0;
+	padding: 1%;
+	color: #fff;
+}
+
+.prodImg {
+	width: 90%;
+    height: 350px;
+    margin-bottom: 10px;
+}
+
+.divMargin {
+	margin: 1%;
+}
+
+.divMargin1 {
+	margin: 2% 1%;
+}
+
+.prodGalleryImg{
+	width: 80px;
+    height: 80px;
+    border: 1px solid #424242;
+    margin:5px;
+}
+
+.galleryDiv{
+    width: auto;
+    display: -webkit-inline-box;
+    margin: 1%;
+}
+
+.section{
+	padding: 1%;
+}
+
+.head_hr{
+	border-width: 0.5px;
+    border-color: #F86C6B;
+    width: 20%;
+    margin-left: 0%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  width: -webkit-fill-available;
+}
+ 
+
+.heading {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top:10px;
+}
+
+.middle {
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+    .side, .middle {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+</style>
+<div class="container">
+	{% if prod_detail_setting.top_msg %}
+		<div class="page_msg">{{ product_details_options.product_top_message }}</div>
+	{% endif %}
+	{% if product_count == 0 %}
+	<div class="pContainer" style="padding: 10px;">Product not
+		available</div>
+	{% else %}
+	<div class="row" style="margin: 2%;">
+		<div class="prod_img left">
+			<img class="prodImg" name="ddd" src="{% static '' %}{{ product_details.product_image }}" alt="Avatar" />
+			<div class="scrollbar"  id="style-4" style="padding:10px;display: flex;overflow: auto;margin-right: 40px">
+				{% if product_details.product_thumb_image %}
+					{% for image in product_details.product_thumb_image|getList %}
+						<img class="prodGalleryImg" onmouseover="change('{% static '/images/catalog/products/thumbnail/'%}{{image}}');" src="{%static '/images/catalog/products/thumbnail/'%}{{image}}" alt="Avatar" />
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+		<div class="prod_content right">
+			<div class="pdcard" style="overflow-y: scroll; height:450px;">
+				{% if prod_detail_setting.prod_name %}
+					<div class="page_head">
+						<b>{{ product_details.name }}</b>
+					</div>
+				{% endif %}				
+				
+				{% if prod_detail_setting.s_review or prod_detail_setting.price or prod_detail_setting.offer %}
+					<div class="section">
+						{% if prod_detail_setting.s_review %}
+							<div style="color:#A4A4A4; margin:5px;"> <span style="margin:5px;padding: 3px 9px; border-radius: 2px; min-width: 36px; position: relative; border: 1px solid #000;background-color: #4CAF50;color: #fff;">{{ avg_ratings }}</span>,  {{ ratings }} Ratings & {{ reviews }} Reviews</div>
+						{% endif %}
+						
+						{% if prod_detail_setting.discount %}
+							<div class="divMargin">
+								<b>Rs. {{ product_details.final_product_price|floatformat:"0" }}</b> 
+								&nbsp;&nbsp;&nbsp;<span style="color:#A4A4A4;"><strike> {{ product_details.mrp|floatformat:"0" }} </strike></span> <span style="color:green;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs. {{ product_details.product_saving_price|floatformat:"0" }} Off</span> 
+							</div>
+						{% else %}
+							{% if prod_detail_setting.price %}
+								<div class="divMargin">Rs. {{ product_details.mrp  }}</div>
+							{% endif %}	
+						{% endif %}
+						{% if prod_detail_setting.offer %}
+							<div class="divMargin">Get {{ product_details.discount|floatformat:"0"  }} %  Off</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if prod_detail_setting.stock %}
+					{% if product_details.quantity == 0 %}
+						<form method="post" style="margin-bottom: 0;" enctype="multipart/form-data" >
+							{% csrf_token %}
+							{% if request.session.site_isUserLogin %}
+								<input type="submit" style="background: #F86C6B;border:0; color: #fff; padding:1%;" name="product_details" value="Notify Me" />
+							{% else %}
+								<input type="text" style="background-color: transparent; color: #000; outline: none; outline-style: none; border-top: none; border-left: none; border-right: none; border-bottom: solid #627492 1px; padding: 3px 10px;"
+								 name="user_info" placeholder="Enter Email/Mobile to Notify" value="" />
+								<input type="submit" style="background: #F86C6B;border:0; color: #fff; padding:1%;" name="product_details" value="Notify Me" />
+							{% endif %}
+						</form>
+					{% else %}
+						<div class="divMargin">{{ product_details.quantity  }} in stock</div>
+					{% endif %}
+				{% endif %}
+				{% if prod_detail_setting.delivery_option %}
+					<div>
+					<span style="font-size:15px;color:#A4A4A4;"> Delivery Details </span><br>
+					<form method="post" style="margin-bottom: 0;" enctype="multipart/form-data" >
+					{% csrf_token %}
+						<div style="float:left;display:flex;">
+							<input style="background-color: transparent; color: #000; outline: none; outline-style: none; border-top: none; border-left: none; border-right: none; border-bottom: solid #627492 1px; padding: 3px 10px;"
+								type="text" placeholder="Enter Pin Code" name="pincode" value="{% if request.session.pincode != 0 %}{{ request.session.pincode }}{% endif %}"/>
+							<input type="submit" class="buttonCss1" name="product_details" value="Check" />
+						</div>
+					</form>
+					<br>
+					<br>
+					<div class="divMargin">
+						Usually delivered in 9-10 days?<br>
+						{% if request.session.pincode != 0 %}Delivery Charges ({{ distance|floatformat:"0" }} km) Rs. {{delivery_charge}} {% else %} Enter pincode for exact delivery dates/charges {% endif %}<br>
+					</div>
+					</div><br>
+				{% endif %}
+
+				{% if prod_detail_setting.color %}
+					<div class="divMargin1">
+						Color: <span style="border: 1px solid #000; padding: 4px 12px; background: {{ product_details.color }}; border-radius: 2px; min-width: 36px; position: relative;"></span>&nbsp;
+					</div>
+				{% endif %}
+				{% if prod_detail_setting.size %}
+					<div class="divMargin1">
+						Size: 
+					{% for data in product_details.size|getList %}
+							<span style="margin:5px;padding: 3px 9px; border-radius: 2px; min-width: 36px; position: relative; border: 1px solid #000;">{{ data }} </span>
+					{% endfor %}
+					
+					</div>
+				{% endif %}
+				{% if prod_detail_setting.size_chart %}
+					<div class="divMargin">
+						Size Chart: To view click <a href="">here</a>.
+					</div>
+				{% endif %}
+
+				
+				{% if prod_detail_setting.highlights or prod_detail_setting.services %}
+					<div class="section">
+						{% if prod_detail_setting.highlights %}
+							<div class="divMargin">
+							<p class="page_head">Highlights</p>
+								{{ product_details.highlights }}
+							
+							</div>
+						{% endif %}
+						
+						{% if prod_detail_setting.services %}
+							<div class="divMargin"><p class="page_head">Services</p>
+								{{ product_details.services }}
+							</div>
+						{% endif %}
+					</div>
+					<hr class="style14" />
+				{% endif %}
+				
+				{% if prod_detail_setting.seller %}
+					<div class="section">
+						<div class="divMargin"><p class="page_head">Seller</p>
+							<ul>
+								<li>FashionConnect (4.1)</li>
+							</ul>
+						</div>
+					</div>
+					<hr class="style14" />
+				{% endif %}
+				
+				{% if prod_detail_setting.description %}
+					<div class="section">
+						<div class="divMargin page_head">Description: {{ product_details.small_description|safe }}</div>
+					</div>
+					<hr class="style14" />
+				{% endif %}
+				
+				{% if prod_detail_setting.specifications %}
+					<div class="section">
+						<div class="divMargin"><p class="page_head">Specifications</p>
+							{{ product_details.specifications }}
+						</div>
+					</div>
+					<hr class="style14" />
+				{% endif %}
+				
+				
+				{% if prod_detail_setting.rating_reviews %}
+					<div class="section">
+				 	<div><p class="page_head">Ratings and Reviews</p></div>
+				 	{{ ratings }} Ratings ,  <span style="margin:5px;padding: 3px 9px; border-radius: 2px; min-width: 36px; position: relative; border: 1px solid #000;background-color: #4CAF50;color: #fff;">{{ avg_ratings }}</span>
+				 	<br>
+				 	<form id="myForm" style="margin-bottom: 0;" enctype="multipart/form-data" >
+						{%csrf_token%}
+				 		<div class="rating">
+				 		    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">5 stars</label>
+						    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">4 stars</label>
+						    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">3 stars</label>
+						    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">2 stars</label>
+						    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 stars">1 star</label>
+						</div>
+						<input style="padding:8px;background: #aba8a8;border:0; color: #000;" type="button"  value="Save Retings" id = "ratings" name="ratings" onclick="addUserRetings('{{ product_details.id }}');"/>
+					</form>  
+					<div style="color:#A4A4A4;">
+						<div>
+							<form style="margin-bottom: 0;" enctype="multipart/form-data" >
+								{%csrf_token%}
+								<textarea  placeholder="Add Reviews"  id = "user_reviews" name="add_user_reviews" ></textarea>
+								<input style="padding:8px;background: #aba8a8;border:0; color: #000;" type="button"  value="Save Review" id = "review" name="review" onclick="addUserReviews('{{ product_details.id }}');"/>
+							</form>	
+						</div>
+					</div>
+			 		</div>
+			 		<br>{{ reviews }} Reviews<br><br>
+			 		{% for reviewsOjb in reviews_list %}
+						<div style="margin-bottom: 15px;padding: 4px 12px; background-color: #e7f3fe;">
+						  <p><strong> {% if reviewsOjb.user %} {{ reviewsOjb.user.username }} {% else %} Guest {% endif %}</strong>
+						  <br><br><br>
+						  {{ reviewsOjb.reviews }}</p>
+						</div>
+			 		{% endfor %}
+			 		
+					<hr class="style14" />
+				{% endif %}
+				
+				<div class="divMargin" style="display:flex;">
+					<div class="pContainer"	style="width: 100px;background: #F86C6B; margin:10px; padding: 12px; color: #fff;">
+						<form style="margin-bottom: 0;" enctype="multipart/form-data" >
+							{%csrf_token%}
+							<input style="background: #F86C6B;border:0; color: #fff;" type="button"  value="Add To Cart"  id = "add_to_cart" name="add_to_cart" onclick="addToCart('{{ product_details.id }}');"/>
+						</form>	
+					</div>
+					{% if prod_detail_setting.buy_now %}<div class="pContainer"	style="width: 100px;background: #F86C6B; margin:10px; padding: 12px; color: #fff;"> <button id="id_buy" class="buy_btn" style="backgroung:#F86C6B;">Buy Now</button> </div>{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	
+	<img id="loader" style="width:40px;height:40px;display:none;" name="loader" src="{% static '/images/product_demo.png' %}" alt="Avatar" />
+	
+	
+	{% if prod_detail_setting.similar_prod %}
+		<div class="otherContainer" style="padding: 0 40px !important;">	
+			<div style="height: auto; margin-top: 50px; border: 1px solid #D1D4D7; background: #ece9e9;">
+				<div style="background: #fff; padding: 10px; font-size: 20px; text-align: center; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+					<strong>Similar Products</strong>
+				</div>
+				<div class="scrollbar"  id="style-4" style="width: 100%; display: flex;" >	
+					{% for product in all_product_list %}
+						<div style="width: 25%;">
+							<div class="card">
+								<img class="imgStyle" src="{% static '' %}{{ product.product_image }}" alt="Avatar" />
+								<hr class="style14" />
+								<div class="pContainer" style="padding: 0px;">
+									<h4>
+										<b>{{ product.name }}</b>
+									</h4>
+									<p>Rs. {{ product.mrp }}</p>
+									<p>{{ product.small_description }}</p>
+								</div>
+								<div class="pContainer"
+									style="background: #F86C6B; padding: 12px; color: #fff;">
+									Add To Cart
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
+	{% if prod_detail_setting.interested_prod %}
+		<div class="otherContainer" style="padding: 0 40px !important;">	
+			<div style="height: auto; margin-top: 50px; border: 1px solid #D1D4D7; background: #ece9e9;">
+				<div style="background: #fff; padding: 10px; font-size: 20px; text-align: center; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+					<strong>Interested Products</strong>
+				</div>
+				<div class="scrollbar"  id="style-4" style="width: 100%; display: flex;" >	
+					{% for product in all_product_list %}
+						<div style="width: 25%;">
+							<div class="card">
+								<img class="imgStyle" src="{% static '' %}{{ product.product_image }}" alt="Avatar" />
+								<hr class="style14" />
+								<div class="pContainer" style="padding: 0px;">
+									<h4>
+										<b>{{ product.name }}</b>
+									</h4>
+									<p>Rs. {{ product.mrp }}</p>
+									<p>{{ product.small_description }}</p>
+								</div>
+								<div class="pContainer"
+									style="background: #F86C6B; padding: 12px; color: #fff;">
+									Add To Cart
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
+	{% if prod_detail_setting.manufacture %}
+		<div class="otherContainer" style="padding: 0 40px !important;">	
+			<div style="height: auto; margin-top: 50px; border: 1px solid #D1D4D7; background: #ece9e9;">
+				<div style="background: #fff; padding: 10px; font-size: 20px; text-align: center; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+					<strong>Products from Seller</strong>
+				</div>
+				<div class="scrollbar"  id="style-4" style="width: 100%; display: flex;" >	
+					{% for product in all_product_list %}
+						<div style="width: 25%;">
+							<div class="card">
+								<img class="imgStyle" src="{% static '' %}{{ product.product_image }}" alt="Avatar" />
+								<hr class="style14" />
+								<div class="pContainer" style="padding: 0px;">
+									<h4>
+										<b>{{ product.name }}</b>
+									</h4>
+									<p>Rs. {{ product.mrp }}</p>
+									<p>{{ product.small_description }}</p>
+								</div>
+								<div class="pContainer"
+									style="background: #F86C6B; padding: 12px; color: #fff;">
+									Add To Cart
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
+	{% if prod_detail_setting.goes_with %}
+		<div class="otherContainer" style="padding: 0 40px !important;">	
+			<div style="height: auto; margin-top: 50px; border: 1px solid #D1D4D7; background: #ece9e9;">
+				<div style="background: #fff; padding: 10px; font-size: 20px; text-align: center; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+					<strong>Goes well with</strong>
+				</div>
+				<div class="scrollbar"  id="style-4" style="width: 100%; display: flex;" >	
+					{% for product in all_product_list %}
+						<div style="width: 25%;">
+							<div class="card">
+								<img class="imgStyle" src="{% static '' %}{{ product.product_image }}" alt="Avatar" />
+								<hr class="style14" />
+								<div class="pContainer" style="padding: 0px;">
+									<h4>
+										<b>{{ product.name }}</b>
+									</h4>
+									<p>Rs. {{ product.mrp }}</p>
+									<p>{{ product.small_description }}</p>
+								</div>
+								<div class="pContainer"
+									style="background: #F86C6B; padding: 12px; color: #fff;">
+									Add To Cart
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% if prod_detail_setting.bottom_msg %}
+		<div class="page_msg">{{ product_details_options.product_bottom_message }}</div>
+	{% endif %}
+</div>
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}

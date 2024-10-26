@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+	<div class="container">
+		{% if successMessage %} 
+			  <div {% if status %} class="sAlert" {% else %} class="alert" {% endif %} >
+				  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				 {{ successMessage }} 
+			  </div>
+		{% endif %}
+			<div class="outerDiv center">
+			{%csrf_token%}
+				<form method="POST" name="Submit">
+					{%csrf_token%}
+					
+					<div class="loginContent">
+						<label><b>Email Address</b></label> <input type="text" placeholder="Enter Email Address" name="username" required> <label><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="password"	required>
+						<!-- <button type="submit">Login</button> -->
+						<button  class="buttonAuth" id="sign-in-button" type="submit" name="login" value="Submit">Login</button>
+						<input style="display: none;" type="checkbox" checked="checked">
+						
+					</div>
+					<div style="text-align: center;">
+						<!-- Remember me -->
+						<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+						</br>
+						<span>Not a member yet? Welcome on board - <a href="{% url 'signup' %}">Sign up now!</a></span>
+					</div>
+			</form>
+			<div id="recaptcha-container"></div>
+		</div>
+    </div>  
+{% endblock %}	
+{% block custom_scripts %}
+<!-- 	<!-- Firebase script -->
+<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyCnmBul6P9n2vdqGMQyssNP2JWLaUMJJ_0",
+		authDomain : "fir-modules-8df0e.firebaseapp.com",
+		databaseURL : "https://fir-modules-8df0e.firebaseio.com",
+		projectId : "fir-modules-8df0e",
+		storageBucket : "fir-modules-8df0e.appspot.com",
+		messagingSenderId : "60445579416"
+	};
+	firebase.initializeApp(config);
+	firebase.auth().languageCode = 'en';
+	
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+		  'size': 'invisible',
+		  'callback': function(response) {
+		    // reCAPTCHA solved, allow signInWithPhoneNumber.
+		    onSignInSubmit();
+		  }
+		});
+	
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+		  'size': 'normal',
+		  'callback': function(response) {
+		    // reCAPTCHA solved, allow signInWithPhoneNumber.
+		    // ...
+		  },
+		  'expired-callback': function() {
+		    // Response expired. Ask user to solve reCAPTCHA again.
+		    // ...
+		  }
+		});
+	
+	function onSignInSubmit(){
+		console.log("asddsdsds");
+	}
+	
+
+	var phoneNumber = "+919167186662";
+	var appVerifier = window.recaptchaVerifier;
+	firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+	    .then(function (confirmationResult) {
+	      // SMS sent. Prompt user to type the code from the message, then sign the
+	      // user in with confirmationResult.confirm(code).
+	      window.confirmationResult = confirmationResult;
+	    }).catch(function (error) {
+	      // Error; SMS not sent
+	      // ...
+	    });
+</script> -->
+{% endblock %}
+	
+	
+ 
+
+
+
+<!-- {% load staticfiles %}
+<!DOCTYPE head PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+ <meta charset = "UTF-8">
+ <title>Login</title>
+ <link rel = "stylesheet"
+   type = "text/css"
+   href = "{%static 'custom.css'%}" />
+ </head>
+ <body>
+
+<div class="login-page">
+  <div class="form">
+  {%csrf_token%}
+  	<div class="successMessage">{% if successMessage %} {{ successMessage }} {% endif %}</div>
+    <form method="post" name="Submit" class="login-form">
+     {%csrf_token%}
+      <input type="text" placeholder="Email Address"/>
+      <input type="password" placeholder="Password"/>
+      <button type="submit" name="login" value="Submit">login</button>
+      <p class="message">Not registered? <a href="/SignUp">Create an account</a></p>
+    </form>
+  </div>
+</div>
+ </body>
+</html> -->

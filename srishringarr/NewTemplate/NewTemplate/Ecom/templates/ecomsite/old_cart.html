@@ -1,0 +1,266 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %} 
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" style="padding:40px;">
+	{% if cart_list %}
+	<div id="responseMsg" style="display:none;">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	</div>
+	{% if successMessage %} 
+		  <div class="sAlert">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	{% if cart_setting.message_top %}
+		{% if cart_setting_option.top_msg %}
+			<div class="page_msg">{{cart_setting_option.top_msg}}</div>
+		{% else %}
+			<div class="page_msg">Dummy top message</div>
+		{% endif %}
+	{% endif %}
+	<form enctype="multipart/form-data" id="cart_form" method="POST">
+	{% csrf_token %}
+	{% if product_count == 0 %}
+		<div class="pContainer" style="padding: 10px;">Product not available</div>
+	{% else %} 
+	<div class="row" style="margin-bottom:40px;" id="cartView">
+		<div class="columncart leftcart">
+			<div style="width: 100%;"> 
+				<div style=" background: #fff; padding:10px;">
+					<div style="padding:10px;">
+						<div style="display:flex;">
+							<div style="width:70%;"> MY CART
+							{% if cart_setting.title_with_count %} 
+							 	({{ cart_count }}) 
+							{% endif %}
+							{% if cart_setting.add_from_wishlist %} 
+								 <input type="submit" class="buttonCss1" name="cart_form_btn" style="margin-left:10px;" value="Add from wishlist">
+							{% endif %}
+							
+							{% if cart_setting.empty %} 
+								<input type="submit" class="buttonCss1" name="cart_form_btn" style="margin-left:10px;" value="Clear Cart" />
+							{% endif %}
+							
+							</div>
+							{% if cart_setting.check_delivery %}
+								<div style="width:30%;float:right;"> 
+								<input type="text" class="text-line" placeholder="Enter Pin Code" name="pincode" value="{% if request.session.pincode != 0 %}{{ request.session.pincode }}{% endif %}"/> 
+								<input type="submit" class="buttonCss1" name="cart_form_btn" style="margin-left:10px;" value="Check" /> </div>
+							{% endif %}
+						</div>
+					<hr class="hrStyle">
+					</div>
+				<div id="cart_value">
+				  {% for cart_data in cart_list %}
+						<div style="display:flex;">
+							<div style="width:70%;">
+								<div style="display:flex;">
+								{% if cart_setting.image %}
+								 	 <img class="cartImgStyle" src="{% static '' %}{{ cart_data.product.product_image }}" alt="Avatar" />
+								{% endif %}
+									<div  style="padding: 0px 50px;width: -webkit-fill-available;">
+										<h4>
+											<b>{{ cart_data.product.name }}</b>
+										</h4>
+										<div class="divMargin">
+											<strong>
+												<span style="font-size:15px;">
+													Rs. {{ cart_data.product.final_product_price|floatformat:"0" }}
+												</span>
+											</strong> 
+											&nbsp;&nbsp;&nbsp;
+											<span style="color:#A4A4A4;">
+												<strike> 
+													{{ cart_data.product.mrp|floatformat:"0" }} 
+												</strike>
+											</span> 
+											<span style="font-size:15px;color:green;"> 
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												Rs. {{ cart_data.product.product_saving_price|floatformat:"0" }} Off
+											</span> 
+										</div>
+										<div class="divMargin">
+											Get {{ cart_data.product.discount|floatformat:"0"  }} %  Off
+										</div>
+
+										<p>
+											{{ cart_data.product.small_description }}
+										</p>
+										<p>
+											Available Stocks : {{ cart_data.product.quantity }}
+										</p>
+										
+										{% if cart_setting.seller_name %}
+											<p>Seller details</p>
+										{% endif %}
+									</div>
+ 
+								</div>
+							<div style="padding: 10px;float: right; width: 100%;">
+								<input type="button" class="circleCss" id="qtyminus" onclick="updateCart('{{ cart_data.product.id }}','-');" value="-" /> 
+								<input type="text" name="quantity" value="{{ cart_data.quantity }}" id="quantity_{{ cart_data.product.id }}" size="2" class="quantity" maxlength="2" style="text-align: center;"/>
+								<input type="button" class="circleCss" id='qtyplus' onclick="updateCart('{{ cart_data.product.id }}','+');" value="+" /> 
+								
+								{% if cart_setting.add_to_wishlist %}
+									<input type="button" class="buttonCss1" onclick="addToWishlist('{{ cart_data.product.id }}')" value=" ADD TO WISHLIST">
+								{% endif%}
+								<input type="submit" class="buttonCss1" name="cart_form_btn" style="margin-left:10px;" value="REMOVE" />
+								<input type="hidden" name="pid" style="margin-left:10px;" value="{{ cart_data.product.id }}" />
+								<input type="hidden" name="cid" style="margin-left:10px;" value="{{ cart_data.cart_id }}" />
+							</div>	
+							</div>
+							<div style="width:30%;float:right;margin:20px;color:#a3a4a5;">
+								 Delivery in 7-8 days: Rs. 60 
+							</div>
+						</div>
+					<hr class="hrCartStyle">
+				  {% endfor %}
+			</div>
+			<div style="display:flex;">
+				<div style="padding: 15px;float: right; width: 100%;">
+					{% if cart_setting.continue_shopping %}
+						<input type="submit" class="buttonCss" name="cart_form_btn" value="CONTINUE SHOPPING">
+					{% endif %}	
+					<input type="submit" class="buttonCss" name="cart_form_btn" style="margin-left:10px;" value="PROCEED TO CHECKOUT">
+				</div>
+			</div>
+			
+		</div>
+			</div>
+		</div>
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6;"> 
+				<div style=" background: #fff; padding:10px;">
+					<div style="padding:10px;">
+						<div style="color:#a3a4a5;"> PRICE DETAILS </div>
+					<hr class="hrStyle">
+					</div>
+					
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Price ({{ cart_count }} items)</div>
+						<div style="width:30%;" id="product_total">Rs. {{ product_total }} </div>
+					</div>
+					
+					{% if cart_setting.delivery_charges %}
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Delivery Charges {% if request.session.pincode != 0 %}({{ distance|floatformat:"0" }} km){% endif %}</div>
+						<div style="width:30%;" id="delivery_charge">
+							{% if cart_setting_option.deliver_type == 'fixed' %}
+								Rs. {{cart_setting_option.delivery_charges}} 
+							{% else %}
+								{% if request.session.pincode != 0 %}
+									Rs. {{delivery_charge}}
+								{% else %}
+									Rs. 0
+								{% endif %}
+							{% endif %}
+						</div>
+					</div>
+					{% endif %}
+					
+					{% if cart_setting.estimated_tax %}
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Estimated Tax </div>
+						<div style="width:30%;">Rs. {{cart_setting_option.estimate_tax}}</div>
+					</div>
+					{% endif %}
+					
+					<hr class="hrCartStyle">
+					<div style="display:flex;padding:10px;">
+						<div style="width:70%;"><strong> Amount Payable  </strong></div>
+						<div style="width:30%;" id="cart_total"><strong>Rs. {{ product_total }}</strong> </div>
+					</div>
+					
+					<div style="display:flex;padding:10px;color:#36b151;">
+						Your Total Savings on this order Rs. 4,765
+					</div>
+					
+				</div>
+				
+				{% if cart_setting.add_coupon %}
+				<div style=" background: #fff; padding:10px;margin-top:10px">
+					<input type="text" class="text-line" name="coupon_code" placeholder="Enter Coupon Code"/> 
+					<input type="submit" class="buttonCss1" name="cart_form_btn" value="Apply"> 
+				</div>	
+				{% endif %}
+				
+				{% if cart_setting.coupon_list %}
+				<div style=" background: #fff; padding:10px;margin-top:10px">
+					Coupon List 
+				</div>	
+				{% endif %}
+								
+				{% if cart_setting.emi_eligibity %}
+					<div style=" background: #fff; padding:10px;margin-top:10px">
+						<strong>EMI Eligibility</strong><br/>
+						{% for bl in banklist %}
+							<div style="{{ bl.id|isValueSelected:cart_setting_option.emi_eligible }}"><label>&nbsp;&nbsp;&nbsp;{{ bl.name }}</label></div>
+						{% endfor %}
+					</div>	
+				{% endif %}
+				
+				{% if cart_setting.replacement_policy %}
+					{% if cart_setting_option.replacement_policy %}
+						<div style=" background: #fff; padding:10px;margin-top:10px">
+							Replacement Policy<br/>
+							{{cart_setting_option.replacement_policy}}
+						</div>
+					{% endif %}	
+				{% endif %}
+				
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	</form>
+	
+	{% if cart_setting.message_bottom %}
+		{% if cart_setting_option.bottom_msg %}
+			<div class="page_msg">{{cart_setting_option.bottom_msg}}</div>
+		{% else %}
+			<div class="page_msg">Dummy bottom message</div>
+		{% endif %}
+	{% endif %}
+	{% else %}
+		<div class="page_msg" style="padding:2%;">
+			<img src="{% static 'images/empty_cart.jpg' %}" style="width:150px;"/><br/>
+			<a href="{%url 'site_home' %}"><Button class="buttonCss"> CONTINUE SHOPPING </Button></a>
+		</div>
+	{% endif %}
+</div>
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}
+

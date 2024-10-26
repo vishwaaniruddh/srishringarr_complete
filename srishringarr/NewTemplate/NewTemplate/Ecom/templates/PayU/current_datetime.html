@@ -1,0 +1,31 @@
+<html>
+  <head onload="submitPayuForm()">
+  <script type="text/javascript">
+    window.onload = function(){
+		     var hash = "{{ hashh }}";
+		  	 if(hash =='') {
+		        return;
+		      }
+		      var payuForm = document.forms.payuForm;
+		      payuForm.submit();
+	}
+  </script>
+  </head>
+  <body>
+      <form action={{ action }} method="post" name="payuForm">{% csrf_token %}
+	      <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />
+
+	      <input type="hidden" name="hash" value="{{ hashh }}"/>
+
+	      <input type="hidden" name="txnid" value="{{ txnid }}" />
+	      <input type="hidden" name="amount" value="{{posted.amount}}" />
+	      <input  type="hidden" name="firstname" id="firstname" value="{{posted.firstname}}" />
+	      <input  type="hidden" name="email" id="email" value="{{posted.email}}" />
+	      <input  type="hidden" name="phone" value="{{posted.phone}}" />
+	      <input  type="hidden" name="productinfo" value="{{posted.productinfo}}" />
+	      <input  type="hidden" name="surl" value="{{ posted.surl }}" />
+		  <input  type="hidden" name="furl" value="{{ posted.furl }}" />
+	      <input  type="hidden" type="hidden" name="service_provider" value="" />
+      </form>
+  </body>
+</html>

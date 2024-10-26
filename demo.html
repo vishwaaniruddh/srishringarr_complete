@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Close Intent Example</title>
+</head>
+<body>
+  <h1>This page will detect when you try to close the browser.</h1>
+
+  <script>
+    window.onbeforeunload = function() {
+      return "Are you sure you want to leave this page?";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+{% load staticfiles %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <title>Orders</title>
+      <meta name="description" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+      <meta name="author" content="pixelcave">
+      <meta name="robots" content="noindex, nofollow">
+      <!-- Open Graph Meta -->
+      <meta property="og:title" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework">
+      <meta property="og:site_name" content="Dashmix">
+      <meta property="og:description" content="Dashmix - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="">
+      <meta property="og:image" content="">
+      <link href="{% static 'assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" type="text/css">
+      <!-- Icons -->
+      <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+      <link rel="shortcut icon" href="{% static 'assets/media/favicons/favicon.png' %}">
+      <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/media/favicons/favicon-192x192.png' %}">
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/media/favicons/apple-touch-icon-180x180.png' %}">
+      <!-- END Icons -->
+      <!-- Stylesheets -->
+      <!-- Fonts and Dashmix framework -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
+      <link rel="stylesheet" id="css-main" href="{% static 'assets/css/dashmix.min.css' %}">
+      <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+      <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/xwork.min.css"> -->
+      <link rel="stylesheet" id="css-theme" href="{% static 'assets/css/themes/xmodern.min.css' %}">
+      <!-- END Stylesheets -->
+
+<style>
+
+.login_border{
+	border: 1px #cccc solid;
+	border-radius: 10px;
+	padding: 30px;
+	margin-bottom: 20px;
+}
+
+.buttonAuth{
+	font-size: 18px;
+	background-color: #e6be6e;
+	color: #9f731c; 
+}
+
+label{
+	margin-bottom: 0;
+}
+
+</style></head>
+   <body style="background-color: #f1f1f1">
+      <!-- Page Container -->
+      <!--
+         Available classes for #page-container:
+         
+         GENERIC
+         
+         'enable-cookies'                            Remembers active color theme between pages (when set through color theme helper Template._uiHandleTheme())
+         
+         SIDEBAR & SIDE OVERLAY
+         
+         'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
+         'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
+         'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
+         'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
+         'sidebar-dark'                              Dark themed sidebar
+         
+         'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
+         'side-overlay-o'                            Visible Side Overlay by default
+         
+         'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
+         
+         'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
+         
+         HEADER
+         
+         ''                                          Static Header if no class is added
+         'page-header-fixed'                         Fixed Header
+         
+         
+         Footer
+         
+         ''                                          Static Footer if no class is added
+         'page-footer-fixed'                         Fixed Footer (please have in mind that the footer has a specific height when is fixed)
+         
+         HEADER STYLE
+         
+         ''                                          Classic Header style if no class is added
+         'page-header-dark'                          Dark themed Header
+         'page-header-glass'                         Light themed Header with transparency by default
+                                                     (absolute position, perfect for light images underneath - solid light background on scroll if the Header is also set as fixed)
+         'page-header-glass page-header-dark'         Dark themed Header with transparency by default
+                                                     (absolute position, perfect for dark images underneath - solid dark background on scroll if the Header is also set as fixed)
+         
+         MAIN CONTENT LAYOUT
+         
+         ''                                          Full width Main Content if no class is added
+         'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
+         'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
+         -->
+      <div id="page-container" class="sidebar-o sidebar-dark side-scroll page-header-fixed main-content-boxed">
+         
+         <nav id="sidebar" aria-label="Main Navigation">
+            <!-- Side Header (mini Sidebar mode) -->
+            <div class="smini-visible-block">
+               <div class="content-header bg-black-10">
+                  <!-- Logo -->
+                  <a class="link-fx font-size-lg text-dual" href="index.html">
+                  <span class="text-muted"></span><span class="text-dual">M</span>
+                  </a>
+                  <!-- END Logo -->
+               </div>
+            </div>
+           
+            <div class="smini-hidden">
+               <div class="content-header justify-content-lg-center">
+                  <!-- Logo -->
+                  <a class="link-fx font-size-lg text-dual" href="index.html">
+                  <span class="text-muted"></span><span class="text-dual">Sri Shrinngarr</span>
+                  </a>
+                  <!-- END Logo -->
+                  <!-- Options -->
+                  <div class="d-lg-none">
+                     <!-- Close Sidebar, Visible only on mobile screens -->
+                     <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                     <a class="text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+                     <i class="fa fa-times-circle"></i>
+                     </a>
+                     <!-- END Close Sidebar -->
+                  </div>
+                  <!-- END Options -->
+               </div>
+            </div>
+           
+            <div class="content-side content-side-full">
+               <ul class="nav-main">
+                  
+                  <li class="nav-main-item">
+                     <a class="nav-main-link" href="{% url 'logout' %}">
+                     <i class="nav-main-link-icon fa fa-flag"></i>
+                     <span class="nav-main-link-name">Login Now</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <!-- END Side Navigation -->
+         </nav>
+         <!-- END Sidebar -->
+         <!-- Header -->
+         <!-- END Header Content -->
+         <!-- Header Search -->
+         <div id="page-header-search" class="overlay-header bg-white">
+            <div class="content-header">
+               <form class="w-100" action="be_pages_generic_search.html" method="POST">
+                  <div class="input-group">
+                     <div class="input-group-prepend">
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <button type="button" class="btn btn-danger" data-toggle="layout" data-action="header_search_off">
+                        <i class="fa fa-fw fa-times-circle"></i>
+                        </button>
+                     </div>
+                     <input type="text" class="form-control border-0" placeholder="Search Application.." id="page-header-search-input" name="page-header-search-input">
+                  </div>
+               </form>
+            </div>
+         </div>
+         
+         <!-- Main Container -->
+         <div id="page-container">
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                <!-- Page Content -->
+                <div class="bg-image">
+                    <div class="row no-gutters justify-content-center ">
+                        <div class="hero-static col-sm-8 col-md-6 col-xl-4 d-flex align-items-center p-2 px-sm-0">
+                            <!-- Sign Up Block -->
+                            <div class="block block-transparent block-rounded w-100 mb-0 overflow-hidden">
+                                <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
+                                    <!-- Header -->
+                                    <div class=" text-center">
+                                    
+                                        <div style="text-align: center;">
+											<img width="200" src="{% static 'images/logo_login.png' %}">
+										</div>
+                                        <hr>
+                                    </div>
+                                    <!-- END Header -->
+
+                                    <!-- Sign Up Form -->
+                                    <!-- jQuery Validation (.js-validation-signup class is initialized in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js) -->
+                                    <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                    {%csrf_token%}
+                                    <form class="js-validation-signup" method="POST" name="Submit">
+                                    	{%csrf_token%}
+                                    	
+                                    	<div class="form-group">
+                                            <div class="input-group">
+                                                <input type="email" class="form-control" id="signup-email" name="username" placeholder="Email">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="fa fa-envelope-open"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="signup-password" name="password"  placeholder="**************">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="fa fa-asterisk"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-hero-success" id="sign-in-button" name="login" value="Submit">
+                                               LOGIN
+                                            </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input style="display: none;" type="checkbox" checked="checked">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <span>Not a member yet? Welcome on board - <a href="{% url 'signup' %}">Sign up now!</a></span>
+                                        </div>
+
+                                       
+
+
+                                        
+                                    </form>
+                                    <!-- END Sign Up Form -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Sign Up Block -->
+                    </div>
+                </div>
+                <!-- END Page Content -->
+
+            </main>
+            <!-- END Main Container -->
+        </div>
+      </div>
+      <script src="{% static 'assets/js/dashmix.core.min.js' %}"></script>
+      <script src="{% static 'assets/js/dashmix.app.min.js' %}"></script>
+      <script src='{% static "assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" %}'></script>
+      <script src='{% static "js/validation.js" %}'></script>
+   </body>
+</html>
+
+	<!-- Firebase script -->
+<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyCnmBul6P9n2vdqGMQyssNP2JWLaUMJJ_0",
+		authDomain : "fir-modules-8df0e.firebaseapp.com",
+		databaseURL : "https://fir-modules-8df0e.firebaseio.com",
+		projectId : "fir-modules-8df0e",
+		storageBucket : "fir-modules-8df0e.appspot.com",
+		messagingSenderId : "60445579416"
+	};
+	firebase.initializeApp(config);
+	firebase.auth().languageCode = 'en';
+	
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+		  'size': 'invisible',
+		  'callback': function(response) {
+		    // reCAPTCHA solved, allow signInWithPhoneNumber.
+		    onSignInSubmit();
+		  }
+		});
+	
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+		  'size': 'normal',
+		  'callback': function(response) {
+		    // reCAPTCHA solved, allow signInWithPhoneNumber.
+		    // ...
+		  },
+		  'expired-callback': function() {
+		    // Response expired. Ask user to solve reCAPTCHA again.
+		    // ...
+		  }
+		});
+	
+	function onSignInSubmit(){
+		console.log("asddsdsds");
+	}
+	
+
+	var phoneNumber = "+919167186662";
+	var appVerifier = window.recaptchaVerifier;
+	firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+	    .then(function (confirmationResult) {
+	      // SMS sent. Prompt user to type the code from the message, then sign the
+	      // user in with confirmationResult.confirm(code).
+	      window.confirmationResult = confirmationResult;
+	    }).catch(function (error) {
+	      // Error; SMS not sent
+	      // ...
+	    });
+</script>
+{% endblock %}	
+	<!-- Firebase script -->

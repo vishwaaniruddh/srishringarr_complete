@@ -1,0 +1,149 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% block content %} 
+<section class="bgwhite p-t-55">
+	<div class="container">
+		<div class="row">
+			{% if thanku_setting.order_msg_txt == True %}
+				<div class="col-sm-6 col-md-8 col-lg-12 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20 t-center">
+						<img src="{% static 'images/success.png' %}" style="width: 100px;" />
+						{% if thanku_setting_option.order_msg %}
+							{{thanku_setting_option.order_msg}}
+						{% else %}
+							Your Order has been placed successfully.
+						{% endif %}
+					</h5>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+<section class="bgwhite">
+	<div class="container">
+		<div class="bo9 row">
+			<div class="col-sm-6 col-md-8 col-lg-12 p-l-40 p-r-40 p-t-30 p-b-38">
+				<h5 class="m-text20 t-center">
+					Order Id: #0000{{ orderData.id }}<br/>
+					{% if thanku_setting.delivery_dt == True %}
+						Order Date: {{ orderData.created_at|date }}
+					{% endif %}
+				</h5>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="bgwhite p-t-55 p-b-65">
+	<div class="container">
+		<div class="row">
+			{% if thanku_setting.order_summary == True %}
+				<div class="bo9 col-sm-6 col-md-8 col-lg-5 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20">
+						Order Summary
+					</h5>
+					{% for orderItem in orderItems %}
+						<table class="table-shopping-cart" style="min-width: 60%;">
+							<tbody>
+								<tr class="table-row" style="border: 0;">
+									<td class="column-3">
+										<div class="cart-img-product b-rad-4 o-f-hidden">
+											<img src="{% static 'images/catalog/products/main/' %}{{orderItem.product.product_image}}" alt="IMG-PRODUCT">
+										</div>
+									</td>
+									<td class="column-2">
+										{{ orderItem.product.name }}<br/>
+										Mrp : Rs. 
+										<!-- <strike> {{ orderItem.product.mrp|floatformat:"0" }} </strike><br/> -->
+										Payable : Rs. {{ orderItem.subtotal|floatformat:"0" }} x {{ orderItem.quantity }} = Rs. {% widthratio orderItem.subtotal|floatformat:"0" 1 orderItem.quantity %}
+										<!-- <div style="color: green;margin: 5px;">Saved Rs. {% widthratio orderItem.product.product_saving_price|floatformat:"0" 1 orderItem.quantity %}</div> -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					{% endfor %}
+					<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+						<span class="s-text18 w-size20 w-full-sm">
+							Total Amount Payable:
+						</span>
+	
+						<span class="m-text21 w-size19 w-full-sm">
+							Rs. {{ orderData.total|floatformat:"0" }}
+						</span>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="col-sm-6 col-md-8 col-lg-1 p-l-40 p-r-40 p-t-30 p-b-38">	
+			</div>
+			
+			{% if thanku_setting.order_address == True %}
+				<div class="bo9 col-sm-6 col-md-4 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20 p-b-24">
+						Delivered to Address
+					</h5>
+					<span class="m-text18 w-size19 w-full-sm">
+						{{ orderData.address.name }}, {{ orderData.address.address }},<br/> 
+						{{ orderData.address.area }},<br/>
+						{{ orderData.address.state }}, {{ orderData.address.city }} - {{ orderData.address.pin_zip }}
+					</span>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+<section class="bgwhite p-b-65">
+	<div class="container">
+		<div class="bo9 row">
+			{% if thanku_setting.note == True %}
+				<div class="col-sm-6 col-md-8 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20 p-b-24">
+						Note
+					</h5>
+					<span class="s-text19">
+						{% if thanku_setting_option.notes %}
+							{{thanku_setting_option.notes}}
+						{% else %}
+							<li>Return/ Refund can be done in 10 days.</li>
+							<li>Refund will be to your bank account.</li>
+							<li>After product shipment you can't cancel your order.</li>
+						{% endif %}
+					</span>
+				</div>
+			{% endif %}
+			{% if thanku_setting.cancel_rule == True %}
+				<div class="col-sm-6 col-md-8 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38">
+					<h5 class="m-text20 p-b-24">
+						Rules for cancelling/return
+					</h5>
+					<span class="s-text19">
+						{% if thanku_setting_option.rules_cancel_order %}
+							{{thanku_setting_option.rules_cancel_order}}
+						{% else %}
+							<li>If product is damaged then return/ refund will not appply.</li>
+							<li>If applied for refund, amount will reflect in your account in 8 working days.</li>
+						{% endif %}
+					</span>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% if thanku_setting.cont_shop_btn == True %}
+	<section class="bgwhite p-b-65">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-8 col-lg-9">
+					
+				</div>
+				<div class="col-sm-6 col-md-8 col-lg-3">
+					
+					<div class="size2 trans-0-4">
+						<a href="{%url 'site_home' %}"><input type="submit" value="Continue Shopping" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+	{% if successMessage %}
+	<div {% if status %} class="sAlert" {% else %} class="alert"{% endif %} >
+		<span class="closebtn"
+			onclick="this.parentElement.style.display='none';">&times;</span> 
+			{{successMessage }}
+	</div>
+	{% endif %}
+
+	<div class="outerDiv center">
+		{%csrf_token%}
+		<form action="" enctype="multipart/form-data" method="POST">
+			{%csrf_token%}
+			<div class="SignUpContent">
+				<label><b>Product Name</b></label> 
+				<input type="text"	placeholder="Enter product name" value="{{ productData.name }}" name="productname" required />
+				
+				<label><b>SKU</b></label> 
+				<input type="text"	placeholder="Enter sku" value="{{ productData.sku }}" name="sku"/>
+				
+				<h4>Price Section</h4>
+				<div class="input-width-50">
+					<label><b>MRP</b></label><br/>
+					<input type="number" placeholder="Enter MRP" value="{{ productData.mrp }}" name="productmrp"/>
+				</div>
+				
+				<div class="input-width-50">
+					<label><b>Sale Price</b></label><br/>
+					<input type="number" placeholder="Enter Sale Price" value="{{ productData.sale_price }}" name="productsaleprice" />
+				</div>
+				
+				<div class="input-width-50">
+					<label><b>Rent Price</b></label><br/>
+					<input type="number" placeholder="Enter Rent Price" value="{{ productData.rent_price }}" name="productrentprice" />
+				</div>
+			
+				<label><b>Discount (%)</b></label> 
+				<input type="number" placeholder="Enter discount price" value="{{ productData.discount }}" name="discount" />
+				
+				<label><b>Product Image</b></label><br/>
+				<div>
+					<input type="file" name="product_image">
+					<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+						{% if productData.product_image %}
+							<img class="SliderIcon" src="{% static '' %}{{ productData.product_image }}" alt="Avatar" />
+						{% endif %}
+					</div>
+				</div>
+				
+				<label><b>Product Angle Image</b></label><br/>
+				<div>
+					 <input type="file" name="thumbnail_images" multiple>
+					<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+					{% if productData.product_thumb_image %}
+					{% for image in productData.product_thumb_image|getList %}
+						<img class="SliderIcon" src="{%static '/images/catalog/products/thumbnail/'%}{{image}}" alt="Avatar" />
+					{% endfor %}
+					{% endif %}
+					</div>
+				</div>
+				
+				<label><b>Product For</b></label><br/>
+				<input type="checkbox" name="is_sale" {% if productData.is_sale %} checked {% else %} checked {% endif %}/>Sale
+				<input type="checkbox" name="is_rent" {% if productData.is_rent %} checked {% endif %}/>Rent<br/><br/>
+				
+				<input type="checkbox" name="isactive"  id="activeSelection" value = "0" {% if productData.is_active == 1 %} checked {% endif %}/> Publish
+				<input type="checkbox" name="isbestseller" value = "0" {% if productData.is_bestseller == 1 %} checked {% endif %}/> Best Seller
+				<input type="checkbox" name="isfeatured" value = "0" {% if productData.is_featured == 1 %} checked {% endif %}/> Featured<br/><br/>
+				
+				<label><b>Small Description</b></label> 
+				<input type="text"	placeholder="Enter short description" value="{{ productData.small_description }}" name="small_description" required />
+				
+				<label><b>Description</b></label>
+				<textarea name="description" rows="5"  placeholder="Describe product here..." style="resize: none; width:100%;margin-top:10px;" required>{{ productData.description }}</textarea>
+				
+				<label><b>Highlights</b></label>
+				<textarea name=highlights rows="3" placeholder="Enter Highlights" style="resize: none; width: 100%; margin-top: 10px;" id="id_highlights">{{ productData.highlights }}</textarea>
+				<br/>
+				
+				<label><b>Services</b></label>
+				<textarea name=services rows="3" placeholder="Enter Services" style="resize: none; width: 100%; margin-top: 10px;" id="id_services">{{ productData.services }}</textarea>
+				<br/>
+				
+				<label><b>Specifications</b></label>
+				<textarea name=specifications rows="3" placeholder="Enter Specifications" style="resize: none; width: 100%; margin-top: 10px;" id="id_specifications">{{ productData.specifications }}</textarea>
+				<br/>
+				
+				<label><b>Color</b></label>
+				<input type="text" placeholder="Enter color" value="{{ productData.color }}" name="color" />
+				
+				<label><b>Size</b></label><br/>
+				<input type="text" placeholder="Enter size" value="{{ productData.size }}" name="size" />
+				
+				<label><b>Category</b></label>
+				<select name = "categories">
+				   	{% for category in cat_list %}
+					     <option value="{{ category.id }}" {% if productData.categories.id == category.id %} selected {% endif %}>{{ category.name }}</option>
+					{% endfor %}
+		    	</select><br/>
+		    	
+		    	<label><b>Specific for</b></label><br/>
+				<input type="radio" name="genderOption" value="Women" {% if productData %}{{ 'Women'|isValChecked:productData.specific_for }}{% endif %}/> Women<br/>
+				<input type="radio" name="genderOption" value="Men" {% if productData %}{{ 'Men'|isValChecked:productData.specific_for }}{% endif %}/> Men<br/>
+				<input type="radio" name="genderOption" value="Men & Women" {% if productData %}{{ 'Men & Women'|isValChecked:productData.specific_for }}{% endif %}/> Men & Women<br/>
+				<input type="radio" name="genderOption" value="Baby" {% if productData %}{{ 'Baby'|isValChecked:productData.specific_for }}{% endif %}/> Baby<br/>
+				<input type="radio" name="genderOption" value="Baby Boys & Baby Girl" {% if productData %}{{ 'Baby Boys & Baby Girl'|isValChecked:productData.specific_for }}{% endif %}/> Baby Boys & Baby Girl<br/>
+				<input type="radio" name="genderOption" value="Girls" {% if productData %}{{ 'Girls'|isValChecked:productData.specific_for }}{% endif %}/> Girls<br/>
+				<input type="radio" name="genderOption" value="Boys" {% if productData %}{{ 'Boys'|isValChecked:productData.specific_for }}{% endif %}/> Boys<br/>
+				<input type="radio" name="genderOption" value="Boys & Girl" {% if productData %}{{ 'Boys & Girl'|isValChecked:productData.specific_for }}{% endif %}/> Boys & Girl <br/><br/>
+				
+				<label><b>Brand</b></label>
+				<input type="text" name="brand" value="{{ productData.brand }}" placeholder="Enter Brand" />
+				<br/>
+				
+				<label><b>Type</b></label>
+				<input type="text" name="type" value="{{ productData.type }}" placeholder="Enter Type" />
+				<br/>
+				
+				<label><b>Quantity</b></label>
+				<input type="number" placeholder="Enter quantity" value="{{ productData.quantity }}" name="quantity" required />
+				
+				<label><b>Sleeve</b></label> 
+				<input type="text"	placeholder="Enter sleeve" value="{{ productData.sleeve }}" name="sleeve" />
+				
+				<label><b>Front Neck</b></label> 
+				<input type="text" placeholder="Enter front neck" value="{{ productData.front_neck }}" name="front_neck" />
+				
+				<label><b>Back Neck</b></label> 
+				<input type="text" placeholder="Enter back neck" value="{{ productData.back_neck }}" name="back_neck" />
+				
+				<label><b>Opening</b></label> 
+				<input type="text" placeholder="Enter opening" value="{{ productData.opening }}" name="opening" />
+				
+				<label><b>Fit</b></label> 
+				<input type="text" placeholder="Enter fit" value="{{ productData.fit }}" name="fit" />
+				
+				<label><b>Style</b></label> 
+				<input type="text" placeholder="Enter style" value="{{ productData.style }}" name="style" />
+				
+				<label><b>Weave Type</b></label> 
+				<input type="text" placeholder="Enter weave type" value="{{ productData.weave_type }}" name="weave_type" />
+				
+				<label><b>Pattern</b></label> 
+				<input type="text"	placeholder="Enter pattern" value="{{ productData.pattern }}" name="pattern" />
+				
+				<label><b>Embellished</b></label><br/>
+				<input type="radio" name="embellished" value="yes" {% if productData.embellished == 1 %} checked {% endif %}/>Yes
+				<input type="radio" name="embellished" value="no" {% if productData.embellished == 0 %} checked {% endif %}/>No<br/><br/>
+				
+				<label><b>Embroidered</b></label><br/>
+				<input type="radio" name="embroidered" value="yes" {% if productData.embroidered == 1 %} checked {% endif %}/>Yes
+				<input type="radio" name="embroidered" value="no" {% if productData.embroidered == 0 %} checked {% endif %}/>No<br/>
+				
+				<label><b>Occasion</b></label> 
+				<input type="text" placeholder="Enter occasion" value="{{ productData.ocassion }}" name="occasion" /><br/>
+				
+				<label><b>Age Group</b></label><br/>
+				<input type="number" placeholder="Enter age" value="{{ productData.age_group }}" name="age_group" />
+				
+				<label><b>Metal Base</b></label> 
+				<input type="text" placeholder="Enter metal base" value="{{ productData.metal_base }}" name="metal_base" />
+				
+				<label><b>In the box</b></label> 
+				<input type="text" placeholder="Enter in the box" value="{{ productData.in_the_box }}" name="box" />
+				
+				<label><b>Back Lock</b></label> 
+				<input type="text" placeholder="Enter back lock" value="{{ productData.back_lock }}" name="back_lock" />
+				
+				<label><b>Seller</b></label> 
+				<input type="text" placeholder="Enter seller" value="{{ productData.seller }}" name="seller" />
+				
+				<label><b>Designer</b></label> 
+				<input type="text" placeholder="Enter designer" value="{{ productData.designer }}" name="designer" />
+				
+				<label><b>Warranty</b></label> 
+				<input type="text" placeholder="Enter warranty" value="{{ productData.warranty }}" name="warranty" />
+				
+				<label><b>Product Fabric / Material</b></label><br/>
+				<input type="text" placeholder="Enter fabric" value="{{ productData.fabric_material }}" name="fabric_material" />
+				
+				<label><b>Fabric Care</b></label><br/>
+				<input type="text" placeholder="Enter fabric care" value="{{ productData.fabric_care }}" name="fabric_care" />
+				
+				<label><b>Dupatta Fabric</b></label><br/>
+				<input type="text" placeholder="Enter dupatta fabric" value="{{ productData.dupatta_fabric }}" name="dupatta_fabric" />
+				
+				<div class="input-width-50">
+					<label><b>EAN/UPC</b></label><br/>
+					<input type="text" placeholder="Enter EAN/UPC" value="{{ productData.ean_upc }}" name="ean_upc" />
+				</div>
+				
+				<div class="input-width-50">
+					<label><b>Vat</b></label><br/>
+					<input type="text" placeholder="Enter vat" value="{{ productData.vat }}" name="vat" />
+				</div>
+				
+				<label><b>Product Length</b></label><br/>
+				<input type="text" placeholder="Enter product length" value="{{ productData.product_length }}" name="product_length" />
+				
+				<label><b>Product Width</b></label><br/>
+				<input type="text" placeholder="Enter package weight" value="{{ productData.product_width }}" name="product_width" />
+				
+				<label><b>Measuring Unit</b></label><br/>
+				<input type="text" placeholder="Enter measuring unit" value="{{ productData.measuring_unit }}" name="measuring_unit" />
+				
+				<label><b>Dimension Unit</b></label><br/>
+				<input type="text" placeholder="Enter dimension unit" value="{{ productData.dimension_unit }}" name="dimension_unit" />
+				
+				<h4>Package Details</h4>
+				<label><b>Package Length</b></label><br/>
+				<input type="text" placeholder="Enter package length" value="{{ productData.package_length }}" name="package_length" />
+				
+				<label><b>Package Width</b></label><br/>
+				<input type="text" placeholder="Enter package width" value="{{ productData.package_width }}" name="package_width" />
+				
+				<label><b>Package Height</b></label><br/>
+				<input type="text" placeholder="Enter package height" value="{{ productData.package_height }}" name="package_height" />
+				
+				<label><b>Package Weight</b></label><br/>
+				<input type="text" placeholder="Enter package weight" value="{{ productData.package_weight }}" name="package_weight" />
+				
+				<label><b>Pack Of</b></label><br/>
+				<input type="text" placeholder="Enter pack of" value="{{ productData.pack_of }}" name="pack_of" />
+				
+				<label><b>Sales Package</b></label><br/>
+				<input type="text" placeholder="Enter sales package" value="{{ productData.sales_package }}" name="sales_package" />
+			
+				<label><b>Meta Description</b></label>
+				<textarea name="meta_description" rows="3" value="{{ productData.meta_description }}" placeholder="Content for Meta Description" style="resize: none; width: 100%; margin-top: 10px;" >{{ productData.meta_description }}</textarea>
+				
+				<label><b>Meta Keywords</b></label>
+				<textarea name="meta_keywords" rows="3" value="{{ productData.meta_keywords }}" placeholder="Comma delimited set of SEO keywords" style="resize: none; width: 100%; margin-top: 10px;" >{{ productData.meta_keywords }}</textarea>
+				
+				<label><b>Disclaimer</b></label> 
+				<input type="text" placeholder="Enter disclaimer" value="{{ productData.disclaimer }}" name="disclaimer" />
+		    	
+		    	<label><b>Product Order</b></label>
+				<input type="number" placeholder="Enter Product Order" value="{{ productData.ordering }}" name="prod_order" />
+		    	
+				<button class="buttonAuth" type="submit">Add Product</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+

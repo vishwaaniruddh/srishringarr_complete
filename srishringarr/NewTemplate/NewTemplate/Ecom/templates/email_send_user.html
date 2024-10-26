@@ -1,0 +1,138 @@
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+<style type = "text/css">
+body {
+  background: #ccc;
+  font-family: 'Lato';font-size: 22px;
+}
+
+.content {
+  max-width: 640px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+.apply{
+  text-align: center;
+}
+.margin{
+  display: block;
+  margin-left: 200px;
+  margin-right: auto;
+  width: 50%;
+
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.wrapper{
+  min-width: 500px;
+
+}
+</style>
+</head>
+<body>
+
+<main class="wrapper">
+<div class="content">
+  <div><img class = "center" src = "https://www.srishringarr.com/static/images/site/logo/main_logo.png"><div>
+  <hr>
+  <br>
+  <h3 class = "apply">ORDER PLACED</h3>
+  <div class = "apply"><i>Your order has been placed</i></div>
+  <p class = "apply">Hello {{ order.user.username }}! </p>
+  <div class = "apply">You've placed an order on Srishringarr.</div>
+  <div class = "apply">See details below.</div>
+  <br>
+  <br>
+  <!-- <div class = "margin">Order no.:</div>
+
+  <div class = "margin">Products Name:</div>
+
+  <div class = "margin">Qty:</div>
+
+  <div class = "margin">Price:</div> -->
+  <table class = "margin">
+    <!-- <tr><td> Order No.:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>#0000{{ order_info.id }}</td> -->
+    <tr><td> Order No.:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>#0000{{ orderitem.order_id }}</td>
+    </tr>
+    <tr><td> Product Name:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{currentProduct.name}}</td>
+
+    </tr>
+    <tr><td> Qty:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{ orderitem.quantity }}</td>
+
+    </tr>
+    <tr><td> Price:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{order.total|floatformat:"0"}} Rs.</td>
+
+    
+    </tr>
+    <tr><td> Delivery Date:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{orderitem.delivery_dt}}</td>
+
+    </tr>
+    <tr><td> SKU Code:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{orderitem.product.sku}}</td>
+
+    </tr>
+    <!-- <tr><td>Test:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{myvars.0.txnid}}</td>
+    </tr>
+   {{order_info.txnid}} -->
+   <!--  <tr><td>Transaction Id:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{order_info.txnid}}</td> -->
+
+ <!--  </tr> -->
+  <tr>
+    <td >Deposit Amount:</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Rs.{{orderitem.deposite}}</td>
+  </tr>
+  </table>
+  <br>
+  <P class="apply">
+  Please pay the deposit amount of Rs.&nbsp;{{orderitem.deposite}} latest 7 days prior to your delivery date. <br>See below our bank account details for online transfer.<br>Someone from our team will get in touch with you shortly regarding this.
+</P>
+  
+ <table class="margin">
+   <tr colspan="3" class="apply">
+      <td >
+        
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sri Shringarr Fashion Studio
+        
+      </td>
+     
+   </tr>
+    <tr>
+      <td >
+        Account number
+      </td>
+      <td>:&nbsp;</td>
+      <td>50200010838727</td>
+   </tr>
+   <tr>
+      <td >
+       IFSC code  
+      </td>
+      <td>:&nbsp;</td>
+      <td>HDFC0000227</td>
+   </tr>
+   <tr>
+      <td >
+        Branch 
+      </td>
+      <td>:&nbsp;</td>
+      <td>Vile Parle East</td>
+   </tr>
+ </table>
+ <br>
+  <div class = "apply">To track your shipment,go here.</div>
+  <p class = "apply">For queries or complaints, please call us on <br>9324243011 or email <a href="info@srishringarr.com">info@srishringarr.com</a> </p>
+    <div class = "apply">Regards,</div>
+    <div class = "apply">The Srishringarr Team</div>
+    <br>
+    <br>
+  <hr>
+  <img src = "https://www.srishringarr.com/static/images/site/logo/main_logo.png" style="width:150px;height:50px;">
+</div>
+</main>
+</body>
+

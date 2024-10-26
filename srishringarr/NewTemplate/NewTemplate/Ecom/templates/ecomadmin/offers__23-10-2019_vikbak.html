@@ -1,0 +1,88 @@
+{% extends "base.html" %} 
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+<div id="msg"></div>
+	<div style="display: flex;">
+		<div class="card">
+			<div>
+				<div class="cardheader">Total Offers</div>
+
+				<div class="cardContent">{{ offer_count }}</div>
+
+				<a href="{% url 'addoffer' 0 %}"><button class="cardFooter" >
+					Add Offer<span class="arrowDesign arrowRight"></span>
+				</button></a>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">Published Offers</div>
+
+				<div class="cardContent">{{ published_offer_count }}</div>
+
+				<a href=""><button class="cardFooter" >
+					UnPublish Offer<span class="arrowDesign arrowRight"></span>
+				</button></a>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">UnPublished Offers</div>
+
+				<div class="cardContent">{{ unPublished_offer_count }}</div>
+
+				<button class="cardFooter">
+					Publish Offer<span class="arrowDesign arrowRight"></span>
+				</button>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">Deleted Offers</div>
+
+				<div class="cardContent">{{ deleted_offer_count }}</div>
+
+				<button class="cardFooter">
+					Restore Offer<span class="arrowDesign arrowRight"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top: 20px; background: #fff;">
+		<table style="width: 100%; border: 1px solid #D1D4D7; border-collapse: collapse;">
+			<tr style="height: 50px; background: #D1D4D7; border-collapse: collapse;">
+				<th><input type="checkbox" id ="chckHead"></th>
+				<th>Name</th>
+				<th>Offer Code</th>
+				<th>Discount</th>
+				<th>Minimum Order</th>
+				<th>Maximum Order</th>
+				<th>Status</th>
+				<th>Edit</th>
+				<th>Move To Trash</th>
+			</tr>
+			{% for offer in offer_list %}
+			<tr style="height: 50px; border: 1px solid #D1D4D7; background: #FFF; text-align:center; border-collapse: collapse;">
+				<td><input type="checkbox" class="chcktbl" name="{{ offer.id }}" value="{{ offer.id }}"></td>
+				<td>{{ offer.offer_name }}</td>
+				<td>{{ offer.offer_code }}</td>
+				<td>{{ offer.offer_value|floatformat:"0" }}</td>
+				<td>{{ offer.min_order|floatformat:"0" }}</td>
+				<td>{{ offer.max_order|floatformat:"0"}}</td>
+				<td>{% if offer.is_active %} Active {% else %} Inactive {% endif %}</td>
+				<td><a href="{% url 'addoffer' offer.id %}"><i class="material-icons" style="font-size:24px;color:#616161">mode_edit</i></a></td>
+				<form action="." id="delete">
+					{% csrf_token %}
+					<td><i class="material-icons" onclick="deleteProduct({{ offer.id }})" style="font-size:24px;color:#616161;cursor: pointer;">delete</i></td>
+				</form>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+
+

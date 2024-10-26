@@ -1,0 +1,30 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}
+<style>
+.transaction_message{
+	font-size:18px;
+	color: #424242;
+    font-family: SourceSansPro-Light !important;
+}
+</style>
+<div class="container-fluid">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="TextContainer">
+				<div style="display:none">
+   					<input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}">
+				</div>
+				<!-- <h2>Sorry your transaction failed.Please try again.</h2><br/> -->
+				<img src="{% static 'images/status_icon/fail.png' %}">
+				<div class="transaction_message">
+					Your transaction could not be processed. An error occurred while handling your<br/> 
+					payment or you cancelled it. See details below.
+				 </div>
+			<br/>
+			<a class="btn btn-primary" href="https://www.srishringarr.com/merchant/subcriptions/my-transactions/">Go Back</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" >
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	<div class="row" style="margin-bottom:40px;">
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;background:#D1D4D7;">
+				Cart Setting 
+				</div>
+				<hr class="hrStyle">
+				<div>
+				
+				<table style="width: 100%; border: 0px solid #D1D4D7; border-collapse: collapse;">
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Placed Order Message</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Rules for Cancelling Order</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Notes</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="columncart leftcart">
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+					<div style="padding:10px;">Placed Order Message</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<textarea placeholder="Enter Order Place Message" name="order_msg">{% if thanku_setting_option %}{{thanku_setting_option.order_msg}}{% endif %}</textarea>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="thankuOption" value="save_msg">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Rules for Cancelling Order</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<textarea placeholder="Enter Rules for Cancelling Order" name="order_rules">{% if thanku_setting_option %}{{thanku_setting_option.rules_cancel_order}}{% endif %}</textarea>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="thankuOption" value="save_rules">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+				
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+					<div style="padding:10px;">Notes</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+						<textarea placeholder="Enter Order Notes" name="order_notes">{% if thanku_setting_option %}{{thanku_setting_option.notes}}{% endif %}</textarea>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="thankuOption" value="save_notes">
+								Save
+							</Button>
+						</div>	
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

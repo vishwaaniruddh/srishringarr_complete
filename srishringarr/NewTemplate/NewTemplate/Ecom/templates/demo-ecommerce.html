@@ -1,0 +1,576 @@
+{% load site_filters %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<style>
+@font-face {
+	font-family: 'font-icons';
+	src:url('static/fonts/font-icons.eot');
+	src:url('static/fonts/font-icons.eot') format('embedded-opentype'),
+		url('static/fonts/font-icons.woff') format('woff'),
+		url('static/fonts/font-icons.ttf') format('truetype'),
+		url('static/fonts/font-icons.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'lined-icons';
+	src:url('static/fonts/lined-icons.eot');
+	src:url('static/fonts/lined-icons.eot') format('embedded-opentype'),
+		url('static/fonts/lined-icons.woff') format('woff'),
+		url('static/fonts/lined-icons.ttf') format('truetype'),
+		url('static/fonts/lined-icons.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Simple-Line-Icons';
+	src:url('static/fonts/Simple-Line-Icons.eot');
+	src:url('static/fonts/Simple-Line-Icons.eot?#iefix') format('embedded-opentype'),
+		url('static/fonts/Simple-Line-Icons.woff') format('woff'),
+		url('static/fonts/Simple-Line-Icons.ttf') format('truetype'),
+		url('static/fonts/Simple-Line-Icons.svg#Simple-Line-Icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+</style>
+<head>
+	<title>{{ pageTitle }}</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Montserrat:300,400,500,600,700|Merriweather:300,400,300i,400i" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css" />
+
+	<!-- eCommerce Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/ecommerce.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/fonts.css' %}" type="text/css" />
+	<!-- / -->
+
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/settings.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/layers.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/colors.php?color=000000' %}" type="text/css" />
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="dark">
+
+			<div class="container clearfix">
+				<p class="center">Back to the future of awesome Bags: Introducing canvas market. <a href="#">Shop Now</a><a href="#" id="close-bar"><i class="icon-line-cross fright"></i></a></p>
+			</div>
+
+		</div>
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header no-sticky clearfix">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="{%url 'site_home' %}" class="standard-logo"><img src="{% if home_seting_option.logo_image %} {%static ''%}{{home_seting_option.logo_image}}{% else %} static 'images/dummy_logo.png' {% endif%}" alt="SriShringaar Logo"></a>
+						<a href="{%url 'site_home' %}" class="retina-logo"><img src="{% if home_seting_option.logo_image %} {%static ''%}{{home_seting_option.logo_image}}{% else %} static 'images/dummy_logo.png' {% endif%}" alt="SriShringaar Logo"></a>
+					</div><!-- #logo end -->
+					
+					{% if isMenu == True %}
+						{% if home_seting_option.manu_type == 0 %}
+							<!-- Primary Navigation
+							============================================= -->
+							<nav id="primary-menu" class="style-ecommerce">
+								<ul>
+									{% for data in home_seting_option.menu_options|getList %}
+										{% if data == '1' %}
+											<li class="current"><a href="{% url 'site_home' %}"><div>Home</div></a></li>
+										{% elif data == '2' %} 
+											{% for mc in 1|getMainCats %}
+												<li>
+													{% if mc.id|getSubLevel == None %}
+														<a href ="{% url 'catprodlist' mc.id %}?page=1"><div>{{mc.name}}</div></a>
+													{% else %}
+														<a href =""><div>{{mc.name}}</div></a>
+													{% endif %}
+													{% if mc.id|getSubLevel %}
+														<ul>
+															{% for sc in mc.id|getSubLevel %}
+																	<li><a href ="{% url 'catprodlist' sc.id %}?page=1"><div>{{sc.name}}</div></a>
+																		{% if sc.id|getSubLevel %}
+																			<ul>
+																				{% for lc in sc.id|getSubLevel %}
+																					<li><a href ="{% url 'catprodlist' lc.id %}?page=1"><div>{{lc.name}}</div></a></li>
+												 								{% endfor %}
+																			</ul>
+																		{% endif %}
+																	</li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</li>
+											{% endfor %}
+										{% elif data == '5' %}
+				  							<li><a href="{% url 'site_home' %}"><div>Offers</div></a></li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+								
+								{% if isSearchBar == True %}
+									<!-- Top Search
+									============================================= -->
+									<div id="top-search">
+										<a href="#" id="top-search-trigger"><i class="icon-line2-magnifier"></i><i class="icon-line-cross"></i></a>
+										<form action="" method="post" enctype="multipart/form-data">
+											{%csrf_token%}
+											<input type="text" name="searchtxt" class="form-control" value="{% if stxt %}{{stxt}}{% endif %}" placeholder="Type &amp; Hit Enter..">
+										</form>
+									</div><!-- #top-search end -->
+								{% endif %}
+								
+								{% if isCart == True %} 
+									<!-- Top Cart
+									============================================= -->
+									<div id="top-cart">
+										<a href="#" id="top-cart-trigger"><i class="icon-line2-handbag"></i><span>{{ cart_count }}</span></a>
+										{% if cart_count > 0 %}
+											<div class="top-cart-content">
+												<div class="top-cart-title">
+													<h4>Shopping Cart</h4>
+												</div>
+												{% for cart_data in cart_list %}
+													{% if cart_data.is_rent %} 
+														<div class="top-cart-items">
+															<div class="top-cart-item clearfix">
+																<div class="top-cart-item-image">
+																	<a href="#"><img src="{% static '' %}{{ cart_data.product.image }}" alt="Blue Shoulder Bag" /></a>
+																</div>
+																<div class="top-cart-item-desc">
+																	<a href="#" class="t400">{{ cart_data.product.name }} (Rent)</a>
+																	<span class="top-cart-item-price">Rs. {{ cart_data.product.final_product_price|floatformat:"0" }}<strike> {{ cart_data.product.mrp|floatformat:"0" }} </strike></span>
+																	<span class="top-cart-item-quantity"></span>
+																</div>
+															</div>
+														</div>
+													{% else %}
+														<div class="top-cart-items">
+															<div class="top-cart-item clearfix">
+																<div class="top-cart-item-image">
+																	<a href="#"><img src="{% static '' %}{{ cart_data.product.image }}" alt="Blue Shoulder Bag" /></a>
+																</div>
+																<div class="top-cart-item-desc">
+																	<a href="#" class="t400">{{ cart_data.product.name }} (Rent)</a>
+																	<span class="top-cart-item-price">Rs. {{ cart_data.product.final_product_price|floatformat:"0" }}<strike> {{ cart_data.product.mrp|floatformat:"0" }} </strike></span>
+																	<span class="top-cart-item-quantity"></span>
+																</div>
+															</div>
+														</div>
+													{% endif %}
+												{% endfor %}
+												<div class="top-cart-action clearfix">
+													<span class="fleft top-checkout-price t600 font-secondary" style="color: #333;">Rs. {{ product_total }}</span>
+													<a href="{%url 'cart' %}" class="button button-dark button-circle button-small nomargin fright">View Cart</a>
+												</div>
+											</div>
+										{% endif %}
+									</div><!-- #top-cart end -->
+								{% endif %}
+		
+								<!-- Top Search
+								============================================= -->
+								<div id="top-account">
+									<a href="#"><i class="icon-line2-user"></i></a>
+								</div><!-- #top-search end -->
+		
+							</nav><!-- #primary-menu end -->
+						{% else %} 
+							Menu Not Available
+						{% endif%}
+					{% endif %}
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<!-- Slider
+		============================================= -->
+		<section id="slider" class="slider-element swiper_wrapper full-screen clearfix" data-autoplay="9000" data-speed="800" data-loop="true" data-grab="false">
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/1.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Websites</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O1</div>
+					</div>
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/2.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Designs</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O2</div>
+					</div>
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/3.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Layouts</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O3</div>
+					</div>
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/4.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>diff. Mindset</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O4</div>
+					</div>
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/5.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>your Website</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O5</div>
+					</div>
+					<div class="swiper-slide" style="background: #FFF url('demos/ecommerce/images/slider/6.jpg') no-repeat center right; background-size: auto 100%;">
+						<div class="container clearfix">
+							<div class="slider-caption" style="margin-top: -30px;">
+								<div class="emphasis-title nobottommargin">
+									<h2 class="bottommargin t700" style="max-width: 600px; font-size: 80px; font-family: 'Montserrat'; line-height: 1.2;">We Create<br>your Home</h2>
+
+									<p class="lead topmargin-sm d-none d-sm-block" style="max-width: 600px; font-family: 'Poppins'; color: #999; font-size: 18px;">Competently reintermediate user friendly scenarios after global synergy. Globally build compelling niche markets rather than bricks-and-clicks alignments. Continually revolutionize interactive strategic theme.</p>
+								</div>
+							</div>
+						</div>
+						<div class="slide-number font-primary">O6</div>
+					</div>
+				</div>
+				<div class="slider-arrow-left"><i class="icon-line-arrow-left"></i></div>
+				<div class="slider-arrow-right"><i class="icon-line-arrow-right"></i></div>
+			</div>
+
+		</section><!-- #Slider End -->
+
+		
+		{% if isFooter == True %} 
+			<!-- Footer
+			============================================= -->
+			<footer id="footer" class="noborder nobg">
+	
+				<div class="container clearfix">
+	
+					<!-- Footer Widgets
+					============================================= -->
+					<div class="footer-widgets-wrap clearfix"  style="padding: 60px 0 100px;">
+	
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+	
+								<div class="row clearfix">
+									<div class="col-lg-6">
+										<div class="widget widget_links clearfix">
+											<h4>Quick Links</h4>
+											<ul>
+												<li><a href="{% url 'empty_search' %}">Search</a></li>
+												<li><a href="{% url 'user_profile' %}">Profile</a></li>
+												<li><a href="{% url 'my_orders' %}">Orders</a></li>
+												<li><a href="{% url 'wishlist' %}">Wishlist</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="widget widget_links clearfix">
+											<h4>Help</h4>
+											<ul>
+												<li><a href="#">Track Order</a></li>
+												<li><a href="#">Shipping</a></li>
+												<li><a href="#">Cancellation</a></li>
+												<li><a href="#">Returns</a></li>
+												<li><a href="#">Blog</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+	
+								<div class="clear"></div>
+	
+								<div class="line line-sm"></div>
+	
+								<div class="copy-link"><a href="mailto:noreply@canvas.com"><i class="icon-envelope2"></i>sringaar.rajani@yahoo.com / ypodar@gmail.com</a></div>
+	
+							</div>
+	
+							<div class="col-lg-5 offset-lg-1">
+	
+								<div class="widget widget_links clearfix">
+									<h4>Notify Me</h4>
+	
+									<div class="bottommargin-sm clearfix">
+										<a href="https://www.facebook.com/srishringarr/" class="social-icon si-dark si-mini si-rounded si-facebook" title="Facebook">
+											<i class="icon-facebook"></i>
+											<i class="icon-facebook"></i>
+										</a>
+	
+										<a href="https://twitter.com/SriShringarr" class="social-icon si-dark si-mini si-rounded si-twitter" title="Twitter">
+											<i class="icon-twitter"></i>
+											<i class="icon-twitter"></i>
+										</a>
+	
+										<a href="https://www.instagram.com/srishringarr/" class="social-icon si-dark si-mini si-rounded si-instagram" title="Instagram">
+											<i class="icon-instagram"></i>
+											<i class="icon-instagram"></i>
+										</a>
+	
+										<a href="https://in.pinterest.com/srishringarr/?eq=sri&etslf=5839" class="social-icon si-dark si-mini si-rounded si-pinterest" title="Pinterest">
+											<i class="icon-pinterest"></i>
+											<i class="icon-pinterest"></i>
+										</a>
+	
+										<a href="https://plus.google.com/u/1/113103807414319162517" class="social-icon si-dark si-mini si-rounded si-google-plus" title="Google Plus">
+											<i class="icon-google-plus"></i>
+											<i class="icon-google-plus"></i>
+										</a>
+									</div>
+								</div>
+	
+								<div class="widget subscribe-widget notopmargin clearfix">
+									<div class="widget-subscribe-form-result"></div>
+									<form id="widget-subscribe-form" action="." role="form" method="post" class="nobottommargin">
+										<div class="input-group divcenter">
+											<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+											<div class="input-group-append">
+												<button class="button button-black t300 button-dark ls2 uppercase" type="submit">Notify</button>
+											</div>
+										</div>
+									</form>
+								</div>
+	
+							</div>
+						</div>
+	
+					</div><!-- .footer-widgets-wrap end -->
+	
+				</div>
+				<div class="t-center p-l-15 p-r-15">
+					<div class="t-center s-text8 p-t-20">
+						{% for data in home_seting_option.footer_options|getList %}
+				        	
+					        {% if data == '8' %}
+								<div style="text-align: center;font-size:15px;margin:10px 0px;">
+						         	<a style="text-decoration: none;">
+									Copyright © 2018 Sri Shringarr All Rights Reserved  </a><br/><br/>
+						        </div>
+					        {% endif %}
+				    	{% endfor %}
+					</div>
+				</div>
+			</footer><!-- #footer end -->
+		{% endif %}
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-line-arrow-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/plugins.js' %}"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{% static 'js/functions.js' %}"></script>
+
+	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+
+	<script src="{% static 'js/revolution.extension.actions.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.carousel.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.kenburn.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.layeranimation.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.migration.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.navigation.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.parallax.min.js' %}"></script>
+	<script src="{% static 'js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+	<script src="{% static 'js/revolution.extension.video.min.js' %}"></script>
+
+	<!-- ADD-ONS JS FILES -->
+	<script>
+
+		// Topbar Hide
+		$('#top-bar').on('click','#close-bar',function(){
+			$(this).parents('#top-bar').slideUp(300);
+			$('body').css('padding-top',0);
+		})
+
+		// Custom Carousel
+		$('.owl-carousel').owlCarousel({
+			items: 1,
+			dotsContainer: '#item-color-dots',
+		    loop: true,
+		});
+
+		// Revolution Slider
+		var tpj=jQuery;
+		var revapi19;
+		tpj(document).ready(function() {
+			if(tpj("#rev_slider_19_1").revolution == undefined){
+				revslider_showDoubleJqueryError("#rev_slider_19_1");
+			}else{
+				revapi19 = tpj("#rev_slider_19_1").show().revolution({
+					sliderType:"carousel",
+					jsFileLocation: "include/rs-plugin/js/",
+					sliderLayout:"fullwidth",
+					dottedOverlay:"none",
+					delay:5000,
+					navigation: {
+						keyboardNavigation:"on",
+						keyboard_direction: "horizontal",
+						mouseScrollNavigation:"off",
+						mouseScrollReverse:"default",
+						onHoverStop:"on",
+						thumbnails: {
+							style:"gyges",
+							enable:true,
+							width:50,
+							height:50,
+							min_width:50,
+							wrapper_padding:5,
+							wrapper_color:"transparent",
+							tmp:'<span class="tp-thumb-img-wrap">  <span class="tp-thumb-image"></span></span>',
+							visibleAmount:5,
+							hide_onmobile:false,
+							hide_over:1240,
+							hide_onleave:false,
+							direction:"horizontal",
+							span:false,
+							position:"inner",
+							space:5,
+							h_align:"center",
+							v_align:"top",
+							h_offset:0,
+							v_offset:20
+						}
+						,
+						tabs: {
+							style:"gyges",
+							enable:true,
+							width:220,
+							height:80,
+							min_width:220,
+							wrapper_padding:0,
+							wrapper_color:"rgba(0,0,0,0.3)",
+							tmp:'<div class="tp-tab-content">  <span class="tp-tab-date">{{param1}}</span>  <span class="tp-tab-title">{{title}}</span></div><div class="tp-tab-image"></div>',
+							visibleAmount: 7,
+							hide_onmobile: true,
+							hide_under:1240,
+							hide_onleave:false,
+							hide_delay:200,
+							direction:"vertical",
+							span:true,
+							position:"inner",
+							space:0,
+							h_align:"right",
+							v_align:"center",
+							h_offset:0,
+							v_offset:0
+						}
+					},
+					carousel: {
+						horizontal_align: "center",
+						vertical_align: "center",
+						fadeout: "off",
+						maxVisibleItems: 5,
+						infinity: "on",
+						space: 0,
+						stretch: "off",
+						 showLayersAllTime: "off",
+						 easing: "Power3.easeInOut",
+						 speed: "800"
+					},
+					responsiveLevels:[1240,1024,778,480],
+					visibilityLevels:[1240,1024,778,480],
+					gridwidth:[800,700,400,300],
+					gridheight:[600,600,500,400],
+					lazyType:"single",
+					shadow:0,
+					spinner:"off",
+					stopLoop:"off",
+					stopAfterLoops:-1,
+					stopAtSlide:-1,
+					shuffle:"off",
+					autoHeight:"off",
+					hideThumbsOnMobile:"off",
+					hideSliderAtLimit:0,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					debugMode:false,
+					fallbacks: {
+						simplifyAll:"off",
+						nextSlideOnWindowFocus:"off",
+						disableFocusListener:false,
+					}
+				});
+			}
+		});	/*ready*/
+		{% block custom_scripts %}{% endblock %}
+	</script>
+
+</body>
+</html>

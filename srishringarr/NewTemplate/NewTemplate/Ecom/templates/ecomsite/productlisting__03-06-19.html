@@ -1,0 +1,369 @@
+{% extends "basesite.html" %}
+{% load site_filters %}
+{% load staticfiles %} 
+{% block content %} 
+
+<style>
+.pointer {cursor: pointer;}
+
+.sort_heading{
+	background-color: #444;
+	color: #fff;
+	padding: 10px;
+}
+
+.p-t-4 {
+	border: 1px solid #ddd;
+    border-top: 0px;
+    padding: 10px 10px 10px 15px;
+    font-size: 13px;
+}
+
+.container{
+	max-width: 1800px;
+}
+
+.s-text3{
+	/*color: #;*/
+	font-weight: bold;
+}
+
+.m-text6{
+	font-size: 13px;
+}
+
+</style>
+
+<form method="POST">
+	{% csrf_token %}
+	<!-- Title Page -->
+<!-- 	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({% static 'images/site/grid_images/img-6.jpg' %});">
+		<h2 class="l-text2 t-center">
+			Women
+		</h2>
+		<p class="m-text13 t-center">
+			New Arrivals Women Collection 2018
+		</p>
+	</section> -->
+		<!-- Content page -->
+	<section class="bgwhite p-t-55 p-b-65">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+					<div class="leftbar p-r-20 p-r-0-sm">
+						<input type="hidden" name="catId" value="{{cat_id}}" />
+						<!-- {% if list_setting.filter_by_category == True %} -->
+							<h4 class="m-text15 p-b-7 sort_heading">
+								Categories
+							</h4>
+							
+							<!-- <ul class="p-b-25">
+								{% for sc in sub_cats %}
+									<li class="p-t-4">
+										<input type="checkbox" value="{{sc.id}}" name="categoryOption" onclick="this.form.submit()" {{ sc.id|isValChecked:cat_filter }}/> {{sc.name}}
+									</li>
+								{% endfor %}
+							</ul> -->
+
+							<ul class="p-b-25">
+								{% for sc in categories %}
+									<li class="p-t-4">
+										<input type="checkbox" value="{{sc.id}}" name="categoryOption" onclick="this.form.submit()" {{ sc.name|isValChecked:cat_filter }}/> {{sc.name}}
+									</li>
+								{% endfor %}
+							</ul>
+
+
+						<!-- {% endif %} -->
+
+						
+					
+						
+						{% if list_setting.filter_by_price == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading">
+								By Price
+							</h4>
+							
+							<ul class="p-b-25">
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 1|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="100-500" onclick="this.form.submit()" {{ '100-500'|isValChecked:price_filter }}/> Rs. 100-500
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 2|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="500-1000" onclick="this.form.submit()" {{ '500-1000'|isValChecked:price_filter }}/> Rs. 500-1000
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 3|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="1000-5000" onclick="this.form.submit()" {{ '1000-5000'|isValChecked:price_filter }}/> Rs. 1000-5000
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 4|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="5000-10000" onclick="this.form.submit()" {{ '5000-10000'|isValChecked:price_filter }}/> Rs. 5000-10000
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 5|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="10000-50000" onclick="this.form.submit()" {{ '10000-50000'|isValChecked:price_filter }}/> Rs. 10000-50000
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 6|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="0-50000" onclick="this.form.submit()" {{ '0-50000'|isValChecked:price_filter }}/> Rs. 50000+
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 0|isValueSelected:prolist_seting_option.filter_price }}{% endif %}">
+									<input type="checkbox" name="priceOption" value="0-0" onclick="this.form.submit()" {{ '0-0'|isValChecked:price_filter }}/> All
+								</li>
+							</ul>
+						{% endif %}
+						
+						{% if list_setting.filter_by_discount == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading">
+								By Discount (%)
+							</h4>
+							
+							<ul class="p-b-25">
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 1|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="9" onclick="this.form.submit()" {{ 9|isValChecked:discount_filter }}/> Less than 10%
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 2|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="10" onclick="this.form.submit()" {{ 10|isValChecked:discount_filter }}/> 10% or More
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 3|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="20" onclick="this.form.submit()" {{ 20|isValChecked:discount_filter }}/> 20% or More
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 4|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="30" onclick="this.form.submit()" {{ 30|isValChecked:discount_filter }}/> 30% or More
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 5|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="40" onclick="this.form.submit()" {{ 40|isValChecked:discount_filter }}/> 40% or More
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 6|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="50" onclick="this.form.submit()" {{ 50|isValChecked:discount_filter }}/> 50% or More
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 0|isValueSelected:prolist_seting_option.filter_discount }}{% endif %}">
+									<input type="checkbox" name="discountOption" value="0" onclick="this.form.submit()" {{ 0|isValChecked:discount_filter }}/> All
+								</li>
+							</ul>
+						{% endif %}
+						
+						{% if list_setting.filter_by_colour == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading">
+								By Color
+							</h4>
+							<div style="overflow: scroll; height: 200px;">
+							<ul class="p-b-25">
+								{% for c in color %}
+									<li class="p-t-4">
+										<input type="checkbox" name="colorOption" value="{{c.color}}" onclick="this.form.submit()" {{ c.color|isValChecked:color_filter  }}> {{c.color}}
+									</li>
+								{% endfor %}
+								<li class="p-t-4" style="{% if prolist_seting_option.filter_color == '0' %}display: block{% else %}display: none{% endif %}">
+									<input type="checkbox" name="colorOption" value="0" onclick="this.form.submit()" {{ 0|isValChecked:color_filter }}> All
+								</li>
+							</ul>
+							</div>
+						{% endif %}
+						
+						{% if list_setting.filter_by_brands == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading" style="margin-top: 22px;">
+								By Brands
+							</h4>
+							
+							<ul class="p-b-25">
+								{% for b in brand %}
+									<li class="p-t-4">
+										<input type="checkbox" name="brandOption" value="{{b.brand}}" onclick="this.form.submit()" {{ b.brand|isValChecked:brand_filter }}>{{b.brand}}
+									</li>
+								{% endfor %}
+								<li class="p-t-4" style="{% if prolist_seting_option.filter_brand == '0' %}display: block{% else %}display: none{% endif %}">
+									<input type="checkbox" name="brandOption" value="0" onclick="this.form.submit()" {{ 0|isValChecked:brand_filter }}> All
+								</li>
+							</ul>
+						{% endif %}
+						
+						{% if list_setting.filter_by_reviews == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading">
+								By Size
+							</h4>
+							{% for s in splitsizes %}
+								<li class="p-t-4">
+									<input type="checkbox" name="sizeOption" value="{{s}}" onclick="this.form.submit()" {{ s|isValChecked:size_filter  }}> {{s}}
+								</li>
+							{% endfor %}
+						{% endif %}
+						
+						{% if list_setting.filter_by_availability == True  %}
+							<h4 class="p-t-22 bo3 m-text15 p-b-7 sort_heading" style="margin-top: 22px;">
+								By Size
+							</h4>
+							
+							<ul class="p-b-25">
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 1|isValueSelected:prolist_seting_option.filter_stock }}{% endif %}">
+									<input type="checkbox" name="stockOption" value="1" onclick="this.form.submit()" {{ 1|isValChecked:stock_filter }}/> In Stock
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 2|isValueSelected:prolist_seting_option.filter_stock }}{% endif %}">
+									<input type="checkbox" name="stockOption" value="2" onclick="this.form.submit()" {{ 2|isValChecked:stock_filter }}/> Out Stock
+								</li>
+								<li class="p-t-4" style="{% if prolist_seting_option %}{{ 0|isValueSelected:prolist_seting_option.filter_stock }}{% endif %}">
+									<input type="checkbox" name="stockOption" value="0" onclick="this.form.submit()" {{ 0|isValChecked:stock_filter }}/> All
+								</li>
+							</ul>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50 p-r">
+					<!--  -->
+					<div class="flex-sb-m flex-w p-b-35">
+						<div class="flex-w">
+							<div class="size19 bo4 m-b-12">
+								<select class="selection-2 sizefull s-text7 p-l-15 p-r-15" name="sorting" style="border: 0;" onchange="this.form.submit()">
+									<option value="0">Default Sorting</option>
+									<option value="1" {% if sort == "1" %}selected{% endif %}>Price: low to high</option>
+									<option value="2" {% if sort == "2" %}selected{% endif %}>Price: high to low</option>
+								</select>
+							</div>
+						</div> 
+
+						<span class="s-text8 p-t-5 p-b-5">
+							Showing {{ current_page }} of {{product_count}} results
+						</span>
+					</div>
+
+					<!-- Product -->
+					<div class="row">
+
+						{% if product_list %}
+							{% for product in current_page %}
+									{% if product.quantity > 0 %}
+										<div class="col-lg-4" style="padding:20px;">
+											<div style="border: 2px solid #ddd;">
+												<div style="border: 2px solid #ddd;">
+													<!-- Block2 -->
+													<div class="block2">
+													 	<div class="block2-img wrap-pic-w of-hidden pos-relative">
+													 		<a href="{% url 'productdetail' product.slug %}">
+																<img src="{% static 'images/catalog/products/main/' %}{{ product.product_image }}" alt="IMG-PRODUCT">
+																	<div class="block2-overlay trans-0-4">
+																		
+																		<!-- {% if wishlist %}
+																			{% if product.id|isAddToWishlist:wishlist %}
+																			<button type="button" class="block2-btn-towishlist hov-pointer trans-0-4" onclick="addToWishlist('{{ product.id }}')">
+																				<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+																				<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+																			</button>
+																			{% else %}
+																				<button class="block2-btn-addwishlist hov-pointer trans-0-4" onclick="addToWishlist('{{ product.id }}')">
+																					<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+																					<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+																				</button>
+																			{% endif %}
+																		{% else %}
+																			<button class="block2-btn-addwishlist hov-pointer trans-0-4" onclick="addToWishlist('{{ product.id }}')">
+																				<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+																				<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+																			</button>
+																		{% endif %}
+																		<div class="block2-btn-addcart w-size1 trans-0-4">
+																		<form style="margin-bottom:0;padding-right: 4px;" enctype="multipart/form-data">
+																			{%csrf_token%}
+																			<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="button"  value="Add To Cart"  id = "add_to_cart" name="add_to_cart" onclick="addToCart('{{ product.id }}','0');"/>
+																		</form>	
+																		</div> -->
+																	</div>
+															</a>			
+														</div>
+													
+													 
+
+														<div class="block2-txt p-t-20 p-l-10 p-b-10" style="padding: 8px;">
+															<a href="{% url 'productdetail' product.slug %}" id="product_name" class="block2-name dis-block s-text3 p-b-5" value="{{ product.name }}" maxlength="10" >
+																{{ product.name }}
+															</a>
+															<span class="block2-price m-text6 p-r-5">
+																{{ product.sku }}
+															</span>
+															<table style="width: 100%;">
+																<tr>
+																	<td class="block2-price m-text6 p-r-5" style="width: 95%;color: #444;font-size: 15px;">
+																		<!-- <span class="block2-price m-text6 p-r-5"> -->
+																			Rs. {{ product.mrp|floatformat:"0" }}
+																		<!-- </span> -->
+																	</td>
+																	<td style="width: 5%;">
+																		<form style="margin-bottom:0;float: right;" enctype="multipart/form-data">
+																			{%csrf_token%}
+																			<i class="fa fa-shopping-cart fa-1x pointer" id = "add_to_cart" name="add_to_cart" onclick="addToCart('{{ product.id }}','0');"></i>
+																		</form>
+																	</td>
+																</tr>
+															</table>
+															
+															<!-- <form style="margin-bottom:0;text-align: -webkit-right;" enctype="multipart/form-data">
+																{%csrf_token%}
+																<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="button" id = "add_to_cart" name="add_to_cart" onclick="addToCart('{{ product.id }}','0');" style="width: 60%;font-size: smaller;"/><i class="fa fa-shopping-cart"></i>
+															</form>	 -->
+															
+														</div>
+													</div>
+											
+												</div>
+											</div>
+										</div>
+									{% endif %}	
+							{% endfor %}
+						{% else %}
+							<p>No Products.</p>
+						{% endif %}
+
+					</div>
+
+					<!-- Pagination 
+					<div class="pagination flex-m flex-w p-t-26">
+						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+					</div> -->
+					
+					<div class="pagination flex-m flex-w p-t-26">
+						{% if current_page.has_other_pages %}
+						  <ul class="pagination">
+						    {% if current_page.has_previous %}
+						      <li style="margin-top: 10px;"><a href="?page={{ current_page.previous_page_number }}">&laquo;</a></li>
+						    {% else %}
+						      <li style="margin-top: 10px;" class="disabled"><span>&laquo;</span></li>
+						    {% endif %}
+						    {% for i in current_page.paginator.page_range %}
+						      {% if current_page.number == i %}
+						        <li class="active"><span class="item-pagination flex-c-m trans-0-4 active-pagination">{{ i }}</span></li>
+						      {% else %}
+						        <li><a href="?page={{ i }}" class="item-pagination flex-c-m trans-0-4">{{ i }}</a></li>
+						      {% endif %}
+						    {% endfor %}
+						    {% if current_page.has_next %}
+						      <li style="margin-top: 10px;"><a href="?page={{ current_page.next_page_number }}">&raquo;</a></li>
+						    {% else %}
+						      <li style="margin-top: 10px;" class="disabled"><span>&raquo;</span></li>
+						    {% endif %}
+						  </ul>
+						{% endif %}
+					</div>
+					
+					<!-- <div class="pagination flex-m flex-w p-t-26">
+					    {% if current_page.has_previous %}
+				            <a href="?page={{ current_page.previous_page_number }}" class="item-pagination flex-c-m trans-0-4">{{ current_page.previous_page_number }}</a>
+				        {% endif %}
+				
+				        <span class="current">
+				        	<a href="?page={{ current_page.paginator.num_pages }}" class="item-pagination flex-c-m trans-0-4 active-pagination">{{ current_page.number }}</a>
+				        </span>
+				
+				        {% if current_page.has_next %}
+				            <a href="?page={{ current_page.next_page_number }}" class="item-pagination flex-c-m trans-0-4">{{ current_page.next_page_number }}</a>
+				        {% endif %}
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+</form>
+{% endblock %}
+{% block custom_scripts %}
+	<script src='{% static "js/site.js" %}'></script>
+
+<script>
+
+</script>
+{% endblock %}

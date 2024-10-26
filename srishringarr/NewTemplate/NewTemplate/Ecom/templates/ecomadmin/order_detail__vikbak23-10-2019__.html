@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css">
+
+<div class="container">
+	<div id="responseMsg" style="display:none;">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	</div>
+	<div class="row">
+		<div style=" background: #fff; padding: 10px;font-size: 18px; text-align: left; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+			Order Id: {{ order.id }}
+		</div>
+		<div style=" background: #fff; padding: 10px;font-size: 14px; text-align: left; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+			{% for oi in order_items %}
+				<img style="height: 100px;width: 100px;" src="{% static 'images/catalog/products/main/' %}{{ oi.product.product_image }}" class="imgStyle" /> <br/>
+				{{ oi.product.name }}<br/>
+				{{ oi.subtotal }}<br/>
+			{% endfor %}
+			<div>Order Status:</div> 
+			<from method="post" id="deliverystatus">
+				{% csrf_token %}
+				<select name="order_status" id="order_status" style="width:30%;">
+					<option value="P" {% if order.status == 'P' %}selected="selected"{% endif %}>Pending</option>
+					<option value="C" {% if order.status == 'C' %}selected="selected"{% endif %}>Confirmed</option>
+					<option value="S" {% if order.status == 'S' %}selected="selected"{% endif %}>Shipped</option>
+					<option value="D" {% if order.status == 'D' %}selected="selected"{% endif %}>Delivered</option>
+					<option value="X" {% if order.status == 'X' %}selected="selected"{% endif %}>Cancelled</option>
+				</select>
+				<input type="hidden" value="{{ order.id }}" id="orderId">
+			</from><br/>
+			{% if order.tax %}Order Tax: {{ order.tax }}<br/>{% endif %}
+			Order Total: Rs. {{ order.total }}<br/>
+			<button id="save_btn" onclick="saveButton();">Save</button>
+			<br><br>
+		
+			<div>Deposite collect Dates:</div>
+			<from method="post">
+				{% csrf_token %}
+				<input type="text" class="datepicker-here" data-language="en" placeholder="Deposite Taken" name="deposite_taken" id="deposite_taken_id" value="{{order.deposite_taken}}">
+				<input type="hidden" value="{{ order.id }}" id="orderId">
+				<button id="save_deposite_collect_btn" onclick="saveDepositeButton();">Save</button>
+			</from><br/>
+			<div>Deposite return Dates:</div>
+			<from method="post">
+				{% csrf_token %}
+				<input type="text" class="datepicker-here" data-language="en" placeholder="Deposite Given" name="deposite_given" id="deposite_given_id" value="{{order.deposite_given}}">
+				<input type="hidden" value="{{ order.id }}" id="orderId">
+				<button id="save_deposite_return_btn" onclick="saveDepositeReturnButton();">Save</button>
+			</from><br/>
+		</div>
+		
+		<div style=" background: #fff; padding: 10px;font-size: 14px; text-align: left; border-bottom: 1px solid #ccc; font-style: bold; font-family: 'SinkinSans-Light';">
+			<b>Deliver To:</b><br/>
+			{{ order.address.name }}<br/>
+			{{order.user.email}}<br>
+			{{order.user.mobile}}<br>
+			{{ order.address.address }}<br/>
+			{{ order.address.area }}, {{ order.address.city }}
+			{{ order.address.state }}, {{ order.address.country }} - {{ order.address.pin_zip }}
+		</div>
+		<!-- <button id="save_btn" onclick="saveButton();">Save</button> -->
+	</div>
+</div>
+{% endblock %}
+{% block custom_scripts %}
+<script src='{% static "js/datepicker.js" %}'></script>
+<script>
+
+function saveButton()
+{	
+	alert("hereeeeeeeeeeeeeeee")
+	// data = "Status has been saved";
+	update_status();
+	// $("#deliverystatus").attr('action','/emailsend/')
+	alert("hereeeeeeeeeeeeeeee toooooooooo	")
+	// alert(data);
+	window.location.href = "/orders/"
+}
+
+function saveDepositeButton()
+{
+	// data = "Status has been saved";
+	deposite_dates();
+	// alert(data);
+	window.location.href = "/orders/"
+}
+
+function saveDepositeReturnButton()
+{
+	// data = "Status has been saved";
+	deposite_return_dates();
+	// alert(data);
+	window.location.href = "/orders/"
+}
+
+$('input[id$=deposite_taken_id]').datepicker({
+    dateFormat: 'dd-mm-yy'
+});
+
+$('input[id$=deposite_given_id]').datepicker({
+    dateFormat: 'dd-mm-yy'
+});
+
+</script>
+	
+<script src='{% static "js/validation.js" %}'></script>
+{% endblock %}

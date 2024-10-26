@@ -1,0 +1,88 @@
+{% extends "base.html" %} 
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container">
+<div id="msg"></div>
+	<div style="display: flex;">
+		<div class="card">
+			<div>
+				<div class="cardheader">Total Products</div>
+
+				<div class="cardContent">{{ product_count }}</div>
+
+				<a href="{% url 'addproducts' 0 %}"><button class="cardFooter" >
+					Add Product<span class="arrowDesign arrowRight"></span>
+				</button></a>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">Published Products</div>
+
+				<div class="cardContent">{{ published_product_count }}</div>
+
+				<a href=""><button class="cardFooter" >
+					UnPublish Product<span class="arrowDesign arrowRight"></span>
+				</button></a>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">UnPublished Products</div>
+
+				<div class="cardContent">{{ unPublished_product_count }}</div>
+
+				<button class="cardFooter">
+					Publish Product<span class="arrowDesign arrowRight"></span>
+				</button>
+			</div>
+		</div>
+		<div class="card">
+			<div>
+				<div class="cardheader">Deleted Products</div>
+
+				<div class="cardContent">{{ deleted_product_count }}</div>
+
+				<button class="cardFooter">
+					Restore Product<span class="arrowDesign arrowRight"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top: 20px; background: #fff;">
+		<table style="width: 100%; border: 1px solid #D1D4D7; border-collapse: collapse;">
+			<tr style="height: 50px; background: #D1D4D7; border-collapse: collapse;">
+				<th><input type="checkbox" id ="chckHead"></th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Discount(%)</th>
+				<th>Description</th>
+				<th>Status</th>
+				<th>Quantity</th>
+				<th>Edit</th>
+				<th>Move To Trash</th>
+			</tr>
+			{% for product in product_list %}
+			<tr style="height: 50px; border: 1px solid #D1D4D7; background: #FFF; text-align:center; border-collapse: collapse;">
+				<td><input type="checkbox" class="chcktbl" name="{{ product.id }}" value="{{ product.id }}"></td>
+				<td>{{ product.name }}</td>
+				<td>{{ product.mrp }}</td>
+				<td>{{ product.discount }}</td>
+				<td>{{ product.small_description }}</td>
+				<td>{% if product.is_active %} Active {% else %} Inactive {% endif %}</td>
+				<td>{{ product.quantity }}</td>
+				<td><a href="{% url 'addproducts' product.id %}"><i class="material-icons" style="font-size:24px;color:#616161">mode_edit</i></a></td>
+				<form action="." id="delete">
+					{% csrf_token %}
+					<td><i class="material-icons" onclick="deleteProduct({{ product.id }})" style="font-size:24px;color:#616161;cursor: pointer;">delete</i></td>
+				</form>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}
+
+
+

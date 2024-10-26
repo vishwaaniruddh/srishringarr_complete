@@ -1,0 +1,447 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" >
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	<div class="row" style="margin-bottom:40px;">
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;background:#D1D4D7;">
+				Home Setting 
+				</div>
+				<hr class="hrStyle">
+				<div>
+				
+				<table style="width: 100%; border: 0px solid #D1D4D7; border-collapse: collapse;">
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Logo Icon</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Tag Line</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Search Bar</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Cart Icon</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Menu</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Footer</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Slider</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Categories Grid</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Top Trending products</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Top Discount products</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Top Discount Categories</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Best Sellers</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Featured Products</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">New Arrivals</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="columncart leftcart">
+		<div style="width: 100%;background:#E4E5E6;padding-bottom: 60px;"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+					<div style="padding:10px;">
+					Logo Icon
+					</div>
+					<hr class="hrStyle">
+					<div style="width: 100%;display:flex;">
+						<div style="padding:10px;width: 20%;">
+							<img class="logoicon" src="{% if home_setting_option %} {% static ''%}{{home_setting_option.logo_image}}{% else %} {% static 'images/dummy_logo.png' %} {% endif%} " alt="Avatar" />
+						</div>
+						<div style="padding:10px;width: 50%;">
+							<input type="file" name="logo_icon">
+						</div>
+						
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="site_icon">
+							Save
+						</Button>
+					</div>	
+					</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+					<div style="padding:10px;">
+					Tag Line
+					</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+					 <input type="text"	placeholder="Enter tag line" value="{% if home_setting_option.tag_line %} {{home_setting_option.tag_line}} {% endif%}" name="tagline" required />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="save_tagline">
+							Save
+						</Button>
+					</div>	
+					</div>
+				</form>
+				</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="padding:10px;">
+				Search Bar
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width: 60%;">
+					<input type="checkbox" name="searchBar" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.search_options }}{% endif %}/> Search For All<br/>
+					<input type="checkbox" name="searchBar" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.search_options }}{% endif %}/> Products<br/>
+					<input type="checkbox" name="searchBar" value="3" {% if home_setting_option %}{{ 3|isValChecked:home_setting_option.search_options }}{% endif %}/> Discount Products<br/>
+					<input type="checkbox" name="searchBar" value="4" {% if home_setting_option %}{{ 4|isValChecked:home_setting_option.search_options }}{% endif %}/> Category<br/>
+					<input type="checkbox" name="searchBar" value="5" {% if home_setting_option %}{{ 5|isValChecked:home_setting_option.search_options }}{% endif %}/> Offers<br/>
+					<input type="checkbox" name="searchBar" value="6" {% if home_setting_option %}{{ 6|isValChecked:home_setting_option.search_options }}{% endif %}/> Brands<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="save_searchbar">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+					<div style="padding:10px;">
+					Cart Icon
+					</div>
+					<hr class="hrStyle">
+					<div style="width: 100%;display:flex;">
+						<div style="padding:10px;width: 20%;">
+							<img class="logoicon" src="{% if home_setting_option.cart_image %} {%static ''%}{{home_setting_option.cart_image}} {% else %} {% static 'images/dummy_logo.png' %} {% endif%}" alt="Avatar" />
+						</div>
+						<div style="padding:10px;width: 50%;">
+							<input type="file" name="cart_image">
+						</div>
+						
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="cart_icon">
+							Save
+						</Button>
+					</div>	
+					</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div style="padding:10px;">
+					Menu
+					</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;">
+					  	<input type="radio" name="menuType" value="0" {% if home_setting_option %} {{ 0|isSOChecked:home_setting_option.manu_type }}{% endif %} > Menu <br>
+					  		<div style="margin-left:25px;padding:10px;">
+					  			<input type="checkbox" name="menuOptionData" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.menu_options }}{% endif %}/> Home<br/>
+								<input type="checkbox" name="menuOptionData" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.menu_options }}{% endif %}/> Categories<br/>
+								<input type="checkbox" name="menuOptionData" value="3" {% if home_setting_option %}{{ 3|isValChecked:home_setting_option.menu_options }}{% endif %}/> Brands<br/>
+								<input type="checkbox" name="menuOptionData" value="4" {% if home_setting_option %}{{ 4|isValChecked:home_setting_option.menu_options }}{% endif %}/> Products<br/>
+								<input type="checkbox" name="menuOptionData" value="5" {% if home_setting_option %}{{ 5|isValChecked:home_setting_option.menu_options }}{% endif %}/> Offers<br/>
+								<input type="checkbox" name="menuOptionData" value="6" {% if home_setting_option %}{{ 6|isValChecked:home_setting_option.menu_options }}{% endif %}/> Notifications<br/>
+								<input type="checkbox" name="menuOptionData" value="7" {% if home_setting_option %}{{ 7|isValChecked:home_setting_option.menu_options }}{% endif %}/> My Account<br/>
+							</div>
+	 					<input type="radio" name="menuType" value="1" {% if home_setting_option %}{{ 1|isSOChecked:home_setting_option.manu_type }}{%endif%}> No Menu
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_menu_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+					</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="padding:10px;">
+				Footer
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;">
+		 			<input type="checkbox" name="footerOption" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.footer_options }}{% endif %}/> TERMS OF USE<br/>
+		 			<input type="checkbox" name="footerOption" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.footer_options }}{% endif %}/> PRIVACY POLICY <br/>
+		 			<input type="checkbox" name="footerOption" value="3" {% if home_setting_option %}{{ 3|isValChecked:home_setting_option.footer_options }}{% endif %}/> ABOUT US<br/>
+					<input type="checkbox" name="footerOption" value="4" {% if home_setting_option %}{{ 4|isValChecked:home_setting_option.footer_options }}{% endif %}/> ENQUIRY<br/>
+					<input type="checkbox" name="footerOption" value="5" {% if home_setting_option %}{{ 5|isValChecked:home_setting_option.footer_options }}{% endif %}/> TAKE A TOUR<br/>
+					<input type="checkbox" name="footerOption" value="6" {% if home_setting_option %}{{ 6|isValChecked:home_setting_option.footer_options }}{% endif %}/> FAQs<br/>
+					<input type="checkbox" name="footerOption" value="7" {% if home_setting_option %}{{ 7|isValChecked:home_setting_option.footer_options }}{% endif %}/> CONTACT US<br/>
+					<input type="checkbox" name="footerOption" value="8" {% if home_setting_option %}{{ 8|isValChecked:home_setting_option.footer_options }}{% endif %}/> COPYRIGHT<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_footer_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="padding:10px;">
+				Slider
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width: 100%;">
+					 <div style="padding:10px;width: 50%;">
+							<input type="file" name="slider_images" multiple>
+					</div>
+					<div style="padding:10px;width: 90%;display:flex;overflow-x: auto;">
+					{% if home_setting_option %}
+						{% for image in home_setting_option.slider_image|getList %}
+							<img class="SliderIcon" src="{%static '/images/site/slider/'%}{{image}}" alt="Avatar" />
+						{% endfor %}	
+					{% endif %}
+					</div>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_slider_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="padding:10px;">
+				Categories Grid
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width:60%;">
+					<input type="text"	placeholder="Enter number of coloumn" value="{{ home_setting_option.catgrid_col_count }}" name="colCount" required />
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_cargrid_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+					Top Trending products
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.top_trend_product_count }}{% endif %}" name="tt_product_count" required />
+						<input type="checkbox" name="ttp_Option" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.top_trend_product_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="ttp_Option" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.top_trend_product_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_ttp_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>	
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+					Top Discount products
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.top_dist_product_count }}{% endif %}" name="td_product_count" required />
+						<input type="checkbox" name="tdp_Option" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.top_dist_product_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="tdp_Option" value="2" {% if home_setting_option %} {{ 2|isValChecked:home_setting_option.top_dist_product_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_tdp_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+				<div style="padding:10px;">
+				Top Discount Categories
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width:60%;">
+					<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.top_dist_cat_count }}{% endif %}" name="tdcCount" required />
+					<input type="checkbox"  id="catOption" name="tdcOption" value="1"  {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.top_dist_cat_options }}{% endif %}/> Add To Cart Button<br/>
+					<input type="checkbox"  id="catOption" name="tdcOption" value="2"  {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.top_dist_cat_options }}{% endif %}/> Available Offers<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_tdc_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+			  </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+						<div style="padding:10px;">
+						Best Sellers 
+						</div>
+						<hr class="hrStyle">
+						
+						<div style="padding:10px;width:60%;">
+							<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.best_sellers_count }}{% endif %}" name="bsCount" required />
+							<input type="checkbox"  id="bsOption" name="tbsOption" value="1"  {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.best_sellers_options }}{% endif %}/> Add To Cart Button<br/>
+							<input type="checkbox"  id="bsOption"  name="tbsOption" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.best_sellers_options }}{% endif %}/> Available Offers<br/>
+							</div>
+						<!-- <hr class="hrStyle"> -->
+						<div style="padding:10px;  text-align: -webkit-right;">
+						<div style="width:80px; text-align: -webkit-right;">
+							<Button class="saveButton" type="submit" name="seting_option_type" value="type_bs_options">
+								Save
+							</Button>
+						</div>	
+						</div>
+			 </form>	
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+				<div style="padding:10px;">
+				Featured Products
+				</div>
+				<hr class="hrStyle">
+				
+				<div style="padding:10px;width:60%;">
+					<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.featured_product_count }}{% endif %}" name="featured_product_count" required />
+					<input type="checkbox"  id="fpOption" name="tfpOption" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.featured_product_options }}{% endif %}/> Add To Cart Button<br/>
+					<input type="checkbox"  id="fpOption"  name="tfpOption" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.featured_product_options }}{% endif %}/> Available Offers<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_fp_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+				 </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+				<div style="padding:10px;">
+				New Arrivals
+				</div>
+				<hr class="hrStyle">
+				
+				<div style="padding:10px;width:60%;">
+					<input type="text"	placeholder="Enter number of products" value="{% if home_setting_option %}{{ home_setting_option.new_arri_product_count }}{% endif %}" name="na_product_count" required />
+					<input type="checkbox"  id="naOption" name="tnaOption" value="1" {% if home_setting_option %}{{ 1|isValChecked:home_setting_option.new_arri_product_options }}{% endif %}/> Add To Cart Button<br/>
+					<input type="checkbox"  id="naOption"  name="tnaOption" value="2" {% if home_setting_option %}{{ 2|isValChecked:home_setting_option.new_arri_product_options }}{% endif %}/> Available Offers<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="type_na_options">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

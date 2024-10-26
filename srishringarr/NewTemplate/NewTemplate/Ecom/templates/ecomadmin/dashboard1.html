@@ -1,0 +1,453 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load custom_admin_filters %}
+{% block content %}
+<style>
+	.body{
+		font-family: 'Montserrat-Regular';
+	}
+	/* Style the tab */
+	.tab {
+	    overflow: hidden;
+	    /*border: 1px solid #ccc;*/
+	    background-color: #f1f1f1;
+	}
+	
+	/* Style the buttons inside the tab */
+	.tab button {
+	    background-color: inherit;
+	    float: left;
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    padding: 14px 16px;
+	    transition: 0.3s;
+	    font-size: 17px;
+	}
+	
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+	    background-color: #ddd;
+	}
+	
+	/* Create an active/current tablink class */
+	.tab button.active {
+	    background-color: #ccc;
+	}
+	
+	/* Style the tab content */
+	.tabcontent {
+	    display: none;
+	    padding: 6px 12px;
+	    /*border: 1px solid #ccc;*/
+	    border-top: none;
+	}
+	
+	.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.material-icons{
+	color:#444 !important;
+}
+/*new*/
+hr{
+	margin-bottom: 0;
+}
+
+.import_btn{
+	height: 100px;
+	width: 200px;
+	border: 1px solid;
+	border-color:#28b779;
+	padding: 10px 40px 10px 40px;
+	font-size: 20px;
+	color: #28b779;
+}
+</style>
+<script src='{% static "js/validation.js" %}'></script>
+<div class="container" style="">
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+
+	<div class="tab">
+	  <button class="tablinks" onclick="openCity(event, '1')">Site Setting</button>
+	  <button class="tablinks" onclick="openCity(event, '2')">DashBoard</button>
+	<!--   <button class="tablinks" onclick="openCity(event, '3')">Tokyo</button> -->
+	</div>
+	
+	<div id="id_1" class="tabcontent" style="display: block;background-color: #ffffff;">
+		
+		<div style="margin-top: 8px;">
+			<span style="font-size:20px;">&nbsp;&nbsp;Site Option Setting</span>
+		</div>
+		
+	
+		<div class="scrollbar" id="style-4" style="display: flex;margin-top:5px;background:#FFFFFF;padding:10px;">
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Home Page
+					 <a href="{% url 'home_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a>
+					 <hr/>
+					 </div>
+
+					<div style="overflow-y: scroll; height:300px;">
+					{% if home_setting == None %}
+						<input type="hidden" id = "home_all_checked" value="1"/>
+					{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.logo == True %} checked {% endif %} name = "clogo_icon" id = "clogo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.headline == True %} checked {% endif %} name = "ctag_line" id = "ctag_line" > Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.searchbar == True %} checked {% endif %} name = "csearchbar" id = "csearchbar" > Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.cart_symbol == True %} checked {% endif %} name = "ccart_icon" id = "ccart_icon" > Cart Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.menu == True %} checked {% endif %} name = "cmenu" id = "cmenu" > Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.footer == True %} checked {% endif %} name = "cfooter" id = "cfooter" > Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.slider == True %} checked {% endif %} name = "cslider" id = "cslider"> Slider </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.category_grid == True %} checked {% endif %} name = "ccat_grid" id = "ccat_grid"> Categories Grid </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.top_trending_product == True %} checked {% endif %} name = "ctop_t_product" id = "ctop_t_product"> Top Trending products</div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.top_discount_product == True %} checked {% endif %} name = "ctop_d_product" id = "ctop_d_product"> Top Discount products</div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.top_discount_categories == True %} checked {% endif %} name = "ctop_d_cat" id = "ctop_d_cat" > Top Discount Categories </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.top_selling_product == True %} checked {% endif %} name = "ctop_sale" id = "ctop_sale" > Best Sellers </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.feture_product == True %} checked {% endif %} name = "cf_product" id = "cf_product" > Featured Products </div>
+						<div class="cardContent5"><input type="checkbox" {% if home_setting.new_arrivals == True %} checked {% endif %} name = "cnew_arrivals" id = "cnew_arrivals" > New Arrivals </div>
+					</div>
+					<button type="submit" name="seting_type" value="home_setting" class="cardFooter5" >Save</button>
+			 	</form>
+			</div>
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Product Listing Page <a href="{% url 'product_list_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a><hr/></div>
+					<div style="overflow-y: scroll; height:300px;">
+						{% if list_setting == None %}
+							<input type="hidden" id = "plist_all_checked" value="1"/>
+						{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.logo == True %} checked {% endif %} name = "pljlogo_icon" id = "pljlogo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.headline == True %} checked {% endif %} name = "pljtag_line" id = "pljtag_line" > Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.searchbar == True %} checked {% endif %} name = "pljsearchbar" id = "pljsearchbar" > Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.cart_symbol == True %} checked {% endif %} name = "pljcart_icon" id = "pljcart_icon" > Cart Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.footer == True %} checked {% endif %} name = "pljfooter" id = "pljfooter" > Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.menu == True %} checked {% endif %} name = "pljmenu" id = "pljmenu" > Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_gender == True %} checked {% endif %} name = "pljfilter_by_gender" id = "pljfilter_by_gender"> Filter By Gender </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_category == True %} checked {% endif %} name = "pljfilter_by_category" id = "pljfilter_by_category"> Filter By Category </div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_price == True %} checked {% endif %} name = "pljfilter_by_price" id = "pljfilter_by_price"> Filter By Price</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_discount == True %} checked {% endif %} name = "pljfilter_by_discount" id = "pljfilter_by_discount"> Filter By Discount</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_colour == True %} checked {% endif %} name = "pljfilter_by_colour" id = "pljfilter_by_colour" > Filter By Color</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_brands == True %} checked {% endif %} name = "pljfilter_by_brands" id = "pljfilter_by_brands" > Filter By Brands</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_reviews == True %} checked {% endif %} name = "pljfilter_by_reviews" id = "pljfilter_by_reviews" > Filter By Reviews</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.filter_by_availability == True %} checked {% endif %} name = "pljfilter_by_availability" id = "pljfilter_by_availability" > Filter By Availability</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.product_by_grid == True %} checked {% endif %} name = "pljproduct_by_grid" id = "pljproduct_by_grid" > Product By Grid</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.product_by_list == True %} checked {% endif %} name = "pljproduct_by_list" id = "pljproduct_by_list" >  Product By List</div>
+						<div class="cardContent5"><input type="checkbox" {% if list_setting.grid_and_list == True %} checked {% endif %} name = "pljgrid_and_list" id = "pljgrid_and_list" > By Grid and List</div>
+					</div>
+					<button type="submit" name="seting_type" value="product_setting" class="cardFooter5" >Save</button>
+				</form>
+			</div>
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Product Details Page<a href="{% url 'product_detail_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a><hr/></div>
+					<div style="overflow-y: scroll; height:300px;">
+						{% if prod_detail_setting == None %}
+							<input type="hidden" id = "pdetail_all_checked" value="1"/>
+						{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.logo == True %} checked {% endif %} name = "pdjlogo_icon" id = "pdjlogo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.headline == True %} checked {% endif %} name = "pdjtag_line" id = "pdjtag_line" > Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.searchbar == True %} checked {% endif %} name = "pdjsearchbar" id = "pdjsearchbar" > Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.cart_symbol == True %} checked {% endif %} name = "pdjcart_icon" id = "pdjcart_icon" > Cart Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.menu == True %} checked {% endif %} name = "pdjmenu" id = "pdjmenu" > Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.footer == True %} checked {% endif %} name = "pdjfooter" id = "pdjfooter" > Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.prod_name == True %} checked {% endif %} name = "pdjprod_name" id = "pdjprod_name"> Product Name </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.s_review == True %} checked {% endif %} name = "pdjs_reviews" id = "pdjs_reviews"> Reviews(small) </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.price == True %} checked {% endif %} name = "pdjprice" id = "pdjprice"> Price </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.discount == True %} checked {% endif %} name = "pdjdiscount" id = "pdjdiscount"> Discount </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.offer == True %} checked {% endif %} name = "pdjoffer" id = "pdjoffer" > Available Offer </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.highlights == True %} checked {% endif %} name = "pdjhighlights" id = "pdjhighlights" > Highlights </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.services == True %} checked {% endif %} name = "pdjservices" id = "pdjservices" > Services </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.seller == True %} checked {% endif %} name = "pdjseller" id = "pdjseller" > Seller </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.description == True %} checked {% endif %} name = "pdjdesc" id = "pdjdesc" > Description </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.specifications == True %} checked {% endif %} name = "pdjspecification" id = "pdjspecification" > Specifications </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.prod_brought_together == True %} checked {% endif %} name = "pdjbroght_together" id = "pdjbroght_together" > Frequently products brought together</div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.rating_reviews == True %} checked {% endif %} name = "pdjrate_reviews" id = "pdjrate_reviews" > Ratings and Reviews(Details) </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.rate_product == True %} checked {% endif %} name = "pdjrate" id = "pdjrate" > Rate this Product </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.recent_view == True %} checked {% endif %} name = "pdjrecent_viewed" id = "pdjrecent_viewed" > Recently Viewed </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.manufacture == True %} checked {% endif %} name = "pdjmanufacture" id = "pdjmanufacture" > From the manufacturer </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.goes_with == True %} checked {% endif %} name = "pdjgoes_with" id = "pdjgoes_with" > Goes well with	</div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.similar_prod == True %} checked {% endif %} name = "pdjsimilar" id = "pdjsimilar" > Similar products </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.delivery_option == True %} checked {% endif %} name = "pdjdelivery" id = "pdjdelivery" > Delivery options </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.emi_option == True %} checked {% endif %} name = "pdjemi" id = "pdjemi" > EMI option available </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.interested_prod == True %} checked {% endif %} name = "pdjinterested" id = "pdjinterested" > Interested products </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.buy_now == True %} checked {% endif %} name = "pdjbuy_now_btn" id = "pdjbuy_now_btn" > Buy Now button </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.wishlist == True %} checked {% endif %} name = "pdjwishlist_btn" id = "pdjwishlist_btn" > Wishlist button </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.top_msg == True %} checked {% endif %} name = "pdjtop_msg" id = "pdjtop_msg" > Top message </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.bottom_msg == True %} checked {% endif %} name = "pdjbottom_msg" id = "pdjbottom_msg" > Bottom message </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.stock == True %} checked {% endif %} name = "pdjstock" id = "pdjstock" > Stock Count </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.size == True %} checked {% endif %} name = "pdjsize" id = "pdjsize" > Size </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.size_chart == True %} checked {% endif %} name = "pdjsize_chart" id = "pdjsize_chart" > Size Chart </div>
+						<div class="cardContent5"><input type="checkbox" {% if prod_detail_setting.color == True %} checked {% endif %} name = "pdjcolor" id = "pdjcolor" > Colour </div>
+					</div>
+					<button type="submit" name="seting_type" value="product_details_setting" class="cardFooter5" >Save</button>
+				</form>
+			</div>
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Cart Page 
+						<a href="{% url 'cart_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a>	<hr/>
+					</div>
+					<div style="overflow-y: scroll; height:300px;">
+					{% if cart_setting == None %}
+						<input type="hidden" id = "cart_all_checked" value="1"/>
+					{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.logo == True %} checked {% endif %} name = "cartlogo_icon" id = "cartlogo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.headline == True %} checked {% endif %} name = "carttag_line" id = "carttag_line" > Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.searchbar == True %} checked {% endif %} name = "cartsearchbar" id = "cartsearchbar" > Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.menu == True %} checked {% endif %} name = "cartmenu" id = "cartmenu" > Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.footer == True %} checked {% endif %} name = "cartfooter" id = "cartfooter" > Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.title_with_count == True %} checked {% endif %} name = "cart_title_with_count" id = "cart_title_with_count" > Title With Product Count</div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.cart_count == True %} checked {% endif %} name = "cart_count" id = "cart_count" > Cart Count </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.image == True %} checked {% endif %} name = "cart_image" id = "cart_image" > Product image </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.seller_name == True %} checked {% endif %} name = "cart_seller_name" id = "cart_seller_name" > Seller details </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.add_to_wishlist == True %} checked {% endif %} name = "cart_add_to_wishlist" id = "cart_add_to_wishlist" > Add to wishlist </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.add_from_wishlist == True %} checked {% endif %} name = "cart_add_from_wishlist" id = "cart_add_from_wishlist" > Add from wishlist </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.continue_shopping == True %} checked {% endif %} name = "cart_continue_shopping" id = "cart_continue_shopping" > Continue Shopping </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.check_delivery == True %} checked {% endif %} name = "cart_check_delivery" id = "cart_check_delivery" > Check Delivery </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.delivery_charges == True %} checked {% endif %} name = "cart_delivery_charges" id = "cart_delivery_charges" > Delivery Charges </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.replacement_policy == True %} checked {% endif %} name = "cart_replacement_policy" id = "cart_replacement_policy" > Replacement Policy </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.estimated_tax == True %} checked {% endif %} name = "cart_estimated_tax" id = "cart_estimated_tax" > Estimated Tax </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.message_top == True %} checked {% endif %} name = "cart_message_top" id = "cart_message_top" > Message On Top </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.message_bottom == True %} checked {% endif %} name = "cart_message_bottom" id = "cart_message_bottom" > Message On Bottom </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.emi_eligibity == True %} checked {% endif %} name = "cart_emi_eligibity" id = "cart_emi_eligibity" > EMI Eligibility </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.add_coupon == True %} checked {% endif %} name = "cart_add_coupon" id = "cart_add_coupon" > Add Coupon </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.coupon_list == True %} checked {% endif %} name = "cart_coupon_list" id = "cart_coupon_list" > Coupon List </div>
+						<div class="cardContent5"><input type="checkbox" {% if cart_setting.empty == True %} checked {% endif %} name = "cart_empty" id = "cart_empty" > Empty Cart Button </div>
+					</div>
+					<button type="submit" name="seting_type" value="cart_setting" class="cardFooter5" >Save</button>
+				</form>
+			</div>
+		</div>
+	
+		<div style="display: flex;margin-top:5px;background:#FFFFFF;padding:10px;">
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Checkout Page<a href="{% url 'checkout_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a><hr/></div>
+					<div style="overflow-y: scroll; height:300px;">
+						{% if checkout_setting == None %}
+							<input type="hidden" id = "checkout_all_checked" value="1"/>
+						{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.logo == True %} checked {% endif %} name = "ct_logo_icon" id = "ct_logo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.headline == True %} checked {% endif %} name = "ct_tag_line" id = "ct_tag_line" > Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.searchbar == True %} checked {% endif %} name = "ct_searchbar" id = "ct_searchbar" > Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.menu == True %} checked {% endif %} name = "ct_menu" id = "ct_menu" > Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.footer == True %} checked {% endif %} name = "ct_footer" id = "ct_footer" > Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.billing == True %} checked {% endif %} name = "ct_bill_add" id = "ct_bill_add"> Billing Address </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.shipping == True %} checked {% endif %} name = "ct_ship_add" id = "ct_ship_add" > Shipping Address </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.same_as_billing == True %} checked {% endif %} name = "ct_as_bill" id = "ct_as_bill" > Shipping Address as Billing address  </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.add_type == True %} checked {% endif %} name = "ct_add_type" id = "ct_add_type" > Address type </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.add_coupon == True %} checked {% endif %} name = "ct_coupon" id = "ct_coupon" > Add a Coupon </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.coupon_list == True %} checked {% endif %} name = "ct_coupon_list" id = "ct_coupon_list"> Coupon List </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.order_summary == True %} checked {% endif %} name = "ct_order_summary" id = "ct_order_summary" > Order Summary </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.cod == True %} checked {% endif %} name = "ct_cod" id = "ct_cod" > Cash on Delivery </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.paypal == True %} checked {% endif %} name = "ct_paypal" id = "ct_paypal" > Paypal </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.citrus == True %} checked {% endif %} name = "ct_citrus" id = "ct_citrus" > Citrus </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.netbanking == True %} checked {% endif %} name = "ct_netbanking" id = "ct_netbanking"> Netbanking </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.bank_transfer == True %} checked {% endif %} name = "ct_bank_transfer" id = "ct_bank_transfer" > Bank Transfer </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.emi == True %} checked {% endif %} name = "ct_emi" id = "ct_emi" > EMI </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.wallets == True %} checked {% endif %} name = "ct_wallets" id = "ct_wallets" > Wallets </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.phonepe == True %} checked {% endif %} name = "ct_phonepe" id = "ct_phonepe" > Phonepe </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.credit_debit == True %} checked {% endif %} name = "ct_cr_db"" id = "ct_cr_db"> Credit/ Debit card </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.new_address == True %} checked {% endif %} name = "ct_new_add"" id = "ct_new_add" > Add new address </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.chg_login == True %} checked {% endif %} name = "ct_chg_login" id = "ct_chg_login" > Change Login </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.chg_address == True %} checked {% endif %} name = "ct_chg_add" id = "ct_chg_add" > Change Address </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.chg_order == True %} checked {% endif %} name = "ct_chg_order" id = "ct_chg_order" > Change Order </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.del_charge == True %} checked {% endif %} name = "ct_del_charge" id = "ct_del_charge" > Delivery charges </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.tax == True %} checked {% endif %} name = "ct_tax" id = "ct_tax" > Estimated Tax </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.discount == True %} checked {% endif %} name = "ct_discount" id = "ct_discount" > Cart Discount </div>
+						<div class="cardContent5"><input type="checkbox" {% if checkout_setting.near_by_you == True %} checked {% endif %} name = "ct_near_u" id = "ct_near_u" > Get parcel near by you </div>
+					</div>
+					<button type="submit" name="seting_type" value="checkout_setting" class="cardFooter5" >Save</button>
+				</form>
+			</div>
+			<div class="card5">
+				<form class = "formCss" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}
+					<div class="cardheader5">Thank You Page<a href="{% url 'thanku_options' %}"><i class="material-icons" style="font-size:24px;#FFF;float: right;">settings</i></a><hr/></div>
+					<div style="overflow-y: scroll; height:300px;">
+						{% if thanku_setting == None %}
+							<input type="hidden" id = "thanku_all_checked" value="1"/>
+						{% endif %}
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.logo == True %} checked {% endif %} name = "tu_logo_icon" id = "tu_logo_icon"> Logo Icon </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.headline == True %} checked {% endif %} name = "tu_tag_line" id = "tu_tag_line"> Tag Line </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.searchbar == True %} checked {% endif %} name = "tu_searchbar" id = "tu_searchbar"> Search Bar </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.menu == True %} checked {% endif %} name = "tu_menu" id = "tu_menu"> Menu </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.footer == True %} checked {% endif %} name = "tu_footer" id = "tu_footer"> Footer </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.order_msg_txt == True %} checked {% endif %} name = "tu_order_msg" id = "tu_order_msg"> Order Message Text </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.order_summary == True %} checked {% endif %} name = "tu_order_summary" id = "tu_order_summary"> Order Summary </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.order_address == True %} checked {% endif %} name = "tu_address" id = "tu_address"> Delivery Address </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.delivery_dt == True %} checked {% endif %} name = "tu_delivery_dt" id = "tu_delivery_dt"> Delivery Date </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.cont_shop_btn == True %} checked {% endif %} name = "tu_cont_btn" id = "tu_cont_btn"> Continue Shopping Button </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.cancel_rule == True %} checked {% endif %} name = "tu_cancel" id = "tu_cancel"> Rules for Cancelling Order </div>
+						<div class="cardContent5"><input type="checkbox" {% if thanku_setting.note == True %} checked {% endif %} name = "tu_notes" id = "tu_notes"> Notes </div>
+					</div>
+					<button type="submit" name="seting_type" value="thankyou_setting" class="cardFooter5" >Save</button>
+				</form>
+			</div>
+			<div class="card5">
+					<form class = "formCss" enctype="multipart/form-data" method="POST" >
+						{%csrf_token%}
+						<div class="cardheader5">
+							Rent Setting
+							<div class="tooltip"><i class="material-icons" style="font-size:24px;color:#0083C7;float: right;">info_outline</i>
+							  <span class="tooltiptext">Tooltip text</span>
+							</div>
+							<hr/>
+						</div>
+						<div style="height:auto;">
+							{% if home_setting == None %}
+								<input type="hidden" id = "home_all_checked" value="1"/>
+							{% endif %}
+							<div class="cardContent5" style="display:flex;">
+								<!-- <input type="checkbox"  name = "days" id = "id_days_3" value="3"> --> 
+								<div style="margin-top:10px;margin-right: 10px;margin-left: 10px;">3 days</div> 
+								<input type="text" style="width:150px;margin:0px;" placeholder="Enter value" name="3_days_value" value="{% if rent_setting.percent_value %}{{1|getValueAtIndex:rent_setting.percent_value}}{% else %}0{% endif %}" maxlength="2"  required="required"/> 
+							</div>
+							<div class="cardContent5" style="display:flex;">
+								<!-- <input type="checkbox"  name = "days" id = "id_days_4" value="4"> --> 
+								<div style="margin-top:10px;margin-right: 10px;margin-left: 10px;">4 days</div> 
+								<input type="text" style="width:150px;margin:0px;" placeholder="Enter value" name="4_days_value" value="{% if rent_setting.percent_value %}{{2|getValueAtIndex:rent_setting.percent_value}}{% else %}0{% endif %}" maxlength="2"  required="required"/> 
+							</div>
+							<div class="cardContent5" style="display:flex;">
+								<!-- <input type="checkbox"  name = "days" id = "id_days_5" value="5"> --> 
+								<div style="margin-top:10px;margin-right: 10px;margin-left: 10px;">5 days</div> 
+								<input type="text" style="width:150px;margin:0px;" placeholder="Enter value" name="5_days_value" value="{% if rent_setting.percent_value %}{{3|getValueAtIndex:rent_setting.percent_value}}{% else %}0{% endif %}" maxlength="2"  required="required"/> 
+							</div>
+							<div class="cardContent5" style="display:flex;">
+							<!-- 	<input type="checkbox"  name = "days" id = "id_days_6" value="6"> --> 
+								<div style="margin-top:10px;margin-right: 10px;margin-left: 10px;">6 days</div> 
+								<input type="text" style="width:150px;margin:0px;" placeholder="Enter value" name="6_days_value" value="{% if rent_setting.percent_value %}{{4|getValueAtIndex:rent_setting.percent_value}}{% else %}0{% endif %}" maxlength="2"  required="required"/> 
+							</div>
+							<div class="cardContent5" style="display:flex;">
+							<!-- 	<input type="checkbox"  name = "days" id = "id_days_7" value="7">  -->
+								<div style="margin-top:10px;margin-right: 10px;margin-left: 10px;">7 days</div> 
+								<input type="text" style="width:150px;margin:0px;" placeholder="Enter value" name="7_days_value" value="{% if rent_setting.percent_value %}{{5|getValueAtIndex:rent_setting.percent_value}}{% else %}0{% endif %}" maxlength="2"  required="required"/> 
+							</div>
+						</div>
+						<button type="submit" name="seting_type" value="rent_setting" class="cardFooter5" >Save</button>
+				 	</form>
+				</div>
+		</div>
+		
+		<!-- <div style="margin-top:5px;border: 1px solid #D1D4D7;background:#FFFFFF;padding:10px;">	
+				<div style="margin-top: 20px;margin-bottom: 20px;">
+					<span style="font-size:20px;">Basic Setting</span>
+				</div>
+				<div style="display: flex;">
+				
+				</div>	
+		</div> -->
+	
+	</div>
+
+	<div id="id_2" class="tabcontent" style="background-color: rgb(255, 255, 255);padding: 60px 13px 1px 20px;">
+		<div style="display: flex;margin-bottom: 20px;">
+			<div class="card" style="border-color: #f74d4e;">
+				<div>
+					<!-- <div class="cardheader4">Categories</div> -->
+
+					<div class="cardContentPink">
+						<span style="font-size: 30px;">{{ category_count }}</span><br>
+						<span>Categories</span>
+					</div>
+
+					<a href="{% url 'category' %}">
+						<button class="cardFooter2" >
+							View More<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="card" style="border-color: #27a9e3;">
+				<div>
+					<!-- <div class="cardheader"></div> -->
+
+					<div class="cardContentBlue"> 
+						<span style="font-size: 30px;">{{ product_count }}</span><br>
+						<span>Products</span>
+					</div>
+
+					<a href="{% url 'products' %}">
+						<button class="cardFooter2" >
+							View More<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="card" style="border-color: #ffb849;">
+				<div>
+					<!-- <div class="cardheader2">Offers</div> -->
+
+					<div class="cardContentYellow" >
+						<span style="font-size: 30px;">{{ offers_count }}</span><br>
+						<span>Offers</span>
+					</div>
+
+					<a href="{% url 'offers' %}">
+						<button class="cardFooter2">
+							View More<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div> 
+			<div class="card" style="border-color: #28b779;">
+				<div>
+					<!-- <div class="cardheader2">Orders</div> -->
+
+					<div class="cardContentGreen">
+						<span style="font-size: 30px;">{{ orders_count }}</span><br>
+						<span>Orders</span>
+					</div>
+
+					<a href="{% url 'orders' %}">
+						<button class="cardFooter2">
+							View More<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div style="text-align: center;margin-top: 20px;margin-top: 55px;
+    margin-bottom: 55px;">
+			<a class="import_btn" href="{% url 'import' %}">Import Data</a>		
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

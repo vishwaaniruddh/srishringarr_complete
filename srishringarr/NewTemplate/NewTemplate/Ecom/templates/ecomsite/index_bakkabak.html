@@ -1,0 +1,187 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %} 
+<style>
+.list-1 {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.list-1 li:first-child, .list-1 li:last-child {
+    width: 50%;
+}
+.list-1 li {
+    overflow: hidden;
+    position: relative;
+    width: 25%;
+}
+.list-1 img {
+    width: 100%;
+}
+.list-1 li:first-child, .list-1 li:last-child {
+    width: 50%;
+}
+
+@media (max-width: 767px)
+{
+.list-1 li {
+    width: 100%;
+}
+.list-1 li:first-child, .list-1 li:last-child {
+   width: 100%;
+}
+}
+</style>
+<!-- <link rel="stylesheet" href="{% static 'css/site.css' %}"> -->
+
+
+<!-- Main Slider -->
+{% if home_setting.slider == True %}  		
+	<!-- <section class="slide1" style="width: 100%;">
+		<iframe width="100%" height="430px" src="https://www.youtube.com/embed/KGZVaCSe_mw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>	 -->
+	<section class="slide1" style="width: 100%;">
+		<div class="wrap-slick1" style="margin-top: -80px;">
+			<div class="slick1">
+			{% for image in home_seting_option.slider_image|getList %}
+				<div class="" style="background-image: url({%static '/images/site/slider/'%}{{image}});max-width: 100%;background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;height: 450px;margin-top: 80px;">
+				<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+				<!-- 		<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+							Women Collection 2018
+						</span>
+	
+						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+							New arrivals
+						</h2>
+	
+						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+								Shop Now
+							</a>
+						</div> -->
+					</div>
+				</div>
+				{% endfor %}
+	
+			</div>
+		</div>
+	</section>	  	
+{% endif %}
+<!--End Of Main Slider -->
+
+<!-- dUMMY dATA -->
+<section class="blog bgwhite p-t-94 p-b-65">
+		<div>
+			<div class="sec-title p-b-52">
+				<h3 class="m-text5 t-center">
+					Collections
+				</h3>
+			</div>
+
+			<div class="row">
+				<ul class="list-1">
+				    <li>
+				       <a class="hov-img-zoom"> <img alt="" src="{% static 'images/site/grid_images/img-1.png' %}">       
+				    </a>
+				    </li>
+				    <li>
+				        <a class="hov-img-zoom"><img alt="" src="{% static 'images/site/grid_images/img-2.png' %}"></a>       
+				    </li>
+				    <li>
+				        <a class="hov-img-zoom"><img alt="" src="{% static 'images/site/grid_images/img-3.png' %}"></a>   
+				    </li>
+				    <li>
+				        <a class="hov-img-zoom"><img alt="" src="{% static 'images/site/grid_images/img-4.png' %}"></a>       
+				    </li>
+				    <li>
+				        <a class="hov-img-zoom"><img alt="" src="{% static 'images/site/grid_images/img-5.png' %}"></a>        
+				    </li>
+				    <li>
+				        <a class="hov-img-zoom"><img alt="" src="{% static 'images/site/grid_images/img-6.png' %}"></a>        
+				    </li>
+				</ul>		
+			</div>
+		</div>
+	</section>
+	<!-- Dummy Data -->
+
+<!-- Categories -->
+{% if home_setting.category_grid == False %} 
+
+	<section class="banner2 bg5 p-t-55 p-b-55">
+		<div class="container">
+			<div class="row">
+			{% for category in cat_list_p %}
+				<div class="{% if home_seting_option.catgrid_col_count == 2 %} 
+							col-md-6 {% elif home_seting_option.catgrid_col_count == 3 %} 
+							col-md-4 {% elif home_seting_option.catgrid_col_count == 4 %}
+							col-md-3 {% elif home_seting_option.catgrid_col_count == 5 %}
+							col-md-2 {% else %} col-md-3 {% endif %}m-b-10">
+					<div class="hov-img-zoom pos-relative">
+						<img src="{% static 'images/catalog/categories/main/img-1_KmC6V1w.jpg' %}{{category.image}}" alt="IMG-BANNER">
+						<!-- <img src="{% static 'images/men-gym-clothing-fitness-wear-sports-suits.jpg' %}{{category.image}}" alt="IMG-BANNER"> -->
+
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<span class="m-text9 p-t-45 fs-20-sm">
+								The Beauty
+							</span>
+
+							<h3 class="l-text1 fs-35-sm">
+								Lookbook
+							</h3>
+
+							<a href="{% url 'catprodlist' category.id %}" class="s-text4 hov2 p-t-20 ">
+								
+							</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}		
+<!-- 	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="container">
+			<div class="sec-title p-b-52">
+				<h3 class="m-text5 t-center">
+					Categories
+				</h3>
+			</div>
+
+			<div class="row">
+				{% for category in cat_list %}
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					Block3
+					<div class="{% if home_seting_option.catgrid_col_count == 2 %} block2 {% elif home_seting_option.catgrid_col_count == 3 %} block3 {% elif home_seting_option.catgrid_col_count == 4 %} block4 {% elif home_seting_option.catgrid_col_count == 5 %}
+			  			block5 {% else%} block3 {% endif %}">						
+						<a href ="{% url 'catprodlist' category.id %}" class="block3-img dis-block hov-img-zoom">			  		
+							<img src="{% static '' %}{{category.image}}" />
+						</a>						
+					</div>				
+				</div>	
+				{% endfor %}				
+			</div> -->
+		</div>
+		</div>
+	</section>
+	{% endif %}
+<!-- End of Categories -->
+
+
+<!-- Start Product Section  -->
+	
+<!-- End of Product Section  -->
+{% endblock %}
+{% block custom_scripts %}
+	<!-- <script src='{% static "js/validation.js" %}'></script> -->
+	<!-- <script src='{% static "js/site.js" %}'></script> -->
+
+<script>
+
+
+</script>
+{% endblock %}
+

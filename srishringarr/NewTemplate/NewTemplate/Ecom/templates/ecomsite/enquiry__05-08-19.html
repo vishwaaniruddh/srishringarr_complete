@@ -1,0 +1,44 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="flex-l-m">
+	<div class="bo9 col-sm-6 col-md-4 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38 m-l-40 m-t-40 m-r-40 m-b-40">
+		<h5 class="m-text20 m-b-30 m-t-10 m-r-20">
+			ENQUIRY 
+		</h5>
+		<form enctype="multipart/form-data" method="POST">
+			{% csrf_token %}
+			<span class="s-text15">
+				<strong>Full Name</strong>
+			</span>
+			<div class="size1 bo4 m-b-12">
+				<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Full Name" name="e_full_name" value="{% if userData %}{{ userData.full_name }} {% endif %}" required> 
+			</div>
+			<span class="s-text15">
+				<strong>Email</strong>
+			</span>
+			<div class="size1 bo4 m-b-12">
+				<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter email address" name="e_email" value="{% if userData %}{{ userData.email }} {% endif %}" required>
+			</div>
+			<span class="s-text15">
+				<strong>Mobile</strong>
+			</span>
+			<div class="size1 bo4 m-b-12">
+				<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Enter Mobile" name="e_mobile" value="{% if userData %}{{ userData.mobile }} {% endif %}" required>
+			</div>
+			
+			<span class="s-text15">
+				<strong>Subject</strong>
+			</span>
+			<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="e_subject" placeholder="Subject" required></textarea>
+		
+			<div class="size1">
+				<button class="flex-c-m size10 bg1 bo-rad-23 m-t-10 hov1 s-text1 trans-0-4 float-r" type="submit" name="send_enquiry" value="Submit">
+					send
+				</button>
+			</div>
+		</form>	
+	</div>
+</div>
+{% endblock %}	
+

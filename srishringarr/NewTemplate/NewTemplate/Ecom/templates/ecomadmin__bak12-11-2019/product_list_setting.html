@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.filter_items{
+	margin-left: 5%;
+}
+</style>
+<div class="container" >
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	<div class="row" style="margin-bottom:40px;">
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;background:#D1D4D7;">
+				Product List Setting 
+				</div>
+				<hr class="hrStyle">
+				<div>
+				<table style="width: 100%; border: 0px solid #D1D4D7; border-collapse: collapse;">
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Logo Icon</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Tag Line</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Search Bar</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Cart Icon</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Menu</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Footer</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Filters</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Display List</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="columncart leftcart">
+		<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+		<div style="width: 100%;background:#E4E5E6;padding-bottom: 60px;"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;">
+				Logo Icon
+				</div>
+				<hr class="hrStyle">
+				<div style="width: 100%;display:flex;">
+					<div style="padding:10px;width: 20%;">
+						<img class="logoicon" src="{% if home_seting_option.logo_image %} {%static ''%}{{home_seting_option.logo_image}}{% else %} static 'images/dummy_logo.png' {% endif%}" alt="Avatar" />
+					</div>			
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					Note: Can't edit. Still need to edit go to home setting option for edit.
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+				Tag Line
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width: 60%;">
+				 <input type="text"	placeholder="Enter tag line" value="{% if home_seting_option.tag_line %} {{home_seting_option.tag_line}} {% endif%}" name="tagline" disabled />	
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					Note: Can't edit. Still need to edit go to home setting option for edit.
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+					Search Bar
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width: 60%;">
+					<input type="checkbox" name="searchBar" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Search For All<br/>
+					<input type="checkbox" name="searchBar" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Products<br/>
+					<input type="checkbox" name="searchBar" value="3" {% if prolist_seting_option %}{{ 3|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Discount Products<br/>
+					<input type="checkbox" name="searchBar" value="4" {% if prolist_seting_option %}{{ 4|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Category<br/>
+					<input type="checkbox" name="searchBar" value="5" {% if prolist_seting_option %}{{ 5|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Offers<br/>
+					<input type="checkbox" name="searchBar" value="6" {% if prolist_seting_option %}{{ 6|isValChecked:prolist_seting_option.search_options }}{% endif %}/> Brands<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="prodlistOption" value="save_searchbar">
+						Save
+					</Button>
+				</div>	
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+					Cart Icon
+				</div>
+				<hr class="hrStyle">
+				<div style="width: 100%;display:flex;">
+					<div style="padding:10px;width: 20%;">
+						<img class="logoicon" src="{% if home_seting_option.cart_image %} {%static ''%}{{home_seting_option.cart_image}} {% else %} static 'images/dummy_logo.png' {% endif%}" alt="Avatar" />
+					</div>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					Note: Can't edit. Still need to edit go to home setting option for edit.
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+					Menu
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;">
+				  	<input type="radio" name="menuType" value="0" disabled> Menu <br>
+				  		<div style="margin-left:25px;padding:10px;">
+				  			<input type="checkbox" name="menuOptionData" value="1" {% if home_seting_option %}{{ 1|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Home<br/>
+							<input type="checkbox" name="menuOptionData" value="2" {% if home_seting_option %}{{ 2|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Categories<br/>
+							<input type="checkbox" name="menuOptionData" value="3" {% if home_seting_option %}{{ 3|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Discount Products<br/>
+							<input type="checkbox" name="menuOptionData" value="4" {% if home_seting_option %}{{ 4|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Products<br/>
+							<input type="checkbox" name="menuOptionData" value="5" {% if home_seting_option %}{{ 5|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Offers<br/>
+							<input type="checkbox" name="menuOptionData" value="6" {% if home_seting_option %}{{ 6|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> Notifications<br/>
+							<input type="checkbox" name="menuOptionData" value="7" {% if home_seting_option %}{{ 7|isValChecked:home_seting_option.search_options }}{% endif %} disabled /> My Account<br/>
+						</div>
+ 					<input type="radio" name="menuType" value="1" disabled> No Menu
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					Note: Can't edit. Still need to edit go to home setting option for edit.
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+				Footer
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;">
+				 	<input type="checkbox"  id="footerOption" disabled /> TERMS OF USE<br/>
+					<input type="checkbox"  id="footerOption" disabled /> ABOUT US<br/>
+					<input type="checkbox"  id="footerOption" disabled /> ENQUIRY<br/>
+					<input type="checkbox"  id="footerOption" disabled /> TAKE A TOUR<br/>
+					<input type="checkbox"  id="footerOption" disabled /> FAQs<br/>
+					<input type="checkbox"  id="footerOption" disabled /> CONTACT US<br/>
+					<input type="checkbox"  id="footerOption" disabled /> Copyright<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					Note: Can't edit. Still need to edit go to home setting option for edit.
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+			
+				<div style="padding:10px;">
+				Filters
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px; width: 60%;">
+					<div>
+						<b>Filter By Gender:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="genderOption" value="Women" {% if prolist_seting_option %}{{ 'Women'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Women<br/>
+							<input type="checkbox" name="genderOption" value="Men" {% if prolist_seting_option %}{{ 'Men'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Men<br/>
+							<input type="checkbox" name="genderOption" value="Men & Women" {% if prolist_seting_option %}{{ 'Men & Women'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Men & Women<br/>
+							<input type="checkbox" name="genderOption" value="Baby" {% if prolist_seting_option %}{{ 'Baby'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Baby<br/>
+							<input type="checkbox" name="genderOption" value="Baby Boys & Baby Girl" {% if prolist_seting_option %}{{ 'Baby Boys & Baby Girl'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Baby Boys & Baby Girl<br/>
+							<input type="checkbox" name="genderOption" value="Girls" {% if prolist_seting_option %}{{ 'Girls'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Girls<br/>
+							<input type="checkbox" name="genderOption" value="Boys" {% if prolist_seting_option %}{{ 'Boys'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Boys<br/>
+							<input type="checkbox" name="genderOption" value="Boys & Girl" {% if prolist_seting_option %}{{ 'Boys & Girl'|isValChecked:prolist_seting_option.filter_gender }}{% endif %}/> Boys & Girl <br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Category:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="catOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_category }}{% endif %}/> All<br/>
+							Note: This will display what you added while creating Category.<br/>
+							Eg: <input type="checkbox" /> Electronics<br/>
+							<input type="checkbox" /> Fashion<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Category Type:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="catTypeOption" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.filter_cattype }}{% endif %}/> Top Category<br/>
+							<input type="checkbox" name="catTypeOption" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.filter_cattype }}{% endif %}/> Discount Category<br/>
+							<input type="checkbox" name="catTypeOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_cattype }}{% endif %}/> All<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Price:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="priceOption" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 100-500<br/>
+							<input type="checkbox" name="priceOption" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 500-1000<br/>
+							<input type="checkbox" name="priceOption" value="3" {% if prolist_seting_option %}{{ 3|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 1000-5000<br/>
+							<input type="checkbox" name="priceOption" value="4" {% if prolist_seting_option %}{{ 4|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 5000-10000<br/>
+							<input type="checkbox" name="priceOption" value="5" {% if prolist_seting_option %}{{ 5|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 10000-50000<br/>
+							<input type="checkbox" name="priceOption" value="6" {% if prolist_seting_option %}{{ 6|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> Rs. 50000+<br/>
+							<input type="checkbox" name="priceOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_price }}{% endif %}/> All<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Discount:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="discountOption" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> Less than 10%<br/>
+							<input type="checkbox" name="discountOption" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> 10% or More<br/>
+							<input type="checkbox" name="discountOption" value="3" {% if prolist_seting_option %}{{ 3|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> 20% or More<br/>
+							<input type="checkbox" name="discountOption" value="4" {% if prolist_seting_option %}{{ 4|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> 30% or More<br/>
+							<input type="checkbox" name="discountOption" value="5" {% if prolist_seting_option %}{{ 5|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> 40% or More<br/>
+							<input type="checkbox" name="discountOption" value="6" {% if prolist_seting_option %}{{ 6|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> 50% or More<br/>
+							<input type="checkbox" name="discountOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_discount }}{% endif %}/> All<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Color:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="colorOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_color }}{% endif %}/> All<br/>
+							Note: This will display what you added while creating Products.<br/>
+							Eg: <input type="checkbox" /> Blue<br/>
+							<input type="checkbox" /> Black<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Size:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="sizeOption" value="XS" {% if prolist_seting_option %}{{ 'XS'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> XS<br/>
+							<input type="checkbox" name="sizeOption" value="S" {% if prolist_seting_option %}{{ 'S'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> S<br/>
+							<input type="checkbox" name="sizeOption" value="M" {% if prolist_seting_option %}{{ 'M'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> M<br/>
+							<input type="checkbox" name="sizeOption" value="L" {% if prolist_seting_option %}{{ 'L'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> L<br/>
+							<input type="checkbox" name="sizeOption" value="XL" {% if prolist_seting_option %}{{ 'XL'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> XL<br/>
+							<input type="checkbox" name="sizeOption" value="XXL" {% if prolist_seting_option %}{{ 'XXL'|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> XXL<br/>
+							<input type="checkbox" name="sizeOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_size }}{% endif %}/> All<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Brands:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="brandOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_brand }}{% endif %}/> All<br/>
+							Note: This will display what you added while creating Products.<br/>
+							Eg: <input type="checkbox" /> Nike<br/>
+							<input type="checkbox" /> Fastrack<br/><br/>
+						</div>
+					</div>
+					
+					<div>
+						<b>Filter By Availability:</b><br/>
+						<div class="filter_items">
+							<input type="checkbox" name="stockOption" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.filter_stock }}{% endif %}/> In Stock<br/>
+							<input type="checkbox" name="stockOption" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.filter_stock }}{% endif %}/> Out Stock<br/>
+							<input type="checkbox" name="stockOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.filter_stock }}{% endif %}/> All<br/><br/>
+						</div>
+					</div>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="prodlistOption" value="save_filters">
+							Save
+						</Button>
+					</div>	
+				</div>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<div style="padding:10px;">
+				Display Product List As
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width:60%;">
+					<input type="checkbox" name="displayOption" value="1" {% if prolist_seting_option %}{{ 1|isValChecked:prolist_seting_option.display_list_as }}{% endif %}/> Grid<br/>
+					<input type="checkbox" name="displayOption" value="2" {% if prolist_seting_option %}{{ 2|isValChecked:prolist_seting_option.display_list_as }}{% endif %}/> List<br/>
+					<input type="checkbox" name="displayOption" value="0" {% if prolist_seting_option %}{{ 0|isValChecked:prolist_seting_option.display_list_as }}{% endif %}/> Both<br/><br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="prodlistOption" value="save_display">
+						Save
+					</Button>
+				</div>	
+				</div>
+			</div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

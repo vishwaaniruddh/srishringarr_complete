@@ -1,0 +1,53 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}	
+<!-- Cart item -->
+	<div class="container-table-cart pos-relative m-t-40 m-b-40 m-r-40 m-l-40">
+		<div class="wrap-table-shopping-cart bgwhite">
+			<table class="table-shopping-cart">
+				<tr class="table-head">
+					<th class="column-1"></th>
+					<th class="column-2">Order Id</th>
+					<th class="column-2">Product</th>
+					<th class="column-2">Price</th>
+					<th class="column-3">Quantity</th>
+					<th class="column-3">Total</th>
+					<th class="column-3"></th>
+				</tr>
+				{% for order in order_item_list %}
+				<tr class="table-row">
+					<td class="column-1">
+						<div class="cart-img-product b-rad-4 o-f-hidden">
+							<img src="{% static '' %}{{ order.product.product_image }}" alt="IMG-PRODUCT">
+						</div>
+					</td>
+						<td class="column-2">#0000{{ order.order.id }}</td>
+					<td class="column-2">{{ order.product.name }}</td>
+					<td class="column-3">
+					{% if order.product.discount %} 
+<!-- 						Mrp. <strike>Rs. {{ order.product.mrp|floatformat:"0" }}</strike><br/>
+						<span style="font-size:15px;color:green;"> 
+							{{ order.product.discount|floatformat:"0" }}% Off, You Saving Rs. {{ order.product.product_saving_price|floatformat:"0" }} 
+						</span>
+						<br> -->
+						<strong>
+						 Rs. {{ order.product.final_product_price|floatformat:"0" }}
+						</strong>
+					{% else %}
+						Rs. {{ order.product.final_product_price|floatformat:"0" }}
+					{% endif %}
+					</td>
+					<td class="column-4">
+					<div class="flex-w of-hidden w-size17">
+						<span class="size8 m-text18 t-center num-product" >{{order.quantity}}</span>
+					</div>
+					</td>
+					<td class="column-5"><div id="productTotal_{{ cart_data.product.id }}">  Rs. {% widthratio order.product.final_product_price|floatformat:"0" 1 order.quantity %}</div></td>
+					<td class="column-5"><a href="{% url 'order_details' order.order.id %}" class="s-text15" style="color: #E55540;"><strong>View Details</strong></a></td>
+				</tr>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+{% endblock %}	
+

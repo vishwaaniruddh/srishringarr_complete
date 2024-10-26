@@ -1,0 +1,64 @@
+{% extends "basesite.html" %}
+{% load staticfiles %}
+{% block content %}	
+<style>
+.table-head th{
+	background-color: #444444;
+	color: #ffffff !important;
+}
+</style>
+<!-- Cart item -->
+	<div class="container-table-cart pos-relative m-t-40 m-b-40 m-r-40 m-l-40">
+		<div class="wrap-table-shopping-cart bgwhite">
+			<table class="table-shopping-cart">
+				<tr class="table-head">
+					<th class="column-1"></th>
+					<th class="column-2">Order Id</th>
+					<th class="column-2">Product</th>
+					<th class="column-3">Quantity</th>
+					<!-- <th class="column-3">Total</th> -->
+					<th class="column-3">Status</th>
+					<th class="column-2">Total</th>
+					<th class="column-3"></th>
+				</tr>
+				{% for order in order_detail_report %}
+				<tr class="table-row">
+					<td class="column-1" style="width: 15%;">
+						<div class="cart-img-product b-rad-4 o-f-hidden">
+							<img src="{% static 'images/catalog/products/main/' %}{{ order.product_image }}" alt="IMG-PRODUCT">
+						</div>
+					</td>
+					<td class="column-2" style="width: 10%;">#0000{{ order.order_id }}</td>
+					<td class="column-2" style="width: 25%;">{{ order.product_name }}</td>
+					<!-- <td class="column-3" style="width: 10%;">
+					{% if order.product.discount %} 
+
+						<strong>
+						 Rs. {{ order.product.final_product_price|floatformat:"0" }}
+						</strong>
+					{% else %}
+						Rs. {{ order.product.final_product_price|floatformat:"0" }}
+					{% endif %}
+					</td> -->
+					
+					<!-- <td class="column-5" style="width: 10%;"><div id="productTotal_{{ cart_data.product.id }}">  Rs. {{order.quantity}}</div>
+					</td> -->
+					<td class="column-5" style="width: 10%;"><div> {{order.product_quantity}}</div>
+					</td>
+					<td class="column-5" style="width: 10%;"><div >
+					{% if order.order_status == "P" %}Pending{% elif order.order_status == "D" %}Delivered {% elif order.order_status == "C" %}Confirmed{% elif order.order_status == "S" %}Shipped{% elif order.order_status == "X" %}Cancelled{% endif %}</div>
+					</td>
+					<td class="column-4" style="width: 15%;">
+						<div class="flex-w of-hidden w-size17">
+							<span class="size8 m-text18 t-center num-product" id="productTotal_{{ cart_data.product.id }}">Rs. {{order.subtotal}}</span>
+						</div>
+					</td>
+					
+					<td class="column-5" style="width: 10%;"><a href="{% url 'order_details' order.order_id %}" class="s-text15" style="color: #e6be6e;"><strong>View Details</strong></a></td>
+				</tr>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+{% endblock %}	
+

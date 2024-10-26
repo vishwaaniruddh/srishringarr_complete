@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load custom_admin_filters %}
+{% load staticfiles %}
+{% block content %}
+<script src='{% static "js/validation.js" %}'></script>
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.leftcart {
+	width: 68%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.rightcart {
+	width: 30%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" >
+
+	{% if successMessage %} 
+		  <div id="snackbar">
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			 {{ successMessage }} 
+		  </div>
+	{% endif %}
+	
+	<div class="row" style="margin-bottom:40px;">
+		<div class="columncart rightcart">
+			<div style="width: 100%;background:#E4E5E6"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+				<div style="padding:10px;background:#D1D4D7;">
+					Product Details Setting 
+				</div>
+				<hr class="hrStyle">
+				<div>
+				
+				<table style="width: 100%; border: 0px solid #D1D4D7; border-collapse: collapse;">
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Search Bar</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Top message</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Bottom message</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Recently Viewed</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">From the manufacturer</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Goes well with</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Similar products</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Interested products</td>
+					</tr>
+					<!--<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">Delivery options</td>
+					</tr>
+					<tr style="height: 40px; border: 1px solid #D1D4D7; background: #FFF; text-align:left; border-collapse: collapse;">
+						<td style="padding-left:10px;">EMI option available</td>
+					</tr> -->
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="columncart leftcart">
+		<div style="width: 100%;background:#E4E5E6;padding-bottom: 60px;"> 
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;" >
+			<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+				<div style="padding:10px;">
+				Search Bar
+				</div>
+				<hr class="hrStyle">
+				<div style="padding:10px;width: 60%;">
+					<input type="checkbox" name="searchBar" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.search_options }}{% endif %}/> Search For All<br/>
+					<input type="checkbox" name="searchBar" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.search_options }}{% endif %}/> Products<br/>
+					<input type="checkbox" name="searchBar" value="3" {% if product_setting_option %}{{ 3|isValChecked:product_setting_option.search_options }}{% endif %}/> Discount Products<br/>
+					<input type="checkbox" name="searchBar" value="4" {% if product_setting_option %}{{ 4|isValChecked:product_setting_option.search_options }}{% endif %}/> Category<br/>
+					<input type="checkbox" name="searchBar" value="5" {% if product_setting_option %}{{ 5|isValChecked:product_setting_option.search_options }}{% endif %}/> Offers<br/>
+					<input type="checkbox" name="searchBar" value="6" {% if product_setting_option %}{{ 6|isValChecked:product_setting_option.search_options }}{% endif %}/> Brands<br/>
+				</div>
+				<!-- <hr class="hrStyle"> -->
+				<div style="padding:10px;  text-align: -webkit-right;">
+				<div style="width:80px; text-align: -webkit-right;">
+					<Button class="saveButton" type="submit" name="seting_option_type" value="save_searchbar">
+						Save
+					</Button>
+				</div>	
+				</div>
+				</form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+					<div style="padding:10px;">
+					Top message
+					</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+					 <input type="text"	placeholder="Enter Top Message" value="{% if product_setting_option.product_top_message %} {{product_setting_option.product_top_message}} {% endif %}" name="top_message" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="save_top_message">
+							Save
+						</Button>
+					</div>	
+					</div>
+				</form>
+				</div>
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+				{%csrf_token%}
+					<div style="padding:10px;">
+					Bottom message
+					</div>
+					<hr class="hrStyle">
+					<div style="padding:10px;width: 60%;">
+					 <input type="text"	placeholder="Enter Bottom Message" value="{% if product_setting_option.product_bottom_message %} {{product_setting_option.product_bottom_message }}{% endif %}" name="bottom_message" />	
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="save_bottom_message">
+							Save
+						</Button>
+					</div>	
+					</div>
+				</form>
+				</div>
+				<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+					Recently Viewed
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if product_setting_option %}{{ product_setting_option.recently_viewed }}{% endif %}" name="rvp_product_count" required />
+						<input type="checkbox" name="rvp_Option" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.recently_viewed_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="rvp_Option" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.recently_viewed_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_rvp_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+						From the manufacturer
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if product_setting_option %}{{ product_setting_option.by_manufacturer }}{% endif %}" name="ftm_product_count" required />
+						<input type="checkbox" name="ftm_Option" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.by_manufacturer_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="ftm_Option" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.by_manufacturer_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_ftm_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+						Goes well with
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if product_setting_option %}{{ product_setting_option.goes_well_with }}{% endif %}" name="gww_product_count" required />
+						<input type="checkbox" name="gww_Option" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.goes_well_with_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="gww_Option" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.goes_well_with_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_gww_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+						Similar products
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if product_setting_option %}{{ product_setting_option.similar_poducts }}{% endif %}" name="sm_product_count" required />
+						<input type="checkbox" name="sm_Option" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.similar_poducts_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="sm_Option" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.similar_poducts_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_sm_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>			
+			<div style="background:#fff;width:100%;border: 1px solid #D1D4D7;margin-top:20px;" >
+				<form class = "formimages" enctype="multipart/form-data" method="POST" >
+					{%csrf_token%}			
+					<div style="padding:10px;">
+						Interested products
+					</div>
+					<hr class="hrStyle">
+					
+					<div style="padding:10px;width:60%;">
+						<input type="text"	placeholder="Enter number of products" value="{% if product_setting_option %}{{ product_setting_option.interested_products }}{% endif %}" name="ip_product_count" required />
+						<input type="checkbox" name="ip_Option" value="1" {% if product_setting_option %}{{ 1|isValChecked:product_setting_option.interested_products_options }}{% endif %}/> Add To Cart Button<br/>
+						<input type="checkbox" name="ip_Option" value="2" {% if product_setting_option %}{{ 2|isValChecked:product_setting_option.interested_products_options }}{% endif %}/> Display Offer<br/>
+					</div>
+					<!-- <hr class="hrStyle"> -->
+					<div style="padding:10px;  text-align: -webkit-right;">
+					<div style="width:80px; text-align: -webkit-right;">
+						<Button class="saveButton" type="submit" name="seting_option_type" value="type_ip_options">
+							Save
+						</Button>
+					</div>	
+					</div>
+				 </form>
+			</div>	
+			
+	 	</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,105 @@
+{% extends "base.html" %} 
+{% load staticfiles %}
+{% block content %}
+
+<style>
+th{
+	text-align: center;
+}
+</style>
+
+<div class="container">
+	<script src='{% static "js/validation.js" %}'></script>
+	<div id="msg"></div>
+	<div style="background-color: #ffffff;padding: 20px 20px 20px 20px;">
+		<div style="display: flex;">
+			<div class="card4" style="border-color: #f74d4e;">
+				<div>
+					<!-- <div class="cardheader4">Total Categories</div> -->
+
+					<div class="cardContentPink">
+						<span style="font-size: 30px;">{{ category_count }}</span><br>
+						<span>Total Categories</span>
+					</div>
+
+					<a href="{% url 'addcategory' 0 %}">
+						<button class="cardFooter4">
+							Add Category<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="card4" style="border-color: #f74d4e;">
+				<div>
+					<!-- <div class="cardheader4">Active Categories</div> -->
+
+					<div class="cardContentPink">
+						<span style="font-size: 30px;">{{ active_category_count }}</span><br>
+						<span>Active Categories</span>
+					</div>
+
+					<a href="#">
+						<button class="cardFooter4">
+							InActive<span class="arrowDesign arrowRight"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+			<div class="card4" style="border-color: #f74d4e;">
+				<div>
+					<!-- <div class="cardheader4">InActive Categories</div> -->
+
+					<div class="cardContentPink">
+						<span style="font-size: 30px;">{{ inactive_category_count }}</span><br>
+						<span>InActive Categories</span>
+					</div>
+
+					<button class="cardFooter4">
+						Active<span class="arrowDesign arrowRight"></span>
+					</button>
+				</div>
+			</div>
+			<div class="card4" style="border-color: #f74d4e;margin-right: 0;">
+				<div>
+					<!-- <div class="cardheader4">Deleted Categories</div> -->
+
+					<div class="cardContentPink">
+						<span style="font-size: 30px;">{{ deleted_category_count }}</span><br>
+						<span>Deleted Categories</span>
+					</div>
+
+					<button class="cardFooter4">
+						Restore Categories<span class="arrowDesign arrowRight"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top: 20px; background: #fff;">
+			<table style="width: 100%; border: 1px solid #D1D4D7; border-collapse: collapse;">
+				<tr style="height: 50px; background: #D1D4D7; border-collapse: collapse;">
+					<th>Name</th>
+					<th>Description</th>
+					<th>Status</th>
+					<th>Commission</th>
+					<th>Edit</th>
+					<th>Move To Trash</th>
+				</tr>
+				{% for category in category_list %}
+				<tr style="height: 50px; border: 1px solid #D1D4D7; background: #FFF; text-align:center; border-collapse: collapse;">
+					<td>{{ category.name }}</td>
+					<td>{{ category.description }}</td>
+					<td>{% if category.is_active %} Active {% else %} Inactive {% endif %}</td>
+					<td>{{ category.commission }}</td>
+					<td><a href="{% url 'addcategory' category.id %}"><i class="material-icons" style="font-size:24px;color:#616161">mode_edit</i></a></td>
+					<form action="." id="delete">
+						{% csrf_token %}
+						<td><i class="material-icons" onclick="deleteCategory({{ category.id }})" style="font-size:24px;color:#616161;cursor: pointer;">delete</i></td>
+					</form>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

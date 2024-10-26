@@ -1,0 +1,234 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %} 
+<style>
+
+/* Create two unequal columns that floats next to each other */
+.columncart {
+	float: left;
+	height: auto;
+}
+
+.rightChkout {
+	width: 68%;
+	margin-left: 10px;
+	margin-bottom: 50px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+.leftChkout {
+	width: 28%;
+	margin-left: 10px;
+	display: -webkit-inline-box;
+	border-color: #dedddd;
+	border-style: solid;
+	border-width: 0.5px;;
+	background-color: #f1f1f1;
+}
+
+</style>
+<div class="container" style="padding:40px;margin-bottom:50px;">
+
+<form method="POST" name="Submit">
+		{% csrf_token %}
+	<div class="columncart leftChkout">
+		<div style="width: 100%;"> 
+			<div style="background: #E4E5E6;">
+				<div style="background:#fff;padding-bottom: 50px;">
+					<div style="padding:10px;">
+					Cart Details
+					</div>
+				<hr class="hrStyle"/>
+				<div style="display:flex;padding:10px">
+					<div style="width:70%;">Price ({{ cart_count }} items)</div>
+					<div style="width:30%;">Rs. {{ product_total }} </div>
+				</div>
+				{% if checkout_setting.del_charge == True %}
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Delivery Charges  {% if request.session.pincode != 0 %}({{ distance|floatformat:"0" }} km){% endif %}</div>
+						<div style="width:30%;">
+							{% if checkout_setting_option.deliver_type == 'fixed' %}
+								Rs. {{checkout_setting_option.delivery_charges}} 
+							{% else %}
+								{% if request.session.pincode != 0 %}
+									Rs. {{delivery_charge}}
+								{% else %}
+									Rs. 0
+								{% endif %}
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+				
+				{% if checkout_setting.tax == True %}
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Estimated Tax </div>
+						<div style="width:30%;">Rs. {{checkout_setting_option.estimate_tax}}</div>
+					</div>
+				{% endif %}
+				
+				{% if checkout_setting.discount == True %}
+					<div style="display:flex;padding:10px">
+						<div style="width:70%;">Total Discount</div>
+						<div style="width:30%;">Rs. 0 </div>
+					</div>				
+				{% endif %}
+
+				<hr class="hrStyle">
+					<div style="display:flex;padding:10px;">
+						<div style="width:70%;"><strong> Amount Payable  </strong></div>
+						<div style="width:30%;"><strong> Rs. {{ cart_total }} </strong> </div>
+					</div>
+					
+					<div style="display:flex;padding:10px;color:#36b151;">
+						Your Total Savings on this order Rs. 4,765
+					</div>
+					</div>
+				
+				{% if checkout_setting.coupon_list == True %}
+					<div style=" background: #fff; margin-top:10px">
+						<div style="padding:10px;">Coupon List</div>
+						<hr class="hrStyle"/>
+						<div style="padding:10px;">Available Coupon List</div>
+					</div>
+				{% endif %}
+				{% if checkout_setting.add_coupon == True %}
+					<div style=" background: #fff;margin-top:10px">
+						<div style="padding:10px;"> Add Coupon</div>
+						<hr class="hrStyle"/>
+						<div style="padding:10px;"> 
+						<input type="text" name="coupon_code" class="text-line" placeholder="Enter Coupon Code"/>
+						<input type="submit" name="apply_code" class="buttonCoupon"  value="Apply"/>
+						</div>
+					</div>
+				{% endif %}
+				{% if checkout_setting.near_by_you == True %}
+					<div style=" background: #fff;margin-top:10px">
+						<div style="padding:10px;"> Get parcel near by you </div>
+						<hr class="hrStyle"/>
+						<div style="padding:10px;"> 
+						<input type="text" name="contact" class="text-line" placeholder="Enter Contact Person near you"/>
+						<input type="submit" name="save_contact" class="buttonCoupon" value="Save"/>
+						</div> 
+					</div>
+				{% endif %}
+				</div>
+			</div>
+	</div>
+	<div class="columncart rightChkout">
+		<div style="width: 100%; "> 
+			<div style=" background: #fff;">
+			{% if checkout_setting.billing == True %}
+				<div>
+				<div style="padding:10px;">
+					Billing Address
+				</div>
+				<hr class="hrStyle"/>
+					{% if checkout_setting.add_type == True %}
+					<div style="padding:10px;">
+						<div style="padding:10px;"><b>Address type:</b></div> 
+						<input type="radio" name="addressType" id = "home" onclick="checkSatofficeOpen(this.form)" value="0" {% if add.type == '0' %} checked {% else %} checked {% endif %}> Home (7 am - 9 pm delivery )
+						<input type="radio" name="addressType" id = "office" onclick="checkSatofficeOpen(this.form)" value="1" {% if add.type == '1' %} checked {% endif %}> Office (10 am - 5 pm delivery )<br/>
+						<div {% if add.type == '1' %} style="display: block;" {% else %} style="display: none;" {% endif %} id = "satOpen">
+							Can deliver parcel on Saturday <input type="checkbox" name="deliver" {% if add.deliver_sat == True %} checked {% endif %}>
+						</div>
+					</div>	 
+					{% endif %}
+					
+					<div style="width: 60%;    padding-left: 20px;">
+						<br><label><b>Full Name</b></label> <br>
+						<input type="text" placeholder="Enter Full Name" name="ba_full_name" value="{{ add.name }}" required> 
+						<br><label><b>Address</b></label><br>
+						<textarea class "textarea" placeholder="Enter Address" name="ba_address" required>{{ add.address }}</textarea>
+						<br><label><b>Area</b></label> <br>
+						<input type="text" placeholder="Enter Area" name="ba_area" value="{{ add.area }}" required>
+						<br><label><b>City</b></label> <br>
+						<input type="text" placeholder="Enter City" name="ba_city" value="{{ add.city }}" required> 
+						<br><label><b>State</b></label> <br>
+						<select name="ba_state">
+							<option value="0">Select State</option>
+							{% for sl in allStateList %}
+								<option value="{{sl.code}}" {% if add.state == sl.code %} selected {% endif %}>{{sl.name}}</option>
+							{% endfor %}
+						</select>
+						<br><label><b>Pin/Zip Code</b></label> <br>
+						<input type="text" placeholder="Enter Pin/Zip Code" name="ba_pinzip" value="{{ add.pin_zip }}" required>
+						<br><label><b>Country</b></label> <br>
+						<input type="text" placeholder="Enter Country" name="ba_country" value="{{ add.country }}" required>
+						<br><label><b>Mobile</b></label> <br>
+						<input type="text" placeholder="Enter Mobile" name="ba_mobile" value="{{ add.mobile }}" required>
+						<br><br>
+						<button class="buttonCoupon" type="submit" name="checkout" value="Submit">Save</button>
+					</div>
+				</div>
+			{% endif %}
+			{% if checkout_setting.same_as_billing == True %}
+			<br>
+				<div style="width: 80%;padding-left:20px;">
+					<input type="checkbox" id = "same_as_billing" {% if add.same_as_billing == True %} checked {% endif %} name="same_as"> Shipping same As Billing Address
+				</div>
+			{% endif %}
+			<br>
+			{% if add %}
+			<div class="rightCtcontent">
+				<div style="width: 80%; padding-left:20px;">
+					<b>Choose Payment Method</b>
+					<hr class="checkout_hr"/>
+					{% if checkout_setting.cod == True %}
+						<input type="radio" name="payment_mode" id = "payment1" value="cod" checked onclick="displayBankList('0')"> Cash on Delivery <br/>
+					{% endif %}
+					{% if checkout_setting.netbanking == True %}
+						<input type="radio" name="payment_mode" id = "payment2" value="nb" onclick="displayBankList('1')"> Netbanking <br/>
+					{% endif %}
+					{% if checkout_setting.bank_transfer == True %}
+						<input type="radio" name="payment_mode" id = "payment3" value="bt" onclick="displayBankList('1')"> Bank transfer <br/>
+					{% endif %}
+					{% if checkout_setting.citrus == True %}
+						<input type="radio" name="payment_mode" id = "payment4" value="ct" onclick="displayBankList('0')"> Citrus <br/>
+					{% endif %}
+					{% if checkout_setting.paypal == True %}
+						<input type="radio" name="payment_mode" id = "payment5" value="pl" onclick="displayBankList('0')"> Paypal <br/>
+					{% endif %}
+					{% if checkout_setting.phonepe == True %}
+						<input type="radio" name="payment_mode" id = "payment6" value="pp" onclick="displayBankList('0')"> Phonepe <br/>
+					{% endif %}
+					{% if checkout_setting.credit_debit == True %}
+						<input type="radio" name="payment_mode" id = "payment7" value="cd" onclick="displayBankList('0')"> Credit/Debit Card <br/>
+					{% endif %}
+					{% if checkout_setting.emi == True %}
+						<input type="radio" name="payment_mode" id = "payment8" value="emi" onclick="displayBankList('1')"> EMI (Every Month Installment) <br/>
+					{% endif %}
+					{% if checkout_setting.wallets == True %}
+						<input type="radio" name="payment_mode" id = "payment9" value="wallets" onclick="displayBankList('0')"> Wallets <br/>
+					{% endif %}
+				</div>
+				<br/>
+				<div style="width: 80%; padding-left:20px; margin-bottom: 10px;display:none;" id="id_banklist">
+					<b>Select bank</b>
+					<hr class="checkout_hr"/>
+					{% for bl in banklist %}
+						<div style="{{ bl.id|isValueSelected:checkout_setting_option.bank_list }}"><input type="checkbox" value="{{ bl.id }}" name="bank_list"/>{{ bl.name }}<br/></div>
+					{% endfor %}
+				</div>
+				<div style="width: 80%; padding-left:20px; margin-bottom: 10px;">
+					<br>
+					<button class="buttonCoupon" type="submit" name="checkout" value="Place Order">Place Order</button>
+				</div>
+			</div>
+			{% endif %}
+			</div>
+		</div>
+	</div>
+	</form>
+
+</div>
+
+{% endblock %}
+{% block custom_scripts %}
+	<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}

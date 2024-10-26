@@ -1,0 +1,17 @@
+
+  <table class = "margin">
+    <tr><td>Order Details</td></tr>
+    <tr><td> Order No.:</td><td>#0000{{ order.id }}</td>
+    </tr>
+    
+    <tr><td> Product Name:</td><td>{{currentProduct.name}}</td>
+
+    </tr>
+    <tr><td> Qty:</td><td>{{ orderitem.quantity }}</td>
+
+    </tr>
+    <tr><td> Price:</td><td>{{order.total|floatformat:"0"}} Rs.</td>
+
+    </tr>
+  </table>
+
