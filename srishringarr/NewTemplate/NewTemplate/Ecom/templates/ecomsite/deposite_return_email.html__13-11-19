@@ -1,0 +1,15 @@
+<html>
+	<div>
+		Order Id : {{orderDetails.id}}
+		Order Date :{{orderDetails.created_at|date}}
+
+		{% for items in order_items %}
+			Product Name : {{items.product.name}}
+		{% endfor %}
+		Product Rent Total : {{orderDetails.total}}
+		Rental Transaction Id : {{orderDetails.txnid}}
+		Deposite : {{orderDetails.final_deposite}}
+		Deposite Transaction Id : {{orderDetails.deposite_return_id}}
+		Deposite collect Date : {{orderDetails.deposite_return}}
+	</div>
+</html>

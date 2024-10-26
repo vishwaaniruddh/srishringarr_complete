@@ -1,0 +1,647 @@
+import random
+from django.shortcuts import get_object_or_404
+from ecomadmin.models import Cart, Products, userDetails, CartSettingOptions, Offers, Category
+from django.http import JsonResponse
+from ecomsite.app_setting import getUserID
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut
+from math import sin, cos, sqrt, atan2, radians
+from django.db import connection
+
+CART_ID_SESSION_KEY = 'cart_id'
+
+
+# get the current user's cart id, sets new one if blank
+def _cart_id(request):
+    if request.session.get(CART_ID_SESSION_KEY, '') == '':
+            request.session[CART_ID_SESSION_KEY] = _generate_cart_id()
+    return request.session[CART_ID_SESSION_KEY]
+
+
+def _generate_cart_id():
+    cart_id = ''
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
+    cart_id_length = 50
+    for y in range(cart_id_length):
+        cart_id += characters[random.randint(0, len(characters) - 1)]
+    return cart_id
+
+
+def dictfetchall(cursor):
+    "Return all rows from a cursor as a dict"
+    columns = [col[0] for col in cursor.description]
+    return [
+        dict(zip(columns, row))
+        for row in cursor.fetchall()
+    ]
+
+
+# return all items from the current user's cart
+def get_cart_items(request):
+    if request.session.get('site_userId') == '0' or request.session.get('site_userId') == None:
+        return Cart.objects.filter(cart_id=_cart_id(request))
+    else:
+        return Cart.objects.filter(user=request.session.get('site_userId'))  
+
+    
+def get_cart_items_products (request, pid):
+    return Cart.objects.filter(product_id=pid)
+
+
+def logConsole(dataValue):
+    print('+++++++++++++++++++++')
+    print('')
+    print(dataValue)
+    print('')
+    print('++++++++++++++++++++++++++')
+
+    
+def update_userid_in_cart_login(request):
+    user = get_object_or_404(userDetails, id=request.session.get('site_userId'))
+    try:
+        cart_item = Cart.objects.filter(cart_id=_cart_id(request))
+    except:
+        cart_item = None
+        
+    logConsole(cart_item)   
+    # update the user cart
+    if cart_item:
+        for cart_data in cart_item:
+            cart_data.user = user
+            cart_data.save()
+
+
+def add_to_cart(request):
+    print('1111111111111111111')
+    postdata = request.POST.copy()
+    productID = postdata.get('product_id')
+    isRent = postdata.get('is_rent')
+    ######## RAHUL 09-08-19 #############
+    actualdate = postdata.get('form_date') 
+    
+    splits = actualdate.split('-')
+    print(splits)
+    print("tttttttttttttttttttttttttttttt")
+    fromDate = splits[0]
+    toDate = splits[1]
+    #fromDate = datetime.datetime.strptime(splits[0], "%m/%y/%d").strftime("%Y-%m-%d")
+    #toDate = datetime.datetime.strptime(splits[1], "%m/%d/%Y").strftime("%Y-%m-%d")
+##### ######## RAHUL 09-08-19 ##############################################
+    # fromDate = postdata.get('form_date') 
+    # toDate = postdata.get('to_date')
+    daysIndex = postdata.get('days_index')
+    finalAmount = postdata.get('total_final_price')
+    depositeAmount = postdata.get('deposite')
+    userID = postdata.get('user_id')
+    # <!-- vikrant 130920 -->
+    bust_size=postdata.get('bust_size')
+    waist_size=postdata.get('waist_size')
+    hip_size=postdata.get('hip_size')
+
+
+    print('+++++++++++++++++++++++++++++++++++++++++++++')
+    print('product id :' + productID)
+    print('isRent :' + isRent)
+    print('fromDate :' + fromDate)
+    print('toDate :' + toDate)
+    print('daysIndex :' + daysIndex)
+    print('finalAmount :' + finalAmount)
+    print('depositeAmount :' + depositeAmount)
+    print('userID :' + userID)
+    userID = request.session.get('site_userId')
+    
+    if userID is not None: 
+        try:
+            userObj = get_object_or_404(userDetails, id=userID)
+        except:
+            userObj = None
+      
+        try:
+            cartObj = get_object_or_404(Cart, cart_id=_cart_id(request), product=productID)
+        except:
+            cartObj = None
+#         if cartObj is not None:
+#             print('55555555555555555555555')
+#             cartObj.is_rent = isRent
+#             cartObj.form_date = fromDate
+#             cartObj.to_date = toDate
+#             cartObj.days_index = daysIndex
+# #             cartObj.user = userObj
+# #             cartObj.quantity = cartObj.quantity+1
+#             cartObj.save()
+#             strMsg = 'Product already in cart'
+#         else:  
+#             print('6666666666666666666666666')
+        if 1 == 1:
+            cartObj = Cart()
+            cartObj.cart_id = _cart_id(request)      
+            try:
+                product = get_object_or_404(Products, id=productID)
+            except:
+                product = None
+            
+            cartObj.product = product
+            cartObj.user = userObj
+            cartObj.quantity = 1
+            cartObj.is_rent = isRent
+            cartObj.form_date = fromDate
+            cartObj.to_date = toDate
+            cartObj.days_index = daysIndex
+            cartObj.total_final_price = finalAmount
+            cartObj.deposite = depositeAmount
+            cartObj.user_id = userID
+            # <!-- vikrant 130920 -->
+            cartObj.bust_size = bust_size
+            cartObj.waist_size = waist_size
+            cartObj.hips_size = hip_size
+
+            if product.isProductInStock():
+                cartObj.save()
+                strMsg = 'Added to cart successfully'
+            else:
+                strMsg = 'Stock not available'    
+    else:
+        print('7777777777777777777')
+        try:
+            cart = get_object_or_404(Cart, cart_id=_cart_id(request), product=productID)
+        except:
+            cart = None
+            
+        if cart is not None: 
+            print('8888888888888888')
+            cart.is_rent = isRent
+            cart.form_date = fromDate
+            cart.to_date = toDate
+            cart.days_index = daysIndex
+            # <!-- vikrant 130920 -->
+            cart.bust_size = bustsize
+            cart.waist_size = waist_size
+            cart.hips_size = hip_size
+#             cart.quantity = cart.quantity+1
+            cart.save()
+            strMsg = 'Product already in cart'
+        else:
+            print('99999999999999999999')
+            print(productID)
+            cart = Cart()
+            cart.cart_id = _cart_id(request)
+            
+            try:
+                product = get_object_or_404(Products, id=productID)
+            except:
+                product = None
+
+            cart.product = product
+            cart.quantity = 1
+            if isRent == "1":
+                cart.is_rent = isRent
+                cart.form_date = fromDate
+                cart.to_date = toDate
+                cart.days_index = daysIndex
+                cart.total_final_price = finalAmount
+                cart.deposite = depositeAmount
+                cart.user_id = userID
+                # <!-- vikrant 130920 -->
+                cart.bust_size = bustsize
+                cart.waist_size = waist_size
+                cart.hips_size = hip_size
+            if product.isProductInStock():
+                cart.save()
+                strMsg = 'Added to cart successfully'
+            else:
+                strMsg = 'Stock not available' 
+    print('101010101')
+    if userID is not None:
+        cart_count = Cart.objects.filter(user=userID).count()
+    else:
+        cart_count = Cart.objects.filter(cart_id=_cart_id(request)).count()
+
+    response = {
+        'success' : 'True',
+        'cart_count' : cart_count,
+        'strMsg' : strMsg  ,
+    }
+    return JsonResponse(response)
+
+
+def cartCalculations(request):
+    if request.session.get('site_userId') != '0':
+        #cartList = Cart.objects.filter(cart_id=_cart_id(request))
+        cartList = Cart.objects.filter(user=request.session.get('site_userId'))
+        for res in cartList:
+            price = 0
+            added_list = list()
+            added_list.append(res.total_final_price)
+    else:
+        cartList = Cart.objects.filter(user=request.session.get('site_userId'))
+    cartSettingOptions = CartSettingOptions.objects.filter(user=getUserID()).first()
+    coupon_dict = {}
+    price = 0
+    coupon_dict['product_total'] = 0
+    coupon_dict['perkmCharge'] = 0
+    coupon_dict['deposite_total'] = 0
+    total = 0
+    shipping_charge = 0
+    for cart_data in cartList:
+        # price = price + int(float(cart_data.product.final_product_price())) * cart_data.quantity
+        price =(int(float(cart_data.total_final_price)))
+        print(price)
+        cart_quantity = cart_data.quantity
+        print(cart_quantity)
+        shipping_charge = cart_quantity * 100
+        print(shipping_charge)
+        print("USERRRRRRRRR")
+        # if cart_data.coupon:
+        # coupon_code = cart_data.coupon
+        # coupon_dict['product_total'] = price
+
+    try:
+        offer = get_object_or_404(Offers, offer_code=coupon_code)
+    except:
+        offer = None
+
+#    cart_details = Cart.objects.filter(cart_id=_cart_id(request))
+#    total_cart_amount = 0
+#    total_deposite_amount = 0
+#    total_shipping_charge = 0
+#    for res in cart_details:
+#        total_cart_amount = total_cart_amount + res.total_final_price * res.quantity
+#        total_deposite_amount = total_deposite_amount + int(res.deposite) * int(res.quantity)
+#        total_shipping_charge = 100 * res.quantity
+#        print(total_cart_amount)
+        #print(total_deposite_amount)
+#        print(total_shipping_charge)
+
+#    coupon_dict['cart_total'] = total_cart_amount
+#    coupon_dict['product_total'] = total_cart_amount
+#    coupon_dict['deposite_total'] = total_deposite_amount
+#    coupon_dict['total_shipping_charge'] = total_shipping_charge
+#   print(coupon_dict['total_shipping_charge']) ##RAHUL - 03-09-2019
+#    print("TTTTTTTTTTTTTTTTTTTTTTTTTT")
+         
+    # if cartSettingOptions.delivery_charges and cartSettingOptions.estimate_tax:
+    #     if cartSettingOptions.deliver_type == 'fixed':
+    #         total = total + int(coupon_dict['product_total']) + int(cartSettingOptions.delivery_charges) + int(cartSettingOptions.estimate_tax)
+    #     else:
+    #         coupon_dict['perkmCharge'] = calculateDeliveryCharge(request.session.get('pincode'), cartSettingOptions)
+    #         total = total + coupon_dict['product_total'] + coupon_dict['perkmCharge'] + int(cartSettingOptions.estimate_tax)
+    # elif cartSettingOptions.estimate_tax:
+    #     total = total + coupon_dict['product_total'] + int(cartSettingOptions.estimate_tax)
+    # elif cartSettingOptions.delivery_charges:
+    #     if cartSettingOptions.deliver_type == 'fixed':
+    #         total = total + coupon_dict['product_total'] + cartSettingOptions.delivery_charges
+    #     else:
+    #         coupon_dict['perkmCharge'] = calculateDeliveryCharge(request.session.get('pincode'), cartSettingOptions)
+    #         total = total + coupon_dict['product_total'] + coupon_dict['perkmCharge']
+    # elif offer is not None:
+    #     total = total - offer.offer_value
+    # else:
+    #     total = total + coupon_dict['product_total']
+    # coupon_dict['cart_total'] = price
+
+
+    # vikrant 130920
+    # cart_details = Cart.objects.filter(cart_id=_cart_id(request))
+    cart_details = Cart.objects.filter(user=request.session.get('site_userId'))
+    
+    
+    total_cart_amount = 0
+    total_deposite_amount = 0
+    total_shipping_charge = 0
+    default_shipping_charge=100
+    bustorder=0
+    waistorder=0
+    hiporder=0
+    cart_count=0
+    for res in cart_details:
+        bustorder=res.bust_size
+        waistorder=res.waist_size
+        hiporder=res.hips_size
+        cart_count=cart_count+res.quantity
+        total_cart_amount = total_cart_amount + res.total_final_price * res.quantity
+        total_shipping_charge = 100 * res.quantity
+        total_deposite_amount = total_deposite_amount + int(res.deposite) * int(res.quantity)
+    coupon_dict['cart_total'] = total_cart_amount
+    coupon_dict['product_total'] = total_cart_amount
+    coupon_dict['deposite_total'] = total_deposite_amount
+    coupon_dict['bust_size']=bustorder
+    coupon_dict['waist_size']=waistorder
+    coupon_dict['hips_size']=hiporder
+    coupon_dict['cart_count']=cart_count
+    coupon_dict['default_shipping_charge']=default_shipping_charge
+    print("AAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAaa")
+    coupon_dict['total_shipping_charge'] = total_shipping_charge
+    print(coupon_dict['total_shipping_charge'])
+    print("TTTTTTTTTTTTTTTTTTTTTTTTTT")
+    return coupon_dict
+
+# Old Function
+# def cartCalculations(request):
+#     if request.session.get('site_userId') != '0':
+#         cartList = Cart.objects.filter(cart_id=_cart_id(request))
+#     else:
+#         cartList = Cart.objects.filter(user=request.session.get('site_userId'))
+#     cartSettingOptions = CartSettingOptions.objects.filter(user=getUserID()).first()
+#     coupon_dict = {}
+#     price = 0
+#     coupon_dict['product_total'] = 0
+#     coupon_dict['perkmCharge'] = 0
+#     total = 0
+#     for cart_data in cartList:
+#         price = price + int(float(cart_data.product.final_product_price())) * cart_data.quantity
+#     coupon_dict['product_total'] = price
+#     
+#     if cartSettingOptions.delivery_charges and cartSettingOptions.estimate_tax:
+#         if cartSettingOptions.deliver_type == 'fixed':
+#             total = total + int(coupon_dict['product_total']) + int(cartSettingOptions.delivery_charges) + int(cartSettingOptions.estimate_tax)
+#         else:
+#             coupon_dict['perkmCharge'] = calculateDeliveryCharge(request.session.get('pincode'), cartSettingOptions)
+#             total = total + coupon_dict['product_total'] + coupon_dict['perkmCharge'] + int(cartSettingOptions.estimate_tax)
+#     elif cartSettingOptions.estimate_tax:
+#         total = total + coupon_dict['product_total'] + int(cartSettingOptions.estimate_tax)
+#     elif cartSettingOptions.delivery_charges:
+#         if cartSettingOptions.deliver_type == 'fixed':
+#             total = total + coupon_dict['product_total'] + cartSettingOptions.delivery_charges
+#         else:
+#             coupon_dict['perkmCharge'] = calculateDeliveryCharge(request.session.get('pincode'), cartSettingOptions)
+#             total = total + coupon_dict['product_total'] + coupon_dict['perkmCharge']
+#     else:
+#         total = total + coupon_dict['product_total']
+#     coupon_dict['cart_total'] = total
+#     return coupon_dict
+
+
+#def calculateDeliveryCharge(pincode, cartSettingOptions):
+#    distance = calculateDistance(pincode)
+#    if cartSettingOptions is not None:
+#        perkmCharge = int(cartSettingOptions.delivery_charges) * int(distance)
+#    else:
+#        perkmCharge = 0    
+#    return perkmCharge
+
+
+#def calculateDistance(pincode):
+#    if pincode == 0:
+#        distance = 0   
+#    else: 
+#        geolocator = Nominatim()
+#        location = geolocator.geocode(pincode)
+#        R = 6373.0
+      
+#        lat1 = radians(19.050379)
+#        lon1 = radians(72.8480531)
+#        lat2 = radians(location.latitude)
+#        lon2 = radians(location.longitude)
+          
+#        dlon = lon2 - lon1
+#        dlat = lat2 - lat1
+          
+#        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+#        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+          
+#        distance = R * c
+#    return distance 
+
+
+def update_cart(request):
+    postdata = request.POST.copy()
+    productCount = 0
+    updatedValue = 0
+    try:
+        product = get_object_or_404(Products, id=postdata.get('product_id'))
+    except:
+        product = None    
+        
+    if (request.session.get('site_userId') != '0') and  (request.session.get('site_userId') is not None): 
+        try:
+            userObj = get_object_or_404(userDetails, id=request.session.get('site_userId'))
+        except:
+            userObj = None
+       
+        try:
+            cartObj = get_object_or_404(Cart, user=userObj.id , product=postdata.get('product_id'))
+        except:
+            cartObj = None
+
+#             cart_id=_cart_id(request)
+        
+        if cartObj is not None:
+            cartObj.user = userObj
+            if postdata.get('action_type') == '+':
+                if cartObj.quantity != product.quantity:
+                    cartObj.quantity = cartObj.quantity + 1
+            else:
+                cartObj.quantity = cartObj.quantity - 1
+            productCount = cartObj.quantity         
+            cartObj.save()
+            if productCount == 0:
+                cartObj.delete()
+            if cartObj.quantity != product.quantity:    
+                strMsg = 'Cart updated successfully'
+            else:
+                strMsg = 'Only ' + str(product.quantity) + ' products available.'
+        else:  
+            try:
+                cartObject = get_object_or_404(Cart, user=userObj.id)
+            except:
+                cartObject = None
+            
+            cartObj = Cart()
+                
+            if cartObject is not None:
+                cartObj.cart_id = cartObject.cart_id
+            else:
+                cartObj.cart_id = _cart_id(request) 
+             
+            cartObj.product = product
+            cartObj.user = userObj
+            cartObj.quantity = 1
+            cartObj.save()
+                    
+            strMsg = 'Added to cart successfully'
+        # updatedValue = cartObj.productTotal() 
+        updatedValue = cartObj.total_final_price * cartObj.quantity
+    else:
+        sessionId = _cart_id(request)
+        print('+++++++++++++++++')
+        print(sessionId)
+        try:
+            cart = get_object_or_404(Cart, cart_id=_cart_id(request), product=postdata.get('product_id'))
+        except:
+            cart = None
+            
+        print('---------------------------')
+        print(cart)    
+            
+        if cart is not None: 
+            if postdata.get('action_type') == '+':
+                if cart.quantity != product.quantity:
+                    cart.quantity = cart.quantity + 1
+            else:
+                cart.quantity = cart.quantity - 1
+                
+            productCount = cart.quantity
+            cart.save()
+            
+            if productCount == 0:
+                cart.delete()
+            if cart.quantity != product.quantity:    
+                strMsg = 'Cart updated successfully'
+            else:
+                strMsg = 'Only ' + str(product.quantity) + ' products available.'
+        else:
+            cart = Cart()
+            cart.cart_id = _cart_id(request)
+            
+            try:
+                product = get_object_or_404(Products, id=postdata.get('product_id'))
+            except:
+                product = None
+                
+            cart.product = product
+            cart.quantity = 1
+            cart.save()
+            strMsg = 'Added to cart successfully'
+            
+        # updatedValue = cart.productTotal()
+        updatedValue = cartObj.total_final_price * cartObj.quantity
+        
+    if request.session.get('site_userId') != '0':
+        cart_count = Cart.objects.filter(user=request.session.get('site_userId')).count()
+    else:
+        cart_count = Cart.objects.filter(cart_id=_cart_id(request)).count()
+    
+    cart_calculations = cartCalculations(request)
+    
+    response = {
+        'success' : 'True',
+        'cart_count' : cart_count,
+        'product_count' : productCount,
+        'product_total' : cart_calculations['product_total'],
+        'cart_total' : cart_calculations['cart_total'],
+        'delivery_charge' : cart_calculations['perkmCharge'],
+        'updatedValue' : round(updatedValue),
+        'strMsg' : strMsg ,
+    }
+    return JsonResponse(response)
+
+
+def check_coupon_validity(request, c_code):
+    if c_code == '':
+        msg = 'Please enter your coupon code.'
+    else:
+        cart_products = get_cart_items(request)
+        cart_calculations = cartCalculations(request)
+        cart_total_amt = cart_calculations['cart_total']
+        
+        cursor = connection.cursor() 
+        cursor.execute(''' SELECT * FROM `offer_details` WHERE `is_active` = 1 AND `offer_code` = '{0}' AND 
+            ( exp_date >= CURRENT_TIMESTAMP()  OR exp_date IS NULL ) AND (`min_order` <= '{1}' OR `min_order` = 0) AND (`max_order` >= '{1}' OR max_order = 0 )'''
+            .format(c_code, cart_total_amt))
+        valid_coupon = dictfetchall(cursor)
+        
+        if valid_coupon:
+            usedcoupon = getUsedCoupon(request, c_code)
+            userusedcoupon = getUserUsedCoupon(request, c_code, request.user.id)
+            if int(usedcoupon[0]['count']) < int(valid_coupon[0]['max_users']) or int(valid_coupon[0]['max_users']) == 0:
+                if int(userusedcoupon[0]['count']) < int(valid_coupon[0]['max_per_user']) or int(valid_coupon[0]['max_per_user']) == 0:
+                    is_apply = check_coupon_restrictions(request, valid_coupon, cart_products)
+                    msg = applyCouponOnCart(request, is_apply, c_code, cart_products)
+                else:
+                    msg = 'This coupon has reached its maximum user coupon limit!' 
+            else:
+                msg = 'This coupon has reached its maximum coupon limit!'
+        else:
+            msg = 'This is not a valid coupon!'
+
+    return msg
+
+
+def check_coupon_restrictions(request, coupon, cart_products):
+    product_cart_list = [] 
+    for cart_item in cart_products:
+        product_cart_list.append(cart_item.product_id)
+        
+    str_cart_list = ','.join(map(str, product_cart_list)) 
+    if coupon[0]['product_id'] == None and coupon[0]['customer_id'] == None and coupon[0]['category_id'] == None:
+        return 1
+    else:
+        if coupon[0]['category_id'] != None:
+            valid_user = check_coupon_user(request, coupon)
+            print(valid_user)
+            if valid_user == True:
+                # Check if category is parent category
+                cursor = connection.cursor() 
+                cursor.execute(''' SELECT `categories_id` FROM `products` WHERE `id` IN ({0}) ''' .format(str_cart_list))
+                cart_prod_cats = dictfetchall(cursor)
+                product_cart_cat_list = []     
+                for cart_prod_cat in cart_prod_cats:
+                    product_cart_cat_list.append(cart_prod_cat['categories_id'])
+                coupon_cat = get_object_or_404(Category, id=int(coupon[0]['category_id']))
+                print(coupon_cat)
+                if coupon_cat.parent :
+                    if int(coupon[0]['category_id']) in product_cart_cat_list:
+                        return 1
+                    else:
+                        return 0
+                else:
+                    valid_cats = Category.objects.filter(id=coupon_cat.id)
+                    coupon_cart_cat_list = []
+                    for valid_cat in valid_cats:
+                        coupon_cart_cat_list.append(valid_cat.id)
+                    is_cat_applicable = any(x in product_cart_cat_list for x in coupon_cart_cat_list)
+                    if is_cat_applicable == True:
+                        return 1
+                    else:
+                        return 0
+            elif valid_user == False:
+                # not allowed
+                return 0
+        elif coupon[0]['product_id'] != None:
+            valid_user = check_coupon_user(request, coupon)
+            if valid_user == True:
+                # Check for Product
+                if int(coupon[0]['product_id']) in product_cart_list:
+                    return 1
+                else:
+                    return 0
+            elif valid_user == False:
+                # not allowed
+                return 0
+
+
+def check_coupon_user(request, coupon):
+    if coupon[0]['customer_id'] != 0 and coupon[0]['customer_id'] != None:
+        # check for user
+        if coupon[0]['customer_id'] == request.session.get('site_userId'):
+            return True
+        else:
+            # not allowed
+            return False 
+    else:
+        return True
+
+
+def applyCouponOnCart(request, is_apply, c_code, cart_products):
+    if is_apply == 1:
+        for cart_item in cart_products:
+            cart_item.coupon = c_code
+            cart_item.save()
+        msg = 'Coupon has been applied!'
+    else:
+        msg = 'Coupon cannot be applied!'
+    return msg
+
+
+def getUsedCoupon(request, c_code):
+    cursor = connection.cursor() 
+    cursor.execute(''' SELECT count(o.id) AS count FROM `orders` AS o LEFT JOIN `order_items` AS oi ON oi.order_id = o.id WHERE o.status IN ('P','D','S','C') and oi.coupon = '{0}'  ''' .format(c_code))
+    CouponUsed = dictfetchall(cursor)
+    return CouponUsed
+
+
+def getUserUsedCoupon(request, c_code, user_id):
+    cursor = connection.cursor() 
+    cursor.execute(''' SELECT count(o.id) AS count FROM `orders` AS o LEFT JOIN `order_items` AS oi ON oi.order_id = o.id WHERE o.status IN ('P','D','S','C') and o.user_id = '{0}' and oi.coupon = '{1}'  ''' .format(user_id, c_code))
+    CouponUsedUser = dictfetchall(cursor)
+    return CouponUsedUser

@@ -1,0 +1,14 @@
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(5).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(1).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(2).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(3).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(4).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(5).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(1).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(2).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(3).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG070-10190(4).jpg,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG 051 4800.JPG,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG 051 4800.JPG,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG 051 4800.JPG,/home/srishringarr/Ecom/static
+/home/srishringarr/Ecom/static/images/catalog/products/thumbnail/YNG 051 4800.JPG,/home/srishringarr/Ecom/static

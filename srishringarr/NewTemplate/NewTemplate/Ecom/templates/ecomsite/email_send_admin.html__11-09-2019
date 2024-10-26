@@ -1,0 +1,29 @@
+
+  <table class = "margin">
+    <tr><td>Order Details</td></tr>
+
+    <tr><td> Customer Name:</td><td>{{ order.user.username }}</td></tr>
+
+    <tr><td> Customer Email:</td><td>{{ order.user.email }}</td></tr>
+
+    <tr><td> Customer Mobile No:</td><td>{{ order.user.mobile }}</td></tr>
+
+    <tr><td> Order No.:</td><td>#0000{{ order.id }}</td></tr>
+    
+    <tr><td> Products Name:</td><td>{{currentProduct.name}}</td></tr>
+
+    <tr><td> Qty:</td><td>{{ orderitem.quantity }}</td></tr>
+    
+    <tr><td> SKU Code:</td><td>{{orderitem.product.sku}}</td></tr>
+    
+    <tr><td> Price:</td><td>{{order.total|floatformat:"0"}} Rs.</td></tr>
+
+    <tr><td> Date of Booking:</td><td>{{orderitem.booking_dt}}</td></tr>
+
+    <tr><td> Delivery Date:</td><td>{{orderitem.delivery_dt}}</td></tr>
+   
+    <!-- <tr><td> Transaction Id:</td><td>{{myvars.0.txnid}}</td></tr> -->
+
+    <tr><td> No of Booking Days </td><td>{{orderitem.booking_days}}</td></tr>
+  </table>
+

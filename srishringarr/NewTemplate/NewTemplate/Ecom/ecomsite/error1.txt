@@ -1,0 +1,1 @@
+<django.core.mail.message.EmailMultiAlternatives object at 0x2ab29390bb38>

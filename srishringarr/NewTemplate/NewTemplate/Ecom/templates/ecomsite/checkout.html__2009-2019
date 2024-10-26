@@ -1,0 +1,458 @@
+{% extends "basesite.html" %}
+{% load staticfiles %} 
+{% load site_filters %}
+{% block content %}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<form action="." enctype="multipart/form-data" id="cart_form" method="POST">
+	{% csrf_token %}
+<!-- added by sushant razorpay 13/12/2018 -->
+	<div>
+		<input type="hidden" id="pay_id" name="pay_name" value="">
+	</div>
+<!-- end razorpay -->
+	<section class="bgwhite p-t-55 p-b-65">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-8 col-lg-5">
+				
+				<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38">
+				
+					<h5 class="m-text20 p-b-24">
+						Cart Details
+					</h5>
+	
+					<!--  -->
+					<div class="flex-w flex-sb-m p-b-12">
+						<span class="s-text15 w-size20 w-full-sm">
+							<strong>Price ({{ cart_count }} items):</strong>
+						</span>
+	
+						<span class="s-text19 w-size19 w-full-sm">
+							Rs. {{ product_total }}
+						</span>
+					</div>
+					
+					{% if checkout_setting.del_charge == True %}
+					<div class="flex-w flex-sb-m p-b-12">
+						<span class="s-text15 w-size20 w-full-sm">
+							<!--<strong>Delivery Charges  {% if request.session.pincode != 0 %}({{ distance|floatformat:"0" }} km){% endif %}:
+							</strong>-->
+							<strong>shipping Charges  {% if request.session.pincode != 0 %}({{ distance|floatformat:"0" }} km){% endif %}:
+							</strong>
+						</span>
+	
+						<span class="s-text19 w-size19 w-full-sm">
+							{% if checkout_setting_option.deliver_type == 'fixed' %}
+<!--								Rs. {{checkout_setting_option.delivery_charges}} -->
+									Rs. {{total_shipping_charge}} 
+							{% else %}
+								{% if request.session.pincode != 0 %}
+										Rs.{{total_shipping_charge}}
+								<!--	Rs. {{delivery_charge}}-->
+								{% else %}
+									Rs. 0
+								{% endif %}
+							{% endif %}
+						</span>
+					</div>
+					{% endif %}
+					
+					{% if checkout_setting.tax == True %}
+					<div class="flex-w flex-sb-m p-b-12">
+						<span class="s-text15 w-size20 w-full-sm">
+							<strong>Estimated Tax:</strong>
+						</span>
+	
+						<span class="s-text19 w-size19 w-full-sm">
+							Rs. {{checkout_setting_option.estimate_tax}}
+						</span>
+					</div>
+					{% endif %}
+					
+					{% if checkout_setting.discount == True %}
+					<div class="flex-w flex-sb-m p-b-12">
+						<span class="s-text15 w-size20 w-full-sm">
+							<strong>Total Discount:</strong>
+						</span>
+	
+						<span class="s-text19 w-size19 w-full-sm">
+							Rs. 0
+						</span>
+					</div>
+					{% endif %}
+					
+					<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+						<span class="s-text15 w-size20 w-full-sm">
+							<strong>Amount Payable:</strong>
+						</span>
+	
+						<span class="s-text19 w-size19 w-full-sm">
+							<strong>Rs. {{ amount}} </strong>
+							<!--<strong>Rs. {{ cart_total }} </strong>-->
+						</span>
+					</div>
+					
+				</div>
+				
+				
+					{% if checkout_setting.coupon_list == True %}
+					<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38 m-t-20">
+						<div class="flex-w flex-sb-m p-t-26 p-b-30">					
+							<span class="s-text15 w-size20 w-full-sm">
+								<strong>Coupon List:</strong>
+							</span>
+		
+							<span class="s-text19 w-size19 w-full-sm">
+								Coupon List Not Available 
+							</span>
+						</div>
+						</div>
+					{% endif %}
+					
+					{% if checkout_setting.add_coupon == True %}
+					<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38 m-t-20">
+						<div class="flex-w flex-sb-m">					
+							<span class="s-text15 w-size21 w-full-sm">
+								<strong>Add Coupon: </strong>
+							</span>
+		
+							<span class="m-text21 w-size18 w-full-sm">
+								<div class="size13 bo4 m-b-12">
+									<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Coupon Code" name="coupon_code" value="" > 
+								</div>
+								<input type="submit" name="apply_code" class="flex-c-m size10 bg1 bo-rad-23 hov1 s-text1 trans-0-4"  value="Apply"/>
+							</span>
+						</div>
+						</div>
+					{% endif %}
+					
+					{% if checkout_setting.near_by_you == True %}
+					<div class="bo9 p-l-40 p-r-40 p-t-30 p-b-38 m-t-20">
+						<div class="flex-w flex-sb-m m-t-10">	
+							<span class="s-text19">
+								Contact Person near you if you are not at your home.
+							</span>				
+							<span class="s-text15 w-size21 w-full-sm">
+								<strong>Contact Person: </strong>
+							</span>
+		
+							<span class="m-text21 w-size18 w-full-sm">
+								<div class="size13 bo4 m-b-12">
+									<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Name" name="contact" value="" > 
+								</div>
+								<input type="submit" name="save_contact" class="flex-c-m size10 bg1 bo-rad-23 hov1 s-text1 trans-0-4"  value="Save"/>
+							</span>
+						</div>
+						</div>
+					{% endif %}
+				</div>	
+				
+<!-- 				<div class="col-sm-6 col-md-8 col-lg-1 p-l-40 p-r-40 p-t-30 p-b-38">	
+				</div> -->
+				
+				<!-- Total -->
+				<div class="bo9 col-sm-6 col-md-4 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38">
+					{% if checkout_setting.billing == True %}
+						<h5 class="m-text20 p-b-24">
+							Billing Address
+						</h5>
+						{% if checkout_setting.add_type == True %}
+						<div class="m-b-12">
+							<span class="s-text15">
+								<strong>Address type</strong>
+							</span><br/>
+							<span class="s-text19  m-l-10">
+								<input type="radio" name="addressType" id = "home" onclick="checkSatofficeOpen(this.form)" value="0" {% if add.type == '0' %} checked {% else %} checked {% endif %}> Home (7 am - 9 pm delivery )
+							</span> 
+							<span class="s-text19">
+								<input type="radio" name="addressType" id = "office" onclick="checkSatofficeOpen(this.form)" value="1" {% if add.type == '1' %} checked {% endif %}> Office (10 am - 5 pm delivery )<br/>
+								<div {% if add.type == '1' %} style="display: block;" {% else %} style="display: none;" {% endif %} id = "satOpen">
+									<input type="checkbox" name="deliver" {% if add.deliver_sat == True %} checked {% endif %}> Can deliver parcel on Saturday 
+								</div>
+							</span>
+						</div>	 
+						{% endif %}
+						<span class="s-text15">
+							<strong>Full Name</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Full Name" name="ba_full_name" value="{{ add.name }}" required> 
+						</div>
+						<span class="s-text15">
+							<strong>Address</strong>
+						</span>
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="ba_address" placeholder="Address" required>{{ add.address }}</textarea>
+						<span class="s-text15">
+							<strong>Landmark</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Area" name="ba_area" value="{{ add.area }}" required> 
+						</div>
+						<span class="s-text15">
+							<strong>City</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="City" name="ba_city" value="{{ add.city }}" required> 
+						</div>
+						<span class="s-text15">
+							<strong>Select State</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<select class="selection-2 sizefull s-text7 p-l-15 p-r-15" name="ba_state" style="border: 0;">
+								<option value="0">Select State</option>
+								{% for sl in allStateList %}
+									<option value="{{sl.code}}" {% if add.state == sl.code %} selected {% endif %}>{{sl.name}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<span class="s-text15">
+							<strong>Pin/Zip Code</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Pin/Zip Code" name="ba_pinzip" value="{{ add.pin_zip }}" required> 
+						</div>
+						<span class="s-text15">
+							<strong>Country</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Country" name="ba_country" value="{{ add.country }}" required>
+						</div>
+						<span class="s-text15">
+							<strong>Mobile</strong>
+						</span>
+						<div class="size1 bo4 m-b-12">
+							<input type="text" class="sizefull s-text7 p-l-15 p-r-15" placeholder="Mobile" name="ba_mobile" value="{{ add.mobile }}" required>
+						</div>
+						{% if checkout_setting.same_as_billing == True %}
+							<span class="s-text19">
+								<input type="checkbox" id = "same_as_billing" {% if add.same_as_billing == True %} checked {% endif %} name="same_as"> Shipping same As Billing Address
+							</span>
+						{% endif %}
+						<div class="size1">
+							<button class="flex-c-m size10 bg1 bo-rad-23 m-t-10 hov1 s-text1 trans-0-4 float-r" type="submit" name="checkout" value="Submit">
+								Save
+							</button>
+						</div>
+						
+					{% endif %}
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	{% if add %}
+		<section class="bgwhite">
+			<div class="container">
+				<div class="bo9 row">
+					<div class="col-sm-6 col-md-8 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38">
+						<h5 class="m-text20 p-b-24">
+							Choose Payment Method
+						</h5>
+						{% if checkout_setting.cod == True %}
+							<!-- <span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment1" value="cod" onclick="displayBankList('0')"> Cash on Delivery <br/>
+							</span> -->
+						{% endif %}
+						{% if checkout_setting.netbanking == True %}
+							<span class="s-text19">
+								<!-- <input type="radio" name="payment_mode" id = "payment2" value="nb" onclick="displayBankList('0')"> Online Payment <br/> -->
+								<input type="radio" name="payment_mode" id = "payment2" value="nb"> Online Payment <br/>
+							</span>
+						{% endif %}
+						<!-- {% if checkout_setting.bank_transfer == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment3" value="bt" onclick="displayBankList('1')"> Bank transfer <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.citrus == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment4" value="ct" onclick="displayBankList('0')"> Citrus <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.paypal == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment5" value="pl" onclick="displayBankList('0')"> Paypal <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.phonepe == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment6" value="pp" onclick="displayBankList('0')"> Phonepe <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.credit_debit == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment7" value="cd" onclick="displayBankList('0')"> Credit/Debit Card <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.emi == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment8" value="emi" onclick="displayBankList('1')"> EMI (Every Month Installment) <br/>
+							</span>
+						{% endif %}
+						{% if checkout_setting.wallets == True %}
+							<span class="s-text19">
+								<input type="radio" name="payment_mode" id = "payment9" value="wallets" onclick="displayBankList('0')"> Wallets <br/>
+							</span>
+						{% endif %}<br/> -->
+					</div>
+					<div class="col-sm-6 col-md-8 col-lg-6 p-l-40 p-r-40 p-t-30 p-b-38 dis-none" id="id_banklist">
+						<h5 class="m-text20 p-b-24">
+							Select Bank
+						</h5>
+						<span class="s-text19">
+							{% for bl in banklist %}
+								<div style="{{ bl.id|isValueSelected:checkout_setting_option.bank_list }}"><input type="checkbox" value="{{ bl.id }}" name="bank_list"/> {{ bl.name }}<br/></div>
+							{% endfor %}
+						</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="bgwhite p-b-65">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-8 col-lg-9 p-l-40 p-r-40 p-t-30 p-b-38">
+					</div>
+					<div class="col-sm-6 col-md-8 col-lg-3 p-l-40 p-r-40 p-t-30 p-b-38">
+						
+						<div class="size10 trans-0-4">
+							<!-- Button -->
+							<button id="place_order_btn" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="button" name="checkout" value="Place Order">
+								Place Order
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+</form>
+{% endblock %}
+{% block custom_scripts %}
+
+<script>
+
+// added by sushant razorpay 13/12/2018
+
+function makePayment()
+{
+	//var amount_payble = {{ cart_total }} * 100;
+	var amount_payble = {{ amount }} * 100; 
+	if (amount_payble <= 0){
+		console.log("amount should be greater than 0 Rs.");
+		return true;
+	}
+
+	var options = {
+		// 31-07-2019
+		"key": "{{ api_key }}",  
+	    //"key": "{{ test_api_key }}",
+	    "amount": amount_payble, // 2000 paise = INR 20
+	    "name": "Sri Shringar",
+	    "description": "Purchase Description",
+	    "image": "https://www.srishringarr.com/static/images/site/logo/main_logo.png",
+	    "handler": function (response){
+	        // alert(response.razorpay_payment_id);
+	        $("#pay_id").val(response.razorpay_payment_id);
+	        //alert("1111111111111111111111111111111111111111")
+	        //alert(response.razorpay_payment_id);
+	        $.ajax({
+	        	data: $('#cart_form').serialize(), // get the form data
+	            type: $('#cart_form').attr('method'), // GET or POST
+		        url: "https://www.srishringarr.com/orders/order-placed",
+
+	            success: function(response) {
+	           	$("#cart_form").attr('action','/razorpay-payment/success')
+	        	$("#cart_form").submit();
+	            
+	            }
+	        });    
+	        // $("#cart_form").attr('action','/razorpay-payment/success')
+	        // $("#cart_form").submit();
+	    },
+	    "prefill": {
+	        "name": "",
+	        "email": ""
+	    },
+	    "notes": {
+	        "address": ""
+	    },
+	    "theme": {
+	        "color": "#F37254"
+	    }
+	};
+	var rzp1 = new Razorpay(options);
+
+	rzp1.open();
+ //    e.preventDefault();
+}
+
+// $("#place_order_btn").click(function(e){
+// 	orderPlace();
+// });
+$("#place_order_btn").click(function(e){
+	var radioValue = $("input[name='payment_mode']:checked").val();
+	if(radioValue == ""){
+		console.log("not checked");
+	}else{
+		orderPlace();
+	}
+
+});
+
+function orderPlace()
+{
+	//alert("3333333333333333333333333333333333333333333333333")
+	var radioValue = $("input[name='payment_mode']:checked").val();
+	//alert(radioValue);
+
+	if(radioValue==undefined){
+		 //alert("555555555555555555555555555");
+		 swal('Please Select Online Payment');
+		 //$('#cart_form').submit();
+	}
+	else{
+		//alert(";ssssssssssssssssssssssssssssssssssssssssssssssss");
+		makePayment();
+  }
+}
+// function orderPlace()
+// {
+// 	var radioValue = $("input[name='payment_mode']:checked").val();
+// 	console.log(radioValue);
+
+//     $.ajax({ // create an AJAX call...
+//         data: $('#cart_form').serialize(), // get the form data
+//         type: $('#cart_form').attr('method'), // GET or POST
+//         url: "https://www.srishringarr.com/orders/order-placed", // the file to call
+//         success: function(response) { // on success..
+//             if (response.success == "true"){
+//             	if (radioValue == "cod"){
+//             		window.location.href = "/thank_you/"+response.order_id;
+//             	}else if (radioValue == "nb"){
+//             		makePayment();
+//             	}            	
+//             	return true;
+//             }else{
+//             	return false;
+//             }
+//         }
+//     });
+// }
+
+// end razorpay
+
+</script>
+	<script src="{% static 'js/site.js' %}"></script>
+{% endblock %}
+
+<!-- if (response.order_id == order.id){
+	if (radioValue == "cod"){
+		return ;
+	}else{
+		makePayment();
+		return true;
+	}
+}  -->
