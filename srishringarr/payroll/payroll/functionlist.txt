@@ -1,0 +1,41 @@
+Quick Function Reference
+------------------------
+
+
+getempid($login) - Function takes login and returns Employee ID
+
+getempname($empid) - Function takes employee id and return employee name in 'FirstName MiddleInital Lastname' format
+
+getdeptid($empid) - Function takes employee id and returns employee's Department ID
+           
+getdeptname($deptid) - Function takes Dept ID and returns Department Name
+
+getprojectname($projectid) - Function takes Project ID and returns Project Title
+
+printlocks($empid) - Function PRINTS all locks for employee with ID $empid on checkin
+
+checkmessages($empid) - Function PRINTS all messages for employee $empid on checkin
+
+checkpassword($login,$password) - Function authenticates login and password, if ok, returns 1 else if wrong returns 0
+
+checklogin($formlogin,$formpassword) - Function takes login and password and returns 'exists>lock>firstname>lastname>empid>passwordok>active' string
+
+alldeptdropdown() - Function generates a drop down box with all departments in it, with deptid being key passed
+
+getlastproject($empid) - Function generates <option> html for last project worked on for empid
+
+projectdropdown($deptid) - Function generates a drop down box with all active projects for employee $empid
+
+updateprojecttime($projectid,$hours) - Function updates hours worked for a project and add the $hours
+
+roundtime($hoursworked,$roundings) - Function rounds $hoursworked to $roudings accuracy. 25 (1/4 hour) 50 (1/2 hour)
+
+checkifloggedin($empid) - Function checks if $empid is logged in and returns string 'loggedin>loggedindate>loggedintime'
+
+           $deptname=genericget($deptid,'deptid','deptname','department');
+           $deptid=genericget($empid,'empid','deptid','employee');
+           $jobtitle=genericget($jobid,'jobid','jobtitle','jobtitle');
+           $emptype=genericget($typeid,'typeid','typename','employeetype');
+           $empcat=genericget($catid,'catid','catname','empcategory');
+           $managerid=genericget($deptid,'deptid','managerid','department');
+           $email=genericget($managerid,'empid','email','employee');
