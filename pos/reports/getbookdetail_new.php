@@ -31,7 +31,7 @@ $fromdate = isset($_REQUEST['fromdate']) && $_REQUEST['fromdate'] !== '' ? date(
 $todate = isset($_REQUEST['todate']) && $_REQUEST['todate'] !== '' ? date('Y-m-d', strtotime($_REQUEST['todate'])) : '';
 
 // Initialize the base query
-$qry = "SELECT a.* FROM `order_detail` a 
+$qry = "SELECT a.*, b.pick_date as rentpickdate, b.delivery_date as rentdeliverydate FROM `order_detail` a 
         INNER JOIN phppos_rent b ON a.bill_id = b.bill_id";
 
 // Build conditions based on input
@@ -58,9 +58,10 @@ if (count($conditions) > 0) {
 }
 
 // Finalize the query
-$qry .= " GROUP BY a.bill_id ORDER BY b.pick_date";
+$qry .= " AND b.pick_date >= CURDATE()
+ GROUP BY a.bill_id ORDER BY b.pick_date";
 
-
+// echo $qry ; 
 
 $res=mysqli_query($con,$qry);                
 $num=mysqli_num_rows($res);

@@ -254,6 +254,70 @@ $s=$row2[2]*$pz;
   </td></tr>
 </table>
 
+
+
+
+
+
+
+	<h3 style="text-align:center;">Payment History</h3>
+		<hr />
+	<?php 
+
+// Query to fetch payment details for the given bill_id
+
+
+$getpaymentssql = mysqli_query($con, "SELECT * FROM paid_amount WHERE bid LIKE '".$id."' order by id asc");
+
+if($getpaymentssql) {
+    // Check if any payments are found
+    if(mysqli_num_rows($getpaymentssql) > 0) {
+        echo "<table width='825' border='1' align='center'>";
+        echo "<tr>
+                <th>Sr No</th>
+                <th>Amount</th>
+                <th>Payment Date</th>
+                <th>Payment Mode</th>
+              </tr>";
+              
+        // Loop through and fetch each row from the results
+        $counter = 1 ; 
+        while($getpaymentssqlResult = mysqli_fetch_assoc($getpaymentssql)) {
+            $amount = $getpaymentssqlResult['amount'];
+            $date = $getpaymentssqlResult['return_date'];
+            $payment_by = $getpaymentssqlResult['payment_by'];
+            
+            // Display the payment details
+            echo "<tr  align='center'>
+                    <td>".$counter."</td>
+                    <td> Rs. ".number_format($amount,2)."</td>
+                    <td>".$date."</td>
+                    <td>".$payment_by."</td>
+                  </tr>";
+                  $counter++; 
+        }
+        
+        echo "</table>";
+    } else {
+        echo "No payments found for this bill.";
+    }
+} else {
+    echo "Error in SQL query: " . mysqli_error($con);
+}
+
+?>
+
+
+
+<hr />
+
+<br /><br /><br /><br />
+
+
+
+
+
+
 </div><br/><br/><div id="pageNavPosition"></div>
 <center>
   <a href="#" onclick='PrintDiv();'>Print Bill </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/pos/home_dashboard.php">Back</a>

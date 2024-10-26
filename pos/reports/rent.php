@@ -689,7 +689,11 @@ die; */
 	   <input type="hidden" name="itmval"   id="itmval"/>
        &nbsp;&nbsp;&nbsp;&nbsp; Barcode : 
        <input type="text" name="barcode2" onFocus="this.value=''" onClick="this.value=''"  id="barcode2" onChange=" MakeRequest();"/>
+       <a href="javascript:void(0);" id="viewPrerentedPrice" >View Prerented Price</a>
+
+
       </td>
+      
       </tr>
       </table>
     <hr>
@@ -798,6 +802,24 @@ die; */
 </div>
 
 <script>
+
+  document.getElementById('viewPrerentedPrice').addEventListener('click', function() {
+        // Collect all design[] values
+        var skus = [];
+        document.querySelectorAll('.design').forEach(function(input) {
+            skus.push(input.value);
+        });
+
+        // Construct URL with SKUs as query parameters
+        var skuQuery = skus.map(sku => 'sku[]=' + encodeURIComponent(sku)).join('&');
+        var url = './viewprerentedprice.php?' + skuQuery;
+
+        // Open the URL in a new tab/window
+        window.open(url, '_blank');
+    });
+    
+    
+    
     $(document).ready(function() {
         $("#people").on('input', function () {
             var input = $(this).val();

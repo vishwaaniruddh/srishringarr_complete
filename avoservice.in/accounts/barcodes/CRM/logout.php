@@ -1,0 +1,7 @@
+<?php session_start();
+//echo $_SESSION['user'];
+unset($_SESSION['user']);
+//unset($_SESSION['type']);
+session_destroy();
+header("location: index.html");
+?>

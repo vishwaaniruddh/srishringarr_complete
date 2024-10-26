@@ -383,41 +383,51 @@
 		}
 	}
 
-	function item_num1xx(id, itmn) {
-		//    alert(itmn);
-		if (document.getElementById('myval').value == "") {
-			itm = document.getElementById('myval').value = itmn;
-			f = itm.substring(0, [1]);
-			s = itm.substring(1, [2]);
-			t = itm.substring(2, [3]);
-			if (t == 'Z') {
-				t = 'A';
-				if (s == 'Z') {
-					s = 'A';
-					fc = f.charCodeAt(0);
+function item_num1xx(id, itmn) {
+	// Initialize the value if empty
+	if (document.getElementById('myval').value == "") {
+		itm = document.getElementById('myval').value = itmn;
+	} else {
+		itm = document.getElementById('myval').value;
+	}
+
+	// Extract characters: allow 3 or 4 characters based on length
+	f = itm.substring(0, 1);
+	s = itm.substring(1, 2);
+	t = itm.substring(2, 3);
+	u = itm.length > 3 ? itm.substring(3, 4) : ''; // Fourth character if it exists
+
+	// Logic to increment from SHF to SHFA, SHFB, etc.
+	if (u === '') { // Case for 3 characters (like SHF)
+		if (t == 'Z') {
+			t = 'A';
+			if (s == 'Z') {
+				s = 'A';
+				fc = f.charCodeAt(0);
+				if (fc < 90) { // 'Z' is ASCII 90
 					fc = fc + 1;
 					f = String.fromCharCode(fc);
 				} else {
-					sc = s.charCodeAt(0);
-					sc = sc + 1;
-					s = String.fromCharCode(sc);
+					f = 'A'; // Reset or handle if needed
 				}
 			} else {
-				tc = t.charCodeAt(0);
-				tc = tc + 1;
-				t = String.fromCharCode(tc);
+				sc = s.charCodeAt(0);
+				sc = sc + 1;
+				s = String.fromCharCode(sc);
 			}
-			item_inff = "" + f + s + t;
-			n = id.value = item_inff;
-			id.readOnly = true;
-			id.onClick = false;
-			k = document.getElementById('myval').value = n;
 		} else {
-			//alert("ok2");
-			itm1 = document.getElementById('myval').value
-			f = itm1.substring(0, [1]);
-			s = itm1.substring(1, [2]);
-			t = itm1.substring(2, [3]);
+			tc = t.charCodeAt(0);
+			tc = tc + 1;
+			t = String.fromCharCode(tc);
+		}
+		u = 'A'; // Start the fourth character after SHF
+	} else { // Case when fourth character exists
+		uc = u.charCodeAt(0);
+		if (uc < 90) { // Increment within 'A' to 'Z'
+			uc = uc + 1;
+			u = String.fromCharCode(uc);
+		} else {
+			u = 'A'; // If 'Z', reset to 'A' and increment previous characters
 			if (t == 'Z') {
 				t = 'A';
 				if (s == 'Z') {
@@ -435,81 +445,107 @@
 				tc = tc + 1;
 				t = String.fromCharCode(tc);
 			}
-			item_inff = "" + f + s + t;
-			//alert(item_inff);
-			n = id.value = item_inff;
-			id.readOnly = true;
-			id.onClick = false;
-			k = document.getElementById('myval').value = n;
-			//alert("last"+k);
-			//alert(n);
 		}
 	}
 
-	function item_num1xxhj(id) {
-		if (id.value == "") {
-			//alert(id);
-			if (document.getElementById('myval').value == "") {
-				itm = document.getElementById('myval').value = document.getElementById('item_no').value
-				f = itm.substring(0, [1]);
-				s = itm.substring(1, [2]);
-				t = itm.substring(2, [3]);
-				if (t == 'Z') {
-					t = 'A';
-					if (s == 'Z') {
-						s = 'A';
-						fc = f.charCodeAt(0);
-						fc = fc + 1;
-						f = String.fromCharCode(fc);
-					} else {
-						sc = s.charCodeAt(0);
-						sc = sc + 1;
-						s = String.fromCharCode(sc);
-					}
-				} else {
-					tc = t.charCodeAt(0);
-					tc = tc + 1;
-					t = String.fromCharCode(tc);
-				}
-				item_inff = "" + f + s + t;
-				n = id.value = item_inff;
-				id.readOnly = true;
-				id.onClick = false;
-				k = document.getElementById('myval').value = n;
-			} else {
-				//alert("ok2");
-				itm1 = document.getElementById('myval').value
-				f = itm1.substring(0, [1]);
-				s = itm1.substring(1, [2]);
-				t = itm1.substring(2, [3]);
-				if (t == 'Z') {
-					t = 'A';
-					if (s == 'Z') {
-						s = 'A';
-						fc = f.charCodeAt(0);
-						fc = fc + 1;
-						f = String.fromCharCode(fc);
-					} else {
-						sc = s.charCodeAt(0);
-						sc = sc + 1;
-						s = String.fromCharCode(sc);
-					}
-				} else {
-					tc = t.charCodeAt(0);
-					tc = tc + 1;
-					t = String.fromCharCode(tc);
-				}
-				item_inff = "" + f + s + t;
-				//alert(item_inff);
-				n = id.value = item_inff;
-				id.readOnly = true;
-				id.onClick = false;
-				k = document.getElementById('myval').value = n;
-				//alert("last"+k);
-				//alert(n);
-			}
-		}
-	}
+	// Construct the new 4-character sequence
+	item_inff = "" + f + s + t + u;
+
+	// Set the new value to the input field and make it read-only
+	id.value = item_inff;
+	id.readOnly = true;
+	id.onClick = false;
+
+	// Store the updated value in 'myval'
+	document.getElementById('myval').value = item_inff;
+	
+}
+
+
+function item_num1xxhj(id) {
+    if (id.value == "") {
+        // First time value generation
+        if (document.getElementById('myval').value == "") {
+            itm = document.getElementById('myval').value = document.getElementById('item_no').value;
+            f = itm.substring(0, 1); // 1st character
+            s = itm.substring(1, 2); // 2nd character
+            t = itm.substring(2, 3); // 3rd character
+            u = itm.substring(3, 4); // 4th character (newly added)
+
+            // Incrementing logic for 4th character
+            if (u == 'Z') {
+                u = 'A';
+                if (t == 'Z') {
+                    t = 'A';
+                    if (s == 'Z') {
+                        s = 'A';
+                        fc = f.charCodeAt(0);
+                        fc = fc + 1;
+                        f = String.fromCharCode(fc);
+                    } else {
+                        sc = s.charCodeAt(0);
+                        sc = sc + 1;
+                        s = String.fromCharCode(sc);
+                    }
+                } else {
+                    tc = t.charCodeAt(0);
+                    tc = tc + 1;
+                    t = String.fromCharCode(tc);
+                }
+            } else {
+                uc = u.charCodeAt(0);
+                uc = uc + 1;
+                u = String.fromCharCode(uc);
+            }
+
+            item_inff = "" + f + s + t + u;
+            n = id.value = item_inff;
+            id.readOnly = true;
+            id.onClick = false;
+            k = document.getElementById('myval').value = n;
+        } else {
+            // Subsequent increments
+            itm1 = document.getElementById('myval').value;
+            f = itm1.substring(0, 1);
+            s = itm1.substring(1, 2);
+            t = itm1.substring(2, 3);
+            u = itm1.substring(3, 4); // 4th character (newly added)
+
+            // Incrementing logic for 4th character
+            if (u == 'Z') {
+                u = 'A';
+                if (t == 'Z') {
+                    t = 'A';
+                    if (s == 'Z') {
+                        s = 'A';
+                        fc = f.charCodeAt(0);
+                        fc = fc + 1;
+                        f = String.fromCharCode(fc);
+                    } else {
+                        sc = s.charCodeAt(0);
+                        sc = sc + 1;
+                        s = String.fromCharCode(sc);
+                    }
+                } else {
+                    tc = t.charCodeAt(0);
+                    tc = tc + 1;
+                    t = String.fromCharCode(tc);
+                }
+            } else {
+                uc = u.charCodeAt(0);
+                uc = uc + 1;
+                u = String.fromCharCode(uc);
+            }
+
+            item_inff = "" + f + s + t + u;
+            n = id.value = item_inff;
+            id.readOnly = true;
+            id.onClick = false;
+            k = document.getElementById('myval').value = n;
+        }
+    }
+}
+
 </script>
 <script>
 	function deleteRow(btn) {

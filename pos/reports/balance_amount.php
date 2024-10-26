@@ -43,6 +43,11 @@
                 						    </div>
                     						
                 					  </form>
+                					  
+                					  <br>
+                					  <a href="./balance_amount2.php">Go to New Version </a>
+                					  
+                					  
                 				    </div>							  
                                 </div>
                 			 </div>

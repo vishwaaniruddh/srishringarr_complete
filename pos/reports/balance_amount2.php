@@ -6,9 +6,9 @@
                     $con = OpenSrishringarrCon();
                 
                 
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
+        // ini_set('display_errors', 1);
+        // ini_set('display_startup_errors', 1);
+        // error_reporting(E_ALL);
 
 
 
@@ -19,7 +19,7 @@
                         <div class="content-wrapper">
                             <div class="page-header">
                                 <div class="center">
-                                    <h3 class="page-title" >Customer Balance Amount Report(Approval & Sales)</h3>
+                                    <h3 class="page-title" >New Version - Bill Wise - Customer Balance Amount Report(Approval & Sales)</h3>
                                 </div>
                             </div>
                             <div class="col-12 grid-margin">
@@ -43,6 +43,10 @@
                 						    </div>
                     						
                 					  </form>
+                					  
+                					  <br>
+                					  <a href="./balance_amount.php">Goto Old Version </a>
+                					  
                 				    </div>							  
                                 </div>
                 			 </div>
@@ -60,7 +64,7 @@
                                     $qry .= " ORDER BY `phppos_people`.`first_name` ASC";
                                 
 
-// echo $qry ; 
+// echo $qry ;
                                     $res = mysqli_query($con, $qry);
                                     $num = mysqli_num_rows($res);
                                 }	
@@ -82,7 +86,7 @@
             											<th>Customer Name</th>
             											<th>Mobile No.</th>
             											<th>Net Amount</th>
-            											<th>Payment</th>
+
             																	  
             										</tr>
             									  </thead>
@@ -193,14 +197,14 @@
                                                                
                                                            <tr>
                                                                <th>Bill ID</th>
-                                                               <th>Paid amount ==== Total Amount</th>
+                                                               <th>Paid amount</th>
                                                                <th>Balance Amount</th>
                                                                <th>Payment</th>
                                                            </tr>
                                                            <?php 
                                                            $totalbalanceAmount = $totalamountTotal = $totalthisPaidAmount = 0 ; 
                                                            
-                                                           $balancesql = mysqli_query($con,"select * from approval where status='A' and paid_amount<>amountTotal and cust_id='".$row[11]."'");
+                                                           $balancesql = mysqli_query($con,"select * from approval where  paid_amount<>amountTotal and cust_id='".$row[11]."'");
                                                            while($balancesqlResult = mysqli_fetch_assoc($balancesql)){
                                                                
                                                                $thisBillID = $balancesqlResult['bill_id'];
@@ -208,34 +212,37 @@
                                                                $amountTotal = $balancesqlResult['amountTotal'];
                                                                
                                                                $thisBalanceAmount = (float)$amountTotal - (float)$thisPaidAmount ; 
-                                                               ?>
+                                                               if($thisBalanceAmount!=0){ ?>
+                                                               
+                                                               
                                                                <tr>
                                                                    <td><a href="./sales_report_detail.php?id=<?php echo $thisBillID ; ?>" target="_blank"><?php echo $thisBillID ; ?></a></td>
-                                                                   <td><?php echo $thisPaidAmount . '====' . $amountTotal ;  ?></td>
+                                                                   <td><?php echo $thisPaidAmount  ;  ?></td>
                                                                    <td><?php echo $thisBalanceAmount ; ?></td>
                                                                    <td>
-                                                                       <a href="Approval_payment.php?cid=<?php echo $row[11]; ?>&amt=<?php echo $thisBalanceAmount; ?>&bill_id=<?php echo $thisBillID; ?>" target="_new" ><b>Payment</b></a>
+                                                                       <a href="Approval_payment_new.php?cid=<?php echo $row[11]; ?>&amt=<?php echo $thisBalanceAmount; ?>&bill_id=<?php echo $thisBillID; ?>" target="_new" ><b>Payment</b></a>
                                                                    </td>
                                                                </tr>
                                                                
+                                                                   
                                                                <?php 
+                                                               
                                                                $totalthisPaidAmount = $totalthisPaidAmount + $thisPaidAmount ; 
-                                                               $totalamountTotal = $totalamountTotal + $amountTotal ; 
-                                                                $totalbalanceAmount = $totalbalanceAmount + $thisBalanceAmount ; 
+                                                               $totalamountTotal = (float)$totalamountTotal + (float)$amountTotal ; 
+                                                                $totalbalanceAmount = $totalbalanceAmount + $thisBalanceAmount ;
+                                                                
+                                                               } ?>
+                                                               
+                                                               
+                                                               <?php 
+                                                                
                                                            }
                                                            
                                                            
                                                            
                                                            
                                                            ?>
-                                                           <tr>
-                                                               <td></td>
-                                                               <td><?php echo $totalthisPaidAmount . '==='. $totalamountTotal ; ?></td>
-                                                               <td><?php echo $totalbalanceAmount ; ?></td>
-                                                               <td></td>
-                                                               
-                                                           </tr>
-                                                           
+
                                                            
                                                            </table>
                                                            
@@ -246,7 +253,6 @@
 
 
 
-                                                        <td><a href="Approval_payment.php?cid=<?php echo $row[11]; ?>&amt=<?php echo $ab; ?>" target="_new" ><b>Payment</b></a></td>
                                                        
                                                         </tr>
                                                                 

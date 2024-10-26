@@ -1,0 +1,59 @@
+<?php
+include("config.php");
+ $id=$_GET['id'];
+  $type=$_GET['type'];
+$qry="";
+/*$qry.="select c.atmid,b.atm_id,a.bank_name,a.problem,a.createdby from alert a, atm b, amc c where 1 ";
+if($type=='amc')
+$qry.=" and c.atmid=a.atm_id";
+if($type=="site")
+$qry.=" and b.atm_id=a.atm_id ";*/
+$stat=0;
+
+
+// ======= Repeat calls Block==============================
+$tmb=date('Y-m-d 00:00:00', strtotime('-20 days'));
+$ly=date('Y-m-d 00:00:00', strtotime('-1 year'));
+if($type=='amc'){
+$qry="select b.atmid,a.address,a.state1,a.entry_date,a.problem,a.call_status,a.alert_id,a.status, a.alert_typefrom alert a,Amc b where a.atm_id='$id' and a.entry_date>'$ly' and a.atm_id=b.amcid order by alert_id DESC limit 5";
+//echo $qry;
+}
+if($type=='site'){
+$qry="select b.atm_id,a.address,a.state1,a.entry_date,a.problem,a.call_status,a.alert_id,a.status,a.alert_type from alert a,atm b where a.atm_id='$id' and a.entry_date>'$ly' and a.atm_id=b.track_id order by alert_id DESC limit 5";
+//echo $qry;
+}
+
+//echo $qry;
+//if(!$qry)
+//echo mysql_error();
+?>
+<ul style="list-style:none; padding:0">
+<?php
+$sql=mysql_query($qry);
+$rcnt=mysql_num_rows($sql);
+$tmcnt=0;
+while($row=mysql_fetch_array($sql))
+{
+    if($row[3]>$tmb)$tmcnt++;
+$bm=mysql_query("select up from alert_updates where alert_id='".$row[6]."' order by id DESC limit 1");
+$bmro=mysql_fetch_row($bm);
+$eng=mysql_query("select feedback from eng_feedback where alert_id='".$row[6]."' order by id DESC limit 1");
+$engro=mysql_fetch_row($eng);
+//echo $row[5];
+if($row[5]!='Done' && $row[5]!='Rejected' && $row[7]!='Done'&& $row[8]!='new')
+$stat=1;
+?>
+<li>
+<b>Atm ID</b> <?php echo $row[0]; ?><br />
+<b>Address</b> <?php echo $row[1]; ?><br />
+<b>State</b> <?php echo $row[2]; ?><br />
+<b>Date</b> <?php echo date("d/m/Y h:i:s a",strtotime($row[3])); ?><br />
+<b>Call Type:</b> <?php if($row[5]=='Done'){ echo "Done"; }else{ echo "<font color='#FF0000'>Open</font>"; } ?> <br />
+<b>Problem:</b> <?php echo $row[4]; ?><br />
+<b>Branch Manager Feedback:</b> <?php echo $bmro[0]; ?><!--<br />
+<b>Engineer Feedback:</b> <?php echo $engro[0]; ?>-->
+</li>
+<li><hr /></li>
+<?php
+}
+?></ul><?php echo "##".$stat."##".$rcnt."##".$tmcnt; ?>

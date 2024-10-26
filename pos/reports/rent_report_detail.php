@@ -500,7 +500,7 @@ $totalGST = $totalGST + $thisProductTotalGst  ;
                                  </tr>
                                  
                                   <tr>
-                                    <td colspan="11"><b>Delivery : </b> <?php echo $rowordno[17];?></td>     
+                                    <td colspan="11"><b>Delivery : </b> <?php echo $rowordno['delivery'] .' '. $rowordno[17];?></td>     
                                  </tr>
                                  
                                  <tr>

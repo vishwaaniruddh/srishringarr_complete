@@ -1,0 +1,152 @@
+<?php
+session_start();
+if(!isset($_SESSION['SESS_USER_NAME']))
+header('location:index.html');
+ include('config.php');
+ include('template_clinic.html');
+?>
+
+<!--Datepicker-->
+<link href="paging.css" rel="stylesheet" type="text/css" />
+<script>
+//////////////subcat
+function loadXMLDoc()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {// alert(xmlhttp.responseText);
+    document.getElementById("sub_cat").innerHTML=xmlhttp.responseText;
+    }
+
+  }
+  var cat=document.getElementById('diagnosis').value;
+xmlhttp.open("POST","sub_cat.php?cat="+cat,true);
+
+xmlhttp.send();
+}
+
+
+
+///////////////////////////////search By Id
+function searchById(Mode,Page) {
+ //alert("hi");
+		  HttPRequest = false;
+		  if (window.XMLHttpRequest) { // Mozilla, Safari,...
+			 HttPRequest = new XMLHttpRequest();
+			 if (HttPRequest.overrideMimeType) {
+				HttPRequest.overrideMimeType('text/html');
+			 }
+		  } else if (window.ActiveXObject) { // IE
+			 try {
+				HttPRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			 } catch (e) {
+				try {
+				   HttPRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e) {}
+			 }
+		  } 
+ 
+		  if (!HttPRequest) {
+			 alert('Cannot create XMLHTTP instance');
+			 return false;
+		  }
+		 /* if(document.getElementById('idd').value=="" && document.getElementById('fname22').value=="")
+		  {
+			  var url = 'get_opdID.php';
+		  }else   if(document.getElementById('fname22').value==""){
+			  
+			  var s=document.getElementById('idd').value;
+			var url = 'get_opdID.php?id='+s;
+		  } else if(document.getElementById('idd').value==""){
+			  
+			   var s=document.getElementById('fname22').value;
+			var url = 'get_opdID.php?fname='+s;
+		  } else{*/
+			  var odate=document.getElementById('odate').value;
+			 			  
+			var url = 'get_surgery.php';
+		 // }
+ 	
+		
+			//alert(url);
+			var pmeters = 'mode='+Mode+'&Page='+Page+'&odate='+odate;
+
+			HttPRequest.open('POST',url,true);
+ 
+			HttPRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			HttPRequest.setRequestHeader("Content-length", pmeters.length);
+			HttPRequest.setRequestHeader("Connection", "close");
+			HttPRequest.send(pmeters);
+ 
+
+			HttPRequest.onreadystatechange = function()
+			{
+ 
+			if(HttPRequest.readyState == 3)  // Loading Request
+				  {
+	document.getElementById("listingAJAX").innerHTML = '<img src="loader.gif" align="center" />';
+				  }
+ 
+				 if(HttPRequest.readyState == 4) // Return Request
+				  {
+		var response = HttPRequest.responseText;
+ 
+// alert(response);
+				   document.getElementById("search").innerHTML = response;
+			  }
+		}
+  }
+///////////////////delete opd
+function confirm_opddelete(id)
+{
+	if (confirm("Are you sure you want to delete this entry?"))
+	{
+		
+		document.location="delete_opd.php?id="+id;
+	}
+}
+
+
+</script>
+<!-- end multiple selection -->
+<style>
+.results {table-layout:fixed;text-transform:uppercase;}
+.results td {overflow: hidden;text-overflow: ellipsis; font-size:12px; width:120px;}
+.results td input{font-size:12px;}
+</style>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Health Clinic</title>
+<link href="All_MiddleBar.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onLoad="searchById('Listing','1')">
+  <div class="M_page">
+   
+    <h1>SURGERY APPOINTMENTS</h1>
+    <table class="results">
+    <tr>
+    <td><input type="text" style="border:none; width:95px; height:21px;" name="odate" id="odate" onBlur="searchById('Listing','1');" placeholder="Date" onClick="displayDatePicker('odate');"/></td>
+    </tr>
+    </table>
+
+        <div id="search"></div>
+
+</div>
+
+</body>
+</html>

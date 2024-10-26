@@ -7,6 +7,8 @@ $from=$_GET['from'];
 $to=$_GET['to_date'];
 $pd=0;
 $sum=0;
+$totalSalesAmount = 0 ; 
+$totalbalanceAmount = 0 ;
 ?>
 <script type="text/javascript" src="datepick_js.js"></script>
 <link rel="stylesheet" type="text/css" href="date_css.css"  />
@@ -411,6 +413,10 @@ echo $balanceAmount ;
 
 // $sum+=$row[4];
 $sum+=$balanceAmount ; 
+$totalbalanceAmount = $totalbalanceAmount + $balanceAmount ; 
+
+$totalSalesAmount = $totalSalesAmount+$amountTotal ; 
+
 
 ?></td>
 
@@ -436,7 +442,7 @@ $sum+=$balanceAmount ;
             <tr>
             <td colspan="4" align="right"><b>Total Sales Amount :</b></td>
           
-            <td colspan="2"><?php echo $sum; ?></td>
+            <td colspan="2"><?php echo $totalSalesAmount  ; ?></td>
 			</tr>
              <tr>
             <td colspan="4" align="right"><b>Total Approval and Sales Amount :</b></td>
@@ -449,7 +455,11 @@ $sum+=$balanceAmount ;
 			<tr>
 			<td colspan="4" align="right"><b>Total Paid Amount :</b></td>
 			 <td width="136" colspan="2">
-			 <?php echo $total_paid_amount ; ?>
+			 <?php echo 
+			 $totalSalesAmount - $totalbalanceAmount ; 
+			 //$total_paid_amount ;
+			 
+			 ?>
 			     <?php /*if($num411==0 || $num411=="" || $row41[0]=="") {  $pd11=$row42[0]; }else{  $pd11=$row41[0];  } echo $pd11;*/ 
 			     //echo $row42[0]; 
 			     ?>
@@ -459,7 +469,10 @@ $sum+=$balanceAmount ;
 			  <tr>
     <td colspan="4" align="right"><b>Total Balance Amount :</b></td>
     <!--<td width="103"><?php ///echo $pd; ?></td>-->
-    <td width="136" colspan="2"><?php echo $total_amount-$total_paid_amount ." /-"; ?></td>
+    <td width="136" colspan="2"><?php echo $totalbalanceAmount ; 
+    // $total_amount-$total_paid_amount ." /-"; 
+    
+    ?></td>
 	</tr>
             </table>
             <?php } else { }?>

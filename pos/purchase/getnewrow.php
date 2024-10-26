@@ -25,9 +25,7 @@ CloseCon($con);
 	   
 	   }
 	   ?>
-       
     </select></td> 
-      
 <td  ><input type="text" style="width: 154px;" name="cprice[]" class="cprice" id="cprice<?php echo $cnt;?>" onChange="subtotal()" value=""  onkeypress="return isNumberKey(event)" autocomplete="off" /> </td> 
   <td ><input type="text" style="width: 154px;" name="uprice[]" class="uprice" id="uprice<?php echo $cnt;?>"  value=""   autocomplete="off">&nbsp; </td> 
     <td  > <input type="text" style="width: 150px;" name="qty[]" id="qty<?php echo $cnt;?>" class="qty" onChange="subtotal()"  onkeypress="return isNumberKey(event)" value="" align="right" autocomplete="off">  </td>

@@ -53,13 +53,17 @@ $pur_id=mysqli_insert_id($con);
         
         $newqtry=$qty[$i]+$orgqt;
 
-$str="update phppos_items set category='".$item_cat[$i]."',supplier_id='".$supp_id."' ,description='".$bill_date."', cost_price='".$cprice[$i]."',unit_price='".$uprice[$i]."',quantity='".$newqtry."' where item_number='".$item_no[$i]."'";
 
- $myautoid=$row["item_id"];
-  
-//echo $str;
+
+$productsql  = mysqli_query($con,"select * from categories where category='".$item_cat[$i]."'");
+$productsql_result = mysqli_fetch_assoc($productsql);
+$productType= $productsql_result['typ'];
+
+
+$str="update phppos_items set category='".$item_cat[$i]."',supplier_id='".$supp_id."' ,description='".$bill_date."', cost_price='".$cprice[$i]."',unit_price='".$uprice[$i]."',quantity='".$newqtry."' ,category_type='".$productType."' where item_number='".$item_no[$i]."'";
+
+   $myautoid=$row["item_id"];
    $qryitm=mysqli_query($con,$str);
-   
    	if(!$qryitm)
    	{
 	$errors++;
@@ -75,11 +79,21 @@ $selectMaxidsql = mysqli_query($con,"select max(item_id) as maxitem_id from phpp
 $selectMaxidResult = mysqli_fetch_assoc($selectMaxidsql);
 $selectMaxid = $selectMaxidResult['maxitem_id'];
 
-$itemNumber = $item_no[$i].'_'. $selectMaxid ;  
+$itemNumber = $item_no[$i] ;  
+// $itemNumber = $item_no[$i].'_'. $selectMaxid ;  
+
 
 // echo "INSERT INTO `phppos_items`(`name`, `category`, `supplier_id`, `item_number`, `description`, `cost_price`, `unit_price`, `quantity`) VALUES ('".$myitemid[$i]."','".$item_cat[$i]."', '".$supp_id."','".$itemNumber."' ,'".$bill_date."', '".$cprice[$i]."', '".$uprice[$i]."', '".$qty[$i]."')" ; 
 
-   $qryitm=mysqli_query($con,"INSERT INTO `phppos_items`(`name`, `category`, `supplier_id`, `item_number`, `description`, `cost_price`, `unit_price`, `quantity`) VALUES ('".$myitemid[$i]."','".$item_cat[$i]."', '".$supp_id."','".$itemNumber."' ,'".$bill_date."', '".$cprice[$i]."', '".$uprice[$i]."', '".$qty[$i]."')");
+
+
+$productsql  = mysqli_query($con,"select * from categories where category='".$item_cat[$i]."'");
+$productsql_result = mysqli_fetch_assoc($productsql);
+$productType= $productsql_result['typ'];
+
+
+
+   $qryitm=mysqli_query($con,"INSERT INTO `phppos_items`(`name`, `category`, `supplier_id`, `item_number`, `description`, `cost_price`, `unit_price`, `quantity`,`category_type`) VALUES ('".$myitemid[$i]."','".$item_cat[$i]."', '".$supp_id."','".$itemNumber."' ,'".$bill_date."', '".$cprice[$i]."', '".$uprice[$i]."', '".$qty[$i]."','".$productType."')");
   
    $myautoid=mysqli_insert_id($con);
   

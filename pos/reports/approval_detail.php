@@ -46,6 +46,8 @@ $amountTotal = $_POST['amountTotal'];
  $_odate = $_POST['bill_date'];
 // echo '<br />';
 
+$todaysDate = date('Y-m-d');
+
 
 $odateAr = explode("/",$_odate);
 
@@ -110,6 +112,9 @@ if($myflag) {
   $t1 = mysqli_query($con, "insert into `approval`(cust_id,bill_date,status,paid_amount,discount_status,discount_wise,discount_per,bill_by,pay_by,note,card_perc,card_amt,amountTotal) 
   values('$cid','" . $odate . "','$bs','$amt','$dis_st','$wise','$disper','$by','$pay_by','$note','" . $cardperc . "','" . $_POST['cardpercamt'] . "','".$amountTotal."')");
 
+
+$thisBillID = $con->insert_id ; 
+
   $result1 = mysqli_query($con, "SELECT max(bill_id) FROM  `approval` where cust_id='$cid'");
   $rowordno = mysqli_fetch_row($result1);
 
@@ -117,11 +122,12 @@ if($myflag) {
     $t2 = true;
   } else {
 
-    $t2 = mysqli_query($con, "insert into `paid_amount`(bill_id,amount,return_date,payment_by) values('$cid','$amt',STR_TO_DATE('" . $odate . "','%d/%m/%Y'),'$pay_by')");
+    $t2 = mysqli_query($con, "insert into `paid_amount`(bill_id,amount,return_date,payment_by,bid) values('$cid','$amt','".$todaysDate."','$pay_by','".$thisBillID."')");
 
     if ($t2) {
       // echo "INSERT INTO `bank_transaction`(`trans_id`, `bank_id`, `trans_type`, `trans_amt`, `trans_date`, `trans_memo`, `reconcile`,`enrty_date`) VALUES ('','".$acc."','receit','".$amt."',STR_TO_DATE('".$odate."','%d/%m/%Y'),'payment from customer $rowname[0] $rowname[1]','NO',now())" ; 
-      $t3 = mysqli_query($con, "INSERT INTO `bank_transaction`(`trans_id`, `bank_id`, `trans_type`, `trans_amt`, `trans_date`, `trans_memo`, `reconcile`,`enrty_date`) VALUES ('','" . $acc . "','receit','" . $amt . "','" . $odate . "','payment from customer $rowname[0] $rowname[1]','NO',now())");
+      $t3 = mysqli_query($con, "INSERT INTO `bank_transaction`(`trans_id`, `bank_id`, `trans_type`, `trans_amt`, `trans_date`, `trans_memo`, `reconcile`,`enrty_date`,bill_id) 
+      VALUES ('','" . $acc . "','receit','" . $amt . "','" . $odate . "','payment from customer $rowname[0] $rowname[1]','NO',now(),'".$thisBillID."')");
     }
 
   }
