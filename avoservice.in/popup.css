@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+
+.popup { 
+      background-color: #002E2E; 
+      height:auto; width:auto; 
+      border: 1px solid #FFF; 
+      position: absolute; visibility: hidden; 
+      font-family: Verdana, Geneva, sans-serif; 
+      font-size: small; text-align: justify; 
+      padding: 1px; overflow: auto; 
+      z-index: 10; 
+	  margin-top:-200px;
+	   margin-left:-150px;
+	  
+} 
+	
+
+.popup table {width:584px; z-index: 10; }
+
+.popup thead {margin-top:10px;}
+
+.popup thead th{
+	border:1px solid #F00;
+    color:#fff; 
+    font-size:15px; 
+    text-align:left;
+    font-family:"Times New Roman", Times, serif;
+    background-color:#005252;
+    padding:4px;
+	height:20px;
+	width:182px;
+  }
+  
+.popup tbody{overflow:scroll; margin-top:40px; }
+
+.popup tbody tr:nth-of-type(odd) td{ 
+   border:1px solid #4D9494;
+   -ms-border:1px solid #4D9494;
+   color:#003300; 
+   font-size:16px; 
+   text-align:left; 
+   vertical-align:top;
+   font-family:"Times New Roman", Times, serif;
+   background-color:#4D9494; 
+   padding:4px;
+   height:15px;
+   width: 185px;
+   word-wrap:break-word;
+    margin-top:40px;
+  }
+.popup tbody tr:nth-of-type(even) td{
+	border:1px solid #B2D1D1;
+	-ms-border:1px solid #B2D1D1;
+    color:#003300;
+    font-size:16px;
+	ertical-align:top;
+    text-align:left; font-family:"Times New Roman", Times, serif; 
+    background-color:#B2D1D1; 
+    padding:4px;
+	height:15px;
+    width: 185px;
+	word-wrap:break-word;
+	 margin-top:40px;
+	}
+
+
+
+
+
+
+
+
+.popup_bg { 
+      position: fixed; 
+      visibility: hidden; 
+      height: 100%; width: 100%; 
+      left: 0px; top: 0px; 
+      filter: alpha(opacity=98); /* for IE */ 
+      opacity: 0.9; /* CSS3 standard */ 
+      background-color: #CCC; 
+      z-index: 2; 	  
+	 
+} 
+
+
+
+
+.close_button { 
+      font-family: Verdana, Geneva, sans-serif; 
+      font-size: small; font-weight: bold; 
+      float: right; color: #000; 
+      display: block; text-decoration: none; 
+      border: 3px solid #FFF; 
+      padding: 0px 3px 0px 3px; 
+	  background-color:#FF0;
+	  cursor:pointer; /* for IE 6,7,8*/
+	  
+} 
+ 
+
+.popup h2{position:fixed; 
+          color:#FF0;  
+          margin-top:-1px;
+          background-color:#002E2E;
+		  width:581px;
+		  text-align:center;
+		  z-index:1;
+		  
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

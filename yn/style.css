@@ -1,0 +1,53 @@
+.velaHeader{
+    padding:0 !important;
+}
+.first_dropown{
+     top: 82% !important;   
+}
+
+
+/*Start Mobile CSS*/
+
+@media (max-width: 767px){
+    .velaProBlock .proFeaturedImage img {
+        height: 250px !important;
+        max-height: 250px;
+        padding: 0 !important;
+    }
+    
+    h4, .h4, h5, .h5, h6, .h6 {
+        margin-top: 0; 
+        margin-bottom: 0; 
+        margin: 2px !important;
+    }   
+    .velaProBlock .proName a, a{
+        font-size:12px !important;
+    }
+    
+}
+
+
+
+/*End Mobile CSS*/
+
+/*Start Web CSS*/
+@media (min-width: 768px){
+.velaProBlock .proFeaturedImage img{
+        height: 350px !important;
+        max-height: 350px;
+}
+    
+}
+
+
+@media (max-width: 991px){
+    .nav > li{
+       display: block !important;
+    }    
+}
+
+@media (min-width: 992px){
+    .nav > li{
+       display: none !important;
+    }    
+}

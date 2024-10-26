@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:14px;
+background-color:#fff;
+}
+#page{
+padding:10px 30px 30px 30px;
+}
+
+ 
+h2{
+font-size:18px;
+color:#d02b55;
+font-weight:bold;
+}
+ 
+p{
+padding:20px;
+}
+#footerLink{
+float:left;
+margin-left:30px;
+}
+#footerLink a{
+	text-decoration:none;
+	color:#d02b55;
+	padding:10px;
+	border:1px solid #333;
+	font-size:18px;
+	}
+	#footerLink a:hover
+	{
+	text-decoration:underline;
+	color:#d02b55;
+	}
+	*{margin:0;padding:0;}
+	
+
+ 
+.pagination{
+float:right;
+font-weight:bold;
+margin: 1em 0;
+
+}
+ 
+.pagination ul{
+margin: 0;
+padding: 0;
+text-align: right; /*Set to "left" or "right" to left/right align pagination interface*/
+font-size: 100%;
+}
+ 
+.pagination li{
+float:left;
+list-style-type: none;
+padding-bottom: 1px;
+}
+ 
+*:first-child+html .pagination li{ /*IE7 only CSS hack*/
+margin-right: 4px;
+ /*IE bug causes default spacing between links to disappear, so added it explicitly in IE7 */
+}
+ 
+.pagination a{
+padding: 5px;
+
+text-decoration: none; 
+color:#ac0404 ;
+display: block;
+margin-right: 4px;
+
+}
+ 
+.pagination a:hover{
+padding: 5px;
+
+color: #000;
+background-color: #c0bcb0;
+}
+ 
+.pagination .currentpage{ /*Style for currently selected page link*/
+background-color:#c0bcb0;
+margin-right:4px;
+padding:5px;
+text-decoration: none; 
+color: #000;
+display: block;
+}

@@ -1,0 +1,47 @@
+
+@font-face {
+  font-family: 'amaranth-regular';
+  font-style: normal;
+  font-weight: 400;
+  src:url('../fonts/amaranth_regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  font-style: normal;
+  font-weight: 400;
+  src:url('../fonts/Montserrat-Light.otf');
+}
+
+@font-face {
+  font-family: 'SinkinSans-Light';
+  font-style: normal;
+  font-weight: 300;
+  src:url('../fonts/SinkinSans-Light.otf');
+}
+
+@font-face {
+  font-family: 'Quicksand-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src:url('../fonts/Quicksand-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Arcon-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src:url('../fonts/Arcon-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Arcon-Rounded-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src:url('../fonts/Arcon-Rounded-Regular.otf');
+}
+
+
+
+
+

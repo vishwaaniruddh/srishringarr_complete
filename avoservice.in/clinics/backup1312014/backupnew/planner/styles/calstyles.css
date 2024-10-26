@@ -1,0 +1,28 @@
+.daytitle {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: black}
+
+.dayno {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: black}
+
+.daylink {  font-family: Verdana, Arial, Helvetica, sans-serif; color: white; background: black; font-size: 12px; font-weight: bold; text-decoration: none}
+a.daylink:hover { color: red; text-decoration: underline }
+
+.eventlink {  font-family: Verdana, Arial, Helvetica, sans-serif; color: black; font-size: 10px; text-decoration: none}
+a.eventlink:hover { color: red; text-decoration: underline }
+
+.cell { background: red }
+
+.curcell { background: blue }
+
+.popdetail { font-family: Verdana, Arial, Helvetics, sans-serif; color: black; font-size: 11px; text-decoration: none}
+a.popdetail:link { color: blue; text-decoration: none }
+a.popdetail:visited { color: blue; text-decoration: none }
+a.popdetail:hover { color: red; text-decoration: underline }
+
+.popday { font-family: Verdana, Arial, Helvetics, sans-serif; color: black; font-size: 11px; text-decoration: none}
+a.popday:link { color: blue; text-decoration: none }
+a.popday:visited { color: blue; text-decoration: none }
+a.popday:hover { color: red; text-decoration: underline }
+
+.rightnow { font-family: Verdana, Arial, Helvetics, sans-serif; color: black; font-size: 10pt; text-decoration: none}
+a.rightnow:link { color: blue; text-decoration: none }
+a.rightnow:visited { color: blue; text-decoration: none }
+a.rightnow:hover { color: red; text-decoration: underline }
